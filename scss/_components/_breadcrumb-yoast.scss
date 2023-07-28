@@ -1,0 +1,38 @@
+.c-breadcrumb-yoast{
+    min-height:50px;
+    display: flex;
+    align-items:center;
+    justify-content: flex-start;
+
+    i{
+      color:$gray;
+    }
+  
+    /* a,span{
+      padding-right:8px;
+    } */
+    a,span,p{        
+        line-height: 1em;        
+        font-weight: 400;
+        font-size: .92rem;
+        letter-spacing: 1px;
+    }
+}
+  
+.section-gray{
+  .c-breadcrumbs-yoast{
+    border-bottom: 1px solid lightgray;
+    
+    a,span,p{
+      color:$gray;
+    }
+
+    a:hover{
+      color:$black_light;
+    }
+
+    .breadcrumb_last, .active{
+      color:$black_light;
+    }
+  }
+}

@@ -1,0 +1,151 @@
+.c-nav-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding-top: 27px;
+  padding-bottom: 27px;
+
+  @include tran-all();
+
+  width: 100%;
+  
+  &.sticky {    
+    padding-top: 13px;
+    padding-bottom: 13px;
+  }  
+
+  position: fixed;
+  top: 0;
+
+  .admin-bar &{
+    top: 46px;
+  }
+
+  @media screen and (min-width:782px){
+    .admin-bar &{
+      top: 32px;
+    }  
+  }
+  
+
+  .nav-top__logo{ 
+
+    img{
+      @include tran-all;
+      height: 52px;
+      width: auto;
+
+      position: absolute;    
+      top:calc(50%);
+      left:0;
+      
+      transform: translateY(-50%);
+      margin-top: calc(var(--modular-logo-vertical-offset) * 1px);
+    }
+
+    .logo--white{
+      position: relative !important;
+      transform: none;
+    }
+    
+  }
+
+  &.sticky {  
+    .nav-top__logo{          
+      img{      
+        transform: translateY(-50%);
+        height: 36px;
+        width: auto;
+      }
+    }
+  }
+
+  .btn{
+    @include tran-all;  
+      
+    background-color:$white;
+    border:1px solid $black;
+    letter-spacing: .12em;
+    color: $black;
+    &:hover{
+        background-color: $black;
+        color:$white;
+    }
+  }
+
+  &.sticky .btn{
+    padding: calcRem(13px) calcRem(40px);
+  }
+
+
+  
+
+}
+
+
+.section-white{
+  
+  &.c-nav-top{
+    @extend .u-shadow-sm;
+
+    .logo--white{
+      opacity: 0;
+    }
+
+    .nav-link{
+      color: $black;
+    }
+  
+    .btn-header{    
+    
+      background-color:$white;
+      border:1px solid $black;
+      color: $black;
+      &:hover{
+          background-color: $black;
+          color:$white;
+      }
+    }
+  }
+
+}
+
+.section-black , .section-transparent{
+  
+  &.c-nav-top{
+
+    .logo--black{
+      opacity: 0;
+    }
+    .logo--white{
+      opacity: 1;
+    }
+
+    .btn-header{    
+  
+      background-color:$black;
+      border:1px solid $white;
+      color: $white;
+      &:hover{
+          background-color: $white;
+          color:$black;
+      }
+    }
+  }
+
+
+}
+
+.section-transparent{
+
+  &.c-nav-top{
+    box-shadow: none !important;
+
+    .btn-header{      
+      background-color:transparent;      
+    }
+  }
+  
+
+}

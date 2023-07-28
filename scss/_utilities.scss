@@ -1,0 +1,307 @@
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding: 0 15px;
+
+  @media screen and (min-width: $sm) {
+    max-width: 540px;
+  }
+
+  @media screen and (min-width: $md) {
+    max-width: 720px;
+  }
+
+  @media screen and (min-width: $lg) {
+    max-width: 1140px;
+  }
+
+  @media screen and (min-width: 1910px) {
+    max-width: 1680px;
+  }
+}
+
+.container-fluid{
+  width: 100%;
+  
+  padding-right: 25px;
+  padding-left: 25px;
+
+  @media screen and (min-width:$lg){
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+
+  @media screen and (max-width:$xl){
+    padding-right: 70px;
+    padding-left: 70px;
+  }
+
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1400px;
+}
+
+.u-nav{
+  display: flex;
+  align-items: center;
+
+  flex-wrap: wrap;
+}
+
+@mixin distance-loop($name, $columns) {
+  @if $name != "" {
+    @for $i from 0 through $columns {
+      .pt-#{$name}-#{$i} {
+        padding-top: #{$i * 5}px !important;
+      }
+      .pb-#{$name}-#{$i} {
+        padding-bottom: #{$i * 5}px !important;
+      }
+
+      .mt-#{$name}-#{$i} {
+        padding-top: #{$i * 5}px !important;
+      }
+      .mb-#{$name}-#{$i} {
+        margin-bottom: #{$i * 5}px !important;
+      }
+      .mr-#{$name}-#{$i} {
+        margin-right: #{$i * 5}px !important;
+      }
+      .ml-#{$name}-#{$i} {
+        margin-left: #{$i * 5}px !important;
+      }
+    }
+  } @else {
+    @for $i from 0 through $columns {
+      .pt-#{$i} {
+        padding-top: #{$i * 5}px !important;
+      }
+      .pb-#{$i} {
+        padding-bottom: #{$i * 5}px !important;
+      }
+      .mt-#{$i} {
+        margin-top: #{$i * 5}px !important;
+      }
+      .mb-#{$i} {
+        margin-bottom: #{$i * 5}px !important;
+      }
+      .ml-#{$i} {
+        margin-left: #{$i * 5}px !important;
+      }
+      .mr-#{$i} {
+        margin-right: #{$i * 5}px !important;
+      }
+    }
+  }
+}
+
+.pl-0{
+  padding-left:0 !important;
+}
+
+@mixin ml-auto($name, $breakpoint) {
+  @if $name != "" {
+    .ml-#{$name}-auto {
+      @media screen and (min-width: $breakpoint) {
+        margin-left: auto !important;
+      }
+    }
+  } @else {
+    .ml-auto {
+      margin-left: auto !important;
+    }
+  }
+}
+
+@mixin mr-auto($name, $breakpoint) {
+  @if $name != "" {
+    .mr-#{$name}-auto {
+      @media screen and (min-width: $breakpoint) {
+        margin-right: auto !important;
+      }
+    }
+  } @else {
+    .mr-auto {
+      margin-right: auto !important;
+    }
+  }
+}
+
+@mixin mx-auto($name, $breakpoint) {
+  @if $name != "" {
+    .mx-#{$name}-auto {
+      @media screen and (min-width: $breakpoint) {
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+    }
+  } @else {
+    .mx-auto {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+  }
+}
+
+@each $name, $breakpoint in $breakpoints {
+  @include ml-auto($name, $breakpoint);
+  @include mr-auto($name, $breakpoint);
+  @include mx-auto($name, $breakpoint);
+
+  @media screen and (min-width: $breakpoint) {
+    @include distance-loop($name, 20);
+  }
+  
+}
+
+
+
+
+
+@mixin d-block($name, $breakpoint) {
+  @if $name != "" {
+    .d-#{$name}-block {
+      @media screen and (min-width: $breakpoint) {
+        display: block !important;
+      }
+    }
+  } @else {
+    .d-block {
+      display: block !important;
+    }
+  }
+}
+
+@mixin d-inline($name, $breakpoint) {
+  @if $name != "" {
+    .d-#{$name}-inline {
+      @media screen and (min-width: $breakpoint) {
+        display: inline !important;
+      }
+    }
+  } @else {
+    .d-inline {
+      display: inline !important;
+    }
+  }
+}
+
+@mixin d-flex($name, $breakpoint) {
+  @if $name != "" {
+    .d-#{$name}-flex {
+      @media screen and (min-width: $breakpoint) {
+        display: flex !important;
+      }
+    }
+  } @else {
+    .d-flex {
+      display: flex !important;
+    }
+  }
+}
+
+@mixin d-none($name, $breakpoint) {
+  @if $name != "" {
+    .d-#{$name}-none {
+      @media screen and (min-width: $breakpoint) {
+        display: none !important;
+      }
+    }
+  } @else {
+    .d-none {
+      display: none !important;
+    }
+  }
+}
+
+@each $name, $breakpoint in $breakpoints {
+  @include d-flex($name, $breakpoint);
+  @include d-block($name, $breakpoint);
+  @include d-inline($name, $breakpoint);
+  @include d-none($name, $breakpoint);
+  
+  //@include ml-auto($name, $breakpoint);
+  //@include mr-auto($name, $breakpoint);
+  //@include mx-auto($name, $breakpoint);
+}
+
+.u-link{
+  text-decoration: none;
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
+.u-parent-link {
+  text-decoration: none !important;
+  &:hover {
+    .u-child-link {
+      text-decoration: underline !important;
+    }
+  }
+}
+
+.u-text-left {
+  text-align: left !important;
+}
+
+.u-text-center {
+  text-align: center !important;
+}
+
+.u-text-right {
+  text-align: right !important;
+}
+
+.u-shadow-sm {
+  @include m-shadow-sm();
+}
+
+.u-relative {
+  position: relative;
+}
+
+.u-no-select {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  * {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  }
+}
+
+.u-clearfix {
+  clear: both;
+  width: 100%;
+}
+
+.u-tran-all {
+  @include tran-all;
+}
+
+.u-tran-all-slow {
+  @include tran-all-slow;
+}
+
+.u-order-first{
+  order: -1 !important;
+}
+
+.u-order-md-initial{
+  @media screen and (min-width:$md){
+    order: initial !important;
+  } 
+}
+
+.u-order-lg-initial{
+  @media screen and (min-width:$lg){
+    order: initial !important;
+  } 
+}

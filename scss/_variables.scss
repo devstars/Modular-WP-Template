@@ -1,0 +1,54 @@
+//$font1: 'Montserrat', sans-serif;
+
+:root {
+    --modular-primary-font: "Roboto", sans-serif;
+    --modular-secondary-font: "Playfair Display", sans-serif;
+    --modular-main-color: #222222;
+    --modular-gray:#8f8f8f;
+    --modular-logo-vertical-offset: 0; 
+}
+
+$xs: 0px;
+$xs_netto: $xs - 8;
+
+$sm: 576px;
+
+$md: 768px;
+
+$lg: 992px;
+$lgsub1: 991px;
+
+$xl: 1200px;
+
+$xxl: 1680px;
+
+$white: #ffffff;
+
+$gray_lighter: #f7f7f7;
+$gray_light: #e1e1e1;
+$gray: #8f8f8f;
+
+$black: #000000;
+$black_light: #242424;
+$black_lighter: #555;
+
+$blue_lighter: #00aeef;
+$blue_light: #0069b4;
+$blue: #00406d;
+
+$green: #82ca9c;
+$green_dark: #437d59;
+$green_mask: #003512b5;
+
+$orange: #ff822e;
+$orange_heavy: #e8511e;
+$red: #ff203a;
+
+$breakpoints: (
+    "": 0px,
+    "sm": 576px,
+    "md": 768px,
+    "lg": 992px,
+    "xl": 1200px,
+    "xxl": 1700px
+);

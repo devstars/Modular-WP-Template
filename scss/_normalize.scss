@@ -1,0 +1,68 @@
+/*normalize*/
+
+html{
+  font-size:14px;
+  @media screen and (min-width: $md) {
+    font-size: 16px;
+  }  
+}
+
+body{
+  margin:0 !important;
+}
+
+body{
+  outline: none !important;
+  font-family:  var(--modular-primary-font);
+  color: var(--modular-main-color);      
+}
+
+*,
+:after,
+:before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box
+}
+
+table {
+  border-collapse: collapse;
+
+  th {
+    text-align: inherit;
+  }
+}
+
+
+body *:focus {
+  outline: none !important
+}
+
+h1,h2,h3,h4,h5,h6{
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+
+hr {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+q {
+  font-style: italic;
+}
+
+#baguetteBox-overlay .full-image img {
+  max-width: 90%!important;
+}

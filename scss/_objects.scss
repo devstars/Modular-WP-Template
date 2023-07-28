@@ -1,0 +1,65 @@
+.o-icon {
+  height: 35px;
+  @include tran-all();  
+  position: relative;
+  
+}
+
+.o-scroll{    
+        position: absolute;
+        bottom:-40px;
+        left:0;
+
+        width:80px;
+        height:80px;
+        border-radius: 50%;
+        background-color:$orange;
+        color:$white;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;   
+        text-decoration: none;                 
+}
+
+.o-custom-check{
+  display: block;
+  cursor: pointer;
+  position: relative;
+  
+  @extend .u-no-select;         
+
+  input[type="checkbox"]{        
+    opacity: 0;
+    position: absolute;
+    left:0;
+    top:0;  
+  }
+
+  span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  i{
+    font-size:16px;
+    padding-top:1px;    
+    width: 14px;    
+    height: 17px;
+    cursor: pointer;
+  }
+  
+  .fa-check-square{
+    display: none;
+  }
+
+  input[type="checkbox"]:checked + span {
+    .fa-check-square{
+        display: block;
+    }
+    .fa-square{
+        display: none;
+    }
+}  
+}

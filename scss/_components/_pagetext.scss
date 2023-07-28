@@ -1,0 +1,238 @@
+.page-text{
+    overflow: hidden;
+    
+
+    h1{
+        font-size:3rem;
+    }
+    h2{
+        font-size:2.5rem;
+    }   
+    h3{
+        font-size:2rem;
+    }
+    h4{
+        font-size:1.5rem;
+    }
+    h5{
+        font-size:1.25rem;
+    }
+    h6{
+        font-size:1rem;
+    }
+    
+    h1,h2,h3,h4,h5,h6{        
+        line-height: 1em;            
+        margin-bottom: 1.25rem;  
+        font-weight: 600;      
+    }    
+
+    h5,h6{        
+        margin-bottom:1.25rem;
+    } 
+
+       
+    .wp-block-media-text, figure{        
+        margin-bottom: 1.75rem;                        
+    }    
+
+    .wp-block-columns{
+        margin-bottom: 0px ;
+        .wp-block-column{
+            margin-bottom:0;
+        }
+
+        @media screen and (min-width:$md){            
+          
+            margin-bottom: 0px ;
+        } 
+    }            
+  
+
+    hr{
+        margin-bottom: 1.25rem;                
+        position: relative;        
+        clear: both;                     
+    }   
+
+    a,p,strong,b{
+        line-height: 1.5em;        
+        font-weight: 400;
+        font-size: 1rem;        
+
+        margin: 0;   
+        margin-bottom:1.25rem;
+    }
+
+    a,strong,b{
+        font-weight: 800;
+    }
+
+    a{        
+        text-decoration: underline;
+    }
+    
+    ol,ul:not(.wp-block-gallery){        
+        margin-bottom:1.25rem;                
+        /* list-style: none; */
+        li{
+            line-height: 1.5em;            
+            font-weight: 400;
+            font-size: 1rem;            
+            
+            text-align: left !important;     
+        }
+    }
+
+    ul{       
+        margin-left:40px;
+    }
+
+    .wp-block-media-text__media{
+        margin-bottom:20px !important;
+        @media screen and (min-width:600px){
+            margin-bottom:0px !important; 
+        }
+    }
+
+
+    .wp-block-quote{
+        display: block;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        margin-inline-start: 0;
+        margin-inline-end: 0;        
+    }
+    
+     blockquote, blockquote p{        
+        
+        font-size:1.3rem;    
+        line-height: 1.2em;              
+        font-weight: 400;
+        font-style: italic;        
+
+        padding-top:1rem;        
+        padding-bottom:1rem;               
+        
+        padding-left:40px; 
+        @media screen and (min-width:$sm){
+            padding-left:80px;         
+        }        
+    }
+    
+    blockquote{
+        margin-bottom:2rem !important;  
+        padding-bottom:0rem;      
+        padding-left:0px; 
+    }
+
+    blockquote{
+        position: relative;
+        &::before{
+            content:'';
+            position: absolute;
+            display: block;
+            left:0;
+            top:1.25rem;
+            height:calc(100% - 1.25rem);
+            width:4px;            
+        }
+    } 
+
+
+
+    .wp-block-gallery{
+        margin-left:0;
+        margin-top:1.25rem;
+        margin-bottom:1.25rem;        
+    }
+
+    .blocks-gallery-grid{       
+        margin-left:0px !important;
+        margin-bottom: 0 !important;
+        a{
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
+        }
+    }
+
+    .wp-block-image{
+        clear: both;
+    }
+    img{
+        max-width: 100%; 
+        height: auto;         
+    }    
+    
+    //img 100% no align
+    figure.wp-block-image{
+        margin-inline-start: 0;
+        margin-inline-end: 0;         
+    }
+
+    table{
+        border: 1px solid #ddd;
+        border-collapse: collapse;
+        th {
+            background-color:$blue_lighter;
+            border: 1px solid $blue_lighter;
+            color: white;
+        }
+    
+        tr:nth-child(even) {background-color: $gray_lighter;}
+    
+        th, td {
+            border-bottom: 1px solid #ddd;
+            padding:.3rem;
+        }
+    }
+
+    
+    
+    
+}
+
+.wysiwyg{
+    
+    strong,
+    p,
+    em,
+    a,
+    ul li{                            
+            @include fontSize(15px);
+
+            line-height: 1.8em;
+            font-weight: 400;
+    
+            margin: 0;
+            padding: 0;
+            margin-bottom: 1.25rem;        
+    }
+
+    b,strong{
+        font-weight: 600 !important;
+    }
+
+    a{
+        text-decoration: underline;
+        font-weight: 400 !important;
+    }
+
+    ol,
+    ul{       
+        margin: 0;
+        padding: 0;         
+        margin-left: 20px;   
+        margin-bottom: 1.25rem;      
+        li {            
+            text-align: left;
+            margin: 0;
+        }
+        br{
+            display:none;
+        }
+        
+    }
+
+    
+}

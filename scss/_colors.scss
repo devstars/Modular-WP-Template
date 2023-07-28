@@ -1,0 +1,35 @@
+.section-white{
+    background-color: white;
+
+    h1,h2,h3,h4,h5,h6,p,li{
+        color:$black;
+    }    
+
+    a{
+        color:$black;
+    }
+
+    hr{
+        border:none;
+        border-bottom: 1px solid $gray_light;
+    }
+
+  
+}
+
+.section-black{
+    background-color: $black;
+
+    h1,h2,h3,h4,h5,h6,p,li{
+        color:$white;
+    }    
+
+    a{
+        color:$white;
+    }
+}
+
+
+.section-transparent:not(.sticky){
+    background-color: transparent;
+}
