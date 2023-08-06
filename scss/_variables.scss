@@ -6,6 +6,10 @@
     --modular-main-color: #222222;
     --modular-gray:#8f8f8f;
     --modular-logo-vertical-offset: 0; 
+    --modular-0-padding:25px;
+    --modular-sm-padding:30px;
+    --modular-lg-padding:30px;
+    --modular-xl-padding:30px;
 }
 
 $xs: 0px;
@@ -40,6 +44,7 @@ $green: #82ca9c;
 $green_dark: #437d59;
 $green_mask: #003512b5;
 
+$yellow:#FFBB00;
 $orange: #ff822e;
 $orange_heavy: #e8511e;
 $red: #ff203a;

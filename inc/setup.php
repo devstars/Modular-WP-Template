@@ -81,8 +81,7 @@ function hide_editor()
 
     $template_file = get_post_meta($post_id, '_wp_page_template', true);
 
-    $templates = array();    
-    $templates[] = 'templates/home.php';    
+    $templates = array();        
     $templates[] = 'templates/contact.php';    
     
     if (in_array( $template_file , $templates)){

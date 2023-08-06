@@ -1,7 +1,8 @@
 /*normalize*/
 
 html{
-  font-size:14px;
+  font-size: 14px;
+  
   @media screen and (min-width: $md) {
     font-size: 16px;
   }  

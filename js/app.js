@@ -89,12 +89,7 @@ require('./modules/Modals.js');
 
        $ = new DropDown(jQuery);
 
-       if ($(".banner-js")) {
-              $(".banner-js").height(window.innerHeight);
-              $(window).resize(function () {
-                     $(".banner-js").height(window.innerHeight);
-              });
-       }
+
 
        $(".drop-down-js").each(
               function () {

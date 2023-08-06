@@ -22,11 +22,10 @@ class Configuration{
 
         self::$company_name = trim($company_details["name"]);        
         self::$phone_link = self::phone_link(self::$phone);                
-        
-        //get_template_part(get_social_icon_template_name($social["si_name"]));
-        if (self::$fields['sm_repeater']) :
-            foreach (self::$fields['sm_repeater'] as $key => $social) :
-                self::$socials[$social['name']] = array('icon' => $social['name'] ,'name' => $social['name'], 'url' => $social['url']  );        
+                
+        if ($company_details['sm_repeater']) :
+            foreach ($company_details['sm_repeater'] as $key => $social) :
+                self::$socials[$social['name']] = array('icon' => strtolower($social['name']) ,'name' => $social['name'], 'url' => $social['url']  );
             endforeach;
         endif;
 
@@ -43,11 +42,7 @@ class Configuration{
         ob_start();
 
         $container = get_fields("option")["container"];
-        if($container):
-
-        if($container["max_width"]):
-                echo ".container-fluid{ max-width: ". $container["max_width"]. "px !important; }";
-        endif;
+        if($container):      
 
         foreach($container["paddings"] as $width):
 
@@ -56,8 +51,8 @@ class Configuration{
                 echo " @media screen and ( min-width:".$width["min_width"]."px ){";                
             }
 
-            echo "padding-left:".$width["paddings"]."px !important;";   
-            echo "padding-right:".$width["paddings"]."px !important;";   
+            echo "padding-left:".$width["paddings"]."px;";   
+            echo "padding-right:".$width["paddings"]."px;";   
 
             if($width["min_width"]){                             
                 echo "}";

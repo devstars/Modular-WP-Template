@@ -2,17 +2,19 @@
 @import '_mixins';
 @import '_normalize';
 @import '_utilities';
-@import '_locations';
+@import '_layout';
 @import '_grid.scss';
 @import '_objects';
 @import '_zindex';
 @import '_others';
 
+@import '_colors';
+
 @import '_components/top/header';
 @import '_components/top/burger';
 @import '_components/top/menu';
 
-@import '_components/banner';
+//@import '_components/banner';
 
 @import '_components/sections';
 
@@ -29,7 +31,7 @@
 @import '_components/modals';
 
 @import '_components/accordion';
-@import '_components/testimonials';
+//@import '_components/testimonials';
 
 @import '_components/buttons';
 @import '_components/dropdown';
@@ -38,8 +40,9 @@
 @import '_components/others';
 
 @import '_blocks/section-text-image';
+@import '_blocks/banner';
 
 
 @import '_animations';
 
-@import '_colors';
+

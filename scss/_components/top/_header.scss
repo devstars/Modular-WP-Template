@@ -6,146 +6,176 @@
   padding-top: 27px;
   padding-bottom: 27px;
 
-  @include tran-all();
+  @include tran-all-fast;
 
   width: 100%;
-  
-  &.sticky {    
+
+  & > .container-fluid {
+    width: 100%;
+    max-width: 1800px !important;
+    margin-left: auto;
+    margin-right: auto;
+    /* padding-left: 0 !important;
+    padding-right: 0 !important; */
+  }
+
+  &.sticky {
     padding-top: 13px;
     padding-bottom: 13px;
-  }  
+  }
+
+  .nav-link {
+    &:after {
+      position: absolute;
+      content: "";
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      transition: all 0.15s linear;
+      border-bottom: 1px solid transparent;
+    }
+
+    &:hover:after {
+      border-bottom: 1px solid $black;
+    }
+  }
 
   position: fixed;
   top: 0;
 
-  .admin-bar &{
+  .admin-bar & {
     top: 46px;
   }
 
-  @media screen and (min-width:782px){
-    .admin-bar &{
+  @media screen and (min-width: 782px) {
+    .admin-bar & {
       top: 32px;
-    }  
+    }
   }
-  
 
-  .nav-top__logo{ 
-
-    img{
-      @include tran-all;
+  .nav-top__logo {
+    @media screen and (min-width:$lg){
+      min-width: 260px;
+    }
+    
+    img {
+      @include tran-all-fast;
       height: 52px;
       width: auto;
 
-      position: absolute;    
-      top:calc(50%);
-      left:0;
-      
-      transform: translateY(-50%);
+      position: absolute;
+      //top:calc(50%);
+      left: 0;
+
+      //transform: translateY(-50%);
       margin-top: calc(var(--modular-logo-vertical-offset) * 1px);
     }
 
-    .logo--white{
+    .logo--white {
       position: relative !important;
       transform: none;
     }
-    
   }
 
-  &.sticky {  
-    .nav-top__logo{          
-      img{      
-        transform: translateY(-50%);
+  &.sticky {
+    .nav-top__logo {
+      img {
+        //transform: translateY(-50%);
         height: 36px;
         width: auto;
       }
     }
   }
 
-  .btn{
-    @include tran-all;  
-      
-    background-color:$white;
-    border:1px solid $black;
-    letter-spacing: .12em;
+  .btn {
+    @include tran-all;
+
+    background-color: $white;
+    border: 1px solid $black;
+    letter-spacing: 0.12em;
     color: $black;
-    &:hover{
-        background-color: $black;
-        color:$white;
+    &:hover {
+      background-color: $black;
+      color: $white;
     }
   }
 
-  &.sticky .btn{
+  &.sticky .btn {
     padding: calcRem(13px) calcRem(40px);
   }
-
-
-  
-
 }
 
-
-.section-white{
-  
-  &.c-nav-top{
+.section-white {  
+  &.c-nav-top {
     @extend .u-shadow-sm;
 
-    .logo--white{
+    .logo--white {
       opacity: 0;
     }
 
-    .nav-link{
+    .nav-link {
       color: $black;
-    }
+      &:after {        
+        border-bottom: 1px solid transparent;
+      }
   
-    .btn-header{    
-    
-      background-color:$white;
-      border:1px solid $black;
+      &:hover:after {
+        border-bottom: 1px solid $black;
+      }
+    }
+
+    .btn-header {
+      background-color: $white;
+      border: 1px solid $black;
       color: $black;
-      &:hover{
-          background-color: $black;
-          color:$white;
+      &:hover {
+        background-color: $black;
+        color: $white;
       }
     }
   }
-
 }
 
-.section-black , .section-transparent{
-  
-  &.c-nav-top{
+.section-black,
+.section-transparent {
+  &.c-nav-top {
 
-    .logo--black{
+    .nav-link {
+      color: $white;
+      &:after {        
+        border-bottom: 1px solid transparent;
+      }
+  
+      &:hover:after {
+        border-bottom: 1px solid $white;
+      }
+    }
+
+    .logo--black {
       opacity: 0;
     }
-    .logo--white{
+    .logo--white {
       opacity: 1;
     }
 
-    .btn-header{    
-  
-      background-color:$black;
-      border:1px solid $white;
+    .btn-header {
+      background-color: $black;
+      border: 1px solid $white;
       color: $white;
-      &:hover{
-          background-color: $white;
-          color:$black;
+      &:hover {
+        background-color: $white;
+        color: $black;
       }
     }
   }
-
-
 }
 
-.section-transparent{
-
-  &.c-nav-top{
+.section-transparent {
+  &.c-nav-top {
     box-shadow: none !important;
 
-    .btn-header{      
-      background-color:transparent;      
+    .btn-header {
+      background-color: transparent;
     }
   }
-  
-
 }

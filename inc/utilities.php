@@ -30,15 +30,24 @@ function get_post_alt($id)
     return get_post_meta($id, '_wp_attachment_image_alt', TRUE);
 }
 
+function store_content_of_function($callback, $args){
+    ob_start();
+
+    call_user_func_array($callback, $args);    
+
+    return ob_get_clean();
+}
+
 
 function btn_from_link($button, $classes)
-{
+{    
+
     if (isset($button) && $button) :
         $rel = ($button["target"] === "_blank") ? 'rel="external nofollow"' : '';
         ?>
         <a href="<?= $button["url"] ?>" target="<?= $button["target"] ?>" <?= $rel ?> class="<?= $classes; ?>"><?= $button["title"] ?> </a>
         <?php
-    endif;
+    endif;    
 }
 
 

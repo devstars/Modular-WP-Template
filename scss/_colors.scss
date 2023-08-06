@@ -1,35 +1,86 @@
-.section-white{
+.section-white {
     background-color: white;
 
-    h1,h2,h3,h4,h5,h6,p,li{
-        color:$black;
-    }    
-
-    a{
-        color:$black;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    li {
+        color: $black;
     }
 
-    hr{
-        border:none;
+    a {
+        color: $black;
+    }
+
+    .o-link {        
+        color:$black;
+        position: relative;
+
+        &:after{
+            position: absolute;
+            content: '';
+            bottom:-4px;
+            left:0;
+            width: 100%;            
+            transition: all 0.15s linear;
+            border-bottom: 1px solid transparent;
+        }
+
+        &:hover:after{
+            border-bottom: 1px solid $black;
+        }
+    }
+
+    hr {
+        border: none;
         border-bottom: 1px solid $gray_light;
     }
-
-  
 }
 
-.section-black{
+.section-black {
     background-color: $black;
 
-    h1,h2,h3,h4,h5,h6,p,li{
-        color:$white;
-    }    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    li {
+        color: $white;
+    }
 
-    a{
+    a {
+        color: $white;
+        position: relative;
+        text-decoration: none;
+    }
+
+    .o-link {        
         color:$white;
+        position: relative;
+
+        &:after{
+            position: absolute;
+            content: '';
+            bottom:-4px;
+            left:0;
+            width: 100%;            
+            transition: all 0.15s linear;
+            border-bottom: 1px solid transparent;
+        }
+
+        &:hover:after{
+            border-bottom: 1px solid $white;
+        }
     }
 }
 
-
-.section-transparent:not(.sticky){
+.section-transparent:not(.sticky) {
     background-color: transparent;
 }

@@ -5,7 +5,7 @@
   
     text-align: center;
   
-    padding: calcRem(24px) calcRem(55px);
+    padding: calcRem(25px) calcRem(55px);
   
     cursor: pointer;
     text-decoration: none !important;
@@ -28,36 +28,59 @@
   .btn--round {
     @include btn;
     @include btn--round;      
-  }    
-   
+  }      
 
+  .btn--black{    
+    @include tran-all;      
   
-  
-  .btn--orange{
-    
-    @include tran-all;    
-  
-    background-color: $orange;
+    background-color: $black;
     color:$white !important;
-    &:hover{
-      color:$white !important;
-      background-color:$orange_heavy;
-    }
+
+    border:1px solid $black;    
   }
 
-
-
-  .btn--orange-outline{
-    @include tran-all;  
+  .btn--yellow{
+    @include tran-all;      
   
-    background-color:$white;
-    border:2px solid $orange;
-    color: $orange;
+    background-color: $yellow;
+    color:$white !important;
+
+    border:1px solid $yellow;    
+  }
+
+  .btn--outline-black{
+    @include tran-all;       
+  
+    background-color: transparent;
+    border:1px solid $black;
+    color: $black;
+  }
+
+  .btn--outline-yellow{
+    @include tran-all;       
+  
+    background-color: transparent;
+    border:1px solid $yellow;
+    color: $white;
+  }
+
+  .hover-white{
     &:hover{
-        background-color: $orange;
-        color:$white;
+      color:$black !important;
+      background-color:$white;
+      border:1px solid $white;
     }
   }
+
+  .hover-yellow{
+    &:hover{
+      color:$white;
+      background-color:$yellow;
+      border:1px solid $yellow;
+    }
+  }
+
+
 
 
   .btn--icon {        

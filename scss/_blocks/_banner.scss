@@ -1,0 +1,236 @@
+.banner-wrapper {
+    height: auto !important;
+    
+}
+
+.c-banner {
+    min-height: 890px;
+
+    display: flex;
+    /* background-image: url('../images/banner.jpg'); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    .banner__video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .container-fluid {
+        display: flex;
+        align-items: center;
+
+        .banner__content {
+            @media screen and (min-width: $lg) {
+                width: 70%;
+            }
+
+            max-width: 100%;
+
+            &.center {
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+            }
+
+            &.right {
+                margin-left: auto;
+                margin-right: 0;
+                text-align: right;
+            }
+
+            .banner__title {
+                font-size: 40px;
+                @media screen and (min-width: $sm) {
+                    @include fontSize(60px);
+                }
+
+                line-height: 1.25em;
+                font-weight: 400;
+                margin-bottom: calcRem(40px);
+            }
+
+            .banner__desc {
+                @include fontSize(22px);
+                line-height: 1.7em;
+                margin-bottom: calcRem(70px);
+            }
+        }
+
+        .btn {
+            @include m-shadow-sm;
+
+            min-width: 206px;
+            @media screen and (max-width: $md) {
+                min-width: 170px;
+            }
+
+            @media screen and (max-width: $sm) {
+                padding: 15px 25px !important;
+                min-width: 160px;
+            }
+
+            /*    @media screen and (max-width:380px){
+                padding: 10px 20px !important;                
+                min-width: 160px;
+            } */
+        }
+
+        .btn-right {
+            @media screen and (min-width: 344px) {
+                margin-left: 15px;
+            }
+        }
+    }
+
+    .banner__wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        .banner__video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+}
+
+.c-banner.l-half {
+    min-height: auto;
+
+    padding-top: 80px;
+    padding-bottom: 80px;
+    @media screen and (min-width: $xl) {
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+
+    margin-bottom: 0px;
+    margin-top: 120px;
+
+    //min-height:auto;    
+
+    .col__content {
+        display: flex;
+        align-items: center;
+        order: 1;
+
+        @media screen and (min-width: $xl) {
+            order: 0;
+        }
+
+        .banner__content {
+            padding-top: 60px;
+            @media screen and (min-width: $xl) {
+                padding-top: 100px;
+                padding-bottom: 100px;
+            }
+
+            width: 83%;
+            margin-bottom: 0;
+
+            .banner__title {
+                font-size: 40px;
+                @media screen and (min-width: $sm) {
+                    @include fontSize(45px);
+                }
+                margin-bottom: calcRem(30px);
+            }
+
+            .banner__desc {
+                @include fontSize(18px);
+            }
+        }
+    }
+
+    .right {
+        margin-right: auto;   
+    }
+
+    .left {
+        flex-direction: row-reverse;
+        @media screen and (min-width:$xl){
+            .banner__content {                        
+                margin-right: 0;
+                margin-left: auto;
+            }
+        }
+        
+    }
+
+    .banner__image {
+        /*     min-height: 300px;
+        @media screen and (min-width:$sm){
+            min-height: 400px;
+        } */
+
+        @media screen and (max-width: $sm) {
+            min-height: 300px;
+            object-fit: cover;
+        }
+
+        width: 100%;
+        height: 100%;
+
+        object-fit: contain;
+        @media screen and (min-width: $xl) {
+            object-fit: cover;
+        }
+    }
+}
+
+.banner__nav{
+    position: absolute;
+    bottom: 120px;
+    right: 50%;
+    transform: translateX(50%);
+    z-index: 100;
+
+    .nav__btn{
+        @include tran-all;
+        
+        background-color: $white;
+        
+        border: 1px solid rgba(#111111,.5); 
+        
+        &:first-of-type{
+            border-right: none;
+        }
+        padding: 22px 30px;   
+
+        svg{
+            width: 7px;
+            height: auto;
+        }
+        cursor: pointer;
+        position: relative;        
+        background-color: $white;
+        &:hover{
+            opacity: 1;            
+            
+            //background-color: rgba($yellow, .5);
+            svg{
+                
+            }
+        }
+    }
+}
+
+
+.section-transparent {
+    &.c-banner {
+        h1,
+        p {
+            color: $white;
+        }
+    }
+}
