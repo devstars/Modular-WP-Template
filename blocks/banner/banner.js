@@ -1,5 +1,7 @@
 (function($) {    
     /* console.log(carouselData); */
+
+
     $(document).ready(function() {
         $(".banner-js").owlCarousel({
             /* slideSpeed: 1000,   */            
@@ -12,7 +14,7 @@
             responsiveClass: true,
             loop: true,
             nav: false,
-            dots: false,
+            dots: true,
             items: 1,
             onChanged: function(p) {},
             onInitialized: function() {
@@ -22,6 +24,11 @@
                 $(".t-next-js").click(() => {
                     $('.banner-js').find(".owl-next").trigger('next.owl.carousel');
                 });
+            },
+            responsive : {                                                                        
+                1200 : {
+                    dots : false,                 
+                }
             }
         });
     })

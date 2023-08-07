@@ -1,4 +1,4 @@
-<div class="c-banner l-section-top  l-half section-white">
+<div class="c-banner l-section-top  l-half section-whitee">
 
     <div class="container-fluid ">
         <div class="row">

@@ -110,3 +110,14 @@ function add_container_to_block( $block_content, $block ) {
 
 add_filter( 'render_block', 'add_container_to_block', 10, 2 );
 
+function enqueue_block_editor_scripts()
+{
+  wp_enqueue_script(
+    'theme-block-editor-js',
+    get_stylesheet_directory_uri() . '/js/block-editor-scripts.js',
+    array('wp-blocks', 'wp-dom', 'wp-edit-post'), 
+    '1.0',
+    true
+  );
+}
+add_action('enqueue_block_editor_assets', 'enqueue_block_editor_scripts');

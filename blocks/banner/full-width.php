@@ -1,4 +1,4 @@
-<div class="c-banner l-section-top u-mask section-transparent " <?= $background_image; ?>>
+<div class="c-banner l-section-top u-mask section-transparentt " <?= $background_image; ?>>
 
     <?php
     if ($background["video"]) :

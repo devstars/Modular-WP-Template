@@ -1,6 +1,5 @@
 .banner-wrapper {
     height: auto !important;
-    
 }
 
 .c-banner {
@@ -108,7 +107,7 @@
     min-height: auto;
 
     padding-top: 80px;
-    padding-bottom: 80px;
+    padding-bottom: 110px;
     @media screen and (min-width: $xl) {
         padding-top: 120px;
         padding-bottom: 120px;
@@ -117,7 +116,7 @@
     margin-bottom: 0px;
     margin-top: 120px;
 
-    //min-height:auto;    
+    //min-height:auto;
 
     .col__content {
         display: flex;
@@ -153,18 +152,17 @@
     }
 
     .right {
-        margin-right: auto;   
+        margin-right: auto;
     }
 
     .left {
         flex-direction: row-reverse;
-        @media screen and (min-width:$xl){
-            .banner__content {                        
+        @media screen and (min-width: $xl) {
+            .banner__content {
                 margin-right: 0;
                 margin-left: auto;
             }
         }
-        
     }
 
     .banner__image {
@@ -188,49 +186,160 @@
     }
 }
 
-.banner__nav{
+.banner__nav {
     position: absolute;
-    bottom: 120px;
+    bottom: 95px;
+
+    @media screen and (min-width: $xl) {
+        bottom: 120px;
+    }
+
     right: 50%;
     transform: translateX(50%);
+
     z-index: 100;
 
-    .nav__btn{
+    .nav__btn {
         @include tran-all;
-        
-        background-color: $white;
-        
-        border: 1px solid rgba(#111111,.5); 
-        
-        &:first-of-type{
-            border-right: none;
-        }
-        padding: 22px 30px;   
 
-        svg{
+        padding: 22px 30px;
+
+        svg {
+            @include tran-all;
             width: 7px;
             height: auto;
         }
         cursor: pointer;
-        position: relative;        
-        background-color: $white;
-        &:hover{
-            opacity: 1;            
-            
-            //background-color: rgba($yellow, .5);
-            svg{
-                
+        position: relative;
+    }
+
+    display: none;
+    @media screen and (min-width: $xl) {
+        display: block;
+    }
+
+    &.full {
+        bottom: auto;
+        top: 50%;
+        transform: translateX(50%) translateY(-50%);
+
+        .nav__btn {
+            &:first-of-type {
+                margin-left: 0;
+                margin-right: auto;
+            }
+            &:last-of-type {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &.half {
+        .nav__btn {        
+            &:first-of-type {
+                border-right: none;
+            }
+
+            &:first-of-type {
+                margin-left: auto;
+            }
+            &:last-of-type {
+                margin-left: 0;
+            }
+        }
+
+        &.right {
+            @media screen and (min-width: $xl) {
+                left: 0;
+                transform: translateX(0%);
+            }
+
+            width: 50%;
+            .u-nav {
+                margin-right: 10%;
             }
         }
     }
 }
 
-
-.section-transparent {
-    &.c-banner {
+.section-transparent{
+    .c-banner {
         h1,
         p {
             color: $white;
+        }
+    }
+
+    .nav__btn{
+        border: 1px solid rgba(#ffffff, 0.8);
+
+        background-color: transparent;
+        svg{
+            color:$white;            
+        }
+
+        &:hover {
+            opacity: 1;
+            background-color: $white;
+            svg{
+                color:$black;            
+            }
+        }
+    }
+}
+
+.section-white {
+    .nav__btn {        
+        border: 1px solid rgba(#111111, 0.8);
+
+        background-color: transparent;
+
+        svg{
+            color:$black;            
+        }
+
+        &:hover {
+            opacity: 1;
+            background-color: $black;
+            svg{
+                color:$white;            
+            }
+        }        
+    }
+}
+
+.owl-dots {
+    position: absolute;
+
+    bottom: 60px;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    margin-top: 0px !important;
+    /* transform: translateY(-65px); */
+    .owl-dot {
+        span {
+            border: 1px solid $black;
+            background: $white !important;
+            height: 13px !important;
+            width: 13px !important;
+        }
+        &.active span {
+            background: $black !important;
+        }
+    }
+
+    .full & {
+        bottom: 22px;
+        .owl-dot {
+            span {
+                border: 1px solid $white;
+                background: transparent !important;
+            }
+            &.active span {
+                background: $white !important;
+            }
         }
     }
 }

@@ -37,36 +37,6 @@ class Configuration{
         return "phone:".preg_replace("/\s+/", "", $phone);
     }
 
-    
-    public static function get_styles(){
-        ob_start();
-
-        $container = get_fields("option")["container"];
-        if($container):      
-
-        foreach($container["paddings"] as $width):
-
-            echo ".container-fluid{";
-            if($width["min_width"]){                
-                echo " @media screen and ( min-width:".$width["min_width"]."px ){";                
-            }
-
-            echo "padding-left:".$width["paddings"]."px;";   
-            echo "padding-right:".$width["paddings"]."px;";   
-
-            if($width["min_width"]){                             
-                echo "}";
-            }
-
-            echo "}";
-
-        endforeach;
-        endif;
-
-        $styles = ob_get_clean();
-        if($styles) return "<style> :root {".$styles."}</style>";
-    }
-
     public static function get_root_styles(){        
 
         ob_start();
