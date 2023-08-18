@@ -1,45 +1,22 @@
 <?php get_header(); ?>
+<div class="l-section-top">
 
-<?php include(locate_template('template-parts/banner.php')); ?>
-<?php get_template_part('template-parts/breadcrumbs'); ?>
-
-<div class="c-section l-section-top section-white">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 col-md-8">
-                <h3 class="section__title u-text-left mb-8">Cards</h3>
-                <div class="row  page-text">
-                    <?php 
-                     global $wp_query;
-
-                     while (have_posts()) : the_post();
-                         ?>
-                         <h5><a class="post-title" href=<?php echo the_permalink(); ?>><?php the_title(); ?></a></h5>
-                         
-             
-             
-                         <?php the_content(); ?>                                
-             
-                         <div class="u-clearfix"></div>
-                         <div class="post-navigation"> 
-                             <div class="nav-previous">
-                                 <?=  get_previous_post_link('%link','%title',false); ?>
-                             </div>
-                             <div class="nav-next">    
-                                 <?= get_next_post_link('%link','%title',false); ?>
-                             </div>
-                         </div> 
-             
-                     <?php endwhile; ?> 
-                </div>
-         
-            </div>
-            <div class="col-12 col-md-4">
-                <?php get_sidebar(); ?>
-            </div>
-        </div>
-
-    </div>
 </div>
 
+<div class="container-fluid l-section-padding  page-text section-white">
+    <div class="row">
+        <div class="col-12 col-xl-10 mx-auto">
+            <h1 class="mb-8"> <?php the_title(); ?></h1>
+            <?php
+            global $wp_query;
+            while (have_posts()) : the_post();
+            ?>
+                <?php the_content(); ?>     
+
+            <?php endwhile; ?>
+        </div>
+    </div>
+
+</div>
+<?php get_template_part('template-parts/load-gallery'); ?>
 <?php get_footer(); ?>

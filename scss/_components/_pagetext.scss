@@ -97,7 +97,7 @@
             &:after{
                 border-bottom: 1px solid $yellow;
             }
-        } */
+        } */        
 
     
     }
@@ -185,8 +185,16 @@
         }
     }
 
-    .wp-block-image {
+    .wp-block-image 
+    {
+        margin-top:20px;
         clear: both;
+        a{
+            text-decoration: none;
+            &:after{
+                display: none;
+            }
+        }
     }
     img {
         max-width: 100%;

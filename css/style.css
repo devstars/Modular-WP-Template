@@ -6190,7 +6190,14 @@ q {
   padding-bottom: 0 !important;
 }
 .page-text .wp-block-image {
+  margin-top: 20px;
   clear: both;
+}
+.page-text .wp-block-image a {
+  text-decoration: none;
+}
+.page-text .wp-block-image a:after {
+  display: none;
 }
 .page-text img {
   max-width: 100%;
