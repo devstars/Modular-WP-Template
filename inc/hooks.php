@@ -38,9 +38,15 @@ function updated_disable_comments_post_types_support() {
  }
  add_action('admin_init', 'updated_disable_comments_post_types_support');
 
-function custom_excerpt_length( $length ) {
-    return 20;
+
+ function my_acf_google_map_api( $api ){
+    
+    $api['key'] = Configuration::$google_map_api_key;
+    
+    return $api;
+    
 }
-add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
 
 ?>

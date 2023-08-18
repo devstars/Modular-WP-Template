@@ -1,0 +1,71 @@
+<?php
+
+/**
+ * Block FAQ
+ */
+?>
+
+<?php
+$content = get_field("content");
+$topics = get_field("topics");
+?>
+
+<div class="c-section--faq section-gray">
+    <div class="container-fluid ">
+        <?php
+        if ($content["headline_text"]) :
+        ?>
+            <h2 class="section__title "><?= $content["headline_text"]; ?></h2>
+        <?php
+        endif;
+        ?>
+
+        <?php
+        if ($content["body_text"]) :
+        ?>
+            <p class="section__subtitle "><?= $content["body_text"] ?></p>
+        <?php
+        endif;
+        ?>
+
+        <div class="faq-wrapper">
+
+            <?php
+            foreach ($topics as $topic) :
+            ?>
+
+                <div class="faq__row faq-row-js u-no-select">
+                    <div class="faq__header">
+                        <div class="header__content"><?= $topic["question"] ?> </div>
+
+                        <div class="faq__icon">
+                            <div class="expand icon__img">
+                            <?= file_get_contents(IMAGES . '/icons/expand.svg'); ?>                                                        
+                            </div>
+
+                            <div class="colapse icon__img">
+                            <?= file_get_contents(IMAGES . '/icons/colapse.svg'); ?>                                                        
+                            </div>                            
+                        </div>
+                    </div>
+                    <div class="faq__content acc-content-js">
+
+                        <div class="content__wrapper wysiwyg"><?= wysiwyg_clean($topic["answer"]) ?></div>
+                    </div>
+                </div>
+
+            <?php
+            endforeach;
+            ?>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<?php
+wp_enqueue_script('faq-js', get_template_directory_uri() . '/blocks/faq/faq.js', array('jquery'), filemtime(get_template_directory() . '/blocks/faq/faq.js'), false);
+?>

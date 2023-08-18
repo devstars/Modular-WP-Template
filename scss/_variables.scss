@@ -10,6 +10,8 @@
     --modular-sm-padding:30px;
     --modular-lg-padding:30px;
     --modular-xl-padding:30px;
+    --modular-section-padding:100px;
+    --modular-section-lg-padding:130px;
 }
 
 $xs: 0px;
@@ -20,7 +22,6 @@ $sm: 576px;
 $md: 768px;
 
 $lg: 992px;
-$lgsub1: 991px;
 
 $xl: 1200px;
 
@@ -29,10 +30,11 @@ $xxl: 1680px;
 $white: #ffffff;
 
 $gray_lighter: #f7f7f7;
-$gray_light: #e1e1e1;
+$gray_light: #ECECEC;
 $gray: #8f8f8f;
 
-$black: #000000;
+
+$black: #111111;
 $black_light: #242424;
 $black_lighter: #555;
 

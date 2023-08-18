@@ -1,6 +1,6 @@
 <?php wp_footer(); ?>
 
-
+<?php get_template_part('template-parts/load-recaptcha'); ?>
 
 <?php
 $f_data = Configuration::$fields["footer"];

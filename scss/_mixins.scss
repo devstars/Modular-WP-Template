@@ -61,7 +61,7 @@
   }   
  }
 
- @mixin input-placeholder( $font-weight, $colors) {
+ @mixin input-placeholder( $font-weight, $color) {
   &::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
     

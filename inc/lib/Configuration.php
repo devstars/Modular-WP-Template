@@ -9,6 +9,9 @@ class Configuration{
     public static $server;
     public static $company_name;
     public static $fields;
+    public static $contact;
+
+    public static $google_map_api_key;
             
     public static function get()
     {
@@ -29,7 +32,9 @@ class Configuration{
             endforeach;
         endif;
 
-        self::$server = trim(self::$fields["server"]);        
+        self::$server = trim(self::$fields["server"]);   
+        self::$contact = self::$fields["contact_form"];
+        self::$google_map_api_key = trim($company_details["google_map_api_key"]);        
 
     }
 

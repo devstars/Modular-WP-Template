@@ -1,22 +1,21 @@
 <?php get_header(); ?>
+<div class="l-section-top">
 
-<?php //get_template_part('template-parts/load-gallery'); ?>
+</div>
 
-<?php include(locate_template('template-parts/banner.php')); ?>
+<div class="container-fluid l-section-padding page-text section-white">
+    <div class="row">
+        <div class="col-12 col-xl-10 mx-auto">
+            <?php
+            global $wp_query;
+            while (have_posts()) : the_post();
+            ?>
+                <?php the_content(); ?>
 
-<div class="c-section l-section-top section-white">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 col-lg-10  mx-auto page-text">                
-                <?php                 
-                while (have_posts()) : the_post();
-                    the_content();
-                endwhile;
-                ?>                 
-            </div>
+            <?php endwhile; ?>
         </div>
     </div>
+
 </div>
 
 <?php get_footer(); ?>
-

@@ -2,28 +2,29 @@
 function checkCategoryOrder($categories)
 {
     //custom category array
-	$temp = array(        
-            'slug' => 'M-blocks',
-            'title' => 'M posts'        
+    $temp = array(
+        'slug' => 'modules',
+        'title' => 'Modular'
     );
 
-   
+
     //adding new custom category
     $newCategories = array();
-    $newCategories[0] = $temp;    
-    
+    $newCategories[0] = $temp;
+
     foreach ($categories as $category) {
         $newCategories[] = $category;
     }
     //return new categories
     return $newCategories;
 }
-add_filter( 'block_categories', 'checkCategoryOrder', 99, 1);
+add_filter('block_categories', 'checkCategoryOrder', 99, 1);
 
-function mytheme_setup() {
-    add_theme_support( 'align-wide' );
-  }
-add_action( 'after_setup_theme', 'mytheme_setup' );
+function mytheme_setup()
+{
+    add_theme_support('align-wide');
+}
+add_action('after_setup_theme', 'mytheme_setup');
 
 function load_custom_wp_admin_style()
 {
@@ -39,9 +40,9 @@ function pt_block_category($categories, $post)
         $categories,
         array(
             array(
-                'slug' => 'M-blocks',
-                'title' => 'M posts'
-            )            
+                'slug' => 'modules',
+                'title' => 'Modular'
+            )
         )
     );
 }
@@ -51,38 +52,135 @@ add_filter('block_categories', 'pt_block_category', 10, 2);
 add_action('acf/init', 'my_acf_init');
 function my_acf_init()
 {
-    
-    if (function_exists('acf_register_block')) {    
-        acf_register_block(array(
-            'name' => 'section2cols',
-            'title' => 'Section two columns',
-            'description' => __('Section two columns'),
-            'mode' => 'edit',
-            'render_callback' => 'pt_block_render_callback',
-            'category' => 'M-blocks',            
-            'keywords' => array('columns'),
-            'align'        => 'wide',
-            'supports'    => array(
-                'align'        => array( 'wide')   
-            )          
-        ));
-    }    
 
-    if (function_exists('acf_register_block')) {    
+
+    if (function_exists('acf_register_block')) {
         acf_register_block(array(
-            'name' => 'banner',
-            'title' => 'Banner',
-            'description' => __('Banner'),
+            'name' => 'text-media',
+            'title' => 'Text & Media',
+            'description' => __('Text & Media'),
             'mode' => 'edit',
             'render_callback' => 'pt_block_render_callback',
-            'category' => 'M-blocks',            
+            'category' => 'modules',
+            'keywords' => array('text & media', 'banner'),
+            'align'        => 'wide',
+            'supports'    => array(
+                'align'        => array('wide')
+            )
+        ));
+    }
+
+    if (function_exists('acf_register_block')) {
+        acf_register_block(array(
+            'name' => 'usp',
+            'title' => 'USPs & Services',
+            'description' => __('USP'),
+            'mode' => 'edit',
+            'render_callback' => 'pt_block_render_callback',
+            'category' => 'modules',
             'keywords' => array('columns'),
             'align'        => 'wide',
             'supports'    => array(
-                'align'        => array( 'wide')   
-            )          
+                'align'        => array('wide')
+            )
         ));
-    } 
+    }
+
+    if (function_exists('acf_register_block')) {
+        acf_register_block(array(
+            'name' => 'clients',
+            'title' => 'Clients',
+            'description' => __('Clients'),
+            'mode' => 'edit',
+            'render_callback' => 'pt_block_render_callback',
+            'category' => 'modules',
+            'keywords' => array('Clients'),
+            'align'        => 'wide',
+            'supports'    => array(
+                'align'        => array('wide')
+            )
+        ));
+    }
+
+    if (function_exists('acf_register_block')) {
+        acf_register_block(array(
+            'name' => 'Team',
+            'title' => 'Team',
+            'description' => __('Team'),
+            'mode' => 'edit',
+            'render_callback' => 'pt_block_render_callback',
+            'category' => 'modules',
+            'keywords' => array('Team'),
+            'align'        => 'wide',
+            'supports'    => array(
+                'align'        => array('wide')
+            )
+        ));
+    }
+
+    if (function_exists('acf_register_block')) {
+        acf_register_block(array(
+            'name' => 'testimonials',
+            'title' => 'Testimonials',
+            'description' => __('Testimonials'),
+            'mode' => 'edit',
+            'render_callback' => 'pt_block_render_callback',
+            'category' => 'modules',
+            'keywords' => array('Testimonials'),
+            'align'        => 'wide',
+            'supports'    => array(
+                'align'        => array('wide')
+            )
+        ));
+    }
+
+    if (function_exists('acf_register_block')) {
+        acf_register_block(array(
+            'name' => 'post-feed',
+            'title' => 'Post feed',
+            'description' => __('Post feed'),
+            'mode' => 'edit',
+            'render_callback' => 'pt_block_render_callback',
+            'category' => 'modules',
+            'keywords' => array('Post feed'),
+            'align'        => 'wide',
+            'supports'    => array(
+                'align'        => array('wide')
+            )
+        ));
+    }
+
+    if (function_exists('acf_register_block')) {
+        acf_register_block(array(
+            'name' => 'faq',
+            'title' => 'FAQ',
+            'description' => __('FAQ'),
+            'mode' => 'edit',
+            'render_callback' => 'pt_block_render_callback',
+            'category' => 'modules',
+            'keywords' => array('FAQ'),
+            'align'        => 'wide',
+            'supports'    => array(
+                'align'        => array('wide')
+            )
+        ));
+    }
+
+    if (function_exists('acf_register_block')) {
+        acf_register_block(array(
+            'name' => 'contact',
+            'title' => 'Contact',
+            'description' => __('Contact'),
+            'mode' => 'edit',
+            'render_callback' => 'pt_block_render_callback',
+            'category' => 'modules',
+            'keywords' => array('Contact'),
+            'align'        => 'wide',
+            'supports'    => array(
+                'align'        => array('wide')
+            )
+        ));
+    }
 }
 
 function pt_block_render_callback($block)
@@ -94,30 +192,47 @@ function pt_block_render_callback($block)
     }
 }
 
-function add_container_to_block( $block_content, $block ) {                        
+function add_container_to_block($block_content, $block)
+{
 
-/*         $blocks_without_section = array("acf/anchor","acf/title","acf/author","acf/intro", "acf/break","acf/button","acf/socials");
-     
-        if( strpos($block["blockName"], "acf") !== false && !in_array($block["blockName"], $blocks_without_section)) {                            
-            $block_content = '</div></div></div>'.$block_content.
-            '<div class="container-fluid l-container-lg page-text">
-            <div class="row">
-            <div class="col-12">';            
-        }     */
-                    	
-	return $block_content;
+    global $post;
+    global $template;
+
+    if ($post instanceof WP_Post) {        
+        $post_type = $post->post_type;
+
+        if ($post_type === 'page') {
+
+            $page_template = get_template_directory() . '/page.php';
+
+            if ($template === $page_template) {
+
+                $blocks_without_section = array();
+
+                if (strpos($block["blockName"], "acf") !== false && !in_array($block["blockName"], $blocks_without_section)) {
+                    $block_content = '</div>' . $block_content .
+                        '<div class="container-fluid page-text">';
+                }
+            }
+        }
+    }
+
+
+
+
+    return $block_content;
 }
 
-add_filter( 'render_block', 'add_container_to_block', 10, 2 );
+add_filter('render_block', 'add_container_to_block', 10, 2);
 
 function enqueue_block_editor_scripts()
 {
-  wp_enqueue_script(
-    'theme-block-editor-js',
-    get_stylesheet_directory_uri() . '/js/block-editor-scripts.js',
-    array('wp-blocks', 'wp-dom', 'wp-edit-post'), 
-    '1.0',
-    true
-  );
+    wp_enqueue_script(
+        'theme-block-editor-js',
+        get_stylesheet_directory_uri() . '/js/block-editor-scripts.js',
+        array('wp-blocks', 'wp-dom', 'wp-edit-post'),
+        '1.0',
+        true
+    );
 }
 add_action('enqueue_block_editor_assets', 'enqueue_block_editor_scripts');

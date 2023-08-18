@@ -10,7 +10,8 @@
         ?>
     </title>
     <script>
-        var ajaxUrl = "<?php echo admin_url('admin-ajax.php'); ?>";
+        const ajaxUrl = "<?php echo admin_url('admin-ajax.php'); ?>";
+        const themeUri = '<?= THEME_URI ?>';
     </script>
 
 
@@ -27,11 +28,9 @@
     global $post;
     $post_blocks = parse_blocks($post->post_content);    
 
-    //$transparent_header = get_field("transparent_header") ? "section-transparent" : "";
-    if($post_blocks[0]["blockName"] === "acf/banner"){        
+    if($post_blocks[0]["blockName"] === "acf/text-media"){        
         $transparent_header = $post_blocks[0]["attrs"]["data"]["layout_width"] === "full" ? "section-transparent" : "";
     }
-
     
     $h_fields = Configuration::$fields["header"];
     $scheme_colors = trim(strtolower($h_fields["color_scheme"]));

@@ -8,8 +8,6 @@ class ComposerStaticInit2da36e41dbd4f0313c45319a2a92ad23
 {
     public static $classMap = array (
         'Configuration' => __DIR__ . '/../..' . '/inc/lib/Configuration.php',
-        'LazyCards' => __DIR__ . '/../..' . '/inc/lib/LazyCards.php',
-        'Mail' => __DIR__ . '/../..' . '/inc/lib/Mail.php',
         'Menu' => __DIR__ . '/../..' . '/inc/lib/Menu.php',
         'Pagination' => __DIR__ . '/../..' . '/inc/lib/Pagination.php',
     );

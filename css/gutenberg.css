@@ -8,6 +8,8 @@
   --modular-sm-padding:30px;
   --modular-lg-padding:30px;
   --modular-xl-padding:30px;
+  --modular-section-padding:100px;
+  --modular-section-lg-padding:130px;
 }
 
 .row {
@@ -3536,6 +3538,25 @@
   z-index: 10 !important;
 }
 
+.u-overflow-hidden {
+  overflow: hidden !important;
+}
+
+.u-cols-reverse {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+}
+@media screen and (min-width: 992px) {
+  .u-cols-reverse {
+    -webkit-box-orient: initial;
+    -webkit-box-direction: initial;
+        -ms-flex-direction: initial;
+            flex-direction: initial;
+  }
+}
+
 .o-icon {
   height: 35px;
   -webkit-transition: all 0.2s ease-in-out;
@@ -3594,14 +3615,54 @@
   height: 17px;
   cursor: pointer;
 }
-.o-custom-check .fa-check-square {
+.o-custom-check .checked {
   display: none;
 }
-.o-custom-check input[type=checkbox]:checked + span .fa-check-square {
+.o-custom-check input[type=checkbox]:checked + span .checked {
   display: block;
 }
-.o-custom-check input[type=checkbox]:checked + span .fa-square {
+.o-custom-check input[type=checkbox]:checked + span .unchecked {
   display: none;
+}
+
+.o-link, .o-link--yellow {
+  text-decoration: none;
+  color: #111111;
+  position: relative;
+}
+.o-link:after, .o-link--yellow:after {
+  position: absolute;
+  content: "";
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  -webkit-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+  border-bottom: 1px solid transparent;
+}
+.o-link:hover:after, .o-link--yellow:hover:after {
+  border-bottom: 1px solid #111111;
+}
+
+.o-link--yellow {
+  color: #FFBB00 !important;
+}
+.o-link--yellow:hover:after {
+  border-bottom: 1px solid #FFBB00;
+}
+
+.o-nav-btn {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  padding: 1.375rem 1.875rem;
+  cursor: pointer;
+  position: relative;
+}
+.o-nav-btn svg {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  width: 7px;
+  height: auto;
 }
 
 @media screen and (min-width: 782px) {

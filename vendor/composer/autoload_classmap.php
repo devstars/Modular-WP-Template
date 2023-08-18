@@ -7,8 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Configuration' => $baseDir . '/inc/lib/Configuration.php',
-    'LazyCards' => $baseDir . '/inc/lib/LazyCards.php',
-    'Mail' => $baseDir . '/inc/lib/Mail.php',
     'Menu' => $baseDir . '/inc/lib/Menu.php',
     'Pagination' => $baseDir . '/inc/lib/Pagination.php',
 );

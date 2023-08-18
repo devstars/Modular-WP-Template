@@ -1,91 +1,98 @@
 @mixin btn {
-    @include fontSize(16px);
-    font-weight: 500;
-    line-height: 1em;
-  
-    text-align: center;
-  
-    padding: calcRem(25px) calcRem(55px);
-  
-    cursor: pointer;
-    text-decoration: none !important;
-    display: inline-block;
-    text-transform: uppercase;
-    z-index: 10;
-    border: none;
-    
-    -webkit-appearance:none !important;  
+  @include fontSize(16px);
+  font-weight: 500;
+  line-height: 1em;
+
+  text-align: center;
+
+  padding: calcRem(25px) calcRem(55px);
+
+  cursor: pointer;
+  text-decoration: none !important;
+  display: inline-block;
+  text-transform: uppercase;
+  z-index: 10;
+  border: none;
+
+  -webkit-appearance: none !important;
+}
+
+@mixin btn--round {
+  border-radius: 25px !important;
+}
+
+.btn {
+  @include btn;
+}
+
+.btn--round {
+  @include btn;
+  @include btn--round;
+}
+
+.btn--black {
+  @include tran-all;
+
+  background-color: $black;
+  color: $white !important;
+
+  border: 1px solid $black;
+}
+
+.btn--yellow {
+  @include tran-all;
+
+  background-color: $yellow;
+  color: $white !important;
+
+  border: 1px solid $yellow; 
+}
+
+.btn--outline-black {
+  @include tran-all;
+
+  background-color: transparent;
+  border: 1px solid $black;
+  color: $black;
+}
+
+.section-white {
+  .btn--outline-black {
+    &:hover {
+      color: $white !important;
+      background-color: $black;
+      border: 1px solid $black;
+    }
   }
-  
-  @mixin btn--round {
-    border-radius: 25px !important;
+}
+
+.btn--outline-yellow {
+  @include tran-all;
+
+  background-color: transparent;
+  border: 1px solid $yellow;
+  color: $white;
+}
+
+.hover-white {
+  &:hover {
+    color: $black !important;
+    background-color: $white;
+    border: 1px solid $white;
   }
-  
-  .btn {
-    @include btn;
-  }
+}
 
-  .btn--round {
-    @include btn;
-    @include btn--round;      
-  }      
-
-  .btn--black{    
-    @include tran-all;      
-  
-    background-color: $black;
-    color:$white !important;
-
-    border:1px solid $black;    
-  }
-
-  .btn--yellow{
-    @include tran-all;      
-  
-    background-color: $yellow;
-    color:$white !important;
-
-    border:1px solid $yellow;    
-  }
-
-  .btn--outline-black{
-    @include tran-all;       
-  
-    background-color: transparent;
-    border:1px solid $black;
-    color: $black;
-  }
-
-  .btn--outline-yellow{
-    @include tran-all;       
-  
-    background-color: transparent;
-    border:1px solid $yellow;
+.hover-yellow {
+  &:hover {
     color: $white;
+    background-color: $yellow;
+    border: 1px solid $yellow;
   }
+}
 
-  .hover-white{
-    &:hover{
-      color:$black !important;
-      background-color:$white;
-      border:1px solid $white;
-    }
+.hover-transparent {
+  &:hover {
+    color: $white;
+    background-color: transparent !important;    
   }
-
-  .hover-yellow{
-    &:hover{
-      color:$white;
-      background-color:$yellow;
-      border:1px solid $yellow;
-    }
-  }
-
-
-
-
-  .btn--icon {        
-    i{
-      transform: translateX(7px);
-    }
-  }
-  
+}

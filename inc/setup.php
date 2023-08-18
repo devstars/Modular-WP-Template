@@ -1,16 +1,22 @@
 <?php
-DEFINE("THEME",get_template_directory_uri());
+DEFINE("THEME",get_template_directory());
+DEFINE("THEME_URI",get_template_directory_uri());
+
+DEFINE("BLOCKS",get_template_directory()."/blocks");
+DEFINE("BLOCKS_URI",get_template_directory_uri()."/blocks");
+
 DEFINE("IMAGES",get_template_directory_uri()."/images");
 DEFINE("ID_FRONT_PAGE", get_option('page_on_front'));   
 
-DEFINE("CSS_NAME",(PROD_SERVER)?"style.min.css":"style.css");
-DEFINE("JS_NAME",(PROD_SERVER)?"app.min.js":"app.min.js");
+DEFINE("CSS_NAME", "style.css");
+DEFINE("JS_NAME", "app.js");
 
 DEFINE("CSS_VER",filemtime(get_template_directory() . "/css/" . CSS_NAME));
 DEFINE("JS_VER",filemtime(get_template_directory() . '/js/' . JS_NAME));
 
 define("RECAPTCHA_SECRET","6LdryV8UAAAAAI_yhRuq79NuFwtZJS7AmTY0PjBh");
 define("RC_SITE_KEY","6LdryV8UAAAAAIZEvqUaSEttca1anP2GeMviDhjw");
+
 
 function init_autoload(){
     require get_template_directory().'/vendor/autoload.php';
@@ -126,7 +132,10 @@ function webp_upload_mimes($existing_mimes) {
 }
 add_filter('mime_types', 'webp_upload_mimes');
 
-
+function custom_excerpt_length( $length ) {
+    return 24;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 
 

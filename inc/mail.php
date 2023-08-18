@@ -1,0 +1,130 @@
+<?php 
+class Mail{            
+    public $success;
+    public $error;
+    public $email_firm;   
+    public $user_email;         
+    public $subject; 
+    public $email_footer;    
+        
+    public $data = array();
+    
+    public function __construct() {              
+        $this->email_firm = Configuration::$email;                                
+    }
+
+    public function get_data(){                        
+        
+            foreach ($_POST as $key => $value) {    
+
+                if($key === "email"){
+                    $this->user_email = $value;
+                }   
+
+                if(is_string($value)){
+                    $this->data[$key] = htmlspecialchars($value);                        
+                }else{
+                    $this->data[$key] = $value;                        
+                }
+                                                                                                               
+            }                                                                               
+    }
+
+    public function clean_data(){
+        empty($this->data);                                  
+    }
+
+    public function check_fields(){  
+        
+        $resp = true;    
+        
+        if(!$this->email_firm){
+            $resp = false;
+            $this->error = "There was an error trying to send your message. Please try again later.";
+        }
+
+        if (empty($this->data["g-recaptcha-response"])){
+            $resp = false;
+            $this->error = 'Please, fill the captcha to send the message.';
+        }else{
+            $verifyResponse = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . RECAPTCHA_SECRET . '&response=' . $this->data["g-recaptcha-response"]));
+            if (!$verifyResponse->success){
+                $resp = false;
+                $this->error = 'Please, fill the captcha to send the message.';
+            }
+        }
+
+        return $resp;
+    }
+
+
+    public function send(){      
+                 
+        $body = "";                
+        
+        $skip_fields = array("permissions", "g-recaptcha-response", "action", "title" );
+        foreach ($this->data as $key => $value) {     
+            
+            if (!in_array($key, $skip_fields)) {
+                $name = ucfirst(str_replace('_', ' ', $key));                      				                
+
+                $body  .= '<b>'. $name .':</b><br> ' . $value . "<br><br>";
+            }
+        }         
+        
+        $body .= $this->email_footer;
+                             
+
+        $headers = //'From:'.$this->subject.'<' . $this->email_firm . ">\r\n" .
+                'Reply-To: ' . htmlspecialchars($this->user_email) . "\r\n" .                
+                'Content-Type: text/html; charset=UTF-8' . "\r\n";       
+       
+        $to = Configuration::$contact["delivery_emails"];
+
+       $this->success = wp_mail($to, $this->subject, $body, $headers); 
+       //$this->success = true;       
+        
+       
+
+        if(!$this->success){
+            $this->error = "There was an error trying to send your message. Please try again later.";
+        }
+
+        return $this->success;
+    }
+
+
+
+}
+
+
+add_action('wp_ajax_send_ajax', 'send_ajax');
+add_action('wp_ajax_nopriv_send_ajax', 'send_ajax');
+
+function send_ajax() {
+     /* echo "ok";
+    exit;  */
+    
+    $mail = new Mail();    
+    $mail->get_data();
+
+    $mail->subject = Configuration::$company_name .' - '.$mail->data["title"];
+    $mail->email_footer = "Email was sent from: <a href='". home_url() ."'>".Configuration::$company_name . " - ". $mail->data["title"] ."</a>.";    
+    
+
+    if ($mail->check_fields() ) {                            
+        $mail->send();        
+    }
+
+    if($mail->success){                                            
+        
+        $mail->clean_data();
+
+        echo "ok";
+    }
+    else{
+        echo $mail->error;    
+    }
+    exit;
+}
+?>

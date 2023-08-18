@@ -60,6 +60,9 @@ function get_permalink_by_template($template_file_php)
     return $pages ? get_permalink($pages[0]['post_id']) : null;
 }
 
-
+function wysiwyg_clean($value)
+{
+    return trim(strip_tags($value, '<h1><h2><h3><h4><h5><h6><span><br><p><b><strong><em><a><ul><ol><li>'));
+}
 
 ?>

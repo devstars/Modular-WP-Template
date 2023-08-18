@@ -29,6 +29,15 @@
                 width: 70%;
             }
 
+            @media screen and (min-width: $xl) {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            @media screen and (min-width: $xxl) {
+                margin-left: 0;
+            }
+
             max-width: 100%;
 
             &.center {
@@ -199,20 +208,6 @@
 
     z-index: 100;
 
-    .nav__btn {
-        @include tran-all;
-
-        padding: 22px 30px;
-
-        svg {
-            @include tran-all;
-            width: 7px;
-            height: auto;
-        }
-        cursor: pointer;
-        position: relative;
-    }
-
     display: none;
     @media screen and (min-width: $xl) {
         display: block;
@@ -222,8 +217,9 @@
         bottom: auto;
         top: 50%;
         transform: translateX(50%) translateY(-50%);
+        max-width: 1800px !important;
 
-        .nav__btn {
+        .o-nav-btn {
             &:first-of-type {
                 margin-left: 0;
                 margin-right: auto;
@@ -235,7 +231,7 @@
     }
 
     &.half {
-        .nav__btn {        
+        .o-nav-btn {
             &:first-of-type {
                 border-right: none;
             }
@@ -250,61 +246,24 @@
 
         &.right {
             @media screen and (min-width: $xl) {
-                left: 0;
-                transform: translateX(0%);
+                /* left: 0;
+                transform: translateX(0%); */
             }
 
-            width: 50%;
             .u-nav {
-                margin-right: 10%;
+                /* margin-right: 10%; */
+                margin-right: 18%;
             }
         }
     }
 }
 
-.section-transparent{
+.section-transparent {
     .c-banner {
         h1,
         p {
             color: $white;
         }
-    }
-
-    .nav__btn{
-        border: 1px solid rgba(#ffffff, 0.8);
-
-        background-color: transparent;
-        svg{
-            color:$white;            
-        }
-
-        &:hover {
-            opacity: 1;
-            background-color: $white;
-            svg{
-                color:$black;            
-            }
-        }
-    }
-}
-
-.section-white {
-    .nav__btn {        
-        border: 1px solid rgba(#111111, 0.8);
-
-        background-color: transparent;
-
-        svg{
-            color:$black;            
-        }
-
-        &:hover {
-            opacity: 1;
-            background-color: $black;
-            svg{
-                color:$white;            
-            }
-        }        
     }
 }
 

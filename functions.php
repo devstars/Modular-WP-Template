@@ -5,4 +5,5 @@ include 'inc/utilities.php';
 include 'inc/optimalization.php';
 include 'inc/hooks.php';
 include 'inc/blocks.php';
+include 'inc/mail.php';
 include 'inc/prevent-uploading-very-large-images.php';
