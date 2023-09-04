@@ -8,9 +8,14 @@
 <?php
 $content = get_field("content");
 $topics = get_field("topics");
+$settings = get_field("settings");
+
+$data = block_start("FAQ", $block, $settings , "section-gray");
+$id = $data["id"];
+$color_schema = $data["color_schema"];
 ?>
 
-<div class="c-section--faq section-gray">
+<div class="c-section--faq <?= $color_schema; ?>" id="<?php echo esc_attr($id); ?>" >
     <div class="container-fluid ">
         <?php
         if ($content["headline_text"]) :

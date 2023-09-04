@@ -7,8 +7,14 @@
 <?php
 $content = get_field("content");
 $tiles = get_field("tiles");
+$settings = get_field("settings");
+
+$data = block_start("team", $block, $settings , "section-black");
+$id = $data["id"];
+$color_schema = $data["color_schema"];
+
 ?>
-<div class="c-section--team section-black u-overflow-hidden">
+<div class="c-section--team section-black u-overflow-hidden <?= $color_schema ?>" id="<?php echo esc_attr($id); ?>">
     <div class="container-fluid">
         <h2 class="section__title "><?= $content["headline_text"]; ?></h2>
         <p class="section__subtitle "><?= $content["body_text"] ?></p>

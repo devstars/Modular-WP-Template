@@ -65,7 +65,8 @@ function my_acf_init()
             'keywords' => array('text & media', 'banner'),
             'align'        => 'wide',
             'supports'    => array(
-                'align'        => array('wide')
+                'align'        => array('wide'),
+                'anchor' => true                
             )
         ));
     }
@@ -81,7 +82,8 @@ function my_acf_init()
             'keywords' => array('columns'),
             'align'        => 'wide',
             'supports'    => array(
-                'align'        => array('wide')
+                'align'        => array('wide'),
+                'anchor' => true                
             )
         ));
     }
@@ -97,7 +99,8 @@ function my_acf_init()
             'keywords' => array('Clients'),
             'align'        => 'wide',
             'supports'    => array(
-                'align'        => array('wide')
+                'align'        => array('wide'),
+                'anchor' => true                
             )
         ));
     }
@@ -113,7 +116,8 @@ function my_acf_init()
             'keywords' => array('Team'),
             'align'        => 'wide',
             'supports'    => array(
-                'align'        => array('wide')
+                'align'        => array('wide'),
+                'anchor' => true                
             )
         ));
     }
@@ -129,7 +133,8 @@ function my_acf_init()
             'keywords' => array('Testimonials'),
             'align'        => 'wide',
             'supports'    => array(
-                'align'        => array('wide')
+                'align'        => array('wide'),
+                'anchor' => true                
             )
         ));
     }
@@ -145,7 +150,8 @@ function my_acf_init()
             'keywords' => array('Post feed'),
             'align'        => 'wide',
             'supports'    => array(
-                'align'        => array('wide')
+                'align'        => array('wide'),
+                'anchor' => true                
             )
         ));
     }
@@ -161,7 +167,8 @@ function my_acf_init()
             'keywords' => array('FAQ'),
             'align'        => 'wide',
             'supports'    => array(
-                'align'        => array('wide')
+                'align'        => array('wide'),
+                'anchor' => true                
             )
         ));
     }
@@ -177,7 +184,8 @@ function my_acf_init()
             'keywords' => array('Contact'),
             'align'        => 'wide',
             'supports'    => array(
-                'align'        => array('wide')
+                'align'        => array('wide'),
+                'anchor' => true                
             )
         ));
     }
@@ -210,15 +218,12 @@ function add_container_to_block($block_content, $block)
                 $blocks_without_section = array();
 
                 if (strpos($block["blockName"], "acf") !== false && !in_array($block["blockName"], $blocks_without_section)) {
-                    $block_content = '</div>' . $block_content .
-                        '<div class="container-fluid page-text">';
+                    $block_content = '</div></div></div>' . $block_content .
+                        '<div class="container-fluid page-text section-white"><div class="row"><div class="col-12 col-xl-10 mx-auto">';
                 }
             }
         }
     }
-
-
-
 
     return $block_content;
 }

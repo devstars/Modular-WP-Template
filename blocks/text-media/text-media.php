@@ -5,19 +5,20 @@
 ?>
 
 <?php
-
-$id = 'banner-' . $block['id'];
-
 $banner = get_field("banner");
 $layout = get_field("layout");
-
 $carousel = get_field("carousel");
 
 $color_schema = ($layout["width"] === "half") ? "section-white" : "section-transparent";
 
+$data = block_start("text_media", $block, $carousel , $color_schema);
+$id = $data["id"];
+$color_schema = $data["color_schema"];
+
+
 $mode = (trim(strtolower($carousel["mode"])) === "carousel") ? "carousel" : "single";
 ?>
-<div class="u-relative <?= $color_schema; ?> ">
+<div class="u-relative <?= $color_schema; ?> " id="<?php echo esc_attr($id); ?>">
     <div class=" banner-wrapper <?= $layout["width"]; ?>  <?= ($mode === "carousel") ? "banner-js owl-carousel owl-theme" : ""; ?>   ">
         <?php
         foreach ($banner as $slide) :
@@ -46,14 +47,17 @@ $mode = (trim(strtolower($carousel["mode"])) === "carousel") ? "carousel" : "sin
                     $col_class = "col-6";
                 }
 
-                if ($layout["image_aligment"])
+                $nav_class = $layout["width"] === "half" ? "l-btns-next-to" : "";
+
+                if ($layout["image_aligment"]){                    
                 ?>
                 <div class="<?= $col_class; ?>">
-                    <div class="u-nav ">
+                    <div class="u-nav <?= $nav_class ?>">
                         <div class="tm-prev-js o-nav-btn "> <?= file_get_contents(IMAGES . '/icons/arrow-left.svg'); ?> </div>
                         <div class="tm-next-js o-nav-btn "> <?= file_get_contents(IMAGES . '/icons/arrow-right.svg'); ?> </div>
                     </div>
                 </div>
+                <?php } ?>
             </div>
         </div>
     <?php endif; ?>

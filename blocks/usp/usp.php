@@ -1,24 +1,31 @@
 <?php
 /**
- * Block Name: Section Two Columns
+ * Block Name: usp
  */
 ?>
 
 <?php 
 
-$id = 'section-usp-' . $block['id'];    
+$id = 'usp-' . $block['id'];    
+if( !empty($block['anchor']) ) {
+    $id = $block['anchor'];
+}
 
-$images = strtolower(get_field("layout")["images"]);
-$color_scheme = strtolower(get_field("layout")["color_scheme"]);
-
+$settings = get_field("settings");
+$images = strtolower($settings["images"]);
 $content = get_field("content");
 
 $tiles = get_field("tiles");
 $button = btn_from_link($content["button"], "btn btn--black");
 
+
+$data = block_start("usp", $block, $settings , "section-white");
+$id = $data["id"];
+$color_schema = $data["color_schema"];
+
 ?>
 
-<div id="<?= $id ?>" class="c-section--usp section-<?= $color_scheme ?>  ">
+<div id="<?= $id ?>" class="c-section--usp <?= $color_schema; ?> ">
 
     <div class="container-fluid">
         <h2 class="section__title"><?= $content["headline_text"]; ?></h2>
@@ -47,7 +54,7 @@ $button = btn_from_link($content["button"], "btn btn--black");
                 ?>
                                     
                     <?php 
-                    if($images === "icon"):
+                    if($images === "icon"):                        
                         ?> 
                         <img class="usp__icon" src="<?= $tile["image"]["sizes"]["medium"] ?>" alt="<?= $tile["image"]["alt"] ?>">
                         <?php
@@ -56,9 +63,13 @@ $button = btn_from_link($content["button"], "btn btn--black");
                         <div class="usp__image ratio-js" data-ratio="0.61"  style="background-image:url(<?= $tile["image"]["sizes"]["custom_medium"] ?>)" alt="<?= $tile["image"]["alt"] ?>"></div>
                         <?php
                     endif;
+                    ?>                 
+                    
+                    <?php 
+                    $desc_class = ($images === "icon") ? "l-short" : "";
                     ?>
 
-                    <p class="usp__desc">
+                    <p class="usp__desc <?= $desc_class; ?>">
                         <?= $tile["description"] ?>
                     </p>
 
@@ -67,10 +78,9 @@ $button = btn_from_link($content["button"], "btn btn--black");
                     
                     if (isset($button) && $button) :                        
                         ?>
-                        <span class="o-link--yellow"><?= $button["title"] ?> </span>
+                        <span class="custom-link"><?= $button["title"] ?> </span>
                         <?php
                     endif;    
-
                     ?>
 
                     </a>

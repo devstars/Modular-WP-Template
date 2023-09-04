@@ -1,29 +1,12 @@
 <?php get_header(); ?>
 
-<?php
-include(locate_template('template-parts/banner.php'));
-?>
-
 <div class="c-section l-section-top section-white">
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-md-8">
-                <h3 class="section__title u-text-left mb-8">Cards</h3>
+                <h3 class="section__title u-text-left mb-8">Cards1</h3>
                 <div class="row">
-                    <?php 
-                  /*   $paged = get_query_var("paged");
-
-                    $id_post = $posts[0]->ID;
-
-                    $args = array(
-                        'post_type'      => 'post',
-                        'posts_per_page' => 4,
-                        'orderby' => 'post_date',
-                        'order' => 'desc',
-                        'paged'=>$paged,                        
-                    );
-            
-                    $wp_query = new WP_Query($args);   */    
+                    <?php     
                     while (have_posts()) : the_post(); 
                     ?>
 
@@ -40,15 +23,11 @@ include(locate_template('template-parts/banner.php'));
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <?php Pagination::view();
-                        //wp_reset_postdata();
-                        ?>
+                        <?php Pagination::view(); ?>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-4">
-                <?php get_sidebar(); ?>
-            </div>
+         
         </div>
 
     </div>

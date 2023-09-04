@@ -10,7 +10,6 @@ get_header();
 <div>
     <?php
     global $wp_query;
-
     while (have_posts()) : the_post();
     ?>
 

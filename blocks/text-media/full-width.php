@@ -13,7 +13,7 @@
 
     <div class="container-fluid u-z-index-10">
         <div class="row">
-            <div class="col-12 ">
+            <div class="col-12">
                 <div class="banner__content  <?= $layout["horizontal_aligment"] ?>">
                     <h1 class="banner__title">
                         <?= $content["title"] ?>
@@ -24,15 +24,16 @@
                     </p>
 
                     <?php
-                    echo btn_from_link($ctas["button_cta_left"], "btn btn--yellow hover-white mr-3 mb-3 ");
+                    $mr = isset( $ctas["button_cta_right"]) && $ctas["button_cta_right"]  ? "mr-3" : "";
+
+                    echo btn_from_link($ctas["button_cta_left"], "btn btn--yellow hover-white ". $mr);
                     ?>
                     <?php
-                    echo btn_from_link($ctas["button_cta_right"], "btn btn--outline-yellow hover-white mb-3");
+                    echo btn_from_link($ctas["button_cta_right"], "btn btn--outline-yellow hover-white ");
                     ?>
                 </div>
             </div>
         </div>
-
-
     </div>
+        
 </div>

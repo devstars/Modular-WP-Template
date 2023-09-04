@@ -7,9 +7,14 @@
 
 <?php
 $testimonials = get_field("testimonials");
+$settings = get_field("settings");
+
+$data = block_start("testimonials", $block, $settings , "section-white");
+$id = $data["id"];
+$color_schema = $data["color_schema"];
 ?>
 
-<div class="c-section--testimonials section-white">
+<div class="c-section--testimonials <?= $color_schema; ?> " id="<?php echo esc_attr($id); ?>">
     <div class="container-fluid u-relative">
         <div class="testimonials-wrapper testimonials-js owl-carousel owl-theme">
 

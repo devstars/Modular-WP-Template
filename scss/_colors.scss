@@ -21,29 +21,81 @@
         border-bottom: 1px solid $gray_light;
     }
 
-    .o-nav-btn {        
+    .o-nav-btn {
         border: 1px solid rgba(#111111, 0.35);
+
+/*         &.no-border {
+            border: 1px solid transparent;
+
+            &:first-of-type {
+                border-right: 1px solid rgba(#111111, 0.35) !important;
+            }
+        } */
 
         background-color: transparent;
 
-        svg{
-            color:$black;            
+        svg {
+            color: $black;
         }
 
         &:hover {
             opacity: 1;
             background-color: $black;
-            svg{
-                color:$white;            
+            svg {
+                color: $white;
             }
-        }        
-    }    
+        }
+    }
+
+    .std-btn-primary{
+        @extend .btn;
+        @extend .btn--black;
+        @extend .hover-yellow;
+    }
+
+    .std-btn-secondary{
+        @extend .btn;
+        @extend .btn--outline-black;
+        @extend .hover-yellow;
+    }
+
+    .std-btn-tertiary{
+        @extend .btn;
+        @extend .btn--outline-black;
+        @extend .hover-black;
+    }
+
+    .std-btn-quaternary{
+        @extend .btn;
+        @extend .btn--outline-black;
+        @extend .hover-yellow;
+    }
+
+    .o-link{
+        color:$yellow;
+        &:after{
+            border-bottom: 1px solid $yellow;
+        }
+    }
 }
 
-.section-gray{
+.section-gray {
     @extend .section-white;
 
     background-color: $gray_light;
+}
+
+.section-bright {
+    @extend .section-white;
+
+    .o-nav-btn {
+        //background-color: transparent;
+        /* border: 1px solid transparent; */
+
+        &:first-of-type {
+            border-right: 1px solid rgba(#111111, 0.4) !important;
+        }
+    }  
 }
 
 .section-black {
@@ -66,51 +118,85 @@
         text-decoration: none;
     }
 
-    .o-link {        
-        color:$white;
+    .o-link {
+        color: $white;
         position: relative;
 
-        &:after{
+        &:after {
             position: absolute;
-            content: '';
-            bottom:-4px;
-            left:0;
-            width: 100%;            
+            content: "";
+            bottom: -4px;
+            left: 0;
+            width: 100%;
             transition: all 0.15s linear;
             border-bottom: 1px solid transparent;
         }
 
-        &:hover:after{
+        &:hover:after {
             border-bottom: 1px solid $white;
         }
     }
 
-    .o-nav-btn{
+    .o-nav-btn {
         border: 1px solid rgba(#ffffff, 0.5);
 
         background-color: transparent;
-        svg{
-            color:$white;            
+        svg {
+            color: $white;
         }
 
         &:hover {
             opacity: 1;
             background-color: $white;
-            svg{
-                color:$black;            
+            svg {
+                color: $black;
             }
         }
     }
 
+    .std-btn-primary{        
+        @extend .btn;
+        @extend .btn--white;
+        @extend .hover-yellow;
+    }
 
+    .std-btn-secondary{        
+        @extend .btn;
+        @extend .btn--outline-white;
+        @extend .hover-yellow;        
+    }
+
+    .std-btn-tertiary{
+        @extend .btn;
+        @extend .btn--outline-white;
+        @extend .hover-yellow;
+    }
+
+    .std-btn-quaternary{
+        @extend .btn;
+        @extend .btn--yellow;
+        @extend .hover-outline-yellow;
+    }
+
+}
+
+
+
+
+
+.section-dark {
+    @extend .section-black;
+
+    .o-nav-btn {        
+        border: 1px solid rgba(#fff, 0.6); 
+    } 
 }
 
 .section-transparent:not(.sticky) {
     background-color: transparent;
 }
 
-
-.section-transparent{
+.section-transparent {
     .c-banner {
         h1,
         p {
@@ -118,22 +204,20 @@
         }
     }
 
-    .o-nav-btn{
+    .o-nav-btn {
         border: 1px solid rgba(#ffffff, 0.8);
 
         background-color: transparent;
-        svg{
-            color:$white;            
+        svg {
+            color: $white;
         }
 
         &:hover {
             opacity: 1;
             background-color: $white;
-            svg{
-                color:$black;            
+            svg {
+                color: $black;
             }
         }
     }
 }
-
-

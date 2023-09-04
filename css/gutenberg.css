@@ -3648,7 +3648,7 @@
   color: #FFBB00 !important;
 }
 .o-link--yellow:hover:after {
-  border-bottom: 1px solid #FFBB00;
+  border-bottom: 1px solid #FFBB00 !important;
 }
 
 .o-nav-btn {

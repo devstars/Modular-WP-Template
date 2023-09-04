@@ -1,4 +1,4 @@
-<div class="c-banner l-section-top  l-half section-whitee">
+<div class="c-banner l-section-top  l-half ">
 
     <div class="container-fluid ">
         <div class="row">
@@ -15,10 +15,10 @@
                             </p>
 
                             <?php
-                            echo btn_from_link($ctas["button_cta_left"], "btn btn--black hover-yellow mr-3 mb-3 ");
+                            echo btn_from_link($ctas["button_cta_left"], "std-btn-primary mr-3 mb-3 ");
                             ?>
-                            <?php
-                            echo btn_from_link($ctas["button_cta_right"], "btn btn--outline-black hover-yellow mb-3");
+                            <?php                            
+                            echo btn_from_link($ctas["button_cta_right"], "std-btn-secondary mb-3");
                             ?>
                             
                         </div>

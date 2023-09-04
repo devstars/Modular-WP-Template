@@ -104,27 +104,39 @@
     }
 
     .usp__desc {
+      &.l-short {
+        max-width: 280px;
+      }
+
       @include fontSize(18px);
       padding-top: calcRem(30px);
       margin-bottom: calcRem(40px);
     }
 
-    .o-link--yellow {
+    .custom-link {
       font-weight: 500;
       text-transform: uppercase;
+
+      color: $yellow !important;
+
+      @extend .o-link;
     }
 
-    &:hover {
-      .o-link--yellow {
-        &:after {
-          border-bottom: 1px solid $yellow !important;
-        }
-      }
+    &:hover .custom-link:after {
+      border-bottom: 1px solid $yellow !important;
     }
   }
 }
 
 .section-white {
+  &.c-section--usp {
+    .usp__desc {
+      opacity: 0.8;
+    }
+  }
+}
+
+.background-white {
   &.c-section--usp {
     .usp__desc {
       opacity: 0.8;
@@ -156,7 +168,7 @@
 
     padding: 20px;
     @media screen and (min-width: $md) {
-      padding: 40px;
+      padding: 20px;
     }
 
     display: flex;
@@ -164,8 +176,8 @@
     justify-content: center;
 
     .l__icon {
-      height: 60px;
-      width: 150px;
+      height: 80px;
+      width: 170px;
       object-fit: contain;
       max-width: 100%;
     }
@@ -301,6 +313,8 @@
 .c-section--testimonials {
   @extend .c-section;
 
+  @extend .l-section-padding;
+
   .testimonials-wrapper {
     width: calc(100% - 100px);
     @media screen and (min-width: $md) {
@@ -339,9 +353,12 @@
 .c-section--post-feed {
   @extend .c-section;
 
+  @extend .l-section-padding;
+
   .pf__tile {
     width: 100%;
     text-decoration: none;
+    display: block;
 
     .tile-hover {
       display: inline-block;
@@ -363,6 +380,7 @@
 
   .pf__title {
     @include fontSize(24px);
+    line-height: 1.3em;
     font-weight: 500;
     margin-bottom: calcRem(20px);
   }
@@ -375,6 +393,12 @@
 
   .pf__more {
     padding-top: calcRem(20px);
+  }
+
+  .l-tiles {
+    .pf__tile {
+      margin-bottom: calcRem(50px);
+    }
   }
 }
 
@@ -406,6 +430,82 @@
   @extend .c-section;
   @extend .l-section-padding;
 
+  .details__right {
+    display: flex;
+    @media screen and (min-width: $lg) {
+      display: flex;
+    }
+
+    z-index: 100;
+
+    flex-direction: column;
+    @media screen and (min-width: $sm) {
+      flex-direction: row;
+    }
+
+    @media screen and (min-width: $lg) {
+      flex-direction: column;
+    }
+
+    @media screen and (min-width: $xl) {
+      flex-direction: row;
+    }
+
+    justify-content: space-between;
+
+    padding: calcRem(35px);
+
+    width: calc(100% + var(--modular-0-padding) * -1px - 15px);
+
+    bottom: calc(var(--modular-section-padding) * -1 + 20px);
+
+    @media screen and (min-width: $lg) {
+      bottom: calc(20px + var(--modular-section-lg-padding) * -1px);
+    }
+
+    @media screen and (min-width: $lg) {
+      right: 15px;
+      bottom: 0;
+    }
+
+    @media screen and (min-width: 1400px) {
+      right: 0;
+      width: 83%;
+    }
+
+    .company__data {
+      .label {
+        margin-bottom: calcRem(15px);
+      }
+
+      margin-bottom: 20px;
+      @media screen and (min-width: $sm) {
+        margin-bottom: 0px;
+      }
+      @media screen and (min-width: $lg) {
+        margin-bottom: 20px;
+      }
+      @media screen and (min-width: $xl) {
+        margin-bottom: 0px;
+      }
+    }
+
+    &.l-vertical {
+      @media screen and (min-width:$lg){
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      width: 100%;
+      padding-top: 0;
+      .company__data {
+        max-width: 300px;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
   .contact__half {
     .c-form {
       @media screen and (min-width: $lg) {
@@ -413,76 +513,26 @@
       }
     }
 
-    .details__mobile{
+    .details__on_map {
+      position: absolute;
+    }
+  }
 
+  .details__full {
+    .company__data {
+      text-align: center;
+
+      .label {
+        display: inline-block;
+        margin-bottom: 10px;
+      }
     }
 
-    .details__right{      
-      position: absolute;
-
-      display: flex;
-      @media screen and (min-width:$lg){
-        display: flex;
+    .col-12 {
+      margin-bottom: 30px;
+      &:last-child {
+        margin-bottom: 0;
       }
-      
-      z-index: 100;
-      background-color: $white;
-      
-      flex-direction: column;
-      @media screen and (min-width:$sm){
-        flex-direction: row;
-      }
-
-      @media screen and (min-width:$lg){
-        flex-direction: column;
-      }
-
-      @media screen and (min-width:$xl){
-        flex-direction: row;
-      }
-
-      justify-content: space-between;
-
-      padding: calcRem(35px);
-
-      width: calc(100% + var(--modular-0-padding) * -1px - 15px);
-      
-      bottom:calc(var(--modular-section-padding) * -1 + 20px);
-
-      @media screen and (min-width:$lg){
-        bottom:calc(20px + var(--modular-section-lg-padding) * -1px);
-      }
-
-      @media screen and (min-width:$lg){
-        right: 15px;
-        bottom: 0;
-      }
-      
-      @media screen and (min-width:1400px){
-        right: 0;
-        width: 83%;
-      }
-
-      .company__data{
-
-        .label{
-          margin-bottom: calcRem(15px);
-        }
-
-        margin-bottom: 20px;
-        @media screen and (min-width:$sm){
-          margin-bottom: 0px;
-        }
-        @media screen and (min-width:$lg){
-          margin-bottom: 20px;
-        }
-        @media screen and (min-width:$xl){
-          margin-bottom: 0px;
-        }
-        
-      }
-      
-   
     }
   }
 
@@ -492,7 +542,7 @@
       height: 400px;
     }
     @media screen and (min-width: $lg) {
-      left:-15px;
+      left: -15px;
       height: 100%;
     }
 
@@ -520,7 +570,7 @@
     }
   }
 
-  table{
+  table {
     border-collapse: collapse;
     tr:last-child td {
       padding-bottom: 0; /* Ustawienie padding-bottom na 0 dla ostatniego wiersza */
@@ -531,13 +581,13 @@
     td {
       padding-bottom: calcRem(25px);
       vertical-align: top;
-      text-align: left;   
+      text-align: left;
     }
-   
+
     .label {
       @include fontSize(18px);
       font-weight: 700;
-      width: 150px;                 
+      width: 150px;
     }
 
     .data {
@@ -548,7 +598,8 @@
   }
 }
 
-.section-black {
+.section-black,
+.section-dark {
   .company__data {
     .label {
       color: $yellow;
@@ -559,12 +610,22 @@
     }
   }
 
-  .details__right{
+  /*   .details__full {
     .data {
-      color: $black;
+      color: $white;
+    }
+  } */
+}
+
+.details__on_map {
+  background-color: $white;
+  .company__data {
+    .data {
+      color: $black !important;
     }
   }
 }
+
 .contact__map {
   height: calcRem(660px);
   width: 100vw;

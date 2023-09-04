@@ -3,7 +3,7 @@ Class Pagination{
     public static function view()
     {
         if (is_singular())
-            return;
+        return;          
     
         global $wp_query;
     
@@ -29,50 +29,53 @@ Class Pagination{
             $links[] = $paged + 1;
         }
     
-        echo '<div class="c-pagination-numb mx-auto section-gray" aria-label="Page navigation"><ul>' . "\n";
+        echo '<div class="c-pagination-numb mx-auto sectio-white" aria-label="Page navigation">' . "\n";
     
         /** Previous Post Link */
         if (get_previous_posts_link()) {
-            $prev_link = get_previous_posts_link('<i class="fas fa-angle-left"></i>');
-            $prev_link = str_replace('<a href=', '<a href=', $prev_link);
-            printf('<li>%s</li>' . "\n", $prev_link);
+            
+            $prev_img = file_get_contents(THEME."/assets/img/icons/chevron-left.svg");
+            $prev_link = get_previous_posts_link(   "<span>Previous</span>" );  
+            $prev_link = str_replace('<a  href=', '<a href=', $prev_link );
+            printf('<div class="prev pn">%s</div>' . "\n", $prev_link );
         }
     
     
         /** Link to first page, plus ellipses if necessary */
         if (!in_array(1, $links)) {
-            $class = 1 == $paged ? ' class="active"' : ' class=""';
+            $class = 1 == $paged ? "active" : "";
     
-            printf('<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link(1)), '1');
+            printf('<div class="pn %s" ><a href="%s">%s</a></div>' . "\n", $class, esc_url(get_pagenum_link(1)), '1');
     
             if (!in_array(2, $links))
-                echo '<li>…</li>';
+                echo '<div class="pn">…</div>';
         }
     
         /** Link to current page, plus 2 pages in either direction if necessary */
         sort($links);
         foreach ((array)$links as $link) {
-            $class = $paged == $link ? ' class="active"' : ' class=""';
-            printf('<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link($link)), $link);
+            $class = $paged == $link ? "active" : "";
+            printf('<div class="pn %s" ><a href="%s">%s</a></div>' . "\n", $class, esc_url(get_pagenum_link($link)), $link);
         }
     
         /** Link to last page, plus ellipses if necessary */
         if (!in_array($max, $links)) {
             if (!in_array($max - 1, $links))
-                echo '<li>…</li>' . "\n";
+                echo '<div class="pn">…</div>' . "\n";
     
-            $class = $paged == $max ? ' class="active"' : ' class=""';
-            printf('<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link($max)), $max);
+            $class = $paged == $max ? 'active' : '';
+            printf('<div class="pn %s" ><a href="%s">%s</a></div>' . "\n", $class, esc_url(get_pagenum_link($max)), $max);
         }
     
         /** Next Post Link */
         if (get_next_posts_link()) {
-            $next_link = get_next_posts_link('<i class="fas fa-angle-right"></i>');
-            $next_link = str_replace('<a href=', '<a href=', $next_link);
-            printf('<li>%s</li>' . "\n", $next_link);
+            $next_img = file_get_contents(THEME."/assets/img/icons/chevron-right.svg");
+            $next_link = get_next_posts_link('<span>Next</span>' );
+            $next_link = str_replace('<a  href=', '<a href=', $next_link  );
+            printf('<div class="next pn">%s</div>' . "\n", $next_link );
     
         }
     
-        echo '</ul></div>' . "\n";
+        echo '</div>';
     }
 }

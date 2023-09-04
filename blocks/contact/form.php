@@ -81,7 +81,7 @@
         </div>
 
 
-        <button class="form__btn btn btn--yellow hover-transparent" type="submit">Send </button>
+        <button class="form__btn std-btn-quaternary" type="submit">Send </button>
 
     </div>
 

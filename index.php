@@ -1,54 +1,37 @@
 <?php get_header(); ?>
 
-<?php
-include(locate_template('template-parts/banner.php'));
-?>
+<div class="l-section-top"></div>
 
-<div class="c-section section-white l-section-top">
+<div class="c-section--post-feed pt-5 pt-lg-16 pb-16 pb-lg-17 section-white ">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 col-md-9">
-                <h3 class="section__title u-text-left mb-8">Cards</h3>
-                <div class="row">
-                    <?php 
-               /*      $paged = get_query_var("paged");                    
+        
+                <h1 class="section__title u-text-left pb-5 pt-6">Blog</h1>
+                <div class="row l-tiles">                    
+                        <?php
+                        $index = 0;
+                        while (have_posts()) : the_post();
+                        ?>
 
-                    $args = array(
-                        'post_type'      => 'post',
-                        'posts_per_page' => 6,
-                        'orderby' => 'post_date',
-                        'order' => 'desc',
-                        'paged'=>$paged,  
-                        'post_status' => array('publish')                      
-                    );
-             
-                    $wp_query = new WP_Query($args);     */
-                    while (have_posts()) : the_post(); 
-                    ?>
+                            <div class="col-6 col-lg-3 ">
+                                <?php
+                                $group = floor( $index / 2 );
+                                $group_lg = floor( $index / 4 );
+                                get_template_part('template-parts/post-tile', null, array("group" => $group, "group_lg" => $group_lg));
+                                $index++;
+                                ?>
+                            </div>
 
-                        <div class="col-12 col-sm-6">
-                            <a href="<?php the_permalink($post->ID); ?>" class="c-card u-parent-link mb-8">
-                                <div class="card__img" data-bg="<?= get_post_img($post->ID, "post_card"); ?>"></div>
-                                <h3 class="card__title"><?= $post->post_title; ?></h3>
-                                <p class="card__excerpt"><?= $post->post_excerpt; ?></p>
-                                <div class="card__link child-link">Read more</div>
-                            </a>
-                        </div>
-
-                    <?php endwhile;  ?>
+                        <?php endwhile;  ?>
+                    
                 </div>
-                <div class="row">
+                <div class="row ">
                     <div class="col-12">
                         <?php Pagination::view();
-                        wp_reset_postdata();
+                        //wp_reset_postdata();
                         ?>
                     </div>
                 </div>
-            </div>
-            <div class="col-12 col-md-3">
-                <?php get_sidebar(); ?>
-            </div>
-        </div>
+       
 
     </div>
 </div>

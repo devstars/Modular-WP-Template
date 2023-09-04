@@ -10,8 +10,9 @@ $content = get_field("content");
 $fields = get_field("additional_fields");
 $settings = get_field("settings");
 
-//mapa form details
-//mapa
+$data = block_start("contact", $block, $settings , "section-black");
+$id = $data["id"];
+$color_schema = $data["color_schema"];
 
 $cols = 0;
 if($settings["map"]) $cols++;

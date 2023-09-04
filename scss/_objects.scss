@@ -90,10 +90,9 @@
   @extend .o-link;
 
   &:hover:after{
-      border-bottom: 1px solid $yellow ;
+      border-bottom: 1px solid $yellow !important;
   }
 }
-
 
 .o-nav-btn {
   @include tran-all;

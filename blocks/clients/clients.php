@@ -7,9 +7,14 @@
 <?php
 $content = get_field("content");
 $tiles = get_field("logotypes");
+$settings = get_field("settings");
+
+$data = block_start("clients", $block, $settings , "section-white");
+$id = $data["id"];
+$color_schema = $data["color_schema"];
 ?>
 
-<div class="c-section--logotypes section-white">
+<div class="c-section--logotypes <?= $color_schema; ?>" id="<?= esc_attr($id); ?>">
     <div class="container-fluid">
         <h2 class="section__title u-text-center"><?= $content["headline_text"]; ?></h2>
         <p class="section__subtitle u-text-center"><?= $content["body_text"] ?></p>

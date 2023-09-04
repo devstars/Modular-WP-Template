@@ -207,6 +207,51 @@
               }
               const stickyHeader = new StickyHeader();
 
+              class ScrollDown {
+                     constructor() {
+                            try {
+                                   let scrollLinks = document.querySelectorAll("a[href*=\\#]");
+                                   scrollLinks.forEach((item, index) => {
+
+                                          item.addEventListener("click", (e) => {
+                                                 e.preventDefault();
+                                                 e.stopPropagation();
+
+                                                 this.scroll(item, e);
+                                          });
+
+                                   });                               
+
+                            } catch (err) {
+                                   //console.log(err.message);
+                            }
+                     }
+
+                     scroll(item, e) {
+
+                            let anchor = item.getAttribute("href");
+
+                            let top = document.querySelector(anchor).offsetTop;
+
+                            let offset = document.querySelector(anchor).getAttribute("data-offset");
+
+                            if (!offset) {
+                                   top = top - 0;
+                            } else {
+                                   top = top - offset;
+                            }
+
+                            jQuery('html, body').animate({
+                                   scrollTop: top
+                            }, 800);
+
+
+                     }
+
+              }
+
+              const sd = new ScrollDown();
+
        });
 
 
@@ -221,9 +266,14 @@
 
               var groupHeights = {};
 
+              let attr = "data-align";
+              if($(window).width() >= 992){
+                     attr = "data-align-lg";
+              }
+
               for (var i = 0; i < elements.length; i++) {
                      var element = elements[i];
-                     var group = element.getAttribute('data-align');
+                     var group = element.getAttribute(attr);
                      var elementHeight = element.offsetHeight;
 
                      if (elementHeight > maxHeight) {
@@ -237,7 +287,7 @@
 
               for (var i = 0; i < elements.length; i++) {
                      var element = elements[i];
-                     var group = element.getAttribute('data-align');
+                     var group = element.getAttribute(attr);
                      element.style.height = groupHeights[group] + 'px';
               }
        }

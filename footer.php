@@ -38,7 +38,7 @@ $f_data = Configuration::$fields["footer"];
                         ?>
                             <a href="<?= $social["url"] ?>" class="c-media icon-link">
                             
-                            <?= file_get_contents(IMAGES . '/icons/' . $social["name"] . '.svg'); ?>                             
+                            <?=  file_get_contents(IMAGES . '/icons/' . strtolower($social["name"]) . '.svg'); ?>                             
                                                                 
                                 <p class="media-body">
                                     <?= $social["name"]; ?>

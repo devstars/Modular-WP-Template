@@ -3,6 +3,10 @@
 }
 
 .c-banner {
+    .row{
+        width: 100%;
+    }
+
     min-height: 890px;
 
     display: flex;
@@ -71,7 +75,7 @@
         }
 
         .btn {
-            @include m-shadow-sm;
+            //@include m-shadow-sm;
 
             min-width: 206px;
             @media screen and (max-width: $md) {
@@ -87,7 +91,13 @@
                 padding: 10px 20px !important;                
                 min-width: 160px;
             } */
+
+            margin-bottom: 15px;
+        
+
         }
+
+       
 
         .btn-right {
             @media screen and (min-width: 344px) {
@@ -123,7 +133,7 @@
     }
 
     margin-bottom: 0px;
-    margin-top: 120px;
+    //margin-top: 120px;
 
     //min-height:auto;
 

@@ -1,4 +1,4 @@
-<div class="c-section--contact section-black ">
+<div class="c-section--contact <?= $color_schema; ?> " id="<?php echo esc_attr($id); ?>">
     <div class="container-fluid contact__half">
         <div class="row l-cols">
             <div class="col-12 col-lg-6">
@@ -43,9 +43,6 @@
 
             </div>
 
-
-
-
             <div class="col-12 col-lg-6 u-relative">
                 <?php
                 if ($settings["map"]) :
@@ -56,9 +53,9 @@
                 <?php
                 endif;
 
-                if ($settings["details"]) :
+                if ($settings["details"] && $settings["map"] && $settings["form"]) :
                 ?>
-                    <div class="details__right details-right-js ">
+                    <div class="details__right details__on_map details-right-js ">
                         <div class="company__data">
                             <div class="label">Address:</div>
                             <div class="data"><?= Configuration::$contact["basic"]["address"]; ?></div>
@@ -74,6 +71,26 @@
                     </div>
 
                 <?php
+                endif;
+
+                if ($settings["details"]  && !$settings["map"] && $settings["form"]) :
+                ?>
+                    <div class="details__right l-vertical  ">
+                        <div class="company__data">
+                            <div class="label">Address:</div>
+                            <div class="data"><?= Configuration::$contact["basic"]["address"]; ?></div>
+                        </div>
+                        <div class="company__data">
+                            <div class="label">Phone(s):</div>
+                            <div class="data"><?= Configuration::$contact["basic"]["phone"]; ?></div>
+                        </div>
+                        <div class="company__data">
+                            <div class="label">Email(s):</div>
+                            <div class="data"><?= Configuration::$contact["basic"]["email"]; ?></div>
+                        </div>
+                    </div>
+                <?php
+
                 endif;
                 ?>
 

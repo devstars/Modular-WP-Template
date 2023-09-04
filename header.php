@@ -28,8 +28,9 @@
     global $post;
     $post_blocks = parse_blocks($post->post_content);    
 
-    if($post_blocks[0]["blockName"] === "acf/text-media"){        
-        $transparent_header = $post_blocks[0]["attrs"]["data"]["layout_width"] === "full" ? "section-transparent" : "";
+    if($post_blocks[0]["blockName"] === "acf/text-media"){                
+        $nav_class = $post_blocks[0]["attrs"]["data"]["layout_width"] === "full" ? "section-transparent" : "";
+        $wrapper_class .= $post_blocks[0]["attrs"]["data"]["layout_width"] === "half" ? " l-margin-top" : "";
     }
     
     $h_fields = Configuration::$fields["header"];
@@ -42,7 +43,7 @@
     $btn_cta = store_content_of_function('btn_from_link', [Configuration::$fields["header"]["nav"]["cta"], "btn btn-header"]);
     ?>
 
-    <div class="c-nav-top nav-top-js section-<?= $scheme_colors; ?> <?= $transparent_header ?> ">
+    <div class="c-nav-top nav-top-js section-<?= $scheme_colors; ?> <?= $nav_class ?> ">
 
         <div class="container-fluid pl-3 pr-3">
 
@@ -94,4 +95,4 @@
         </div>
     </div>
 
-    <div class=" section-<?= $scheme_colors; ?>"></div>
+    <div class="<?= $wrapper_class ?>"></div>

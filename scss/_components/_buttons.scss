@@ -1,5 +1,6 @@
 @mixin btn {
   @include fontSize(16px);
+  letter-spacing: 1px;
   font-weight: 500;
   line-height: 1em;
 
@@ -30,6 +31,34 @@
   @include btn--round;
 }
 
+
+
+.btn--outline-white {
+  @include tran-all;
+
+  background-color: transparent;
+  border: 1px solid $white;
+  color: $white;
+}
+
+
+.btn--outline-black {
+  @include tran-all;
+
+  background-color: transparent;
+  border: 1px solid $black;
+  color: $black;
+}
+
+
+.btn--outline-yellow {
+  @include tran-all;
+
+  background-color: transparent;
+  border: 1px solid $yellow;
+  color: $white;
+}
+
 .btn--black {
   @include tran-all;
 
@@ -48,31 +77,14 @@
   border: 1px solid $yellow; 
 }
 
-.btn--outline-black {
+.btn--white{
   @include tran-all;
 
-  background-color: transparent;
-  border: 1px solid $black;
-  color: $black;
-}
+  background-color: $white;
+  color: $black !important;
 
-.section-white {
-  .btn--outline-black {
-    &:hover {
-      color: $white !important;
-      background-color: $black;
-      border: 1px solid $black;
-    }
-  }
-}
-
-.btn--outline-yellow {
-  @include tran-all;
-
-  background-color: transparent;
-  border: 1px solid $yellow;
-  color: $white;
-}
+  border: 1px solid $white; 
+} 
 
 .hover-white {
   &:hover {
@@ -84,9 +96,17 @@
 
 .hover-yellow {
   &:hover {
-    color: $white;
-    background-color: $yellow;
-    border: 1px solid $yellow;
+    color: $white !important;
+    background-color: $yellow !important;
+    border: 1px solid $yellow  !important;
+  }
+}
+
+.hover-black {
+  &:hover {
+    color: $white !important;
+    background-color: $black;
+    border: 1px solid $black;
   }
 }
 
@@ -96,3 +116,12 @@
     background-color: transparent !important;    
   }
 }
+
+.hover-outline-yellow{
+  &:hover {
+    color: $yellow !important;
+    background-color: transparent !important;
+    border: 1px solid $yellow  !important;
+  }
+}
+
