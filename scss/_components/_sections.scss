@@ -491,11 +491,11 @@
     }
 
     &.l-vertical {
-      @media screen and (min-width:$lg){
+      @media screen and (min-width: $lg) {
         flex-direction: column;
         align-items: center;
       }
-      
+
       width: 100%;
       padding-top: 0;
       .company__data {
@@ -629,4 +629,79 @@
 .contact__map {
   height: calcRem(660px);
   width: 100vw;
+}
+
+.c-section--media {
+  @extend .c-section;
+
+  .gallery {
+    display: grid;
+    grid-auto-rows: auto;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+    @media screen and (min-width: $sm) {
+      gap: 30px;
+    }
+    @media screen and (min-width: $md) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+
+    .gallery__image {
+      max-height: 200px;
+      @media screen and (min-width: 500px) {
+        max-height: 300px;
+      }
+      @media screen and (min-width: $md) {
+        max-height: 450px;
+      }
+
+      max-width: 100%;
+    }
+
+    .gallery__item {
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      width: 100%;
+    }
+  }
+
+  .carousel-wrapper {
+    @extend .container-fluid;
+
+    .carousel__image {
+      width: 100%;
+      height: 700px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  .media-carousel-nav {
+
+    @extend .container-fluid;
+
+    max-width: 1800px !important;
+    width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+  }
+
+
 }

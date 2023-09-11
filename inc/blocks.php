@@ -189,6 +189,23 @@ function my_acf_init()
             )
         ));
     }
+
+    if (function_exists('acf_register_block')) {
+        acf_register_block(array(
+            'name' => 'media',
+            'title' => 'Media',
+            'description' => __('Media'),
+            'mode' => 'edit',
+            'render_callback' => 'pt_block_render_callback',
+            'category' => 'modules',
+            'keywords' => array('Media'),
+            'align'        => 'wide',
+            'supports'    => array(
+                'align'        => array('wide'),
+                'anchor' => true                
+            )
+        ));
+    }
 }
 
 function pt_block_render_callback($block)
