@@ -65,7 +65,7 @@
       }
 
       .mt-#{$name}-#{$i} {
-        padding-top: #{$i * 5}px !important;
+        margin-top: #{$i * 5}px !important;
       }
       .mb-#{$name}-#{$i} {
         margin-bottom: #{$i * 5}px !important;

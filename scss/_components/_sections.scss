@@ -1,10 +1,4 @@
 .c-section {
-  margin-top: 60px;
-  margin-bottom: 60px;
-  @media screen and (min-width: $lg) {
-    margin-top: 120px;
-    margin-bottom: 120px;
-  }
 
   .section__title {
     position: relative;
@@ -45,9 +39,6 @@
 }
 
 .l-section-padding {
-  margin-top: 0;
-  margin-bottom: 0;
-
   padding-top: var(--modular-section-padding);
   padding-bottom: var(--modular-section-padding);
   @media screen and (min-width: $lg) {
@@ -56,26 +47,7 @@
   }
 }
 
-.c-section--tiles {
-  @extend.c-section;
-  .tiles__wrapper {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
 
-    justify-content: center;
-
-    .c-tile {
-      width: 100%;
-      @media screen and (min-width: $sm) {
-        width: 50%;
-      }
-      @media screen and (min-width: $lg) {
-        width: 25%;
-      }
-    }
-  }
-}
 
 .c-section--usp {
   @extend.c-section;
@@ -328,19 +300,25 @@
   .t__quote {
     @include fontSize(30px);
     line-height: 1.5em;
-    margin-bottom: calcRem(60px);
+    
   }
 
-  .t__name {
-    @include fontSize(22px);
-    font-weight: 700;
-    padding-right: calcRem(26px);
+  .u-nav{
+    margin-top: calcRem(60px);
+
+    .t__name {
+      @include fontSize(22px);
+      font-weight: 700;
+      padding-right: calcRem(26px);
+    }
+  
+    .t__company {
+      @include fontSize(22px);
+      font-weight: 400;
+    }
+
   }
 
-  .t__company {
-    @include fontSize(22px);
-    font-weight: 400;
-  }
 
   .t__nav {
     position: absolute;
@@ -631,8 +609,9 @@
   width: 100vw;
 }
 
-.c-section--media {
+.c-section--gallery {
   @extend .c-section;
+  @extend .l-section-padding;
 
   .gallery {
     display: grid;
@@ -644,10 +623,25 @@
     @media screen and (min-width: $sm) {
       gap: 30px;
     }
-    @media screen and (min-width: $md) {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
-    }
+
+    &.cols-3{
+      @media screen and (min-width: $md) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+      }
+    }        
+
+    &.cols-4{
+      @media screen and (min-width: $md) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+      }
+      @media screen and (min-width: $lg) {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+      }
+    }    
+    
 
     justify-content: center;
     align-items: center;
@@ -663,6 +657,8 @@
       }
 
       max-width: 100%;
+      width: 100%;
+      object-fit: contain;
     }
 
     .gallery__item {
@@ -687,7 +683,6 @@
   }
 
   .media-carousel-nav {
-
     @extend .container-fluid;
 
     max-width: 1800px !important;
@@ -697,11 +692,37 @@
     margin-right: auto;
 
     position: absolute;
-    left:50%;
-    top:50%;
+    left: 50%;
+    top: 50%;
     transform: translate(-50%, -50%);
     z-index: 100;
   }
 
+  .o-nav-btn {
+    border: 1px solid rgba(#111111, 0.35);
 
+    background-color: $black;
+
+    svg {
+      color: $white;
+    }
+
+    &:hover {
+      border: 1px solid rgba(#111111, .7);
+      opacity: 1;
+      background-color: transparent;
+      svg {
+        color: $black;
+      }
+    }
+  }
+}
+
+.c-section--spacer{  
+  //margin-top: -1.25rem;
+
+  padding-bottom: calc(var(--modular-section-padding) / 1);
+  @media screen and (min-width: $lg) {
+    padding-bottom: calc(var(--modular-section-lg-padding) / 1);
+  }
 }

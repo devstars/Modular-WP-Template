@@ -1,7 +1,5 @@
 <?php get_header(); ?>
 
-<div class="l-section-top"></div>
-
 <div class="c-section--post-feed pt-5 pt-lg-16 pb-16 pb-lg-17 section-white ">
     <div class="container-fluid">
         

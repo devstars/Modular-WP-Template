@@ -1,6 +1,11 @@
 .page-text {
     overflow: hidden;
 
+
+    *:last-child{
+        margin-bottom: 0 !important;
+    }
+
     h1 {
         @include fontSize(45px);
     }

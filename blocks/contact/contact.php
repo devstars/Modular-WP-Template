@@ -24,6 +24,10 @@ if($cols > 1 ){
 }else{
     include("layout-1col.php");
 }
+
+$lat = Configuration::$contact["basic"]["map"]["lat"] ? Configuration::$contact["basic"]["map"]["lat"] : 51.518600;
+$lng = Configuration::$contact["basic"]["map"]["lng"] ? Configuration::$contact["basic"]["map"]["lng"] : -0.142290;
+
 ?>
 
 <?php
@@ -32,8 +36,8 @@ $file_js = $block_name . ".js";
 
 wp_enqueue_script('contact-js', BLOCKS_URI . "/" . $block_name . "/" . "contact.js", array('jquery'), filemtime(BLOCKS . "/" . $block_name . "/" . "contact.js"), false);
 wp_localize_script('contact-js', 'latLng', array(
-    'lat' => 51.518600,
-    'lng' => -0.142290,
+    'lat' => $lat,
+    'lng' => $lng,
 ));
 
 if($settings["map"]) :

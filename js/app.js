@@ -125,7 +125,6 @@
 
                      let distance = 0.3;
 
-
                      if ($(window).width() > 1200) {
                             distance = 0.4;
                      } else if ($(window).width() > 992) {

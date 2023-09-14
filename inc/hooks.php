@@ -49,4 +49,21 @@ function updated_disable_comments_post_types_support() {
 
 add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
 
+function add_post_types_to_select($field) {
+
+    $custom_post_types = get_post_types(array('_builtin' => false));
+    
+    foreach ($custom_post_types as $key => $post_type) {      
+        
+        if (!strstr($post_type, "acf")) {
+            $field['choices']['option_'.$key] = $post_type;
+        }
+        
+    }        
+
+    return $field;
+}
+
+add_filter('acf/load_field/name=post_type', 'add_post_types_to_select');
+
 ?>

@@ -66,7 +66,7 @@ function my_acf_init()
             'align'        => 'wide',
             'supports'    => array(
                 'align'        => array('wide'),
-                'anchor' => true                
+                'anchor' => true
             )
         ));
     }
@@ -83,7 +83,7 @@ function my_acf_init()
             'align'        => 'wide',
             'supports'    => array(
                 'align'        => array('wide'),
-                'anchor' => true                
+                'anchor' => true
             )
         ));
     }
@@ -100,7 +100,7 @@ function my_acf_init()
             'align'        => 'wide',
             'supports'    => array(
                 'align'        => array('wide'),
-                'anchor' => true                
+                'anchor' => true
             )
         ));
     }
@@ -117,7 +117,7 @@ function my_acf_init()
             'align'        => 'wide',
             'supports'    => array(
                 'align'        => array('wide'),
-                'anchor' => true                
+                'anchor' => true
             )
         ));
     }
@@ -134,7 +134,7 @@ function my_acf_init()
             'align'        => 'wide',
             'supports'    => array(
                 'align'        => array('wide'),
-                'anchor' => true                
+                'anchor' => true
             )
         ));
     }
@@ -151,7 +151,7 @@ function my_acf_init()
             'align'        => 'wide',
             'supports'    => array(
                 'align'        => array('wide'),
-                'anchor' => true                
+                'anchor' => true
             )
         ));
     }
@@ -168,7 +168,7 @@ function my_acf_init()
             'align'        => 'wide',
             'supports'    => array(
                 'align'        => array('wide'),
-                'anchor' => true                
+                'anchor' => true
             )
         ));
     }
@@ -185,24 +185,41 @@ function my_acf_init()
             'align'        => 'wide',
             'supports'    => array(
                 'align'        => array('wide'),
-                'anchor' => true                
+                'anchor' => true
             )
         ));
     }
 
     if (function_exists('acf_register_block')) {
         acf_register_block(array(
-            'name' => 'media',
-            'title' => 'Media',
-            'description' => __('Media'),
+            'name' => 'gallery',
+            'title' => 'Gallery',
+            'description' => __('Gallery'),
             'mode' => 'edit',
             'render_callback' => 'pt_block_render_callback',
             'category' => 'modules',
-            'keywords' => array('Media'),
+            'keywords' => array('Gallery'),
             'align'        => 'wide',
             'supports'    => array(
                 'align'        => array('wide'),
-                'anchor' => true                
+                'anchor' => true
+            )
+        ));
+    }
+
+    if (function_exists('acf_register_block')) {
+        acf_register_block(array(
+            'name' => 'spacer',
+            'title' => 'Spacer',
+            'description' => __('Spacer'),
+            'mode' => 'edit',
+            'render_callback' => 'pt_block_render_callback',
+            'category' => 'modules',
+            'keywords' => array('Spacer'),
+            'align'        => 'wide',
+            'supports'    => array(
+                'align'        => array('wide'),
+                'anchor' => true
             )
         ));
     }
@@ -223,21 +240,20 @@ function add_container_to_block($block_content, $block)
     global $post;
     global $template;
 
-    if ($post instanceof WP_Post) {        
+    if ($post instanceof WP_Post) {
         $post_type = $post->post_type;
 
-        if ($post_type === 'page') {
+        if ($post_type === 'page' || $post_type === 'post') {
 
-            $page_template = get_template_directory() . '/page.php';
+            /*       $page_template = get_template_directory() . '/page.php';
 
-            if ($template === $page_template) {
+            if ($template === $page_template ||  1==1) {} */
 
-                $blocks_without_section = array();
+            $blocks_without_section = array();
 
-                if (strpos($block["blockName"], "acf") !== false && !in_array($block["blockName"], $blocks_without_section)) {
-                    $block_content = '</div></div></div>' . $block_content .
-                        '<div class="container-fluid page-text section-white"><div class="row"><div class="col-12 col-xl-10 mx-auto">';
-                }
+            if (strpos($block["blockName"], "acf") !== false && !in_array($block["blockName"], $blocks_without_section)) {
+                $block_content = '</div></div></div>' . $block_content .
+                    '<div class="container-fluid page-text section-white"><div class="row"><div class="col-12 col-xl-10 mx-auto">';
             }
         }
     }

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Block Testimonials
  */
@@ -23,10 +22,16 @@ $color_schema = $data["color_schema"];
             ?>
                 <div class="t__content">
                     <p class="t__quote"><?= $testimonial["quote"]; ?></p>
+                    <?php 
+                    if($testimonial["name"] && $testimonial["company"]):
+                    ?>
                     <div class="u-nav">
                         <p class="t__name"> <?= $testimonial["name"]; ?></p>
                         <p class="t__company"> <?= $testimonial["company"]; ?></p>
                     </div>
+                    <?php 
+                    endif;
+                    ?>
                 </div>
             <?php
             endforeach;
@@ -41,8 +46,6 @@ $color_schema = $data["color_schema"];
     </div>
 
 </div>
-
-
 
 <?php
 wp_enqueue_script('testimonials-js', get_template_directory_uri() . '/blocks/testimonials/testimonials.js', array('jquery'), filemtime(get_template_directory() . '/blocks/testimonials/testimonials.js'), false);

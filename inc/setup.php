@@ -66,6 +66,7 @@ function theme_setup()
         'menu-footer' => "Menu footer"
     ));        
     
+    add_image_size('favicon', 32, 32);
     add_image_size('custom_medium', 700, 700);
     add_image_size('extra_large', 1500, 1500);
 

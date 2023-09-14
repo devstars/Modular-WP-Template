@@ -13,6 +13,9 @@ if (!empty($block['anchor'])) {
 }
 
 $settings = get_field("settings");
+
+$post_type = strtolower(trim($settings["post_type"]));
+
 $categories = get_field("filters");
 $content = get_field("content");
 
@@ -21,7 +24,7 @@ $id = $data["id"];
 $color_schema = $data["color_schema"];
 
 $args = array(
-    'post_type'      => "post",
+    'post_type'      => $post_type,
     'category__in' => $categories,
     'posts_per_page' => $settings["show"],
     'orderby' => 'post_date',
@@ -50,11 +53,13 @@ $args = array(
         endif;
         ?>
 
-        <div class="row mb-10 mb-lg-14">
+        <div class="row ">
             <div class="pf__wrapper post-feed-js owl-carousel owl-theme" carousel-id="<?= $block['id'] ?>">
 
+            
                 <?php
                 $loop = new WP_Query($args);
+                                             
                 $index = 0;
                 while ($loop->have_posts()) : $loop->the_post();
                 ?>
@@ -76,11 +81,15 @@ $args = array(
 
         </div>
 
-        <div class="u-nav ">
+        <?php 
+        if($index > 3 ):
+        ?>
+        <div class="u-nav mt-10 mt-lg-14">
+
             <div class="u-nav l-btns-next-to nav-js" carousel-id="<?= $block['id'] ?>">
                 <div class="prev-js o-nav-btn  ml-0"> <?= file_get_contents(IMAGES . '/icons/arrow-left.svg'); ?> </div>
                 <div class="next-js o-nav-btn  mr-auto"> <?= file_get_contents(IMAGES . '/icons/arrow-right.svg'); ?> </div>
-            </div>
+            </div>            
 
             <?php
             if (!empty($settings["view_all"])) :
@@ -91,6 +100,10 @@ $args = array(
             ?>
 
         </div>
+
+        <?php 
+        endif;
+        ?>
 
 
     </div>

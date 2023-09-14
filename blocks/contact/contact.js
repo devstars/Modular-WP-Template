@@ -97,9 +97,6 @@
 
         }
 
-
-
-
         addMarker() {
 
             var marker = new google.maps.Marker({
@@ -116,12 +113,7 @@
             marker.setMap(this.map);
 
             this.markers.push(marker);
-
-
-
-
         }
-
 
         removeMarkers() {
             for (let i = 0; i < this.markers.length; i++) {
@@ -129,9 +121,7 @@
             }
         }
 
-
         init() {
-
             this.map = new google.maps.Map(this.view, {
                 zoom: this.zoom,
                 zoomControl: true,

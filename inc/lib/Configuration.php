@@ -12,6 +12,8 @@ class Configuration{
     public static $contact;
 
     public static $google_map_api_key;
+
+    public static $favicon;
             
     public static function get()
     {
@@ -34,7 +36,10 @@ class Configuration{
 
         self::$server = trim(self::$fields["server"]);   
         self::$contact = self::$fields["contact_form"];
-        self::$google_map_api_key = trim($company_details["google_map_api_key"]);        
+        self::$google_map_api_key = trim($company_details["google_map_api_key"]);     
+        
+        
+        self::$favicon = self::$fields["favicon"]["sizes"]["favicon"];
 
     }
 

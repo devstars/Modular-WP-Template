@@ -9,17 +9,34 @@
         wp_title();
         ?>
     </title>
+    <!-- <link rel="shortcut icon" href="<?= get_template_directory_uri() ?>/images/favicon/favicon.ico"> -->
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= Configuration::$favicon; ?>">
+    <!-- <link rel="apple-touch-icon-precomposed" href="<?= get_template_directory_uri() ?>/images/favicon/mstile-150x150.png"> -->
     <script>
         const ajaxUrl = "<?php echo admin_url('admin-ajax.php'); ?>";
         const themeUri = '<?= THEME_URI ?>';
     </script>
-
 
     <?php get_template_part('template-parts/load-carousel');  ?>
 
     <?php wp_head(); ?>
         
     <?= Configuration::get_root_styles(); ?>
+
+    <script>
+        function lazyLoadCss(href) {
+            var css = document.createElement('link');
+
+            css.type = 'text/css';
+            css.rel = 'stylesheet';
+            css.href = href;
+
+            var s = document.getElementsByTagName('link')[0];
+
+            s.parentNode.insertBefore(css, s);
+        }
+    </script>
+    
 </head>
 
 <body <?php body_class(); ?>>
@@ -31,6 +48,8 @@
     if($post_blocks[0]["blockName"] === "acf/text-media"){                
         $nav_class = $post_blocks[0]["attrs"]["data"]["layout_width"] === "full" ? "section-transparent" : "";
         $wrapper_class .= $post_blocks[0]["attrs"]["data"]["layout_width"] === "half" ? " l-margin-top" : "";
+    }else{
+        $wrapper_class .= "l-section-top";
     }
     
     $h_fields = Configuration::$fields["header"];

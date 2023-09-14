@@ -1,30 +1,33 @@
 <?php
 
 /**
- * Block Media
+ * Block Gallery
  */
 ?>
 
 <?php
-$media = get_field("media");
+$gallery = get_field("gallery");
 $settings = get_field("settings");
 $layout = strtolower($settings["layout"]);
-$mode = strtolower($settings["mode"]);
+if(!empty($settings["grid"])){
+    $cols_arr = array("2 columns" => "cols-2", "3 columns" => "cols-3" , "4 columns" => "cols-4");
+    $grid = $cols_arr[$settings["grid"]];
+}
+
+
 $content = get_field("content");
 
 
-$data = block_start("media", $block, $settings, "section-white");
+$data = block_start("gallery", $block, $settings, "section-white");
 $id = $data["id"];
 $color_schema = $data["color_schema"];
 ?>
 
-<div class="c-section--media u-relative  <?= $color_schema; ?> " id="<?php echo esc_attr($id); ?>">
+<div class="c-section--gallery u-relative <?= $color_schema; ?> " id="<?php echo esc_attr($id); ?>">
     <div class="container-fluid    ">
-        <?php
-        if ($settings["mode"] === "gallery") :
-        ?>
+        
 
-            <div class="gallery">
+            <div class="gallery <?= $grid; ?>">
                 <?php
 
                 foreach ($content as $image) :
@@ -44,12 +47,12 @@ $color_schema = $data["color_schema"];
             </div>
 
         <?php
-        endif;
+        
 
-        if (strtolower($mode) === "carousel") :
+/*         if (strtolower($mode) === "carousel") :
 
         ?>
-            <div class="carousel-wrapper media-carousel-js owl-carousel owl-theme">
+            <div class="carousel-wrapper gallery-carousel-js owl-carousel owl-theme">
                 <?php
                 foreach ($content as $image) :
                     $image = $image["image"];
@@ -61,7 +64,7 @@ $color_schema = $data["color_schema"];
 
             </div>
 
-            <div class="u-nav media-carousel-nav">
+            <div class="u-nav gallery-carousel-nav">
                 <div class="prev-js o-nav-btn mr-auto"> <?= file_get_contents(IMAGES . '/icons/arrow-left.svg'); ?> </div>
                 <div class="next-js o-nav-btn "> <?= file_get_contents(IMAGES . '/icons/arrow-right.svg'); ?> </div>
             </div>
@@ -70,20 +73,13 @@ $color_schema = $data["color_schema"];
 
 
         <?php
-        endif;
+        endif; */
         ?>
 
     </div>
 
-    <div class="container-fluid l-nav">
-        <div class="row">
-            <div class="col-12">
-
-            </div>
-        </div>
-    </div>
 
 </div>
 <?php
-wp_enqueue_script('media-js', get_template_directory_uri() . '/blocks/media/media.js', array('jquery'), filemtime(get_template_directory() . '/blocks/media/media.js'), false);
+wp_enqueue_script('gallery-js', get_template_directory_uri() . '/blocks/gallery/gallery.js', array('jquery'), filemtime(get_template_directory() . '/blocks/gallery/gallery.js'), false);
 ?>

@@ -1,3 +1,4 @@
+<?php //  wp_enqueue_style('cookie-style', '//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css'); ?>
 <?php wp_footer(); ?>
 
 <?php get_template_part('template-parts/load-recaptcha'); ?>
@@ -76,6 +77,26 @@ $f_data = Configuration::$fields["footer"];
         </div>
     </div>
 </footer>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js" defer></script>
+
+<script>        
+    (function() {        
+        lazyLoadCss('//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css');
+    })();
+    window.addEventListener("load", function() {        
+        window.cookieconsent.initialise({
+            "content": {
+                "message": "On our site we use cookies, to help deliver the best experience for you and to also let us know how visitors use our website. If you are happy for us to use cookies whilst you view our site, please hit \"Agree\". If you would like more information, please find this in our ",
+                "dismiss": "Agree",
+                "link": "Privacy Policy",
+                "href": "<?= get_privacy_policy_url(); ?>"
+            },
+            "position": "bottom-left"
+        })
+    });
+</script>
+
 </body>
 
 </html>
