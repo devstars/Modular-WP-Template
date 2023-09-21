@@ -25,7 +25,7 @@
     padding: calcRem(18px) calcRem(30px);
     width: 100%;
     margin-bottom: 20px;
-    border:1px solid $black;
+    border:1px solid transparent;
 
     @include autofill($black, $white);
     @include input-placeholder(400, rgba(#000, .8));
@@ -38,7 +38,7 @@
   }
 
   .permission-wrapper {
-    display: flex;
+    display: inline-flex;
     justify-content: flex-end;
   }
 

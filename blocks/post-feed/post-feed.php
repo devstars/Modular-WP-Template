@@ -55,7 +55,6 @@ $args = array(
 
         <div class="row ">
             <div class="pf__wrapper post-feed-js owl-carousel owl-theme" carousel-id="<?= $block['id'] ?>">
-
             
                 <?php
                 $loop = new WP_Query($args);
@@ -65,9 +64,9 @@ $args = array(
                 ?>
                     <div class="col-12 ">
                         <?php
-                        $group = $block['id'] . floor($index / 4);
-                        $group_lg = $block['id'] . floor($index / 4);
-                        get_template_part('template-parts/post-tile', null, array("group" => $group, "group_lg" => $group_lg));
+                        $group = floor($index / 4);
+                        $group_lg = floor($index / 4);
+                        get_template_part('template-parts/post-tile', null, array("group" => $group, "group_lg" => $group_lg, "block_id" => $block["id"]));
                         $index++;
                         ?>
 

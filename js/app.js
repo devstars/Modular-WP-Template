@@ -96,7 +96,6 @@
               window.addEventListener('resize', handleResize);
               setRatioElements();
               setMaxHeight('align-h-js');
-              //setMapWrapperSize();
 
               function setMapWrapperSize() {
 
@@ -219,7 +218,7 @@
                                                  this.scroll(item, e);
                                           });
 
-                                   });                               
+                                   });
 
                             } catch (err) {
                                    //console.log(err.message);
@@ -254,9 +253,31 @@
        });
 
 
+
        function setMaxHeight(className) {
 
-              var elements = document.getElementsByClassName(className);
+              const elementsWithClass = document.querySelectorAll("." + className);
+                            
+              const uniqueDataBlockValues = new Set();
+                            
+              elementsWithClass.forEach((element) => {
+                const dataBlock = element.getAttribute('data-block');
+                if (dataBlock) {
+                  uniqueDataBlockValues.add(dataBlock);
+                }
+              });
+                            
+              const uniqueDataBlockArray = Array.from(uniqueDataBlockValues);              
+
+              uniqueDataBlockArray.forEach((block) => {
+                     const elements = document.querySelectorAll('.' + className + '[data-block=' + block + ']');
+                     setMaxHeightForElements(elements);
+              });
+                                      
+       }
+
+       function setMaxHeightForElements(elements) {
+                            
               for (var i = 0; i < elements.length; i++) {
                      elements[i].style.height = 'auto';
               }
@@ -265,31 +286,71 @@
 
               var groupHeights = {};
 
-              let attr = "data-align";
-              if($(window).width() >= 992){
-                     attr = "data-align-lg";
-              }
-
               for (var i = 0; i < elements.length; i++) {
                      var element = elements[i];
-                     var group = element.getAttribute(attr);
+
+                     const groups = ["data-align"];
+
+                     if ($(window).width() >= 768) {
+                            groups.push("data-align-md");
+                     }
+
+                     if ($(window).width() >= 992) {
+                            groups.push("data-align-lg");
+                     }
+
+                     if ($(window).width() >= 1200) {
+                            groups.push("data-align-xl");
+                     }
+
+                     var groupName = false;
+
+                     groups.forEach(group => {
+                            if (element.getAttribute(group)) {
+                                   groupName = element.getAttribute(group);
+                            }
+                     });
+
                      var elementHeight = element.offsetHeight;
 
                      if (elementHeight > maxHeight) {
                             maxHeight = elementHeight;
                      }
 
-                     if (!groupHeights[group] || elementHeight > groupHeights[group]) {
-                            groupHeights[group] = elementHeight;
+                     if (!groupHeights[groupName] || elementHeight > groupHeights[groupName]) {
+                            groupHeights[groupName] = elementHeight;
                      }
               }
 
               for (var i = 0; i < elements.length; i++) {
                      var element = elements[i];
-                     var group = element.getAttribute(attr);
-                     element.style.height = groupHeights[group] + 'px';
-              }
-       }
 
+                     const groups = ["data-align"];
+
+                     if ($(window).width() >= 768) {
+                            groups.push("data-align-md");
+                     }
+
+                     if ($(window).width() >= 992) {
+                            groups.push("data-align-lg");
+                     }
+
+                     if ($(window).width() >= 1200) {
+                            groups.push("data-align-xl");
+                     }
+
+                     var groupName = false;
+
+                     groups.forEach(group => {
+                            if (element.getAttribute(group)) {
+                                   groupName = element.getAttribute(group);
+                            }
+                     });
+
+                     element.style.height = groupHeights[groupName] + 'px';
+              }
+
+       
+       }
 
 }(jQuery));

@@ -1,4 +1,7 @@
-<?php 
+<?php
+
+use PSpell\Config;
+
 class Mail{            
     public $success;
     public $error;
@@ -47,7 +50,7 @@ class Mail{
             $resp = false;
             $this->error = 'Please, fill the captcha to send the message.';
         }else{
-            $verifyResponse = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . RECAPTCHA_SECRET . '&response=' . $this->data["g-recaptcha-response"]));
+            $verifyResponse = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . Configuration::$rc_secret . '&response=' . $this->data["g-recaptcha-response"]));
             if (!$verifyResponse->success){
                 $resp = false;
                 $this->error = 'Please, fill the captcha to send the message.';
@@ -79,9 +82,9 @@ class Mail{
                 'Reply-To: ' . htmlspecialchars($this->user_email) . "\r\n" .                
                 'Content-Type: text/html; charset=UTF-8' . "\r\n";       
        
-        $to = Configuration::$contact["delivery_emails"];
+        //$to = Configuration::$contact["delivery_emails"];
 
-       $this->success = wp_mail($to, $this->subject, $body, $headers); 
+       $this->success = wp_mail($this->email_firm, $this->subject, $body, $headers); 
        //$this->success = true;       
         
        
@@ -127,4 +130,16 @@ function send_ajax() {
     }
     exit;
 }
+
+add_action('phpmailer_init', function($phpmailer) {
+    $phpmailer->isSMTP();
+    $phpmailer->Host = 'email-smtp.eu-west-2.amazonaws.com';
+    $phpmailer->SMTPAuth = true;
+    $phpmailer->Port = 587;
+    $phpmailer->Username = 'AKIASNZCBDW2LH55FXGQ';
+    $phpmailer->Password = 'BJroISn7TehTCsiS5e2RKCUrUeg+duKukJz8R5y7Ql9x';
+    $phpmailer->SMTPSecure = 'tls'; // Choose 'ssl' for SMTPS on port 465, or 'tls' for SMTP+STARTTLS on port 25 or 587
+    $phpmailer->From = "info@londonwebdesignagency.com";
+    $phpmailer->FromName = get_bloginfo('name');
+});
 ?>

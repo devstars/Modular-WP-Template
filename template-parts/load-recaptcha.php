@@ -26,7 +26,7 @@
         rc.forEach((item, index) => {
             item.classList.add("mb-4");
             captchaContainer = grecaptcha.render(item, {
-                'sitekey': "<?= RC_SITE_KEY ?>"
+                'sitekey': "<?= Configuration::$rc_site_key ?>"
             });             
             window.rcArr[item.id] = captchaContainer;            
         });

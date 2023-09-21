@@ -14,10 +14,6 @@ DEFINE("JS_NAME", "app.js");
 DEFINE("CSS_VER",filemtime(get_template_directory() . "/css/" . CSS_NAME));
 DEFINE("JS_VER",filemtime(get_template_directory() . '/js/' . JS_NAME));
 
-define("RECAPTCHA_SECRET","6LdryV8UAAAAAI_yhRuq79NuFwtZJS7AmTY0PjBh");
-define("RC_SITE_KEY","6LdryV8UAAAAAIZEvqUaSEttca1anP2GeMviDhjw");
-
-
 function init_autoload(){
     require get_template_directory().'/vendor/autoload.php';
 

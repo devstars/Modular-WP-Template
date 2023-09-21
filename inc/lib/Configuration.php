@@ -12,6 +12,11 @@ class Configuration{
     public static $contact;
 
     public static $google_map_api_key;
+    public static $rc_secret;
+    public static $rc_site_key;
+
+    public static $mailchimp_list_id;
+    public static $mailchimp_api_id;
 
     public static $favicon;
             
@@ -36,9 +41,14 @@ class Configuration{
 
         self::$server = trim(self::$fields["server"]);   
         self::$contact = self::$fields["contact_form"];
-        self::$google_map_api_key = trim($company_details["google_map_api_key"]);     
+        self::$google_map_api_key = trim(self::$fields["google_map_api_key"]);     
+
+        self::$rc_secret = trim(self::$fields["recaptcha"]["secret"]);     
+        self::$rc_site_key = trim(self::$fields["recaptcha"]["site_key"]);             
         
-        
+        self::$mailchimp_list_id = trim(self::$fields["mailchimp_settings"]["mailchimp_list_id"]);     
+        self::$mailchimp_api_id = trim(self::$fields["mailchimp_settings"]["mailchimp_api_id"]);             
+
         self::$favicon = self::$fields["favicon"]["sizes"]["favicon"];
 
     }

@@ -1,3 +1,6 @@
+<?php  
+$fields = get_field("additional_fields");
+?>
 <form class="c-form form-rc-js" id="contact-form" medthod="POST" action="contact-form" send="send_ajax" title="Contact Form">
 
     <div class="row">
@@ -76,7 +79,7 @@
 
         <div class="row fade-in-js">
             <div class="col-12">
-                <div class="g-recaptcha recaptcha-js mb-4" data-size="normal" data-sitekey="<?= RC_SITE_KEY ?>"></div>
+                <div class="g-recaptcha recaptcha-js mb-4" data-size="normal" data-sitekey="<?= Configuration::$rc_site_key ?>"></div>
             </div>
         </div>
 

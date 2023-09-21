@@ -14,7 +14,7 @@
                                 <?php
                                 $group = floor( $index / 2 );
                                 $group_lg = floor( $index / 4 );
-                                get_template_part('template-parts/post-tile', null, array("group" => $group, "group_lg" => $group_lg));
+                                get_template_part('template-parts/post-tile', null, array("group" => $group, "group_lg" => $group_lg, "block_id" => "blog"));
                                 $index++;
                                 ?>
                             </div>
