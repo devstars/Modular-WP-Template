@@ -66,4 +66,16 @@ function add_post_types_to_select($field) {
 
 add_filter('acf/load_field/name=post_type', 'add_post_types_to_select');
 
+function posts_link_next_class($format){
+    $format = str_replace('href=', 'class="o-next-btn " href=', $format);
+    return $format;
+}
+add_filter('next_post_link', 'posts_link_next_class');
+
+function posts_link_prev_class($format) {
+    $format = str_replace('href=', 'class="o-prev-btn " href=', $format);
+    return $format;
+}
+add_filter('previous_post_link', 'posts_link_prev_class');
+
 ?>

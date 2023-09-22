@@ -52,10 +52,13 @@
   .checked {
     display: none;
   }
+  .unchecked{
+    display: flex;
+  }
 
   input[type="checkbox"]:checked + span {
     .checked {
-      display: block;
+      display: flex;
     }
     .unchecked {
       display: none;
@@ -94,6 +97,7 @@
   }
 }
 
+
 .o-nav-btn {
   @include tran-all;
 
@@ -107,3 +111,4 @@
   cursor: pointer;
   position: relative;
 }
+

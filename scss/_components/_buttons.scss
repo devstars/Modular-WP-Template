@@ -31,6 +31,10 @@
   @include btn--round;
 }
 
+.btn--small{
+  padding: calcRem(20px) calcRem(40px) !important;
+}
+
 
 
 .btn--outline-white {
@@ -110,6 +114,15 @@
   }
 }
 
+.hover-gray{
+
+  
+  &:hover {
+    color: $white !important;
+    background-color: $black;
+    border: 1px solid $black;
+  }
+}
 .hover-transparent {
   &:hover {
     color: $white;
@@ -125,3 +138,16 @@
   }
 }
 
+
+.o-next-btn, .o-prev-btn {
+  @extend .btn;
+  @extend .btn--outline-black;  
+  @extend .btn--small;
+  text-decoration: none;
+
+  .icon{
+    font-size: 1.3em;
+    padding-bottom: 3px;
+  }
+
+}

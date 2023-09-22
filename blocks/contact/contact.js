@@ -55,7 +55,7 @@
                             form.find(".privacy-policy-js").prop('checked', false);
                             form.parent().find('.form__error').removeClass("active");
 
-                            form.find(".hide-after-js").hide();
+                            //form.find(".hide-after-js").hide();
                         } else {
                             form.parent().find('.form__error').html(resp).addClass("active");
                             form.parent().find('.form__thanks').removeClass("active");
@@ -286,15 +286,6 @@
         }
     }
 
-
     window.map = new Map();
-
-
-
-
-
-
-
-
 
 }(jQuery));

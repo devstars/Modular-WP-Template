@@ -110,6 +110,10 @@
         text-decoration: none;
     }
 
+    .form__thanks, .form__error{
+        color: $white;
+    }
+
     .o-link {
         color: $white;
         position: relative;

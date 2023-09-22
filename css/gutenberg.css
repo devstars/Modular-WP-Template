@@ -3557,6 +3557,10 @@
   }
 }
 
+.u-w-100 {
+  width: 100% !important;
+}
+
 .o-icon {
   height: 35px;
   -webkit-transition: all 0.2s ease-in-out;
@@ -3618,8 +3622,15 @@
 .o-custom-check .checked {
   display: none;
 }
+.o-custom-check .unchecked {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
 .o-custom-check input[type=checkbox]:checked + span .checked {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 .o-custom-check input[type=checkbox]:checked + span .unchecked {
   display: none;
@@ -4316,11 +4327,17 @@
     max-height: 450px;
   }
 }
+.c-section--gallery .gallery.grid .gallery__image {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 .c-section--gallery .gallery .gallery__item {
+  width: 100%;
+}
+.c-section--gallery .gallery .gallery__item .gallery__image {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  width: 100%;
 }
 .c-section--gallery .carousel-wrapper .carousel__image {
   width: 100%;

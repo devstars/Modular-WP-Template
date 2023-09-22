@@ -20,7 +20,7 @@ class Mail{
         
             foreach ($_POST as $key => $value) {    
 
-                if($key === "email"){
+                if($key === "email"){                    
                     $this->user_email = $value;
                 }   
 
@@ -41,6 +41,11 @@ class Mail{
         
         $resp = true;    
         
+        if (!filter_var($this->user_email, FILTER_VALIDATE_EMAIL)) {
+            $resp = false;
+            $this->error = 'The e-mail address entered is invalid.';
+        }
+
         if(!$this->email_firm){
             $resp = false;
             $this->error = "There was an error trying to send your message. Please try again later.";
@@ -75,31 +80,22 @@ class Mail{
             }
         }         
         
-        $body .= $this->email_footer;
-                             
+        $body .= $this->email_footer;                             
 
         $headers = //'From:'.$this->subject.'<' . $this->email_firm . ">\r\n" .
                 'Reply-To: ' . htmlspecialchars($this->user_email) . "\r\n" .                
                 'Content-Type: text/html; charset=UTF-8' . "\r\n";       
-       
-        //$to = Configuration::$contact["delivery_emails"];
 
        $this->success = wp_mail($this->email_firm, $this->subject, $body, $headers); 
        //$this->success = true;       
-        
-       
-
+               
         if(!$this->success){
             $this->error = "There was an error trying to send your message. Please try again later.";
         }
 
         return $this->success;
     }
-
-
-
 }
-
 
 add_action('wp_ajax_send_ajax', 'send_ajax');
 add_action('wp_ajax_nopriv_send_ajax', 'send_ajax');
@@ -112,7 +108,7 @@ function send_ajax() {
     $mail->get_data();
 
     $mail->subject = Configuration::$company_name .' - '.$mail->data["title"];
-    $mail->email_footer = "Email was sent from: <a href='". home_url() ."'>".Configuration::$company_name . " - ". $mail->data["title"] ."</a>.";    
+    $mail->email_footer = "Email was sent from : <a href='". home_url() ."'>".Configuration::$company_name . " - ". $mail->data["title"] ."</a>.";    
     
 
     if ($mail->check_fields() ) {                            
@@ -132,14 +128,17 @@ function send_ajax() {
 }
 
 add_action('phpmailer_init', function($phpmailer) {
-    $phpmailer->isSMTP();
-    $phpmailer->Host = 'email-smtp.eu-west-2.amazonaws.com';
-    $phpmailer->SMTPAuth = true;
-    $phpmailer->Port = 587;
-    $phpmailer->Username = 'AKIASNZCBDW2LH55FXGQ';
-    $phpmailer->Password = 'BJroISn7TehTCsiS5e2RKCUrUeg+duKukJz8R5y7Ql9x';
-    $phpmailer->SMTPSecure = 'tls'; // Choose 'ssl' for SMTPS on port 465, or 'tls' for SMTP+STARTTLS on port 25 or 587
-    $phpmailer->From = "info@londonwebdesignagency.com";
-    $phpmailer->FromName = get_bloginfo('name');
+    if(!Configuration::$phpmailer["disable"]){
+        $phpmailer->isSMTP();
+        $phpmailer->Host = Configuration::$phpmailer["host"];
+        $phpmailer->SMTPAuth = Configuration::$phpmailer["smtpauth"];
+        $phpmailer->Port = (int) Configuration::$phpmailer["port"];
+        $phpmailer->Username = Configuration::$phpmailer["username"];
+        $phpmailer->Password = Configuration::$phpmailer["password"];
+        $phpmailer->SMTPSecure = Configuration::$phpmailer["smtpsecure"];
+        $phpmailer->From = Configuration::$phpmailer["from"];
+        $phpmailer->FromName = Configuration::$phpmailer["fromname"];
+    }
 });
+
 ?>

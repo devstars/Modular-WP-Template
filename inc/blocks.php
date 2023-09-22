@@ -223,6 +223,23 @@ function my_acf_init()
             )
         ));
     }
+
+    if (function_exists('acf_register_block')) {
+        acf_register_block(array(
+            'name' => 'pagination',
+            'title' => 'Pagination',
+            'description' => __('Pagination'),
+            'mode' => 'edit',
+            'render_callback' => 'pt_block_render_callback',
+            'category' => 'modules',
+            'keywords' => array('Pagination'),
+            'align'        => 'wide',
+            'supports'    => array(
+                'align'        => array('wide'),
+                'anchor' => true
+            )
+        ));
+    }
 }
 
 function pt_block_render_callback($block)
@@ -249,9 +266,10 @@ function add_container_to_block($block_content, $block)
 
             if ($template === $page_template ||  1==1) {} */
 
-            $blocks_without_section = array();
+            $blocks_without_section = array("");
 
             if (strpos($block["blockName"], "acf") !== false && !in_array($block["blockName"], $blocks_without_section)) {
+                //if acf and block with section
                 $block_content = '</div></div></div>' . $block_content .
                     '<div class="container-fluid page-text section-white"><div class="row"><div class="col-12 col-xl-10 mx-auto">';
             }

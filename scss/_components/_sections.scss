@@ -661,12 +661,21 @@
       object-fit: contain;
     }
 
+    &.grid{
+      .gallery__image{
+        object-fit: cover;        
+      }
+    }
+
     .gallery__item {
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
 
       width: 100%;
+
+      .gallery__image{
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
     }
   }
 

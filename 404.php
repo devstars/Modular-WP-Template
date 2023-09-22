@@ -15,5 +15,4 @@
     </div>
 </div>
 
-<?php get_template_part('template-parts/load-gallery'); ?>
 <?php get_footer(); ?>

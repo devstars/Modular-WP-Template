@@ -28,8 +28,25 @@ wp_enqueue_style( 'baguetteBox-css',get_stylesheet_directory_uri() . '/js/baguet
                         baguetteBox.run(".lightbox-wrapper", {
                             captions: true,
                         });
-                    }         
+                    }                                   
                 }
+
+                const galleryItems = $('.gallery__image').length;                    
+                    if(galleryItems > 0){
+                        $('.gallery__image').each(function() {
+                            img = $(this).parent();
+                            if (!img.hasClass("skip")) {
+                                imgsrc = this.src;
+                                wrapper = img.wrap("<span class='lightbox-wrapper u-w-100'></span>");
+                                $(this).css("cursor","pointer");
+                            }
+
+                        });
+
+                        baguetteBox.run(".lightbox-wrapper", {
+                            captions: true,
+                        });
+                    }
             }
         );
     }(jQuery));

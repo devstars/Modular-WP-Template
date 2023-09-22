@@ -1,4 +1,4 @@
-<?php  
+<?php
 $fields = get_field("additional_fields");
 ?>
 <form class="c-form form-rc-js" id="contact-form" medthod="POST" action="contact-form" send="send_ajax" title="Contact Form">
@@ -15,16 +15,18 @@ $fields = get_field("additional_fields");
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-12 col-md-6">
-            <input type="text" class="form__input field-js" name="name" placeholder="Name *" required>
-        </div>
-        <div class="col-12 col-md-6">
-            <input type="text" class="form__input field-js" name="email" placeholder="Email address *" required>
-        </div>
-    </div>
-
     <div class="hide-after-js">
+
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <input type="text" class="form__input field-js" name="name" placeholder="Name *" required>
+            </div>
+            <div class="col-12 col-md-6">
+                <input type="email" class="form__input field-js" name="email" placeholder="Email address *" required>
+            </div>
+        </div>
+
+
 
         <div class="row">
 
@@ -57,11 +59,13 @@ $fields = get_field("additional_fields");
             </div>
         </div>
 
+
+
         <div class="mb-5"></div>
 
         <div class="permission-js fade-in-js u-text-right">
             <label class="form__label o-custom-check mb-5  permission-wrapper">
-                <input class="privacy-policy-js" type="checkbox" name="checkbox" value="true" required>
+                <input class="privacy-policy-js" type="checkbox" name="permissions" value="true" required>
                 <span>
                     <div class="checked">
                         <?= file_get_contents(IMAGES . '/icons/checkbox-checked.svg'); ?>

@@ -19,6 +19,7 @@ class Configuration{
     public static $mailchimp_api_id;
 
     public static $favicon;
+    public static $phpmailer;
             
     public static function get()
     {
@@ -50,6 +51,8 @@ class Configuration{
         self::$mailchimp_api_id = trim(self::$fields["mailchimp_settings"]["mailchimp_api_id"]);             
 
         self::$favicon = self::$fields["favicon"]["sizes"]["favicon"];
+
+        self::$phpmailer = self::$fields["phpmailer"];
 
     }
 

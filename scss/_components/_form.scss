@@ -70,14 +70,22 @@
 
   .form__error,
   .form__thanks {
-    padding: 0.8rem;
-    font-size: 0.875rem;
+    padding: 0.8rem 1rem;
+    @include fontSize(18px);
     margin-bottom: 20px;
-    font-weight: 500;    
+    font-weight: 400;    
     display: none;
     &.active {
       display: block;
     }
+  }
+
+  .form__thanks{
+    border:1px solid #81d742;
+  }
+
+  .form__error{
+    border:1px solid red;
   }
 
   .form__btn {    
@@ -88,7 +96,9 @@
     }
   }
 
-  .checked, .unchecked{
+  .checked, .unchecked{    
+    align-items: center;
+
     svg{
       width: 20px;
       height: 20px;

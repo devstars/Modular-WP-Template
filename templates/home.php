@@ -23,6 +23,4 @@ get_header(); ?>
 
 </div>
 
-<?php // get_template_part('template-parts/load-gallery'); 
-?>
 <?php get_footer(); ?>

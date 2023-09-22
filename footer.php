@@ -1,4 +1,5 @@
-<?php //  wp_enqueue_style('cookie-style', '//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css'); ?>
+<?php get_template_part('template-parts/load-gallery'); ?>
+
 <?php wp_footer(); ?>
 
 <?php get_template_part('template-parts/load-recaptcha'); ?>
