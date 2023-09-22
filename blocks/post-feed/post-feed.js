@@ -3,7 +3,17 @@
         $.each($(".post-feed-js"), function(i,postFeed) {
 
             var postFeed = $(postFeed);       
-            var carouselId = postFeed.attr("carousel-id");              
+            var carouselId = postFeed.attr("carousel-id");    
+            const postsNumber = postFeed.attr("posts-number");
+
+
+            let loop = ( postsNumber < 4 ) ? false : true;
+            
+            if ($(window).width() < 992) {                
+                loop = ( postsNumber < 3 ) ? false : true;
+            } else if ($(window).width() < 768) {
+                loop = ( postsNumber < 2 ) ? false : true;
+            }
             
             postFeed.owlCarousel({                
                 lazyLoad: true,
@@ -12,7 +22,7 @@
                 autoplay: false,
                 autoplayTimeout: 4500,
                 responsiveClass: true,
-                loop: true,
+                loop: loop,
                 nav: false,
                 dots: false,
                 items: 2,       

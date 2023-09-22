@@ -3677,7 +3677,12 @@
 }
 
 .l-section-top {
-  padding-top: 120px;
+  padding-top: 114px;
+}
+@media screen and (min-width: 992px) {
+  .l-section-top {
+    padding-top: 120px;
+  }
 }
 
 .l-margin-top {

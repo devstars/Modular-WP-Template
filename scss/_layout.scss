@@ -1,5 +1,9 @@
 .l-section-top{
-    padding-top:120px;
+    padding-top:114px;
+    @media screen and (min-width:$lg){
+        padding-top:120px;
+    }
+    
     //120    
 }
 

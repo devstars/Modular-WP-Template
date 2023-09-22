@@ -2831,7 +2831,12 @@ q {
 }
 
 .l-section-top {
-  padding-top: 120px;
+  padding-top: 114px;
+}
+@media screen and (min-width: 992px) {
+  .l-section-top {
+    padding-top: 120px;
+  }
 }
 
 .l-margin-top {
@@ -5203,7 +5208,8 @@ q {
 }
 
 .c-breadcrumb-yoast {
-  min-height: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5217,27 +5223,57 @@ q {
     padding-right:8px;
   } */
 }
-.c-breadcrumb-yoast i {
-  color: #8f8f8f;
+@media screen and (min-width: 992px) {
+  .c-breadcrumb-yoast {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
 }
-.c-breadcrumb-yoast a, .c-breadcrumb-yoast span, .c-breadcrumb-yoast p {
-  line-height: 1em;
+.c-breadcrumb-yoast .container-fluid, .c-breadcrumb-yoast .c-section--gallery .carousel-wrapper, .c-section--gallery .c-breadcrumb-yoast .carousel-wrapper, .c-breadcrumb-yoast .c-section--gallery .media-carousel-nav, .c-section--gallery .c-breadcrumb-yoast .media-carousel-nav {
+  max-width: 1800px !important;
+}
+.c-breadcrumb-yoast i {
+  color: #111111;
+}
+.c-breadcrumb-yoast a,
+.c-breadcrumb-yoast span,
+.c-breadcrumb-yoast p {
+  line-height: 1.2em;
+  font-size: 1rem;
   font-weight: 400;
-  font-size: 0.92rem;
-  letter-spacing: 1px;
+  /* letter-spacing: 1px; */
+  text-decoration: none;
+}
+.c-breadcrumb-yoast .breadcrumb_last {
+  font-weight: 400;
 }
 
-.section-gray .c-breadcrumbs-yoast {
-  border-bottom: 1px solid lightgray;
+.section-gray.breadcrumb-wrapper {
+  /* background-color: $white !important; */
+  border-bottom: 1px solid #ECECEC;
+  /* 
+  a:hover{
+    color:$black;
+    text-decoration: underline;
+  } */
 }
-.section-gray .c-breadcrumbs-yoast a, .section-gray .c-breadcrumbs-yoast span, .section-gray .c-breadcrumbs-yoast p {
-  color: #8f8f8f;
+.section-gray.breadcrumb-wrapper a,
+.section-gray.breadcrumb-wrapper span,
+.section-gray.breadcrumb-wrapper p {
+  color: #111111;
 }
-.section-gray .c-breadcrumbs-yoast a:hover {
-  color: #242424;
+.section-gray.breadcrumb-wrapper a {
+  color: #111111;
+  -webkit-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+  border-bottom: 1px solid transparent;
 }
-.section-gray .c-breadcrumbs-yoast .breadcrumb_last, .section-gray .c-breadcrumbs-yoast .active {
-  color: #242424;
+.section-gray.breadcrumb-wrapper a:hover {
+  border-bottom: 1px solid #111111;
+}
+.section-gray.breadcrumb-wrapper .breadcrumb_last,
+.section-gray.breadcrumb-wrapper .active {
+  color: #ff822e;
 }
 
 .c-breadcrumb {

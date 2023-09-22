@@ -240,6 +240,7 @@ function my_acf_init()
             )
         ));
     }
+ 
 }
 
 function pt_block_render_callback($block)
@@ -266,7 +267,7 @@ function add_container_to_block($block_content, $block)
 
             if ($template === $page_template ||  1==1) {} */
 
-            $blocks_without_section = array("");
+            $blocks_without_section = array();
 
             if (strpos($block["blockName"], "acf") !== false && !in_array($block["blockName"], $blocks_without_section)) {
                 //if acf and block with section

@@ -66,16 +66,16 @@ function add_post_types_to_select($field) {
 
 add_filter('acf/load_field/name=post_type', 'add_post_types_to_select');
 
-function posts_link_next_class($format){
-    $format = str_replace('href=', 'class="o-next-btn " href=', $format);
-    return $format;
-}
-add_filter('next_post_link', 'posts_link_next_class');
 
-function posts_link_prev_class($format) {
-    $format = str_replace('href=', 'class="o-prev-btn " href=', $format);
-    return $format;
+
+function set_default_content_for_new_post($content, $post) {
+    if ($post->post_type === 'post' && empty($content)) {
+        
+        $content = '<!-- wp:acf/pagination {"name":"acf/pagination","align":"wide","mode":"edit"} /-->';
+    }
+    return $content;
 }
-add_filter('previous_post_link', 'posts_link_prev_class');
+add_filter('default_content', 'set_default_content_for_new_post', 10, 2);
+
 
 ?>
