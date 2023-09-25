@@ -134,6 +134,6 @@ function custom_excerpt_length( $length ) {
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
-
-
-
+add_action('admin_menu', function() {
+    remove_menu_page('edit-comments.php');
+});

@@ -78,4 +78,11 @@ function set_default_content_for_new_post($content, $post) {
 add_filter('default_content', 'set_default_content_for_new_post', 10, 2);
 
 
+ // Move Yoast to bottom
+ function yoasttobottom() {
+	return 'low';
+}
+add_filter( 'wpseo_metabox_prio', 'yoasttobottom');
+
+
 ?>
