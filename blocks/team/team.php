@@ -14,7 +14,7 @@ $id = $data["id"];
 $color_schema = $data["color_schema"];
 
 ?>
-<div class="c-section--team section-black u-overflow-hidden <?= $color_schema ?>" id="<?php echo esc_attr($id); ?>">
+<div class="c-section--team  u-overflow-hidden <?= $color_schema ?>" id="<?php echo esc_attr($id); ?>">
     <div class="container-fluid">
         <<?= $data["h_tag"]; ?> class="section__title "><?= $content["headline_text"]; ?></<?= $data["h_tag"]; ?>>
         <p class="section__subtitle "><?= $content["body_text"] ?></p>
@@ -50,7 +50,7 @@ $color_schema = $data["color_schema"];
                             $teamData[$index]["name"] = $tile["basic"]["name"];
                             $teamData[$index]["position"] = $tile["basic"]["position"];
 
-                            $teamData[$index]["position"] = $tile["additional"]["email"];
+                            $teamData[$index]["email"] = $tile["additional"]["email"];
                             $teamData[$index]["phone"] = $tile["additional"]["phone"];
                             $teamData[$index]["description"] = $tile["additional"]["description"];
                             $teamData[$index]["linkedin"] = $tile["additional"]["linkedin"];

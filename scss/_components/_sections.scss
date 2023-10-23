@@ -66,6 +66,7 @@
     .usp__icon {
       height: 90px;
       /* width: 90px; */
+      margin-bottom: calcRem(20px);
     }
 
     .usp__image {
@@ -73,9 +74,28 @@
       background-size: cover !important;
       background-repeat: none !important;
       width: 100%;
+      margin-bottom: calcRem(30px);
     }
 
-    .usp__title {
+    .usp__content{
+      margin-bottom: calcRem(40px);
+    }
+
+    .usp__title{
+      @include fontSize(24px);
+      line-height: 1.3em;
+      font-weight: 400;
+      margin-bottom: calcRem(20px);
+
+      &.l-short {
+        @media screen and (min-width:$md){
+          max-width: 280px;
+        }
+        
+      }
+    }
+
+    .usp__desc {
       font-weight: 400;
       &.l-short {
         @media screen and (min-width:$md){
@@ -85,8 +105,7 @@
       }
 
       @include fontSize(18px);
-      padding-top: calcRem(30px);
-      margin-bottom: calcRem(40px);
+      //padding-top: calcRem(30px);      
     }
 
     .custom-link {
@@ -106,7 +125,7 @@
 
 .section-white {
   &.c-section--usp {
-    .usp__title {
+    .usp__desc {
       opacity: 0.8;
     }
   }
@@ -114,7 +133,7 @@
 
 .background-white {
   &.c-section--usp {
-    .usp__title {
+    .usp__desc {
       opacity: 0.8;
     }
   }
@@ -283,6 +302,12 @@
     .member__social svg {
       filter: invert(1);
     }
+  }
+}
+
+.section-bright{
+  .member__position{
+    //color:$black;
   }
 }
 

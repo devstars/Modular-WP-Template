@@ -84,9 +84,21 @@ $color_schema = $data["color_schema"];
                             <?php
                             if (sizeof($tiles) == "3") :
                             ?>
-                                <h3 class="usp__title <?= $desc_class; ?>  align-h-js " data-block="<?= $block['id'] ?>"  data-align="usp-desc-<?= $group; ?>" data-align-md="usp-desc-<?= $group_md; ?>" data-align-lg="usp-desc-<?= $group_lg; ?>" <?= get_the_excerpt($post->ID); ?>>
+                                <div class="<?= $desc_class; ?> usp__content align-h-js"  data-block="<?= $block['id'] ?>"  data-align="usp-title-<?= $group; ?>" data-align-md="usp-title-<?= $group_md; ?>" data-align-lg="usp-title-<?= $group_lg; ?>" <?= get_the_excerpt($post->ID); ?>>
+
+                                <?php if($tile["title"]): ?>
+                                <h3 class="usp__title <?= $desc_class; ?>" >    
                                     <?= $tile["title"] ?>
                                 </h3>
+                                <?php endif; ?>
+
+                                <?php if($tile["description"]): ?>
+                                <p class="usp__desc <?= $desc_class; ?>" >
+                                    <?= $tile["description"] ?>
+                                </p>
+                                <?php endif; ?>
+
+                                </div>                                
                             <?php
                             endif;
                             ?>
@@ -94,9 +106,21 @@ $color_schema = $data["color_schema"];
                             <?php
                             if (sizeof($tiles) == "4") :
                             ?>
-                                <h3 class="usp__title <?= $desc_class; ?>  align-h-js " data-block="<?= $block['id'] ?>"  data-align="usp-desc-<?= $group; ?>" data-align-lg="usp-desc-<?= $group_lg; ?>" <?= get_the_excerpt($post->ID); ?>>
+                            <div class="<?= $desc_class; ?> usp__content align-h-js " data-block="<?= $block['id'] ?>"  data-align="usp-title-<?= $group; ?>" data-align-lg="usp-title-<?= $group_lg; ?>" <?= get_the_excerpt($post->ID); ?>>
+                                <?php if($tile["title"]): ?>
+                                <h3 class="usp__title" >    
                                     <?= $tile["title"] ?>
                                 </h3>
+                                <?php endif; ?>
+
+                                <?php if($tile["description"]): ?>
+                                <p class="usp__desc" >
+                                    <?= $tile["description"] ?>
+                                </p>
+                                <?php endif; ?>
+                            </div>
+
+                       
                             <?php
                             endif;
                             ?>

@@ -38,10 +38,10 @@
 
                             let index = $(event.currentTarget).find(".owl-item.active").eq(0).find("img").data("index");                            
 
-                            const teamWrapper = $(team).parent().parent().parent();
+                            const teamWrapper = $(team).parent().parent().parent();                            
 
                             teamWrapper.find(".m-name-js").text(teamData[index].name);
-                            teamWrapper.find(".m-position-js").text(teamData[index].postion);
+                            teamWrapper.find(".m-position-js").text(teamData[index].position);
                             teamWrapper.find(".m-email-js").text(teamData[index].email);
                             teamWrapper.find(".m-phone-js").text(teamData[index].phone);
                             teamWrapper.find(".m-description-js").text(teamData[index].description);
