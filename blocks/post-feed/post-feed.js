@@ -6,7 +6,6 @@
             var carouselId = postFeed.attr("carousel-id");    
             const postsNumber = postFeed.attr("posts-number");
 
-
             let loop = ( postsNumber < 4 ) ? false : true;
             
             if ($(window).width() < 992) {                

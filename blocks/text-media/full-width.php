@@ -15,9 +15,9 @@
         <div class="row">
             <div class="col-12">
                 <div class="banner__content  <?= $layout["horizontal_aligment"] ?>">
-                    <h1 class="banner__title">
+                    <<?= $heading_tag; ?> class="banner__title">
                         <?= $content["title"] ?>
-                    </h1>
+                    </<?= $heading_tag; ?>>
 
                     <p class="banner__desc">
                         <?= $content["description"] ?>

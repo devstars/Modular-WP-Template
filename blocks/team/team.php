@@ -16,7 +16,7 @@ $color_schema = $data["color_schema"];
 ?>
 <div class="c-section--team section-black u-overflow-hidden <?= $color_schema ?>" id="<?php echo esc_attr($id); ?>">
     <div class="container-fluid">
-        <h2 class="section__title "><?= $content["headline_text"]; ?></h2>
+        <<?= $data["h_tag"]; ?> class="section__title "><?= $content["headline_text"]; ?></<?= $data["h_tag"]; ?>>
         <p class="section__subtitle "><?= $content["body_text"] ?></p>
     </div>
     <div class="container-fluid ">        

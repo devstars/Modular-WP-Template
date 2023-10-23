@@ -103,16 +103,19 @@ class Configuration{
     
 
     public static function init(){
-        if (function_exists('acf_add_options_page')) {
+        if (function_exists('acf_add_options_page')) {            
+
             acf_add_options_page(array(
                 'page_title' => 'Configuration page',
                 'menu_title' => 'Configuration',
                 'icon_url' => 'dashicons-images-alt2',
                 'redirect' => false
             ));
+
+            Configuration::get();  
         }
 
-        Configuration::get();        
+              
     }
 }
 ?>

@@ -5,15 +5,15 @@
         $.each($(".banner-js"), function(i,banner) {
             
             var banner = $(banner);
-
+            
             banner.owlCarousel({
                 /* slideSpeed: 1000,   */            
                 lazyLoad: false,
                 margin: 0,
                 /* paginationSpeed: 1000, */
                 smartSpeed: 500,
-                autoplay: carouselData["autoplay"],
-                autoplayTimeout: carouselData["interval"],
+                autoplay: banner.attr("data-autoplay"),
+                autoplayTimeout: banner.attr("data-interval"),
                 responsiveClass: true,
                 loop: true,
                 nav: false,

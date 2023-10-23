@@ -13,6 +13,7 @@ $settings = get_field("settings");
 $data = block_start("contact", $block, $settings , "section-black");
 $id = $data["id"];
 $color_schema = $data["color_schema"];
+$h_tag = $data["h_tag"];
 
 $cols = 0;
 if($settings["map"]) $cols++;

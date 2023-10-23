@@ -4,9 +4,7 @@
 
 .c-banner {
     .row{
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
+        width: 100%;        
     }
 
     min-height: 890px;
@@ -28,12 +26,7 @@
 
     .container-fluid {
         display: flex;
-        align-items: center;
-
-        @media screen and (min-width:$xl){
-            width: calc(100vw - 200px);
-        }
-        
+        align-items: center;    
 
         .banner__content {
    /*          @media screen and (min-width: $lg) {
@@ -205,7 +198,7 @@
 
         @media screen and (max-width: $sm) {
             min-height: 300px;
-            object-fit: cover;
+            //object-fit: contain;
         }
 
         width: 100%;
@@ -213,8 +206,28 @@
 
         object-fit: contain;
         @media screen and (min-width: $xl) {
-            object-fit: cover;
+            object-fit: contain;
         }
+    }
+
+}
+
+.banner-wrapper.full{
+
+    .container-fluid {     
+
+        @media screen and (min-width:$xl){
+            width: calc(100vw - 200px);
+        }
+    }
+
+    .row{
+        width: 100%;
+        @media screen and (min-width:$xl){
+            margin-left: 0;
+            margin-right: 0;
+        }
+        
     }
 }
 
@@ -299,7 +312,7 @@
     transform: translateX(-50%);
 
     margin-top: 0px !important;
-    /* transform: translateY(-65px); */
+    
     .owl-dot {
         span {
             border: 1px solid $black;

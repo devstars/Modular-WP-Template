@@ -1,14 +1,13 @@
 <div class="c-banner l-section-top  l-half ">
 
     <div class="container-fluid ">
-        <div class="row">
-            <div class="col-12">
+        
                 <div class="row <?= $layout["image_aligment"]; ?>">
-                    <div class="col-12 col-xl-6 col__content">
+                    <div class="col-12 col-xl-6 col__content" >
                         <div class="banner__content">
-                            <h1 class="banner__title">
+                            <<?= $heading_tag; ?> class="banner__title">
                                 <?= $content["title"] ?>
-                            </h1>
+                            </<?= $heading_tag; ?>>
 
                             <p class="banner__desc">
                                 <?= $content["description"] ?>
@@ -34,9 +33,7 @@
                     </div>
 
                 </div>
-
-            </div>
-        </div>
+            
     </div>
 
 </div>

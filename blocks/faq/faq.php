@@ -13,6 +13,7 @@ $settings = get_field("settings");
 $data = block_start("FAQ", $block, $settings , "section-gray");
 $id = $data["id"];
 $color_schema = $data["color_schema"];
+
 ?>
 
 <div class="c-section--faq <?= $color_schema; ?>" id="<?php echo esc_attr($id); ?>" >
@@ -20,7 +21,7 @@ $color_schema = $data["color_schema"];
         <?php
         if ($content["headline_text"]) :
         ?>
-            <h2 class="section__title "><?= $content["headline_text"]; ?></h2>
+            <<?= $data["h_tag"]; ?> class="section__title "><?= $content["headline_text"]; ?></<?= $data["h_tag"]; ?>>
         <?php
         endif;
         ?>

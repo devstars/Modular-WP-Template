@@ -15,16 +15,17 @@ $data = block_start("text_media", $block, $carousel , $color_schema);
 $id = $data["id"];
 $color_schema = $data["color_schema"];
 
-
 $mode = (trim(strtolower($carousel["mode"])) === "carousel") ? "carousel" : "single";
 ?>
 <div class="u-relative <?= $color_schema; ?> " id="<?php echo esc_attr($id); ?>">
-    <div class=" banner-wrapper <?= $layout["width"]; ?>  <?= ($mode === "carousel") ? "banner-js owl-carousel owl-theme" : ""; ?>   ">
+    <div data-interval="<?= $carousel["interval"]; ?>" data-autoplay="<?= $carousel["autoplay"]; ?>" class=" banner-wrapper <?= $layout["width"]; ?>  <?= ($mode === "carousel") ? "banner-js owl-carousel owl-theme" : ""; ?>   ">
         <?php
-        foreach ($banner as $slide) :
+        foreach ($banner as $index => $slide) :            
 
             $content = $slide["content"];
             $background = $slide["background"];
+
+            $heading_tag = ($index === 0  && $data["h_tag"] === "h1") ? "h1" : "h2";
 
             $background_image = ($background["image"]) ? "style='background-image:url(" . $background["image"]["sizes"]["extra_large"] . ")'" : "";
             $ctas = $slide["ctas"];
@@ -65,10 +66,6 @@ $mode = (trim(strtolower($carousel["mode"])) === "carousel") ? "carousel" : "sin
 </div>
 <?php
 if ($mode) {
-    wp_enqueue_script('text-media-js', get_template_directory_uri() . '/blocks/text-media/text-media.js', array('jquery'), filemtime(get_template_directory() . '/blocks/text-media/text-media.js'), false);
-    wp_localize_script('text-media-js', 'carouselData', array(
-        'autoplay' => $carousel["autoplay"],
-        'interval' => $carousel["interval"],
-    ));
+    wp_enqueue_script('text-media-js', get_template_directory_uri() . '/blocks/text-media/text-media.js', array('jquery'), filemtime(get_template_directory() . '/blocks/text-media/text-media.js'), false);    
 }
 ?>

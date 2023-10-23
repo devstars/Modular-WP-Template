@@ -3808,7 +3808,7 @@
 }
 .c-section--usp .usp__tile .usp__icon {
   height: 90px;
-  width: 90px;
+  /* width: 90px; */
 }
 .c-section--usp .usp__tile .usp__image {
   background-position: center !important;
@@ -3816,13 +3816,16 @@
   background-repeat: none !important;
   width: 100%;
 }
-.c-section--usp .usp__tile .usp__desc {
+.c-section--usp .usp__tile .usp__title {
+  font-weight: 400;
   font-size: 1.125rem;
   padding-top: 1.875rem;
   margin-bottom: 2.5rem;
 }
-.c-section--usp .usp__tile .usp__desc.l-short {
-  max-width: 280px;
+@media screen and (min-width: 768px) {
+  .c-section--usp .usp__tile .usp__title.l-short {
+    max-width: 280px;
+  }
 }
 .c-section--usp .usp__tile .custom-link {
   font-weight: 500;
@@ -3833,11 +3836,11 @@
   border-bottom: 1px solid #FFBB00 !important;
 }
 
-.section-white.c-section--usp .usp__desc {
+.section-white.c-section--usp .usp__title {
   opacity: 0.8;
 }
 
-.background-white.c-section--usp .usp__desc {
+.background-white.c-section--usp .usp__title {
   opacity: 0.8;
 }
 

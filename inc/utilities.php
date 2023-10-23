@@ -104,7 +104,9 @@ function block_start($name, $block, $settings, $color_schema)
     <?php
     endif;
 
-    return array("id"=>$id, "color_schema" => $color_schema);
+    $h_tag = (isset($settings["h1"])  && !empty($settings["h1"]) ) ? "h1" : "h2" ;
+    
+    return array("id"=>$id, "color_schema" => $color_schema, "h_tag" => $h_tag);
 }
 
 

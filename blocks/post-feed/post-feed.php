@@ -38,7 +38,7 @@ $args = array(
         <?php
         if ($content["headline_text"]) :
         ?>
-            <h2 class="section__title "><?= $content["headline_text"]; ?></h2>
+            <<?= $data["h_tag"]; ?> class="section__title "><?= $content["headline_text"]; ?></<?= $data["h_tag"]; ?>>
         <?php
         endif;
         ?>

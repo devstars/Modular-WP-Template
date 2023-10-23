@@ -6,7 +6,7 @@
                 <?php
                 if ($content["headline_text"]) :
                 ?>
-                    <h2 class="section__title "><?= $content["headline_text"]; ?></h2>
+                    <<?= $h_tag; ?> class="section__title "><?= $content["headline_text"]; ?></<?= $h_tag; ?>>
                 <?php
                 endif;
                 ?>
