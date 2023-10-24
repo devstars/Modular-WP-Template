@@ -85,7 +85,7 @@ function isColorDark($hexColor)
     return $luminance <= $threshold;
 }
 
-function block_start($name, $block, $settings, $color_schema)
+function block_start($name, $block, $settings, $color_schema = null)
 {
     $id = $name . '-' . $block['id'];
     if (!empty($block['anchor'])) {
@@ -111,24 +111,6 @@ function block_start($name, $block, $settings, $color_schema)
         #<?= esc_attr($id); ?>{
             --modular-highlighted: <?= $color_highlighted ?>;
         }    
-
-  /*       #<?= esc_attr($id); ?> .btn--outline-highlighted{
-            border: 1px solid <?= $color_highlighted ?>;
-            } */
-   /*      #<?= esc_attr($id); ?> .btn--highlighted{
-            background-color: <?= $color_highlighted ?>;  
-            border: 1px solid <?= $color_highlighted ?>;                 
-        }  */
-
-/*         #<?= esc_attr($id); ?> .std-btn-primary:hover{
-            background-color: <?= $color_highlighted ?> !important;
-            border: 1px solid <?= $color_highlighted ?> !important ;
-        }
-
-        #<?= esc_attr($id); ?> .std-btn-secondary:hover{
-            background-color: <?= $color_highlighted ?> !important;
-            border: 1px solid <?= $color_highlighted ?>  !important;
-        } */
             
         </style>
         <?php        

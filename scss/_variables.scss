@@ -47,10 +47,12 @@ $green: #82ca9c;
 $green_dark: #437d59;
 $green_mask: #003512b5;
 
-$yellow: var(--modular-highlighted);
 $orange: #ff822e;
 $orange_heavy: #e8511e;
 $red: #ff203a;
+
+$yellow: #FFBB00;
+$highlighted: var(--modular-highlighted);
 
 $breakpoints: (
     "": 0px,

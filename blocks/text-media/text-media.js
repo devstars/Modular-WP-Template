@@ -18,7 +18,8 @@
                 loop: true,
                 nav: false,
                 dots: true,                
-                items: 1,                
+                items: 1,   
+                autoHeight: false,             
                 onInitialized: function(el) {
                     $(el.target).parent().find(".tm-prev-js").click(() => {
                         banner.find(".owl-prev").trigger('prev.owl.carousel');

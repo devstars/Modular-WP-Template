@@ -8,6 +8,7 @@
 
   @include tran-all-fast;
 
+
   width: 100%;
 
   & > .container-fluid {
@@ -178,4 +179,13 @@
       background-color: transparent;
     }
   }
+}
+
+.nt__background{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 154px;
+  background-color: black;
 }

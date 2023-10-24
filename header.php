@@ -46,8 +46,8 @@
     $post_blocks = parse_blocks($post->post_content);    
 
     if($post_blocks[0]["blockName"] === "acf/text-media"){                
-        $nav_class = $post_blocks[0]["attrs"]["data"]["layout_width"] === "full" ? "section-transparent" : "";
-        $wrapper_class .= $post_blocks[0]["attrs"]["data"]["layout_width"] === "half" ? " l-margin-top" : "";
+        $nav_class = $post_blocks[0]["attrs"]["data"]["carousel_width"] === "full" ? "section-transparent" : "";
+        $wrapper_class .= $post_blocks[0]["attrs"]["data"]["carousel_width"] === "half" ? " l-margin-top" : "";
     }else{
         $wrapper_class .= "l-section-top";
     }
@@ -62,7 +62,7 @@
     $btn_cta = store_content_of_function('btn_from_link', [Configuration::$fields["header"]["nav"]["cta"], "btn btn-header"]);
     ?>
 
-    <div class="c-nav-top nav-top-js section-<?= $scheme_colors; ?> <?= $nav_class ?> ">
+    <div class="c-nav-top nav-top-js section-<?= $scheme_colors; ?> <?= $nav_class ?> ">        
 
         <div class="container-fluid pl-3 pr-3">
 
@@ -100,6 +100,10 @@
 
 
     </div>
+
+    <?php if($scheme_colors === "black"): ?>
+    <div class="nt__background"></div>
+    <?php endif; ?>
 
     <div class="menu-mobile-wrapper section-<?= $scheme_colors; ?> menu-mobile-js d-flex d-lg-none">
         <div class="container-fluid">

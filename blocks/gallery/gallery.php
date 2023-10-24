@@ -58,36 +58,6 @@ $color_schema = $data["color_schema"];
             ?>
         </div>
 
-        <?php
-
-
-        /*         if (strtolower($mode) === "carousel") :
-
-        ?>
-            <div class="carousel-wrapper gallery-carousel-js owl-carousel owl-theme">
-                <?php
-                foreach ($content as $image) :
-                    $image = $image["image"];
-                ?>
-                    <div class="carousel__image" style="background-image:url(<?= $image["sizes"]["max"]; ?>" alt="<?= $image["alt"] ?>)"></div>
-                <?php
-                endforeach;
-                ?>
-
-            </div>
-
-            <div class="u-nav gallery-carousel-nav">
-                <div class="prev-js o-nav-btn mr-auto"> <?= file_get_contents(IMAGES . '/icons/arrow-left.svg'); ?> </div>
-                <div class="next-js o-nav-btn "> <?= file_get_contents(IMAGES . '/icons/arrow-right.svg'); ?> </div>
-            </div>
-
-
-
-
-        <?php
-        endif; */
-        ?>
-
     </div>
 
 

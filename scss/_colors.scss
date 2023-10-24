@@ -42,13 +42,13 @@
     .std-btn-primary{
         @extend .btn;
         @extend .btn--black;
-        @extend .hover-yellow;
+        @extend .hover-highlighted;
     }
 
     .std-btn-secondary{
         @extend .btn;
         @extend .btn--outline-black;
-        @extend .hover-yellow;
+        @extend .hover-highlighted;
     }
 
     .std-btn-tertiary{
@@ -60,13 +60,13 @@
     .std-btn-quaternary{
         @extend .btn;
         @extend .btn--outline-black;
-        @extend .hover-yellow;
+        @extend .hover-highlighted;
     }
 
     .o-link{
-        color:$yellow;
+        color:$highlighted;
         &:after{
-            border-bottom: 1px solid $yellow;
+            border-bottom: 1px solid $highlighted;
         }
     }
 }
@@ -153,25 +153,25 @@
     .std-btn-primary{        
         @extend .btn;
         @extend .btn--white;
-        @extend .hover-yellow;
+        @extend .hover-highlighted;
     }
 
     .std-btn-secondary{        
         @extend .btn;
         @extend .btn--outline-white;
-        @extend .hover-yellow;        
+        @extend .hover-highlighted;        
     }
 
     .std-btn-tertiary{
         @extend .btn;
         @extend .btn--outline-white;
-        @extend .hover-yellow;
+        @extend .hover-highlighted;
     }
 
     .std-btn-quaternary{
         @extend .btn;
-        @extend .btn--yellow;
-        @extend .hover-outline-yellow;
+        @extend .btn--highlighted;
+        @extend .hover-outline-highlighted;
     }
 
 }

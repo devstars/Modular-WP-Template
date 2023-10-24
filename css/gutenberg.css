@@ -4005,11 +4005,11 @@
 }
 
 .section-bright .member__position {
-  color: var(--modular-color-of-highlighted-sl);
+  color: var(--modular-highlighted);
 }
 
 .section-dark .member__position {
-  color: var(--modular-color-of-highlighted-sd);
+  color: var(--modular-highlighted);
 }
 
 .c-section--testimonials .testimonials-wrapper {

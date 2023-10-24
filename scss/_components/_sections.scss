@@ -112,13 +112,13 @@
       font-weight: 500;
       text-transform: uppercase;
 
-      color: $yellow !important;
+      color: $highlighted !important;
 
       @extend .o-link;
     }
 
     &:hover .custom-link:after {
-      border-bottom: 1px solid $yellow !important;
+      border-bottom: 1px solid $highlighted !important;
     }
   }
 }
@@ -306,13 +306,13 @@
 
 .section-bright{
   .member__position{
-    color: var(--modular-color-of-highlighted-sl);
+    color: var(--modular-highlighted);
   }
 }
 
 .section-dark{
   .member__position{
-    color: var(--modular-color-of-highlighted-sd);
+    color: var(--modular-highlighted);
   }
 }
 
@@ -417,12 +417,12 @@
 .section-white.c-section--post-feed {
   .pf__tile {
     .tile-hover {
-      color: $yellow;
+      color: $highlighted;
     }
 
     &:hover {
       .tile-hover {
-        border-bottom: 1px solid $yellow !important;
+        border-bottom: 1px solid $highlighted !important;
       }
     }
   }
@@ -614,7 +614,7 @@
 .section-dark {
   .company__data {
     .label {
-      color: $yellow;
+      color: $highlighted;
     }
 
     .data {

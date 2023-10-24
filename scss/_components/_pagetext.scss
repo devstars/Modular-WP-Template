@@ -85,7 +85,7 @@
         position: relative;
         text-decoration: none;
         transition: all 0.15s linear;
-        color:$yellow;
+        color:$highlighted;
 
         &:after {
             position: absolute;
@@ -94,13 +94,13 @@
             left: 0;
             width: 100%;
             transition: all 0.15s linear;
-            border-bottom: 1px solid $yellow;
+            border-bottom: 1px solid $highlighted;
         }
 
    /*      &:hover{
-            color:$yellow;
+            color:$highlighted;
             &:after{
-                border-bottom: 1px solid $yellow;
+                border-bottom: 1px solid $highlighted;
             }
         } */        
 
@@ -171,7 +171,7 @@
             top: 1.25rem;
             height: calc(100% - 1.25rem);
             width: 4px;
-            background-color: $yellow;
+            background-color: $highlighted;
         }
     }
 

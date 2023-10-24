@@ -1,4 +1,10 @@
-<div class="c-banner l-section-top u-mask section-transparentt " <?= $background_image; ?>>
+<div class="banner__start">
+    <?php
+    $data = block_start("tm_slide_" . $index, $block, $settings);
+    $id = $data["id"];
+    ?>
+
+<div id="<?= esc_attr($id); ?>"  class="c-banner l-section-top u-mask section-transparentt " <?= $background_image; ?>>
 
     <?php
     if ($background["video"]) :
@@ -14,7 +20,7 @@
     <div class="container-fluid u-z-index-10">
         <div class="row">
             <div class="col-12">
-                <div class="banner__content  <?= $layout["horizontal_aligment"] ?>">
+                <div class="banner__content  <?= $settings["horizontal_aligment"] ?>">
                     <<?= $heading_tag; ?> class="banner__title">
                         <?= $content["title"] ?>
                     </<?= $heading_tag; ?>>
@@ -24,9 +30,9 @@
                     </p>
 
                     <?php
-                    $mr = isset( $ctas["button_cta_right"]) && $ctas["button_cta_right"]  ? "mr-3" : "";
+                    $mr = isset($ctas["button_cta_right"]) && $ctas["button_cta_right"]  ? "mr-3" : "";
 
-                    echo btn_from_link($ctas["button_cta_left"], "btn btn--highlighted hover-white ". $mr);
+                    echo btn_from_link($ctas["button_cta_left"], "btn btn--highlighted hover-white " . $mr);
                     ?>
                     <?php
                     echo btn_from_link($ctas["button_cta_right"], "btn btn--outline-highlighted hover-white ");
@@ -35,5 +41,6 @@
             </div>
         </div>
     </div>
-        
+
+</div>
 </div>

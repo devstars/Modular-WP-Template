@@ -4160,6 +4160,15 @@ q {
   background-color: transparent;
 }
 
+.nt__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 154px;
+  background-color: black;
+}
+
 .c-toggler {
   border: none;
   background-color: transparent;
@@ -4702,11 +4711,11 @@ q {
 }
 
 .section-bright .member__position {
-  color: var(--modular-color-of-highlighted-sl);
+  color: var(--modular-highlighted);
 }
 
 .section-dark .member__position {
-  color: var(--modular-color-of-highlighted-sd);
+  color: var(--modular-highlighted);
 }
 
 .c-section--testimonials .testimonials-wrapper {
@@ -5217,10 +5226,10 @@ q {
 .c-pagination-numb .pn:hover svg,
 .c-pagination-numb .pn.active a,
 .c-pagination-numb .pn.active svg {
-  color: var(--modular-highlighted);
+  color: #FFBB00;
 }
 .c-pagination-numb .pn:hover a:after, .c-pagination-numb .pn.active a:after {
-  border-bottom: 1px solid var(--modular-highlighted) !important;
+  border-bottom: 1px solid #FFBB00 !important;
 }
 
 .l-pagination-top {
@@ -6154,8 +6163,8 @@ q {
   color: #111111 !important;
 }
 .cc-btn:hover {
-  border: 1px solid var(--modular-highlighted) !important;
-  background: var(--modular-highlighted) !important;
+  border: 1px solid #FFBB00 !important;
+  background: #FFBB00 !important;
   color: #ffffff !important;
 }
 
@@ -6212,7 +6221,7 @@ q {
   color: #111111;
 }
 
-.btn--outline-yellow, .btn--outline-highlighted {
+.btn--outline-highlighted {
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   background-color: transparent;
@@ -6228,7 +6237,7 @@ q {
   border: 1px solid #111111;
 }
 
-.btn--yellow, .section-black .std-btn-quaternary, .section-dark .std-btn-quaternary, .btn--highlighted {
+.btn--highlighted, .section-black .std-btn-quaternary, .section-dark .std-btn-quaternary {
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   background-color: var(--modular-highlighted);
@@ -6250,7 +6259,7 @@ q {
   border: 1px solid #ffffff !important;
 }
 
-.hover-yellow:hover, .section-white .std-btn-primary:hover, .section-white .std-btn-secondary:hover, .section-white .std-btn-quaternary:hover, .section-gray .std-btn-primary:hover, .section-gray .std-btn-secondary:hover, .section-gray .std-btn-quaternary:hover, .section-bright .std-btn-primary:hover, .section-bright .std-btn-secondary:hover, .section-bright .std-btn-quaternary:hover, .section-black .std-btn-primary:hover, .section-black .std-btn-secondary:hover, .section-black .std-btn-tertiary:hover, .section-dark .std-btn-primary:hover, .section-dark .std-btn-secondary:hover, .section-dark .std-btn-tertiary:hover, .hover-highlighted:hover {
+.hover-highlighted:hover, .section-white .std-btn-primary:hover, .section-white .std-btn-secondary:hover, .section-white .std-btn-quaternary:hover, .section-gray .std-btn-primary:hover, .section-gray .std-btn-secondary:hover, .section-gray .std-btn-quaternary:hover, .section-bright .std-btn-primary:hover, .section-bright .std-btn-secondary:hover, .section-bright .std-btn-quaternary:hover, .section-black .std-btn-primary:hover, .section-black .std-btn-secondary:hover, .section-black .std-btn-tertiary:hover, .section-dark .std-btn-primary:hover, .section-dark .std-btn-secondary:hover, .section-dark .std-btn-tertiary:hover {
   color: #ffffff !important;
   background-color: var(--modular-highlighted) !important;
   border: 1px solid var(--modular-highlighted) !important;
@@ -6273,7 +6282,7 @@ q {
   background-color: transparent !important;
 }
 
-.hover-outline-yellow:hover, .section-black .std-btn-quaternary:hover, .section-dark .std-btn-quaternary:hover {
+.hover-outline-highlighted:hover, .section-black .std-btn-quaternary:hover, .section-dark .std-btn-quaternary:hover {
   color: var(--modular-highlighted) !important;
   background-color: transparent !important;
   border: 1px solid var(--modular-highlighted) !important;
@@ -6492,9 +6501,9 @@ q {
   transition: all 0.15s linear;
   color: var(--modular-highlighted);
   /*      &:hover{
-           color:$yellow;
+           color:$highlighted;
            &:after{
-               border-bottom: 1px solid $yellow;
+               border-bottom: 1px solid $highlighted;
            }
        } */
 }
@@ -6691,11 +6700,20 @@ q {
           flex: 1;
 }
 
-.banner-wrapper {
-  height: auto !important;
+.half.banner-wrapper .banner__start {
+  height: 100%;
+}
+.half.banner-wrapper .owl-stage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.half.banner-wrapper .owl-item div {
+  height: 100%;
 }
 
 .c-banner {
+  height: 100%;
   min-height: 890px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6727,17 +6745,17 @@ q {
 }
 .c-banner .container-fluid .banner__content, .c-banner .c-section--gallery .carousel-wrapper .banner__content, .c-section--gallery .c-banner .carousel-wrapper .banner__content, .c-banner .c-section--gallery .media-carousel-nav .banner__content, .c-section--gallery .c-banner .media-carousel-nav .banner__content {
   /*          @media screen and (min-width: $lg) {
-               width: 70%;
-           }
+      width: 70%;
+  }
 
-           @media screen and (min-width: $xl) {
-               margin-left: auto;
-               margin-right: auto;
-           }
+  @media screen and (min-width: $xl) {
+      margin-left: auto;
+      margin-right: auto;
+  }
 
-           @media screen and (min-width: $xxl) {
-               margin-left: 0;
-           } */
+  @media screen and (min-width: $xxl) {
+      margin-left: 0;
+  } */
   max-width: 100%;
 }
 .c-banner .container-fluid .banner__content.left, .c-banner .c-section--gallery .carousel-wrapper .banner__content.left, .c-section--gallery .c-banner .carousel-wrapper .banner__content.left, .c-banner .c-section--gallery .media-carousel-nav .banner__content.left, .c-section--gallery .c-banner .media-carousel-nav .banner__content.left {

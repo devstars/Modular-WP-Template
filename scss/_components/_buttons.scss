@@ -55,11 +55,11 @@
 }
 
 
-.btn--outline-yellow, .btn--outline-highlighted {
+.btn--outline-highlighted {
   @include tran-all;
 
   background-color: transparent;
-  border: 1px solid $yellow;
+  border: 1px solid $highlighted;
   color: $white;
 }
 
@@ -74,13 +74,13 @@
   border: 1px solid $black;
 }
 
-.btn--yellow , .btn--highlighted{
+.btn--highlighted{
   @include tran-all;
 
-  background-color: $yellow;
+  background-color: $highlighted;
   color: $white !important;
 
-  border: 1px solid $yellow; 
+  border: 1px solid $highlighted; 
 }
 
 
@@ -101,11 +101,11 @@
   }
 }
 
-.hover-yellow , .hover-highlighted{
+.hover-highlighted{
   &:hover {
     color: $white !important;
-    background-color: $yellow !important;
-    border: 1px solid $yellow  !important;
+    background-color: $highlighted !important;
+    border: 1px solid $highlighted  !important;
   }
 }
 
@@ -133,11 +133,11 @@
   }
 }
 
-.hover-outline-yellow{
+.hover-outline-highlighted{
   &:hover {
-    color: $yellow !important;
+    color: $highlighted !important;
     background-color: transparent !important;
-    border: 1px solid $yellow  !important;
+    border: 1px solid $highlighted  !important;
   }
 }
 
