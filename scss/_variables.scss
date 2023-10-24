@@ -12,6 +12,7 @@
     --modular-xl-padding:30px;
     --modular-section-padding:100px;
     --modular-section-lg-padding:130px;
+    --modular-highlighted: #FFBB00;
 }
 
 $xs: 0px;
@@ -46,7 +47,7 @@ $green: #82ca9c;
 $green_dark: #437d59;
 $green_mask: #003512b5;
 
-$yellow:#FFBB00;
+$yellow: var(--modular-highlighted);
 $orange: #ff822e;
 $orange_heavy: #e8511e;
 $red: #ff203a;

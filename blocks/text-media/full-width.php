@@ -26,10 +26,10 @@
                     <?php
                     $mr = isset( $ctas["button_cta_right"]) && $ctas["button_cta_right"]  ? "mr-3" : "";
 
-                    echo btn_from_link($ctas["button_cta_left"], "btn btn--yellow hover-white ". $mr);
+                    echo btn_from_link($ctas["button_cta_left"], "btn btn--highlighted hover-white ". $mr);
                     ?>
                     <?php
-                    echo btn_from_link($ctas["button_cta_right"], "btn btn--outline-yellow hover-white ");
+                    echo btn_from_link($ctas["button_cta_right"], "btn btn--outline-highlighted hover-white ");
                     ?>
                 </div>
             </div>

@@ -202,8 +202,7 @@
 
   .member__position {
     @include fontSize(30px);
-    font-weight: 500;
-    color: $yellow;
+    font-weight: 500;    
     margin-bottom: calcRem(43px);
   }
 
@@ -307,7 +306,13 @@
 
 .section-bright{
   .member__position{
-    //color:$black;
+    color: var(--modular-color-of-highlighted-sl);
+  }
+}
+
+.section-dark{
+  .member__position{
+    color: var(--modular-color-of-highlighted-sd);
   }
 }
 

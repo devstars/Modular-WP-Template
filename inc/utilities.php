@@ -98,10 +98,40 @@ function block_start($name, $block, $settings, $color_schema)
     ?>
         <style>
             #<?= esc_attr($id); ?> {
-                background-color: <?= $custom_background ?>;
-            }
+                background-color: <?= $custom_background ?>;                
+            }                  
         </style>
     <?php
+    endif;
+
+    $color_highlighted = $settings["color_of_highlighted"];
+    if (!empty($color_highlighted)) :
+        ?>
+        <style>
+        #<?= esc_attr($id); ?>{
+            --modular-highlighted: <?= $color_highlighted ?>;
+        }    
+
+  /*       #<?= esc_attr($id); ?> .btn--outline-highlighted{
+            border: 1px solid <?= $color_highlighted ?>;
+            } */
+   /*      #<?= esc_attr($id); ?> .btn--highlighted{
+            background-color: <?= $color_highlighted ?>;  
+            border: 1px solid <?= $color_highlighted ?>;                 
+        }  */
+
+/*         #<?= esc_attr($id); ?> .std-btn-primary:hover{
+            background-color: <?= $color_highlighted ?> !important;
+            border: 1px solid <?= $color_highlighted ?> !important ;
+        }
+
+        #<?= esc_attr($id); ?> .std-btn-secondary:hover{
+            background-color: <?= $color_highlighted ?> !important;
+            border: 1px solid <?= $color_highlighted ?>  !important;
+        } */
+            
+        </style>
+        <?php        
     endif;
 
     $h_tag = (isset($settings["h1"])  && !empty($settings["h1"]) ) ? "h1" : "h2" ;

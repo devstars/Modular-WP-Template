@@ -55,13 +55,15 @@
 }
 
 
-.btn--outline-yellow {
+.btn--outline-yellow, .btn--outline-highlighted {
   @include tran-all;
 
   background-color: transparent;
   border: 1px solid $yellow;
   color: $white;
 }
+
+
 
 .btn--black {
   @include tran-all;
@@ -72,7 +74,7 @@
   border: 1px solid $black;
 }
 
-.btn--yellow {
+.btn--yellow , .btn--highlighted{
   @include tran-all;
 
   background-color: $yellow;
@@ -80,6 +82,7 @@
 
   border: 1px solid $yellow; 
 }
+
 
 .btn--white{
   @include tran-all;
@@ -93,12 +96,12 @@
 .hover-white {
   &:hover {
     color: $black !important;
-    background-color: $white;
-    border: 1px solid $white;
+    background-color: $white !important;
+    border: 1px solid $white !important;
   }
 }
 
-.hover-yellow {
+.hover-yellow , .hover-highlighted{
   &:hover {
     color: $white !important;
     background-color: $yellow !important;

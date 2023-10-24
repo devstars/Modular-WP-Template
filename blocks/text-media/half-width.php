@@ -12,7 +12,7 @@
                             <p class="banner__desc">
                                 <?= $content["description"] ?>
                             </p>
-
+                            
                             <?php
                             echo btn_from_link($ctas["button_cta_left"], "std-btn-primary mr-3 mb-3 ");
                             ?>

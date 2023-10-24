@@ -87,13 +87,14 @@
   }
 }
 
-.o-link--yellow{  
-  color:$yellow !important;
+.o-link--highlighted{  
+  
+  color:var(--modular-color-of-highlighted-sd) !important;
 
   @extend .o-link;
 
   &:hover:after{
-      border-bottom: 1px solid $yellow !important;
+      border-bottom: 1px solid var(--modular-color-of-highlighted-sd)!important;
   }
 }
 
