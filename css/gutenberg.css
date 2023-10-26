@@ -891,6 +891,18 @@
   padding-right: 0 !important;
 }
 
+@media screen and (min-width: 1200px) {
+  .pr-xl-0 {
+    padding-right: 0 !important;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .pl-xl-0 {
+    padding-left: 0 !important;
+  }
+}
+
 .pl-5 {
   padding-left: 25px !important;
 }
@@ -4092,167 +4104,6 @@
   opacity: 0.8;
 }
 
-.c-section--contact .details__right {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  z-index: 100;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: 2.1875rem;
-  width: calc(100% + var(--modular-0-padding) * -1px - 15px);
-  bottom: calc(var(--modular-section-padding) * -1 + 20px);
-}
-@media screen and (min-width: 992px) {
-  .c-section--contact .details__right {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
-}
-@media screen and (min-width: 576px) {
-  .c-section--contact .details__right {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-  }
-}
-@media screen and (min-width: 992px) {
-  .c-section--contact .details__right {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .c-section--contact .details__right {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-  }
-}
-@media screen and (min-width: 992px) {
-  .c-section--contact .details__right {
-    bottom: calc(20px + var(--modular-section-lg-padding) * -1px);
-  }
-}
-@media screen and (min-width: 992px) {
-  .c-section--contact .details__right {
-    right: 15px;
-    bottom: 0;
-  }
-}
-@media screen and (min-width: 1400px) {
-  .c-section--contact .details__right {
-    right: 0;
-    width: 83%;
-  }
-}
-.c-section--contact .details__right .company__data {
-  margin-bottom: 20px;
-}
-.c-section--contact .details__right .company__data .label {
-  margin-bottom: 0.9375rem;
-}
-@media screen and (min-width: 576px) {
-  .c-section--contact .details__right .company__data {
-    margin-bottom: 0px;
-  }
-}
-@media screen and (min-width: 992px) {
-  .c-section--contact .details__right .company__data {
-    margin-bottom: 20px;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .c-section--contact .details__right .company__data {
-    margin-bottom: 0px;
-  }
-}
-.c-section--contact .details__right.l-vertical {
-  width: 100%;
-  padding-top: 0;
-}
-@media screen and (min-width: 992px) {
-  .c-section--contact .details__right.l-vertical {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-}
-.c-section--contact .details__right.l-vertical .company__data {
-  max-width: 300px;
-  width: 100%;
-  margin-bottom: 20px;
-}
-@media screen and (min-width: 992px) {
-  .c-section--contact .contact__half .c-form {
-    width: 83%;
-  }
-}
-.c-section--contact .contact__half .details__on_map {
-  position: absolute;
-}
-.c-section--contact .details__full .company__data {
-  text-align: center;
-}
-.c-section--contact .details__full .company__data .label {
-  display: inline-block;
-  margin-bottom: 10px;
-}
-.c-section--contact .details__full .col-12 {
-  margin-bottom: 30px;
-}
-.c-section--contact .details__full .col-12:last-child {
-  margin-bottom: 0;
-}
-.c-section--contact .map-wrapper {
-  height: 400px;
-}
-@media screen and (min-width: 576px) {
-  .c-section--contact .map-wrapper {
-    height: 400px;
-  }
-}
-@media screen and (min-width: 992px) {
-  .c-section--contact .map-wrapper {
-    left: -15px;
-    height: 100%;
-  }
-}
-.c-section--contact .map-wrapper .contact__map {
-  position: relative;
-  width: 100vw;
-  height: calc(100% + var(--modular-section-padding));
-  margin-left: calc(var(--modular-0-padding) * -1px);
-}
-@media screen and (min-width: 576px) {
-  .c-section--contact .map-wrapper .contact__map {
-    margin-left: calc(var(--modular-sm-padding) * -1px);
-  }
-}
-@media screen and (min-width: 992px) {
-  .c-section--contact .map-wrapper .contact__map {
-    margin-left: 0;
-    position: absolute;
-    left: 0;
-    top: calc(-1 * var(--modular-section-lg-padding));
-    width: 50vw;
-    height: calc(100% + 2 * var(--modular-section-lg-padding));
-  }
-}
 .c-section--contact table {
   border-collapse: collapse;
 }
@@ -4268,21 +4119,186 @@
   font-size: 1.125rem;
   font-weight: 700;
   width: 150px;
+  color: var(--modular-highlighted);
 }
 .c-section--contact .company__data .data {
   font-size: 1.125rem;
   font-weight: 500;
   line-height: 1.6em;
 }
-
-.section-black,
-.section-dark {
-  /*   .details__full {
-    .data {
-      color: $white;
-    }
-  } */
+@media screen and (min-width: 992px) {
+  .c-section--contact .contact__half .c-form {
+    /* width: 83%; */
+  }
 }
+.c-section--contact .contact__half .details__on_map {
+  position: absolute;
+}
+.c-section--contact .details__full .company__data {
+  text-align: center;
+}
+.c-section--contact .details__full .company__data .label {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.c-section--contact .details__full .col-12 {
+  margin-bottom: 30px;
+}
+@media screen and (min-width: 992px) {
+  .c-section--contact .details__full .col-12 {
+    margin-bottom: 0;
+  }
+}
+.c-section--contact .details__full .col-12:last-child {
+  margin-bottom: 0;
+}
+.c-section--contact .col-left .table--details {
+  margin-left: auto;
+  margin-right: auto;
+}
+@media screen and (min-width: 992px) {
+  .c-section--contact .col-left .table--details {
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
+@media screen and (min-width: 992px) {
+  .c-section--contact .col-left.details, .c-section--contact .col-left.form {
+    padding-right: 45px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .c-section--contact .col-left.details, .c-section--contact .col-left.form {
+    padding-right: 8.5%;
+  }
+}
+.c-section--contact .col-left .map-wrapper {
+  height: 400px;
+}
+@media screen and (min-width: 576px) {
+  .c-section--contact .col-left .map-wrapper {
+    height: 400px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .c-section--contact .col-left .map-wrapper {
+    left: -15px;
+    height: 100%;
+  }
+}
+.c-section--contact .col-left .map-wrapper .contact__map {
+  position: relative;
+  width: 100vw;
+  -webkit-transform: translateY(calc(-1 * var(--modular-section-padding)));
+      -ms-transform: translateY(calc(-1 * var(--modular-section-padding)));
+          transform: translateY(calc(-1 * var(--modular-section-padding)));
+  height: calc(100% + var(--modular-section-padding));
+  margin-left: calc(var(--modular-0-padding) * -1px);
+}
+@media screen and (min-width: 576px) {
+  .c-section--contact .col-left .map-wrapper .contact__map {
+    margin-left: calc(var(--modular-sm-padding) * -1px);
+  }
+}
+@media screen and (min-width: 992px) {
+  .c-section--contact .col-left .map-wrapper .contact__map {
+    margin-left: 0;
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0);
+    position: absolute !important;
+    right: 0;
+    top: calc(-1 * var(--modular-section-lg-padding));
+    width: 50vw;
+    height: calc(100% + 2 * var(--modular-section-lg-padding));
+  }
+}
+@media screen and (min-width: 1200px) {
+  .c-section--contact .col-right.details, .c-section--contact .col-right.form {
+    padding-left: 8.5%;
+  }
+}
+.c-section--contact .col-right.details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+@media screen and (min-width: 992px) {
+  .c-section--contact .col-right.details {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .c-section--contact .col-right.details {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
+.c-section--contact .col-right.form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+@media screen and (min-width: 1200px) {
+  .c-section--contact .col-right.form {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+.c-section--contact .col-right .map-wrapper {
+  height: 400px;
+}
+@media screen and (min-width: 576px) {
+  .c-section--contact .col-right .map-wrapper {
+    height: 400px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .c-section--contact .col-right .map-wrapper {
+    left: -15px;
+    height: 100%;
+  }
+}
+.c-section--contact .col-right .map-wrapper .contact__map {
+  position: relative;
+  width: 100vw;
+  height: calc(100% + var(--modular-section-padding));
+  margin-left: calc(var(--modular-0-padding) * -1px);
+}
+@media screen and (min-width: 576px) {
+  .c-section--contact .col-right .map-wrapper .contact__map {
+    margin-left: calc(var(--modular-sm-padding) * -1px);
+  }
+}
+@media screen and (min-width: 992px) {
+  .c-section--contact .col-right .map-wrapper .contact__map {
+    margin-left: 0;
+    position: absolute;
+    left: 0;
+    top: calc(-1 * var(--modular-section-lg-padding));
+    width: 50vw;
+    height: calc(100% + 2 * var(--modular-section-lg-padding));
+  }
+}
+
 .section-black .company__data .label,
 .section-dark .company__data .label {
   color: var(--modular-highlighted);

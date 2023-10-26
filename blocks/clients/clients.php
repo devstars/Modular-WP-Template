@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Block Name: Clients
  */
@@ -9,7 +10,7 @@ $content = get_field("content");
 $tiles = get_field("logotypes");
 $settings = get_field("settings");
 
-$data = block_start("clients", $block, $settings , "section-white");
+$data = block_start("clients", $block, $settings, "section-white");
 $id = $data["id"];
 $color_schema = $data["color_schema"];
 ?>
@@ -21,19 +22,27 @@ $color_schema = $data["color_schema"];
 
         <div class="logotypes-wrapper logotypes-js owl-carousel owl-theme " data-id="<?= $block['id']; ?>">
             <?php
-            if ($tiles) :
+            if ($tiles && 1 == 1) :
                 foreach ($tiles as $tile) :
 
-
-                    $href = ($tile["url"])  ? "href='" . $tile["url"] . "' rel='external nofollow'" : "";
-
-
+                    $link = $tile["url"];
                     $image = $tile["image"];
-            ?>
-                    <a <?= $href ?> class="l__tile">
-                        <img class="l__icon" src="<?= $image["sizes"]["medium"]; ?>" alt="<?= $image["alt"]; ?>">
-                    </a>
 
+                    if (isset($link) && !empty($link)) :
+                        $rel = ($link["target"] === "_blank") ? 'rel="external nofollow"' : '';
+                        ?>
+                        <a href=" <?= $link["url"] ?> " target="<?= $link["target"] ?>" <?= $rel ?> class="l__tile">
+                            <img class="l__icon" src="<?= $image["sizes"]["medium"]; ?>" alt="<?= $image["alt"]; ?>">
+                        </a>
+                    <?php
+                    else :
+                    ?>
+                        <a class="l__tile">
+                            <img class="l__icon" src="<?= $image["sizes"]["medium"]; ?>" alt="<?= $image["alt"]; ?>">
+                        </a>
+                    <?php
+                    endif;
+                    ?>
             <?php
                 endforeach;
             endif;

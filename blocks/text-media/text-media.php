@@ -42,7 +42,7 @@ $mode = (trim(strtolower($carousel["mode"])) === "carousel") ? "carousel" : "sin
 
     <?php 
     
-    $image_aligment = "right";
+    $image_aligment = $carousel["image_aligment"];
     ?>
     <?php if ($mode === "carousel" && $carousel["show_navigation"]) : ?>
         <div class="container-fluid banner__nav <?= $carousel["width"]; ?> <?= $image_aligment; ?> ">

@@ -1,9 +1,13 @@
 <?php get_header(); ?>
 
+<?php 
+$id_pp = get_option('page_for_posts')
+?>
 <div class="c-section--post-feed pt-5 pt-lg-16 pb-16 pb-lg-17 section-white ">
     <div class="container-fluid">
         
-                <h1 class="section__title u-text-left pb-5 pt-6">Blog</h1>
+                <h1 class="section__title u-text-left pb-5 pt-6"><?= get_the_title($id_pp) ?></h1>
+    
                 <div class="row l-tiles">                    
                         <?php
                         $index = 0;

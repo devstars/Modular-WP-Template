@@ -124,9 +124,6 @@ $color_schema = $data["color_schema"];
                             <?php
                             endif;
                             ?>
-
-
-
                             <?php
                             $button = $tile["button"];
 

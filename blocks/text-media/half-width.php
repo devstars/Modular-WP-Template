@@ -7,8 +7,8 @@
 
         <div class="container-fluid ">
 
-            <div class="row <?= $settings["image_aligment"]; ?>">
-                <div class="col-12 col-xl-6 col__content">
+            <div class="row  <?= $carousel["image_aligment"]; ?>">
+                <div class="col-12 col-xl-6 col__content pl-xl-0">
                     <div class="banner__content">
                         <<?= $heading_tag; ?> class="banner__title">
                             <?= $content["title"] ?>
@@ -27,7 +27,7 @@
 
                     </div>
                 </div>
-                <div class="col-12 col-xl-6 pr-0">
+                <div class="col-12 col-xl-6 pr-xl-0">
                     <?php
                     if ($background["image"]) :
                     ?>

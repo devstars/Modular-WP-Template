@@ -262,17 +262,20 @@ function add_container_to_block($block_content, $block)
         $post_type = $post->post_type;
 
         if ($post_type === 'page' || $post_type === 'post') {
+            
+            $content_class = "mx-auto";
 
-            /*       $page_template = get_template_directory() . '/page.php';
-
-            if ($template === $page_template ||  1==1) {} */
+            $page_template = get_template_directory() . '/templates/blog.php';
+            if ($template === $page_template ) {
+                $content_class = "mx-auto";
+            }            
 
             $blocks_without_section = array();
 
             if (strpos($block["blockName"], "acf") !== false && !in_array($block["blockName"], $blocks_without_section)) {
                 //if acf and block with section
                 $block_content = '</div></div></div>' . $block_content .
-                    '<div class="container-fluid page-text section-white"><div class="row"><div class="col-12 col-xl-10 mx-auto">';
+                    '<div class="container-fluid page-text section-white"><div class="row"><div class="col-12 col-xl-10 '.$content_class.'">';
             }
         }
     }

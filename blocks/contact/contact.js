@@ -99,20 +99,19 @@
 
         addMarker() {
 
+   
             var marker = new google.maps.Marker({
                 position: {
                     lat: this.location.lat,
                     lng: this.location.lng
                 },
                 icon: {
-                    path: 'M23.048,3A15.536,15.536,0,0,0,7.5,18.548c0,11.661,15.548,28.874,15.548,28.874S38.6,30.208,38.6,18.548A15.536,15.536,0,0,0,23.048,3Zm0,21.1A5.553,5.553,0,1,1,28.6,18.548,5.555,5.555,0,0,1,23.048,24.1Z',
-                    fillColor: '#111',
-                    fillOpacity: 1,
-                    scale: 1.0,
-                    strokeColor: '#111',
-                    strokeWeight: 0
+                    url: themeUri + '/images/icons/marker-w.svg',                    
                 }
+                
             });
+            
+
 
             marker.setMap(this.map);
 

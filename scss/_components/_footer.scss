@@ -1,6 +1,6 @@
-.c-footer {
-  padding-top: 60px;
-  padding-bottom: 60px;
+.c-footer {  
+
+  @extend .l-section-padding;
 
   position: relative;
 

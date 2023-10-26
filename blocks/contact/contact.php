@@ -15,14 +15,13 @@ $id = $data["id"];
 $color_schema = $data["color_schema"];
 $h_tag = $data["h_tag"];
 
-$cols = 0;
-if($settings["map"]) $cols++;
-if($settings["form"]) $cols++;
-if($settings["details"]) $cols++;
+$settings["first_row"]["left"] = strtolower(trim($settings["first_row"]["left"]));
+$settings["first_row"]["right"] = strtolower(trim($settings["first_row"]["right"]));
+$settings["2nd_row"]["column"] = strtolower(trim($settings["2nd_row"]["column"]));
 
-if($cols > 1 ){
-    include("layout-2cols.php");
-}else{
+include("layout-2cols.php");
+
+if($settings["2nd_row"]["column"] !== "none"){
     include("layout-1col.php");
 }
 
@@ -41,7 +40,7 @@ wp_localize_script('contact-js', 'latLng', array(
     'lng' => $lng,
 ));
 
-if($settings["map"]) :
+if($settings["first_row"]["left"] === "map" || $settings["first_row"]["right"] === "map" || $settings["2nd_row"]["column"] === "map") :
     ?>
     <script defer src="https://maps.googleapis.com/maps/api/js?key=<?= Configuration::$google_map_api_key ?>&callback=window.map.init"></script> 
     <?php

@@ -6,16 +6,11 @@
     .owl-stage {
         display: flex;
     }
-    .owl-item {
-        div {
-            height: 100%;
-        }
-    }
 }
 
 .c-banner {
     .row {
-        width: 100%;
+        //width: 100%;
     }
 
     height: 100%;
@@ -56,22 +51,24 @@
 
             max-width: 100%;
 
-            &.left {
-                margin-left: 0;
-                margin-right: auto;
-                text-align: left;
-            }
+            @media screen and (min-width: $xl) {
+                &.left {
+                    margin-left: 0;
+                    margin-right: auto;
+                    text-align: left;
+                }
 
-            &.center {
-                margin-left: auto;
-                margin-right: auto;
-                text-align: center;
-            }
+                &.center {
+                    margin-left: auto;
+                    margin-right: auto;
+                    text-align: center;
+                }
 
-            &.right {
-                margin-left: auto;
-                margin-right: 0;
-                text-align: right;
+                &.right {
+                    margin-left: auto;
+                    margin-right: 0;
+                    text-align: right;
+                }
             }
 
             .banner__title {
@@ -185,7 +182,10 @@
     }
 
     .right {
-        margin-right: auto;
+        @media screen and (min-width: $xl) {
+            margin-right: 0;
+            margin-left: auto;
+        }
     }
 
     .left {
@@ -227,11 +227,11 @@
     }
 
     .row {
-        width: 100%;
+/*         width: 100%;
         @media screen and (min-width: $xl) {
             margin-left: 0;
             margin-right: 0;
-        }
+        } */
     }
 }
 
@@ -329,16 +329,32 @@
         }
     }
 
-    .full & {
-        bottom: 22px;
-        .owl-dot {
-            span {
-                border: 1px solid $white;
-                background: transparent !important;
-            }
-            &.active span {
-                background: $white !important;
-            }
+    
+    bottom: 42px;
+    
+}
+
+.section-transparent, .section-black{
+    .owl-dot {
+        span {
+            border: 1px solid $white;
+            background: transparent !important;
+        }
+        &.active span {
+            background: $white !important;
+        }
+    }
+}
+
+
+.section-white{
+    .owl-dot {
+        span {
+            border: 1px solid $black;
+            background: transparent !important;
+        }
+        &.active span {
+            background: $black !important;
         }
     }
 }

@@ -1,51 +1,14 @@
 <div class="c-section--contact <?= $color_schema; ?> " id="<?php echo esc_attr($id); ?>">
     <div class="container-fluid contact__half">
         <div class="row l-cols">
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-6 col-left <?= $settings["first_row"]["left"] ?>">
 
-                <?php
-                if ($content["headline_text"]) :
-                ?>
-                    <<?= $h_tag; ?> class="section__title "><?= $content["headline_text"]; ?></<?= $h_tag; ?>>
-                <?php
+                <?php                
+                if ($settings["first_row"]["left"] !== "map") :
+                    include("headline.php");
                 endif;
-                ?>
 
-                <?php
-                if ($content["body_text"]) :
-                ?>
-                    <p class="section__subtitle "><?= $content["body_text"] ?></p>
-                <?php
-                endif;
-                ?>
-
-                <?php
-                if ($settings["form"]) include("form.php");
-                if ($settings["details"] && !$settings["form"]) :
-                ?>
-                    <table>
-                        <tr class="company__data">
-                            <td class="label">Address</td>
-                            <td class="data"><?= Configuration::$contact["basic"]["address"]; ?></td>
-                        </tr>
-                        <tr class="company__data">
-                            <td class="label">Email(s):</td>
-                            <td class="data"><?= Configuration::$contact["basic"]["email"]; ?></td>
-                        </tr>
-                        <tr class="company__data">
-                            <td class="label">Phone(s):</td>
-                            <td class="data"><?= Configuration::$contact["basic"]["phone"]; ?></td>
-                        </tr>
-                    </table>
-                <?php
-                endif;
-                ?>
-
-            </div>
-
-            <div class="col-12 col-lg-6 u-relative">
-                <?php
-                if ($settings["map"]) :
+                if ($settings["first_row"]["left"] === "map") :
                 ?>
                     <div class="map-wrapper map-wrapper-js u-relative">
                         <div id="googleMap" class="contact__map map-js"></div>
@@ -53,44 +16,41 @@
                 <?php
                 endif;
 
-                if ($settings["details"] && $settings["map"] && $settings["form"]) :
+                if ($settings["first_row"]["left"] === "details") :
+                    include("details.php");
+                endif;
+
+                if ($settings["first_row"]["left"] === "form") :
+                    include("form.php");
+                endif;
+
                 ?>
-                    <div class="details__right details__on_map details-right-js ">
-                        <div class="company__data">
-                            <div class="label">Address:</div>
-                            <div class="data"><?= Configuration::$contact["basic"]["address"]; ?></div>
-                        </div>
-                        <div class="company__data">
-                            <div class="label">Phone(s):</div>
-                            <div class="data"><?= Configuration::$contact["basic"]["phone"]; ?></div>
-                        </div>
-                        <div class="company__data">
-                            <div class="label">Email(s):</div>
-                            <div class="data"><?= Configuration::$contact["basic"]["email"]; ?></div>
-                        </div>
+
+            </div>
+
+            <div class="col-12 col-lg-6 col-right <?= $settings["first_row"]["right"] ?> u-relative">
+                <?php
+                if ($settings["first_row"]["left"] === "map") :
+                    include("headline.php");
+                endif;
+
+                if ($settings["first_row"]["right"] === "map") :
+                ?>
+                    <div class="map-wrapper map-wrapper-js u-relative">
+                        <div id="googleMap" class="contact__map map-js"></div>
                     </div>
+                <?php
+                endif;
+
+                if ($settings["first_row"]["right"] === "details") :
+                    include("details.php");
+                ?>                 
 
                 <?php
                 endif;
 
-                if ($settings["details"]  && !$settings["map"] && $settings["form"]) :
-                ?>
-                    <div class="details__right l-vertical  ">
-                        <div class="company__data">
-                            <div class="label">Address:</div>
-                            <div class="data"><?= Configuration::$contact["basic"]["address"]; ?></div>
-                        </div>
-                        <div class="company__data">
-                            <div class="label">Phone(s):</div>
-                            <div class="data"><?= Configuration::$contact["basic"]["phone"]; ?></div>
-                        </div>
-                        <div class="company__data">
-                            <div class="label">Email(s):</div>
-                            <div class="data"><?= Configuration::$contact["basic"]["email"]; ?></div>
-                        </div>
-                    </div>
-                <?php
-
+                if ($settings["first_row"]["right"] === "form") :
+                    include("form.php");
                 endif;
                 ?>
 

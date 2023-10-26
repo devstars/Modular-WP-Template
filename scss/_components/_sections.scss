@@ -442,86 +442,39 @@
   @extend .c-section;
   @extend .l-section-padding;
 
-  .details__right {
-    display: flex;
-    @media screen and (min-width: $lg) {
-      display: flex;
+  table {
+    border-collapse: collapse;
+    tr:last-child td {
+      padding-bottom: 0; /* Ustawienie padding-bottom na 0 dla ostatniego wiersza */
+    }
+  }
+
+  .company__data {
+    td {
+      padding-bottom: calcRem(25px);
+      vertical-align: top;
+      text-align: left;
     }
 
-    z-index: 100;
+    .label {
+      @include fontSize(18px);
+      font-weight: 700;
+      width: 150px;
 
-    flex-direction: column;
-    @media screen and (min-width: $sm) {
-      flex-direction: row;
+      color: $highlighted;
     }
 
-    @media screen and (min-width: $lg) {
-      flex-direction: column;
-    }
-
-    @media screen and (min-width: $xl) {
-      flex-direction: row;
-    }
-
-    justify-content: space-between;
-
-    padding: calcRem(35px);
-
-    width: calc(100% + var(--modular-0-padding) * -1px - 15px);
-
-    bottom: calc(var(--modular-section-padding) * -1 + 20px);
-
-    @media screen and (min-width: $lg) {
-      bottom: calc(20px + var(--modular-section-lg-padding) * -1px);
-    }
-
-    @media screen and (min-width: $lg) {
-      right: 15px;
-      bottom: 0;
-    }
-
-    @media screen and (min-width: 1400px) {
-      right: 0;
-      width: 83%;
-    }
-
-    .company__data {
-      .label {
-        margin-bottom: calcRem(15px);
-      }
-
-      margin-bottom: 20px;
-      @media screen and (min-width: $sm) {
-        margin-bottom: 0px;
-      }
-      @media screen and (min-width: $lg) {
-        margin-bottom: 20px;
-      }
-      @media screen and (min-width: $xl) {
-        margin-bottom: 0px;
-      }
-    }
-
-    &.l-vertical {
-      @media screen and (min-width: $lg) {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      width: 100%;
-      padding-top: 0;
-      .company__data {
-        max-width: 300px;
-        width: 100%;
-        margin-bottom: 20px;
-      }
+    .data {
+      @include fontSize(18px);
+      font-weight: 500;
+      line-height: 1.6em;
     }
   }
 
   .contact__half {
     .c-form {
       @media screen and (min-width: $lg) {
-        width: 83%;
+        /* width: 83%; */
       }
     }
 
@@ -542,72 +495,143 @@
 
     .col-12 {
       margin-bottom: 30px;
+      @media screen and (min-width:$lg){
+        margin-bottom: 0;
+      }
+      
       &:last-child {
         margin-bottom: 0;
       }
     }
   }
 
-  .map-wrapper {
-    height: 400px;
-    @media screen and (min-width: $sm) {
-      height: 400px;
-    }
-    @media screen and (min-width: $lg) {
-      left: -15px;
-      height: 100%;
-    }
+  .col-left{
 
-    .contact__map {
-      position: relative;
-      width: 100vw;
-
-      height: calc(100% + var(--modular-section-padding));
-
-      margin-left: calc(var(--modular-0-padding) * -1px);
-      @media screen and (min-width: $sm) {
-        margin-left: calc(var(--modular-sm-padding) * -1px);
-      }
-
-      @media screen and (min-width: $lg) {
+    .table--details{
+      margin-left: auto;
+      margin-right: auto;
+      @media screen and (min-width:$lg){
         margin-left: 0;
-
-        position: absolute;
-        left: 0;
-        top: calc(-1 * var(--modular-section-lg-padding));
-
-        width: 50vw;
-        height: calc(100% + 2 * var(--modular-section-lg-padding));
+        margin-right: auto;
       }
     }
+    
+    &.details, &.form{
+      @media screen and (min-width:$lg){
+        padding-right: 45px;
+      }
+      @media screen and (min-width:$xl){
+        padding-right: 8.5%;
+      }
+    }
+    
+
+    .map-wrapper{
+      height: 400px;
+      @media screen and (min-width: $sm) {
+        height: 400px;
+      }
+      @media screen and (min-width: $lg) {
+        left: -15px;
+        height: 100%;
+      }
+  
+      .contact__map {
+        position: relative;
+        width: 100vw;
+        transform: translateY( calc(-1 *var(--modular-section-padding)));
+  
+        height: calc(100% + var(--modular-section-padding));
+  
+        margin-left: calc(var(--modular-0-padding) * -1px);
+        @media screen and (min-width: $sm) {
+          margin-left: calc(var(--modular-sm-padding) * -1px);
+        }
+  
+        @media screen and (min-width: $lg) {
+          margin-left: 0;
+          transform: translateY(0);
+  
+          position: absolute !important;
+          right: 0;
+          top: calc(-1 * var(--modular-section-lg-padding));
+  
+          width: 50vw;
+          height: calc(100% + 2 * var(--modular-section-lg-padding));
+        }
+      }
+    }
+  
   }
 
-  table {
-    border-collapse: collapse;
-    tr:last-child td {
-      padding-bottom: 0; /* Ustawienie padding-bottom na 0 dla ostatniego wiersza */
+  .col-right{
+    &.details, &.form{
+      
+      @media screen and (min-width:$xl){
+        padding-left: 8.5%;
+      }
     }
+    
+
+    &.details{
+      display: flex;
+      flex-direction: column;
+  
+      align-items: center;
+      @media screen and (min-width:$lg){
+        align-items: flex-start;
+      }      
+      @media screen and (min-width:$xl){
+        align-items: flex-start;
+      }      
+    }
+
+    &.form{
+      display: flex;
+      flex-direction: column;
+  
+      align-items: flex-end;
+      @media screen and (min-width:$xl){
+        align-items: center;
+      }    
+    }
+
+    .map-wrapper{
+      height: 400px;
+      @media screen and (min-width: $sm) {
+        height: 400px;
+      }
+      @media screen and (min-width: $lg) {
+        left: -15px;
+        height: 100%;
+      }
+  
+      .contact__map {
+        position: relative;
+        width: 100vw;
+  
+        height: calc(100% + var(--modular-section-padding));
+  
+        margin-left: calc(var(--modular-0-padding) * -1px);
+        @media screen and (min-width: $sm) {
+          margin-left: calc(var(--modular-sm-padding) * -1px);
+        }
+  
+        @media screen and (min-width: $lg) {
+          margin-left: 0;
+  
+          position: absolute;
+          left: 0;
+          top: calc(-1 * var(--modular-section-lg-padding));
+  
+          width: 50vw;
+          height: calc(100% + 2 * var(--modular-section-lg-padding));
+        }
+      }
+    
   }
 
-  .company__data {
-    td {
-      padding-bottom: calcRem(25px);
-      vertical-align: top;
-      text-align: left;
-    }
-
-    .label {
-      @include fontSize(18px);
-      font-weight: 700;
-      width: 150px;
-    }
-
-    .data {
-      @include fontSize(18px);
-      font-weight: 500;
-      line-height: 1.6em;
-    }
-  }
+}
 }
 
 .section-black,
@@ -621,12 +645,6 @@
       color: $white;
     }
   }
-
-  /*   .details__full {
-    .data {
-      color: $white;
-    }
-  } */
 }
 
 .details__on_map {

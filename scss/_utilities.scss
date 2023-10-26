@@ -109,6 +109,18 @@
   padding-right:0 !important;
 }
 
+.pr-xl-0{
+  @media screen and (min-width:$xl){
+    padding-right:0 !important;
+  }  
+}
+
+.pl-xl-0{
+  @media screen and (min-width:$xl){
+    padding-left:0 !important;
+  }  
+}
+
 .pl-5{
   padding-left:25px !important;
 }

@@ -95,6 +95,7 @@ function block_start($name, $block, $settings, $color_schema = null)
     $custom_background = $settings["background"];
     if (!empty($custom_background)) :
         $color_schema = (isColorDark($custom_background)) ? "section-dark" : "section-bright";
+        
     ?>
         <style>
             #<?= esc_attr($id); ?> {
@@ -104,7 +105,7 @@ function block_start($name, $block, $settings, $color_schema = null)
     <?php
     endif;
 
-    $color_highlighted = $settings["color_of_highlighted"];
+    $color_highlighted = $settings["color_of_highlighted"];    
     if (!empty($color_highlighted)) :
         ?>
         <style>
@@ -120,6 +121,4 @@ function block_start($name, $block, $settings, $color_schema = null)
     
     return array("id"=>$id, "color_schema" => $color_schema, "h_tag" => $h_tag);
 }
-
-
 ?>
