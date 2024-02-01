@@ -1,5 +1,5 @@
 .menu-top {
-  @media screen and (min-width: $lg) {
+  
     border: none;
     list-style-type: none;
     margin-top: 0;
@@ -83,12 +83,13 @@
       transform: translateY(-6px);
       font-size: 14px;
     }
-  }
+  
 }
 
 .menu-mobile-wrapper {
   position: fixed;
   width: 100%;
+  display: flex;
 
   align-items: flex-start;
 
@@ -155,7 +156,7 @@
 
 .section-white {
   .menu-top {
-    @media screen and (min-width: $lg) {
+    
       
         .nav-link {
           color: $black;
@@ -179,13 +180,12 @@
           color: $black;
         }
       }
-    }
+    
   }
 }
 
 .section-black, .section-transparent{
-  .menu-top {
-    @media screen and (min-width: $lg) {
+  .menu-top {    
       
         .nav-link {
           color: $white;
@@ -209,6 +209,6 @@
           color: $white;
         }
       }
-    }
+    
   }
 }

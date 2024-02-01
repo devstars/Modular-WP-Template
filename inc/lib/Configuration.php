@@ -20,6 +20,8 @@ class Configuration{
 
     public static $favicon;
     public static $phpmailer;
+    public static $menu_top_breakpoint;
+    public static $brand_colours;
             
     public static function get()
     {
@@ -53,6 +55,18 @@ class Configuration{
         self::$favicon = self::$fields["favicon"]["sizes"]["favicon"];
 
         self::$phpmailer = self::$fields["phpmailer"];
+
+        self::$menu_top_breakpoint = self::$fields["header"]["menu_top_breakpoint"] . "px";
+
+        //self::$brand_colours = array_column(self::$fields["brand_colours"], 'colour');
+
+        $brand_colours = array("#000000", "#ffffff","#dd3333", "#dd9933", "#eeee22", "#81d742", "#1e73be", "#8224e3");
+        
+        foreach(self::$fields["brand_colours"] as $key => $colour){
+            $brand_colours[$key] = $colour["colour"];            
+        }
+
+        self::$brand_colours = $brand_colours;
 
     }
 

@@ -5,17 +5,22 @@
 ?>
 
 <?php
+$banner = array();
 $banner = get_field("banner");
 
 $carousel = get_field("carousel");
 
-$color_schema = ($carousel["width"] === "half") ? "section-white" : "section-transparent";
+$color_schema = ($carousel["width"] === "half") ? "" : "section-transparent";
 
 $data = block_start("text_media", $block, $carousel , $color_schema);
 $id = $data["id"];
 $color_schema = $data["color_schema"];
 
 $mode = (trim(strtolower($carousel["mode"])) === "carousel") ? "carousel" : "single";
+
+if($mode==="single"){
+    $banner[] = get_field("slide");
+}
 ?>
 <div class="u-relative <?= $color_schema; ?> " id="<?php echo esc_attr($id); ?>">
     <div data-interval="<?= $carousel["interval"]; ?>" data-autoplay="<?= $carousel["autoplay"]; ?>" class=" banner-wrapper <?= $carousel["width"]; ?>  <?= ($mode === "carousel") ? "banner-js owl-carousel owl-theme" : ""; ?>   ">
@@ -59,8 +64,8 @@ $mode = (trim(strtolower($carousel["mode"])) === "carousel") ? "carousel" : "sin
                 ?>
                 <div class="<?= $col_class; ?>">
                     <div class="u-nav <?= $nav_class ?>">
-                        <div class="tm-prev-js o-nav-btn "> <?= file_get_contents(IMAGES . '/icons/arrow-left.svg'); ?> </div>
-                        <div class="tm-next-js o-nav-btn "> <?= file_get_contents(IMAGES . '/icons/arrow-right.svg'); ?> </div>
+                        <div class="tm-prev-js o-nav-btn black"> <?= file_get_contents(IMAGES . '/icons/arrow-left.svg'); ?> </div>
+                        <div class="tm-next-js o-nav-btn black"> <?= file_get_contents(IMAGES . '/icons/arrow-right.svg'); ?> </div>
                     </div>
                 </div>
                 <?php } ?>

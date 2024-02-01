@@ -3,7 +3,7 @@
     $data = block_start("tm_slide_" . $index, $block, $settings);
     $id = $data["id"];
     ?>
-    <div id="<?= esc_attr($id); ?>" class="c-banner l-section-top  l-half ">
+    <div id="<?= esc_attr($id); ?>" class="c-banner l-section-top  l-half <?= $data["color_schema"]; ?>">
 
         <div class="container-fluid ">
 

@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-md-8">
-                <h3 class="section__title u-text-left mb-8">Cards1</h3>
+                <h3 class="section__title u-text-left mb-8"></h3>
                 <div class="row">
                     <?php     
                     while (have_posts()) : the_post(); 

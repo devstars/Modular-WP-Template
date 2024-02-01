@@ -4,6 +4,14 @@
 
   position: relative;
 
+  a {  
+    text-decoration: none;
+  }
+
+  svg{
+    filter: invert(1);
+  }
+
   .row__top {
     margin-bottom: 80px;
     @media screen and (min-width: $xl) {
@@ -67,7 +75,7 @@
         margin-bottom: calcRem(20px);
         svg {
           height: 24px;
-          margin-right: calcRem(20px);
+          margin-right: calcRem(20px);          
         }
       }
     }
@@ -76,6 +84,7 @@
       @include fontSize(30px);
       margin-bottom: calcRem(30px);
       font-weight: 500;
+      //font-family: var(--modular-primary-font);
     }
 
     p {
@@ -148,6 +157,10 @@
 }
 
 .c-footer.section-black {
+  svg{
+    filter: invert(0);
+  }
+  
   a {
     @include tran-all-fast;
     opacity: 0.75;

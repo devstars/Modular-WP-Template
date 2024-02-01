@@ -1,6 +1,8 @@
 <?php
 function checkCategoryOrder($categories)
 {
+    
+
     //custom category array
     $temp = array(
         'slug' => 'modules',
@@ -13,8 +15,11 @@ function checkCategoryOrder($categories)
     $newCategories[0] = $temp;
 
     foreach ($categories as $category) {
-        $newCategories[] = $category;
+        if($category["slug"] === "modules") continue;
+        $newCategories[] = $category;        
     }
+
+    
     //return new categories
     return $newCategories;
 }
@@ -97,7 +102,7 @@ function my_acf_init()
             'render_callback' => 'pt_block_render_callback',
             'category' => 'modules',
             'keywords' => array('Clients'),
-            'align'        => 'wide',
+            'align'        => 'none',
             'supports'    => array(
                 'align'        => array('wide'),
                 'anchor' => true
@@ -131,10 +136,10 @@ function my_acf_init()
             'render_callback' => 'pt_block_render_callback',
             'category' => 'modules',
             'keywords' => array('Testimonials'),
-            'align'        => 'wide',
+            //'align'        => 'wide',
             'supports'    => array(
                 'align'        => array('wide'),
-                'anchor' => true
+                'anchor' => true,                
             )
         ));
     }
@@ -240,8 +245,70 @@ function my_acf_init()
             )
         ));
     }
- 
+
+    if (function_exists('acf_register_block')) {
+        acf_register_block(array(
+            'name' => 'button',
+            'title' => 'Button',
+            'description' => __('button'),
+            'mode' => 'edit',
+            'render_callback' => 'pt_block_render_callback',
+            'category' => 'devstars',
+            'keywords' => array('button'),
+            'align'        => 'wide',
+            'supports'    => array(
+                'align'        => array('wide'),
+                'anchor' => true
+            )
+        ));
+    }
 }
+
+function csp_deny_list_blocks() {
+    wp_enqueue_script(
+        'deny-list-blocks',
+        get_template_directory_uri() . '/js/deny-list-blocks.js',
+        array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' )
+    );
+}
+add_action( 'enqueue_block_editor_assets', 'csp_deny_list_blocks' );
+
+add_filter('allowed_block_types_all', function ($allowed_blocks, $post) {
+    $allowed_blocks = [
+        'core/image',
+        'core/paragraph',
+        'core/heading',
+        'core/list',
+        'core/list-item',
+        'core/embed',
+        /* 'core/spacer', */        
+        'core/quote',
+        /* 'core/gallery',  */
+        'core/table',
+        'core/code',
+        'core/html',
+        'core/media-text',
+        'core/cover',
+        'core/columns',
+        'core/buttons',
+        'core/separator',        
+        'acf/text-media',
+        'acf/usp',
+        'acf/clients',
+        'acf/Team',
+        'acf/testimonials',
+        'acf/post-feed',
+        'acf/faq',
+        'acf/contact',
+        'acf/gallery',
+        'acf/spacer',
+        'acf/pagination',
+        'acf/button',        
+    ];
+
+
+    return $allowed_blocks;
+}, 10, 2);
 
 function pt_block_render_callback($block)
 {
@@ -251,6 +318,7 @@ function pt_block_render_callback($block)
         include(get_theme_file_path("/blocks/{$slug}/{$slug}.php"));
     }
 }
+
 
 function add_container_to_block($block_content, $block)
 {
@@ -268,15 +336,21 @@ function add_container_to_block($block_content, $block)
             $page_template = get_template_directory() . '/templates/blog.php';
             if ($template === $page_template ) {
                 $content_class = "mx-auto";
-            }            
+            }                        
 
-            $blocks_without_section = array();
+            
+            $blocks_without_section = array("acf/button");
 
-            if (strpos($block["blockName"], "acf") !== false && !in_array($block["blockName"], $blocks_without_section)) {
+            if (strpos($block["blockName"], "acf") !== false && !in_array($block["blockName"], $blocks_without_section) || $block["blockName"] === "core/cover")  {
                 //if acf and block with section
                 $block_content = '</div></div></div>' . $block_content .
                     '<div class="container-fluid page-text section-white"><div class="row"><div class="col-12 col-xl-10 '.$content_class.'">';
             }
+
+        /*     if ($block["attrs"]["align"] === "wide")  {                
+                $block_content = '</div></div></div>' . $block_content .
+                    '<div class="container-fluid page-text section-white"><div class="row"><div class="col-12 col-xl-10 '.$content_class.'">';
+            } */
         }
     }
 

@@ -234,7 +234,7 @@
                             let offset = document.querySelector(anchor).getAttribute("data-offset");
 
                             if (!offset) {
-                                   top = top - 0;
+                                   top = top - 100;
                             } else {
                                    top = top - offset;
                             }

@@ -10,6 +10,8 @@
     text-transform: none;
     margin-bottom: calcRem(30px);
     text-align: left;
+
+    //font-family: var(--modular-primary-font);
   }
 
   .section__subtitle {
@@ -26,6 +28,7 @@
   }
 
   .col__title {
+    //font-family: var(--modular-primary-font);
     position: relative;
     text-align: center;
 
@@ -144,6 +147,7 @@
 
   @extend .l-section-padding;
 
+
   .section__subtitle {
     margin-bottom: 60px;
     @media screen and (min-width: $lg) {
@@ -152,11 +156,20 @@
   }
 
   .logotypes-wrapper {
-    margin-bottom: 40px;
+
+  }
+
+  .u-nav{
+    margin-top: 40px;
     @media screen and (min-width: $lg) {
-      margin-bottom: 60px;
+      margin-top: 60px;
+    }
+
+    &.hide{
+      display: none;
     }
   }
+
 
   .l__tile {
     text-decoration: none;
@@ -332,9 +345,22 @@
   }
 
   .t__quote {
-    @include fontSize(30px);
-    line-height: 1.5em;
+    font-size: 20px;
+    @media screen and (min-width:$lg){
+      font-size: 30px;
+    }
     
+    line-height: 1.5em;
+    overflow: hidden;
+
+    p,a,b,strong{
+      font-size: 20px;
+      @media screen and (min-width:$lg){
+        font-size: 30px;
+      }
+      line-height: 1.5em;
+      margin-bottom: 0;
+    }         
   }
 
   .u-nav{
@@ -782,8 +808,8 @@
 .c-section--spacer{  
   //margin-top: -1.25rem;
 
-  padding-bottom: calc(var(--modular-section-padding) / 1);
+  padding-top: calc(var(--modular-section-padding) / 1);
   @media screen and (min-width: $lg) {
-    padding-bottom: calc(var(--modular-section-lg-padding) / 1);
+    padding-top: calc(var(--modular-section-lg-padding) / 1);
   }
 }

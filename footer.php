@@ -6,8 +6,14 @@
 
 <?php
 $f_data = Configuration::$fields["footer"];
+
+
+$block = array("id"=>"footer", "anchor"=>"footer");
+$data = block_start("FAQ", $block, $f_data["settings"] );
+$id = $data["id"];
+$color_schema = $data["color_schema"];
 ?>
-<footer class="c-footer section-black footer-js">
+<footer class="c-footer footer-js <?= $color_schema; ?>"  id="<?php echo esc_attr($id); ?>">
     <div class="container-fluid">
         <div class="row row__top">
 
@@ -23,7 +29,7 @@ $f_data = Configuration::$fields["footer"];
                     <div class="col-6 top__middle">
                         <h2 class="col__title"><?= $f_data["second_column"]["heading"] ?></h2>
 
-                        <p class="wysiwyg">                      
+                        <p class="wysiwyg">
                             <?= $f_data["second_column"]["content"] ?>
                         </p>
 
@@ -31,17 +37,23 @@ $f_data = Configuration::$fields["footer"];
                     <div class="col-6 top__right">
                         <h2 class="col__title"><?= $f_data["third_column"]["heading"] ?></h2>
 
-                        <p class="wysiwyg">
+                        <?php 
+                        if($f_data["third_column"]["content"]):
+                        ?>
+                        <p class="wysiwyg mb-4">
                             <?= $f_data["third_column"]["content"] ?>
                         </p>
+                        <?php 
+                        endif;
+                        ?>
 
                         <?php
                         foreach (Configuration::$socials as $index => $social) :
                         ?>
                             <a href="<?= $social["url"] ?>" class="c-media icon-link">
-                            
-                            <?=  file_get_contents(IMAGES . '/icons/' . strtolower($social["name"]) . '.svg'); ?>                             
-                                                                
+
+                                <?= file_get_contents(IMAGES . '/icons/' . strtolower($social["name"]) . '.svg'); ?>
+
                                 <p class="media-body">
                                     <?= $social["name"]; ?>
                                 </p>
@@ -73,7 +85,7 @@ $f_data = Configuration::$fields["footer"];
             </div>
 
             <div class="col-6 col-lg-3 col-xl-2 bottom__right">
-                 <p class="made-by"> <span>Website by</span> <a href="https://www.devstars.com/" target="_blank" rel="external nofollow">Devstars</a></p>
+                <p class="made-by"> <span>Website by</span> <a href="https://www.devstars.com/" target="_blank" rel="external nofollow">Devstars</a></p>
             </div>
         </div>
     </div>
@@ -81,11 +93,11 @@ $f_data = Configuration::$fields["footer"];
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js" defer></script>
 
-<script>        
-    (function() {        
+<script>
+    (function() {
         lazyLoadCss('//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css');
     })();
-    window.addEventListener("load", function() {        
+    window.addEventListener("load", function() {
         window.cookieconsent.initialise({
             "content": {
                 "message": "On our site we use cookies, to help deliver the best experience for you and to also let us know how visitors use our website. If you are happy for us to use cookies whilst you view our site, please hit \"Agree\". If you would like more information, please find this in our ",

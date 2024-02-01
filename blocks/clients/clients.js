@@ -14,10 +14,15 @@
                 autoplayTimeout: 3000,
                 responsiveClass: true,
                 loop: true,
-                nav: false,
+                nav: true,
                 dots: false,
                 items: 2,                
-                onInitialized: function (el) {                     
+                onInitialized: function (el) {           
+                                                     
+                    console.log(".owl-nav");
+                    if($(el.target).find(".owl-nav").hasClass("disabled")){
+                        logotypes.parent().find(".nav-js").addClass("hide");
+                    }
 
                     $(el.target).parent().find(".l-prev-js").click(() => {                        
                         logotypes.find(".owl-prev").trigger('prev.owl.carousel');

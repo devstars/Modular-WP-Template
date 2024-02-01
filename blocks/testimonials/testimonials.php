@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Block Testimonials
  */
@@ -8,41 +9,50 @@
 $testimonials = get_field("testimonials");
 $settings = get_field("settings");
 
-$data = block_start("testimonials", $block, $settings , "section-white");
+$data = block_start("testimonials", $block, $settings, "section-white");
 $id = $data["id"];
 $color_schema = $data["color_schema"];
+
+$class = ($block["align"] === "wide") ?  "col-12" : "col-12 col-xl-10 mx-auto";
 ?>
 
-<div class="c-section--testimonials <?= $color_schema; ?> " id="<?php echo esc_attr($id); ?>">
-    <div class="container-fluid u-relative">
-        <div class="testimonials-wrapper testimonials-js owl-carousel owl-theme">
+<div class="c-section--testimonials <?= $color_schema; ?> <?= $block["className"]; ?> " id="<?php echo esc_attr($id); ?>">
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="<?= $class ?> ">            
+                <div class="u-relative">
+                    <div class="testimonials-wrapper testimonials-js owl-carousel owl-theme">
 
-            <?php
-            foreach ($testimonials as $testimonial) :
-            ?>
-                <div class="t__content">
-                    <p class="t__quote"><?= $testimonial["quote"]; ?></p>
-                    <?php 
-                    if($testimonial["name"] && $testimonial["company"]):
-                    ?>
-                    <div class="u-nav">
-                        <p class="t__name"> <?= $testimonial["name"]; ?></p>
-                        <p class="t__company"> <?= $testimonial["company"]; ?></p>
+                        <?php
+                        foreach ($testimonials as $testimonial) :
+                        ?>
+                            <div class="t__content">
+                                <div class="t__quote wysiwyg"><?= $testimonial["quote"]; ?></div>
+                                <?php
+                                if ($testimonial["name"] && $testimonial["company"]) :
+                                ?>
+                                    <div class="u-nav">
+                                        <p class="t__name"> <?= $testimonial["name"]; ?></p>
+                                        <p class="t__company"> <?= $testimonial["company"]; ?></p>
+                                    </div>
+                                <?php
+                                endif;
+                                ?>
+                            </div>
+                        <?php
+                        endforeach;
+                        ?>
+
                     </div>
-                    <?php 
-                    endif;
-                    ?>
+                    <div class="t__nav l-btns-vertical team-nav-js">
+                        <div class="next-js o-nav-btn "> <?= file_get_contents(IMAGES . '/icons/arrow-right.svg'); ?> </div>
+                        <div class="prev-js o-nav-btn "> <?= file_get_contents(IMAGES . '/icons/arrow-left.svg'); ?> </div>
+                    </div>
                 </div>
-            <?php
-            endforeach;
-            ?>
-
+            </div>
         </div>
 
-        <div class="t__nav l-btns-vertical team-nav-js" >
-            <div class="next-js o-nav-btn "> <?= file_get_contents(IMAGES . '/icons/arrow-right.svg'); ?> </div>
-            <div class="prev-js o-nav-btn "> <?= file_get_contents(IMAGES . '/icons/arrow-left.svg'); ?> </div>
-        </div>
+
     </div>
 
 </div>

@@ -39,33 +39,33 @@
         }
     }
 
-    .std-btn-primary{
+    .std-btn-primary {
         @extend .btn;
         @extend .btn--black;
         @extend .hover-highlighted;
     }
 
-    .std-btn-secondary{
+    .std-btn-secondary {
         @extend .btn;
         @extend .btn--outline-black;
         @extend .hover-highlighted;
     }
 
-    .std-btn-tertiary{
+    .std-btn-tertiary {
         @extend .btn;
         @extend .btn--outline-black;
         @extend .hover-black;
     }
 
-    .std-btn-quaternary{
+    .std-btn-quaternary {
         @extend .btn;
         @extend .btn--outline-black;
         @extend .hover-highlighted;
     }
 
-    .o-link{
-        color:$highlighted;
-        &:after{
+    .o-link {
+        color: $highlighted;
+        &:after {
             border-bottom: 1px solid $highlighted;
         }
     }
@@ -87,7 +87,13 @@
         &:first-of-type {
             border-right: 1px solid rgba(#111111, 0.4) !important;
         }
-    }  
+    }
+
+/*      svg {
+        path {
+            fill: black;
+        }
+    }  */
 }
 
 .section-black {
@@ -110,7 +116,8 @@
         text-decoration: none;
     }
 
-    .form__thanks, .form__error{
+    .form__thanks,
+    .form__error {
         color: $white;
     }
 
@@ -150,42 +157,43 @@
         }
     }
 
-    .std-btn-primary{        
+    .std-btn-primary {
         @extend .btn;
         @extend .btn--white;
         @extend .hover-highlighted;
     }
 
-    .std-btn-secondary{        
-        @extend .btn;
-        @extend .btn--outline-white;
-        @extend .hover-highlighted;        
-    }
-
-    .std-btn-tertiary{
+    .std-btn-secondary {
         @extend .btn;
         @extend .btn--outline-white;
         @extend .hover-highlighted;
     }
 
-    .std-btn-quaternary{
+    .std-btn-tertiary {
+        @extend .btn;
+        @extend .btn--outline-white;
+        @extend .hover-highlighted;
+    }
+
+    .std-btn-quaternary {
         @extend .btn;
         @extend .btn--highlighted;
         @extend .hover-outline-highlighted;
     }
-
 }
-
-
-
-
 
 .section-dark {
     @extend .section-black;
 
-    .o-nav-btn {        
-        border: 1px solid rgba(#fff, 0.6); 
-    } 
+    .o-nav-btn {
+        border: 1px solid rgba(#fff, 0.6);
+    }
+
+/*     svg {
+        path {
+            fill: $white;
+        }
+    } */
 }
 
 .section-transparent:not(.sticky) {
@@ -194,7 +202,9 @@
 
 .section-transparent {
     .c-banner {
-        h1,h2,h3,
+        h1,
+        h2,
+        h3,
         p {
             color: $white;
         }

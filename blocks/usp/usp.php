@@ -13,6 +13,7 @@ if (!empty($block['anchor'])) {
 }
 
 $settings = get_field("settings");
+$number_of_columns = $settings["number_of_columns"];
 $images = strtolower($settings["images"]);
 $content = get_field("content");
 
@@ -24,123 +25,134 @@ $data = block_start("usp", $block, $settings, "section-white");
 $id = $data["id"];
 $color_schema = $data["color_schema"];
 
+$class = ($block["align"] === "wide") ?  "col-12" : "col-12 col-xl-10 mx-auto";
 ?>
 
 <div id="<?= $id ?>" class="c-section--usp <?= $color_schema; ?> ">
 
-    <div class="container-fluid">
-        <<?= $data["h_tag"]; ?> class="section__title"><?= $content["headline_text"]; ?></<?= $data["h_tag"]; ?>>
-        <p class="section__subtitle"><?= $content["body_text"] ?></p>
-
+    <div class="container-fluid">        
         <div class="row">
-            <?php
-            //$col_classes = "col-6";
-            if (sizeof($tiles) === 3) $col_classes = "col-12 col-md-6 col-lg-4";
-            if (sizeof($tiles) === 4) $col_classes = "col-6 col-lg-3";
+            <div class="<?= $class ?>">
 
-            foreach ($tiles as $index => $tile) :
+                <<?= $data["h_tag"]; ?> class="section__title"><?= $content["headline_text"]; ?></<?= $data["h_tag"]; ?>>
+                <p class="section__subtitle"><?= $content["body_text"] ?></p>
 
-                if(sizeof($tiles) === 3){
-                    $group = floor($index / 1);
-                    $group_md = floor($index / 2);
-                    $group_lg = floor($index / 3);
-                }elseif(sizeof($tiles) == 4){
-                    $group = floor($index / 2);                    
-                    $group_lg = floor($index / 4);
-                }
-                            
-            ?>
-                <div class="<?= $col_classes ?> ">
+                <div class="row">
                     <?php
-                    $button = $tile["button"];
-                    if (!empty($button) && $button["url"]) :                        
-                        $rel = ($button["target"] === "_blank") ? 'rel="external nofollow"' : '';
+                    //$col_classes = "col-6";
+                    if ($number_of_columns === 3) $col_classes = "col-12 col-md-6 col-lg-4";
+                    if ($number_of_columns === 4) $col_classes = "col-12 col-md-6 col-lg-3";
+
+                    foreach ($tiles as $index => $tile) :
+
+                        if ($number_of_columns === 3) {
+                            $group = floor($index / 1);
+                            $group_md = floor($index / 2);
+                            $group_lg = floor($index / 3);
+                        } elseif ($number_of_columns === 4) {
+                            $group = floor($index / 1);
+                            $group_md = floor($index / 2);
+                            $group_lg = floor($index / 4);
+                        }
+
                     ?>
-                        <a href="<?= $button["url"] ?>" target="<?= $button["target"] ?>" <?= $rel ?> class="usp__tile">
-                        <?php
-                    else :
-                        ?>
-                            <a class="usp__tile">
-                            <?php
-                        endif;
-                            ?>
-
-                            <?php
-                            if ($images === "icon") :
-                            ?>
-                                <img class="usp__icon" src="<?= $tile["image"]["sizes"]["medium"] ?>" alt="<?= $tile["image"]["alt"] ?>">
-                            <?php
-                            else :
-                            ?>
-                                <div class="usp__image ratio-js" data-ratio="0.61" style="background-image:url(<?= $tile["image"]["sizes"]["custom_medium"] ?>)" alt="<?= $tile["image"]["alt"] ?>"></div>
-                            <?php
-                            endif;
-                            ?>
-
-                            <?php
-                            $desc_class = ($images === "icon") ? "l-short" : "";
-                            ?>
-
-                            <?php
-                            if (sizeof($tiles) == "3") :
-                            ?>
-                                <div class="<?= $desc_class; ?> usp__content align-h-js"  data-block="<?= $block['id'] ?>"  data-align="usp-title-<?= $group; ?>" data-align-md="usp-title-<?= $group_md; ?>" data-align-lg="usp-title-<?= $group_lg; ?>" <?= get_the_excerpt($post->ID); ?>>
-
-                                <?php if($tile["title"]): ?>
-                                <h3 class="usp__title <?= $desc_class; ?>" >    
-                                    <?= $tile["title"] ?>
-                                </h3>
-                                <?php endif; ?>
-
-                                <?php if($tile["description"]): ?>
-                                <p class="usp__desc <?= $desc_class; ?>" >
-                                    <?= $tile["description"] ?>
-                                </p>
-                                <?php endif; ?>
-
-                                </div>                                
-                            <?php
-                            endif;
-                            ?>
-
-                            <?php
-                            if (sizeof($tiles) == "4") :
-                            ?>
-                            <div class="<?= $desc_class; ?> usp__content align-h-js " data-block="<?= $block['id'] ?>"  data-align="usp-title-<?= $group; ?>" data-align-lg="usp-title-<?= $group_lg; ?>" <?= get_the_excerpt($post->ID); ?>>
-                                <?php if($tile["title"]): ?>
-                                <h3 class="usp__title" >    
-                                    <?= $tile["title"] ?>
-                                </h3>
-                                <?php endif; ?>
-
-                                <?php if($tile["description"]): ?>
-                                <p class="usp__desc" >
-                                    <?= $tile["description"] ?>
-                                </p>
-                                <?php endif; ?>
-                            </div>
-
-                       
-                            <?php
-                            endif;
-                            ?>
+                        <div class="<?= $col_classes ?> ">
                             <?php
                             $button = $tile["button"];
-
                             if (!empty($button) && $button["url"]) :
+                                $rel = ($button["target"] === "_blank") ? 'rel="external nofollow"' : '';
                             ?>
-                                <span class="custom-link"><?= $button["title"] ?> </span>
-                            <?php
-                            endif;
-                            ?>
+                                <a href="<?= $button["url"] ?>" target="<?= $button["target"] ?>" <?= $rel ?> class="usp__tile">
+                                <?php
+                            else :
+                                ?>
+                                    <a class="usp__tile">
+                                    <?php
+                                endif;
+                                    ?>
 
-                            </a>
+                                    <?php
+                                    if ($images === "icon") :
+                                    ?>
+                                        <img class="usp__icon" src="<?= $tile["image"]["sizes"]["medium"] ?>" alt="<?= $tile["image"]["alt"] ?>">
+                                    <?php
+                                    else :
+                                    ?>
+                                        <div class="usp__image ratio-js" data-ratio="0.61" style="background-image:url(<?= $tile["image"]["sizes"]["custom_medium"] ?>)" alt="<?= $tile["image"]["alt"] ?>"></div>
+                                    <?php
+                                    endif;
+                                    ?>
+
+                                    <?php
+                                    $desc_class = ($images === "icon") ? "l-short" : "";
+                                    ?>
+
+                                    <?php
+                                    if ($number_of_columns == "3") :
+                                    ?>
+                                        <div class="<?= $desc_class; ?> usp__content align-h-js" data-block="<?= $block['id'] ?>" data-align="usp-title-<?= $group; ?>" data-align-md="usp-title-<?= $group_md; ?>" data-align-lg="usp-title-<?= $group_lg; ?>" <?= get_the_excerpt($post->ID); ?>>
+
+                                            <?php if ($tile["title"]) : ?>
+                                                <h3 class="usp__title <?= $desc_class; ?>">
+                                                    <?= $tile["title"] ?>
+                                                </h3>
+                                            <?php endif; ?>
+
+                                            <?php if ($tile["description"]) : ?>
+                                                <p class="usp__desc <?= $desc_class; ?>">
+                                                    <?= $tile["description"] ?>
+                                                </p>
+                                            <?php endif; ?>
+
+                                        </div>
+                                    <?php
+                                    endif;
+                                    ?>
+
+                                    <?php
+                                    if ($number_of_columns == "4") :
+                                    ?>
+                                        <div class="<?= $desc_class; ?> usp__content align-h-js " data-block="<?= $block['id'] ?>" data-align="usp-title-<?= $group; ?>" data-align-lg="usp-title-<?= $group_lg; ?>" <?= get_the_excerpt($post->ID); ?>>
+                                            <?php if ($tile["title"]) : ?>
+                                                <h3 class="usp__title">
+                                                    <?= $tile["title"] ?>
+                                                </h3>
+                                            <?php endif; ?>
+
+                                            <?php if ($tile["description"]) : ?>
+                                                <p class="usp__desc">
+                                                    <?= $tile["description"] ?>
+                                                </p>
+                                            <?php endif; ?>
+                                        </div>
+
+
+                                    <?php
+                                    endif;
+                                    ?>
+                                    <?php
+                                    $button = $tile["button"];
+
+                                    if (!empty($button) && $button["url"]) :
+                                    ?>
+                                        <span class="custom-link"><?= $button["title"] ?> </span>
+                                    <?php
+                                    endif;
+                                    ?>
+
+                                    </a>
+                        </div>
+                    <?php
+                    endforeach;
+                    ?>
+
                 </div>
-            <?php
-            endforeach;
-            ?>
 
+
+            </div>
         </div>
+
+
 
 
     </div>

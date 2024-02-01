@@ -26,8 +26,6 @@ $fields = get_field("additional_fields");
             </div>
         </div>
 
-
-
         <div class="row">
 
             <?php

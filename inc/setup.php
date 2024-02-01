@@ -36,7 +36,7 @@ function theme_min_scripts() {
     $f_secondary = str_replace(' ', '+', $f_secondary);
 
     wp_enqueue_style( 'modular-font-primary', "https://fonts.googleapis.com/css2?family=".$f_primary.":wght@300;400;500;700;900&display=swap");
-    wp_enqueue_style( 'modular-font-primary', "https://fonts.googleapis.com/css2?family=".$f_secondary.":wght@300;400;500;700;900&display=swap");
+    wp_enqueue_style( 'modular-font-secondary', "https://fonts.googleapis.com/css2?family=".$f_secondary.":wght@300;400;500;700;900&display=swap");
 
 
 	wp_enqueue_style( 'theme_min-style', get_stylesheet_uri() );	     

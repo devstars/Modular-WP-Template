@@ -117,6 +117,65 @@ function block_start($name, $block, $settings, $color_schema = null)
         <?php        
     endif;
 
+    $color_highlighted = $settings["color_of_highlighted"];    
+    if (!empty($color_highlighted)) :
+        ?>
+        <style>
+        #<?= esc_attr($id); ?>{
+            --modular-highlighted: <?= $color_highlighted ?>;
+        }    
+            
+        </style>
+        <?php        
+    endif;    
+
+    $pt = $settings["padding_top"];    
+    if ($pt === "no") :
+        ?>
+        <style>
+        #<?= esc_attr($id); ?>{
+            padding-top: 0 !important;
+        }                
+        </style>
+        <?php        
+    endif;
+
+    $pb = $settings["padding_bottom"];    
+    if ($pb === "no") :
+        ?>
+        <style>
+        #<?= esc_attr($id); ?>{
+            padding-bottom: 0 !important;
+        }                
+        </style>
+        <?php        
+    endif;
+
+    
+    if (isset($settings["pt_mobile"])) :
+        $pt_mobile = $settings["pt_mobile"];    
+        ?>
+        <style>            
+        #<?= esc_attr($id); ?>{
+            padding-top: <?= $pt_mobile."px" ?> !important;
+        }                
+        </style>
+        <?php        
+    endif;
+    
+    if (isset($settings["pt_desktop"])) :
+        $pt_desktop = $settings["pt_desktop"];    
+        ?>
+        <style>
+        @media screen and (min-width: 992px) {
+            #<?= esc_attr($id); ?>{
+            padding-top: <?= $pt_desktop."px" ?> !important;
+        }                
+        }        
+        </style>
+        <?php        
+    endif;
+
     $h_tag = (isset($settings["h1"])  && !empty($settings["h1"]) ) ? "h1" : "h2" ;
     
     return array("id"=>$id, "color_schema" => $color_schema, "h_tag" => $h_tag);

@@ -4,8 +4,7 @@
 <div class="l-section-padding pb-0 ">
     <div class="container-fluid  page-text section-white">
         <div class="row">
-            <div class="col-12 col-xl-10 mx-auto">
-                <h1 class="mb-8"> <?php the_title(); ?></h1>
+            <div class="col-12 col-xl-10 mx-auto">                
                 <?php
                 global $wp_query;
                 while (have_posts()) : the_post();

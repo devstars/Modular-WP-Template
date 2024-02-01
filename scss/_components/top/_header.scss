@@ -55,14 +55,19 @@
   }
 
   .nav-top__logo {
-    @media screen and (min-width:$lg){
-      min-width: 260px;
+    @media screen and (max-width:$lg){
+      max-width: calc(100% - 100px);
     }
+    
+/*     @media screen and (min-width: var(--modular-header-break)){
+      min-width: 260px;
+    } */
     
     img {
       @include tran-all-fast;
       height: 52px;
       width: auto;
+      max-width: 100%;
 
       position: absolute;
       //top:calc(50%);
@@ -88,6 +93,20 @@
     }
   }
 
+  .menu-top{
+    display: none;
+/*     @media screen and (min-width: var(--modular-header-break)){
+      display: block;
+    } */
+  }
+
+  .btns__wrapper{
+    display: none;
+/*     @media screen and (min-width: var(--modular-header-break)){
+      display: flex;
+    } */
+  }
+
   .btn {
     @include tran-all;
 
@@ -103,6 +122,13 @@
 
   &.sticky .btn {
     padding: calcRem(13px) calcRem(40px);
+  }
+
+  .c-toggler{
+    display: block;
+/*     @media screen and (min-width: var(--modular-header-break) ){
+      display: none;
+    } */
   }
 }
 
@@ -186,6 +212,25 @@
   top:0;
   left:0;
   width: 100%;
-  height: 154px;
+  
+  height:114px;
+/*   @media screen and (min-width: var(--modular-header-break)){
+    height: 122px;
+  } */
+  
   background-color: black;
+
+
+
+  .admin-bar & {
+    height: 154px !important;
+  }
+
+  /*
+  @media screen and (min-width: 782px) {
+    .admin-bar & {
+      top: 32px;
+    }
+  } */
+
 }

@@ -4,7 +4,7 @@
     $id = $data["id"];
     ?>
 
-<div id="<?= esc_attr($id); ?>"  class="c-banner l-section-top u-mask section-transparentt " <?= $background_image; ?>>
+<div id="<?= esc_attr($id); ?>"  class="c-banner l-section-top u-mask section-transparent " <?= $background_image; ?>>
 
     <?php
     if ($background["video"]) :
@@ -17,10 +17,10 @@
     endif;
     ?>
 
-    <div class="container-fluid u-z-index-10">
+    <div class="container-fluid u-z-index-10 <?= $settings["horizontal_aligment"] ?>">
         <div class="row">
             <div class="col-12">
-                <div class="banner__content  <?= $settings["horizontal_aligment"] ?>">
+                <div class="banner__content ">
                     <<?= $heading_tag; ?> class="banner__title">
                         <?= $content["title"] ?>
                     </<?= $heading_tag; ?>>

@@ -20,7 +20,7 @@
     <?php get_template_part('template-parts/load-carousel');  ?>
 
     <?php wp_head(); ?>
-        
+
     <?= Configuration::get_root_styles(); ?>
 
     <script>
@@ -36,33 +36,64 @@
             s.parentNode.insertBefore(css, s);
         }
     </script>
-    
+
+    <style>
+        @media screen and (min-width: <?=  Configuration::$menu_top_breakpoint; ?>) {
+
+            .nav-top__logo {
+                min-width: 260px !important;
+            }
+
+            .menu-top {
+                display: block !important;
+            }
+
+            .btns__wrapper {
+                display: flex !important;
+            }
+
+            .c-toggler {
+                display: none !important;
+            }
+
+            .nt__background {
+                height: 122px !important;
+            }
+
+            .menu-mobile-wrapper{
+                display: none;
+            }
+
+        }
+    </style>
+
+
 </head>
 
 <body <?php body_class(); ?>>
 
     <?php
     global $post;
-    $post_blocks = parse_blocks($post->post_content);    
+    $post_blocks = parse_blocks($post->post_content);
 
-    if($post_blocks[0]["blockName"] === "acf/text-media"){                
+    if ($post_blocks[0]["blockName"] === "acf/text-media") {
         $nav_class = $post_blocks[0]["attrs"]["data"]["carousel_width"] === "full" ? "section-transparent" : "";
         $wrapper_class .= $post_blocks[0]["attrs"]["data"]["carousel_width"] === "half" ? " l-margin-top" : "";
-    }else{
+    } else {
         $wrapper_class .= "l-section-top";
     }
-    
+
     $h_fields = Configuration::$fields["header"];
     $scheme_colors = trim(strtolower($h_fields["color_scheme"]));
 
     $components_color = ($scheme_colors === "white") ? "black" : "white";
     $logo_white_url = $h_fields["nav"]["logo"]["white"]["sizes"]["thumbnail"];
     $logo_black_url = $h_fields["nav"]["logo"]["black"]["sizes"]["thumbnail"];
-    
+
     $btn_cta = store_content_of_function('btn_from_link', [Configuration::$fields["header"]["nav"]["cta"], "btn btn-header"]);
     ?>
 
-    <div class="c-nav-top nav-top-js section-<?= $scheme_colors; ?> <?= $nav_class ?> ">        
+    <div class="c-nav-top nav-top-js section-<?= $scheme_colors; ?> <?= $nav_class ?> ">
 
         <div class="container-fluid pl-3 pr-3">
 
@@ -72,7 +103,7 @@
                     <img class="logo--black" src="<?= $logo_black_url ?>" alt="logo">
                 </a>
 
-                <ul class="menu-top d-none d-lg-block <?= ($btn_cta) ? "" : "ml-auto mr-0"; ?>">
+                <ul class="menu-top <?= ($btn_cta) ? "" : "ml-auto mr-0"; ?>">
                     <?php
                     $menu_top = new Menu('top');
                     $menu_top->view();
@@ -82,7 +113,7 @@
                 <?php
                 if ($btn_cta) :
                 ?>
-                    <div class="d-none d-lg-flex ml-auto mr-0">
+                    <div class="btns__wrapper ml-auto mr-0">
                         <?php
                         echo $btn_cta;
                         ?>
@@ -91,7 +122,7 @@
                 endif;
                 ?>
 
-                <button class="c-toggler hamburger-js ml-auto mr-0 d-block d-lg-none" type="button" aria-expanded="false">
+                <button class="c-toggler hamburger-js ml-auto mr-0 " type="button" aria-expanded="false">
                     <span class="toggler__lines"></span>
                 </button>
             </div>
@@ -101,11 +132,11 @@
 
     </div>
 
-    <?php if($scheme_colors === "black"): ?>
-    <div class="nt__background"></div>
+    <?php if ($scheme_colors === "black") : ?>
+        <div class="nt__background"></div>
     <?php endif; ?>
 
-    <div class="menu-mobile-wrapper section-<?= $scheme_colors; ?> menu-mobile-js d-flex d-lg-none">
+    <div class="menu-mobile-wrapper section-<?= $scheme_colors; ?> menu-mobile-js ">
         <div class="container-fluid">
             <div class="menu-mobile">
                 <ul class="menu-mobile-list">
@@ -117,5 +148,7 @@
             </div>
         </div>
     </div>
+
+
 
     <div class="<?= $wrapper_class ?>"></div>

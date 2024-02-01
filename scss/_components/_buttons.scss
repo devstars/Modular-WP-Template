@@ -154,3 +154,19 @@
   }
 
 }
+
+.std-btn-primary {
+  @extend .btn;  
+}
+
+.std-btn-secondary {
+  @extend .btn;  
+}
+
+.std-btn-tertiary {
+  @extend .btn;  
+}
+
+.std-btn-quaternary {
+  @extend .btn;  
+}
