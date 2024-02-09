@@ -11,8 +11,14 @@
   --modular-section-padding:114px;
   --modular-section-lg-padding:122px;
   --modular-highlighted: #FFBB00;
+  --modular-quote-content-fs: 20px;
 }
 
+@media screen and (min-width: 992px) {
+  :root {
+    --modular-quote-content-fs: 30px;
+  }
+}
 /*normalize*/
 html {
   font-size: 14px;
@@ -35,9 +41,20 @@ body {
 
 body {
   outline: none !important;
-  font-family: var(--modular-primary-font);
+  font-family: var(--modular-secondary-font);
   color: #111111;
   overflow-x: hidden;
+}
+body a, body p, body ol, body ul, body li, body td, body em {
+  font-family: var(--modular-secondary-font);
+}
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+  font-family: var(--modular-primary-font);
 }
 
 *,
@@ -4551,6 +4568,7 @@ q {
 
 .c-section .section__title, .c-section--text-image .section__title, .c-section--gallery .section__title, .c-section--contact .section__title, .c-section--faq .section__title, .c-section--post-feed .section__title, .c-section--testimonials .section__title, .c-section--team .section__title, .c-section--logotypes .section__title, .c-section--usp .section__title {
   position: relative;
+  font-family: var(--modular-primary-font);
   font-size: 2.8125rem;
   line-height: 1.2em;
   font-weight: 400;
@@ -4567,6 +4585,7 @@ q {
   text-align: left;
 }
 .c-section .col__title, .c-section--text-image .col__title, .c-section--gallery .col__title, .c-section--contact .col__title, .c-section--faq .col__title, .c-section--post-feed .col__title, .c-section--testimonials .col__title, .c-section--team .col__title, .c-section--logotypes .col__title, .c-section--usp .col__title {
+  font-family: var(--modular-primary-font);
   position: relative;
   text-align: center;
   font-weight: 400;
@@ -4821,25 +4840,20 @@ q {
     width: calc(100% - 200px);
   }
 }
-.c-section--testimonials .t__quote {
+.c-section--testimonials .settings_content {
   font-size: 20px;
   line-height: 1.5em;
   overflow: hidden;
 }
 @media screen and (min-width: 992px) {
-  .c-section--testimonials .t__quote {
+  .c-section--testimonials .settings_content {
     font-size: 30px;
   }
 }
-.c-section--testimonials .t__quote p, .c-section--testimonials .t__quote a, .c-section--testimonials .t__quote b, .c-section--testimonials .t__quote strong {
-  font-size: 20px;
+.c-section--testimonials .settings_content p, .c-section--testimonials .settings_content a, .c-section--testimonials .settings_content b, .c-section--testimonials .settings_content strong {
+  font-size: var(--modular-quote-content-fs);
   line-height: 1.5em;
   margin-bottom: 0;
-}
-@media screen and (min-width: 992px) {
-  .c-section--testimonials .t__quote p, .c-section--testimonials .t__quote a, .c-section--testimonials .t__quote b, .c-section--testimonials .t__quote strong {
-    font-size: 30px;
-  }
 }
 .c-section--testimonials .u-nav {
   margin-top: 3.75rem;
@@ -4916,6 +4930,7 @@ q {
   text-align: left;
 }
 .c-section--contact .company__data .label {
+  font-family: var(--modular-primary-font);
   font-size: 1.125rem;
   font-weight: 700;
   width: 150px;
@@ -6288,6 +6303,7 @@ q {
 
 .btn, .page-text .wp-element-button, .wp-block-cover .wp-block-cover__inner-container .wp-element-button, .std-btn-quaternary, .std-btn-tertiary, .std-btn-secondary, .std-btn-primary, .o-next-btn, .o-prev-btn, .section-white .std-btn-primary, .section-white .std-btn-secondary, .section-white .std-btn-tertiary, .section-white .std-btn-quaternary, .section-gray .std-btn-primary, .section-gray .std-btn-secondary, .section-gray .std-btn-tertiary, .section-gray .std-btn-quaternary, .section-bright .std-btn-primary, .section-bright .std-btn-secondary, .section-bright .std-btn-tertiary, .section-bright .std-btn-quaternary, .section-black .std-btn-primary, .section-black .std-btn-secondary, .section-black .std-btn-tertiary, .section-black .std-btn-quaternary, .section-dark .std-btn-primary, .section-dark .std-btn-secondary, .section-dark .std-btn-tertiary, .section-dark .std-btn-quaternary {
   font-size: 1rem;
+  font-family: var(--modular-secondary-font);
   letter-spacing: 1px;
   font-weight: 500;
   line-height: 1em;
@@ -6304,6 +6320,7 @@ q {
 
 .btn--round {
   font-size: 1rem;
+  font-family: var(--modular-secondary-font);
   letter-spacing: 1px;
   font-weight: 500;
   line-height: 1em;
@@ -6542,9 +6559,6 @@ q {
 
 .page-text, .wp-block-cover .wp-block-cover__inner-container {
   overflow: hidden;
-  /*     *{
-          font-family:  var(--modular-secondary-font);
-      } */
   /*     table {
           border: 1px solid #ddd;
           border-collapse: collapse;
@@ -6598,7 +6612,6 @@ q {
 .wp-block-cover .wp-block-cover__inner-container h5,
 .page-text h6,
 .wp-block-cover .wp-block-cover__inner-container h6 {
-  /* font-family:  var(--modular-primary-font); */
   line-height: 1.1em;
   margin-bottom: 1.25rem;
   font-weight: 600;
@@ -6713,7 +6726,11 @@ q {
 }
 .page-text .wp-block-media-text .wp-block-media-text__content, .wp-block-cover .wp-block-cover__inner-container .wp-block-media-text .wp-block-media-text__content {
   padding: 0;
-  padding-left: 16%;
+}
+@media screen and (min-width: 992px) {
+  .page-text .wp-block-media-text .wp-block-media-text__content, .wp-block-cover .wp-block-cover__inner-container .wp-block-media-text .wp-block-media-text__content {
+    padding-left: 16%;
+  }
 }
 .page-text .wp-block-media-text.has-media-on-the-right .wp-block-media-text__content, .wp-block-cover .wp-block-cover__inner-container .wp-block-media-text.has-media-on-the-right .wp-block-media-text__content {
   padding: 0;
@@ -6837,6 +6854,9 @@ q {
 }
 .page-text .wp-block-columns.is-layout-flex, .wp-block-cover .wp-block-cover__inner-container .wp-block-columns.is-layout-flex {
   gap: 1.25rem;
+}
+.wp-block-cover {
+  min-height: initial;
 }
 @media screen and (min-width: 992px) {
   .wp-block-cover .wp-block-cover__inner-container {
@@ -7017,8 +7037,9 @@ q {
   max-width: 800px;
 }
 .c-banner .container-fluid .banner__content .banner__title, .c-banner .c-section--gallery .carousel-wrapper .banner__content .banner__title, .c-section--gallery .c-banner .carousel-wrapper .banner__content .banner__title, .c-banner .c-section--gallery .media-carousel-nav .banner__content .banner__title, .c-section--gallery .c-banner .media-carousel-nav .banner__content .banner__title, .c-banner .wp-block-cover .wp-block-cover__inner-container .banner__content .banner__title, .wp-block-cover .c-banner .wp-block-cover__inner-container .banner__content .banner__title {
+  font-family: var(--modular-primary-font);
   font-size: 40px;
-  line-height: 1.25em;
+  line-height: 1.1em;
   font-weight: 400;
   margin-bottom: 2.5rem;
 }

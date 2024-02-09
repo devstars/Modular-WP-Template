@@ -42,12 +42,13 @@
    
 
             .banner__title {
+                font-family:  var(--modular-primary-font);
                 font-size: 40px;
                 @media screen and (min-width: $sm) {
                     @include fontSize(60px);
                 }
 
-                line-height: 1.25em;
+                line-height: 1.1em;
                 font-weight: 400;
                 margin-bottom: calcRem(40px);
             }

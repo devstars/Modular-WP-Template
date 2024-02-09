@@ -1,5 +1,18 @@
 //$font1: 'Montserrat', sans-serif;
 
+$xs: 0px;
+$xs_netto: $xs - 8;
+
+$sm: 576px;
+
+$md: 768px;
+
+$lg: 992px;
+
+$xl: 1200px;
+
+$xxl: 1680px;
+
 :root {
     --modular-primary-font: "Roboto", sans-serif;
     --modular-secondary-font: "Playfair Display", sans-serif;
@@ -13,20 +26,17 @@
     --modular-section-padding:114px;
     --modular-section-lg-padding:122px;
     --modular-highlighted: #FFBB00;    
+    --modular-quote-content-fs: 20px;
+    
 }
 
-$xs: 0px;
-$xs_netto: $xs - 8;
+@media screen and (min-width:$lg){
+    :root{
+        --modular-quote-content-fs: 30px;
+    }
+    
+}
 
-$sm: 576px;
-
-$md: 768px;
-
-$lg: 992px;
-
-$xl: 1200px;
-
-$xxl: 1680px;
 
 $white: #ffffff;
 

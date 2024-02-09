@@ -2,9 +2,11 @@
     <?php
     $data = block_start("tm_slide_" . $index, $block, $settings);
     $id = $data["id"];
+
+    $mask_class = $background["mask"] ? "u-mask":"";
     ?>
 
-<div id="<?= esc_attr($id); ?>"  class="c-banner l-section-top u-mask section-transparent " <?= $background_image; ?>>
+<div id="<?= esc_attr($id); ?>"  class="c-banner l-section-top <?= $mask_class; ?> section-transparent " <?= $background_image; ?>>
 
     <?php
     if ($background["video"]) :

@@ -27,7 +27,7 @@ $class = ($block["align"] === "wide") ?  "col-12" : "col-12 col-xl-10 mx-auto";
                         foreach ($testimonials as $testimonial) :
                         ?>
                             <div class="t__content">
-                                <div class="t__quote wysiwyg"><?= $testimonial["quote"]; ?></div>
+                                <div class="t__quote wysiwyg settings_content"><?= $testimonial["quote"]; ?></div>
                                 <?php
                                 if ($testimonial["name"] && $testimonial["company"]) :
                                 ?>

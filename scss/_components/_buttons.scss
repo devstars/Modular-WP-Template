@@ -1,5 +1,6 @@
 @mixin btn {
   @include fontSize(16px);
+  font-family: var(--modular-secondary-font);
   letter-spacing: 1px;
   font-weight: 500;
   line-height: 1em;
@@ -15,7 +16,7 @@
   z-index: 10;
   border: none;
 
-  -webkit-appearance: none !important;
+  -webkit-appearance: none !important;  
 }
 
 @mixin btn--round {

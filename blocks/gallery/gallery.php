@@ -30,8 +30,7 @@ $color_schema = $data["color_schema"];
         <div class="gallery <?= $grid; ?> <?= $layout; ?>">
             <?php
 
-            foreach ($content as $image) :
-                
+            foreach ($content as $image) :                
                 ?>
                     
                     <?php 

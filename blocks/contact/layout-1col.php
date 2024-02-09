@@ -30,20 +30,20 @@ if ($settings["2nd_row"]["column"] === "details" ) : ?>
                     <div class="row details__full">
                         <div class="col-12 col-lg-4">
                             <div class="company__data">
-                                <div class="label">Address:</div>
+                                <h4 class="label">Address:</h4>
                                 <div class="data"><?= Configuration::$contact["basic"]["address"]; ?></div>
                             </div>
                         </div>
                         <div class="col-12 col-lg-4">
                             <div class="company__data">
-                                <div class="label">Phone(s):</div>
+                                <h4 class="label">Phone(s):</h4>
                                 <div class="data"><?= Configuration::$contact["basic"]["phone"]; ?></div>
                             </div>
                         </div>
 
                         <div class="col-12 col-lg-4">
                             <div class="company__data">
-                                <div class="label">Email(s):</div>
+                                <h4 class="label">Email(s):</h4>
                                 <div class="data"><?= Configuration::$contact["basic"]["email"]; ?></div>
                             </div>
                         </div>

@@ -91,93 +91,116 @@ function block_start($name, $block, $settings, $color_schema = null)
     if (!empty($block['anchor'])) {
         $id = $block['anchor'];
     }
-    
+
     $custom_background = $settings["background"];
     if (!empty($custom_background)) :
         $color_schema = (isColorDark($custom_background)) ? "section-dark" : "section-bright";
-        
+
     ?>
         <style>
             #<?= esc_attr($id); ?> {
-                background-color: <?= $custom_background ?>;                
-            }                  
+                background-color: <?= $custom_background ?>;
+            }
         </style>
     <?php
     endif;
 
-    $color_highlighted = $settings["color_of_highlighted"];    
+    $color_highlighted = $settings["color_of_highlighted"];
     if (!empty($color_highlighted)) :
-        ?>
+    ?>
         <style>
-        #<?= esc_attr($id); ?>{
-            --modular-highlighted: <?= $color_highlighted ?>;
-        }    
-            
+            #<?= esc_attr($id); ?> {
+                --modular-highlighted: <?= $color_highlighted ?>;
+            }
         </style>
-        <?php        
+    <?php
     endif;
 
-    $color_highlighted = $settings["color_of_highlighted"];    
+    $color_highlighted = $settings["color_of_highlighted"];
     if (!empty($color_highlighted)) :
-        ?>
+    ?>
         <style>
-        #<?= esc_attr($id); ?>{
-            --modular-highlighted: <?= $color_highlighted ?>;
-        }    
-            
+            #<?= esc_attr($id); ?> {
+                --modular-highlighted: <?= $color_highlighted ?>;
+            }
         </style>
-        <?php        
-    endif;    
+    <?php
+    endif;
 
-    $pt = $settings["padding_top"];    
+    $pt = $settings["padding_top"];
     if ($pt === "no") :
-        ?>
+    ?>
         <style>
-        #<?= esc_attr($id); ?>{
-            padding-top: 0 !important;
-        }                
+            #<?= esc_attr($id); ?> {
+                padding-top: 0 !important;
+            }
         </style>
-        <?php        
+    <?php
     endif;
 
-    $pb = $settings["padding_bottom"];    
+    $pb = $settings["padding_bottom"];
     if ($pb === "no") :
-        ?>
+    ?>
         <style>
-        #<?= esc_attr($id); ?>{
-            padding-bottom: 0 !important;
-        }                
+            #<?= esc_attr($id); ?> {
+                padding-bottom: 0 !important;
+            }
         </style>
-        <?php        
+    <?php
     endif;
 
-    
+
     if (isset($settings["pt_mobile"])) :
-        $pt_mobile = $settings["pt_mobile"];    
-        ?>
-        <style>            
-        #<?= esc_attr($id); ?>{
-            padding-top: <?= $pt_mobile."px" ?> !important;
-        }                
-        </style>
-        <?php        
-    endif;
-    
-    if (isset($settings["pt_desktop"])) :
-        $pt_desktop = $settings["pt_desktop"];    
-        ?>
+        $pt_mobile = $settings["pt_mobile"];
+    ?>
         <style>
-        @media screen and (min-width: 992px) {
-            #<?= esc_attr($id); ?>{
-            padding-top: <?= $pt_desktop."px" ?> !important;
-        }                
-        }        
+            #<?= esc_attr($id); ?> {
+                padding-top: <?= $pt_mobile . "px" ?> !important;
+            }
         </style>
-        <?php        
+    <?php
     endif;
 
-    $h_tag = (isset($settings["h1"])  && !empty($settings["h1"]) ) ? "h1" : "h2" ;
-    
-    return array("id"=>$id, "color_schema" => $color_schema, "h_tag" => $h_tag);
+    if (isset($settings["pt_desktop"])) :
+        $pt_desktop = $settings["pt_desktop"];
+    ?>
+        <style>
+            @media screen and (min-width: 992px) {
+                #<?= esc_attr($id); ?> {
+                    padding-top: <?= $pt_desktop . "px" ?> !important;
+                }
+            }
+        </style>
+    <?php
+    endif;
+
+    $h_tag = (isset($settings["h1"])  && !empty($settings["h1"])) ? "h1" : "h2";
+
+    if (isset($settings["content"]["font_size_mobile"])) :
+        $fs_mobile = $settings["content"]["font_size_mobile"];
+    ?>
+        <style>
+            #<?= esc_attr($id); ?> {
+                --modular-quote-content-fs: <?= $fs_mobile . "px" ?>;
+            }
+        </style>
+    <?php
+    endif;
+
+    if (isset($settings["content"]["font_size_desktop"])) :
+        $fs_desktop = $settings["content"]["font_size_desktop"];
+    ?>
+        <style>
+            @media screen and (min-width: 992px) {
+
+                #<?= esc_attr($id); ?> {
+                    --modular-quote-content-fs: <?= $fs_desktop . "px" ?>;
+                }
+            }
+        </style>
+<?php
+    endif;
+
+    return array("id" => $id, "color_schema" => $color_schema, "h_tag" => $h_tag);
 }
 ?>

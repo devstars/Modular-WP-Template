@@ -2,6 +2,7 @@
 
   .section__title {
     position: relative;
+    font-family: var(--modular-primary-font);
 
     @include fontSize(45px);
 
@@ -9,9 +10,7 @@
     font-weight: 400;
     text-transform: none;
     margin-bottom: calcRem(30px);
-    text-align: left;
-
-    //font-family: var(--modular-primary-font);
+    text-align: left;    
   }
 
   .section__subtitle {
@@ -28,7 +27,7 @@
   }
 
   .col__title {
-    //font-family: var(--modular-primary-font);
+    font-family: var(--modular-primary-font);
     position: relative;
     text-align: center;
 
@@ -344,7 +343,7 @@
     }
   }
 
-  .t__quote {
+  .settings_content {
     font-size: 20px;
     @media screen and (min-width:$lg){
       font-size: 30px;
@@ -353,14 +352,15 @@
     line-height: 1.5em;
     overflow: hidden;
 
-    p,a,b,strong{
-      font-size: 20px;
-      @media screen and (min-width:$lg){
-        font-size: 30px;
-      }
-      line-height: 1.5em;
-      margin-bottom: 0;
-    }         
+    
+      p,a,b,strong{
+        font-size: var(--modular-quote-content-fs);
+        
+        line-height: 1.5em;
+        margin-bottom: 0;
+      }         
+    
+    
   }
 
   .u-nav{
@@ -483,6 +483,7 @@
     }
 
     .label {
+      font-family:  var(--modular-primary-font);
       @include fontSize(18px);
       font-weight: 700;
       width: 150px;

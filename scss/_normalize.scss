@@ -21,9 +21,23 @@ body{
 
 body{
   outline: none !important;
-  font-family:  var(--modular-primary-font);
+  font-family:  var(--modular-secondary-font);
   color: $black;
   overflow-x: hidden;
+
+  a,p,ol,ul,li,td,em{
+    font-family:  var(--modular-secondary-font);      
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+      font-family:  var(--modular-primary-font);      
+  }
+  
 }
 
 *,

@@ -11,8 +11,14 @@
   --modular-section-padding:114px;
   --modular-section-lg-padding:122px;
   --modular-highlighted: #FFBB00;
+  --modular-quote-content-fs: 20px;
 }
 
+@media screen and (min-width: 992px) {
+  :root {
+    --modular-quote-content-fs: 30px;
+  }
+}
 .row {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -3788,6 +3794,7 @@
 
 .c-section .section__title, .c-section--gallery .section__title, .c-section--contact .section__title, .c-section--faq .section__title, .c-section--post-feed .section__title, .c-section--testimonials .section__title, .c-section--team .section__title, .c-section--logotypes .section__title, .c-section--usp .section__title {
   position: relative;
+  font-family: var(--modular-primary-font);
   font-size: 2.8125rem;
   line-height: 1.2em;
   font-weight: 400;
@@ -3804,6 +3811,7 @@
   text-align: left;
 }
 .c-section .col__title, .c-section--gallery .col__title, .c-section--contact .col__title, .c-section--faq .col__title, .c-section--post-feed .col__title, .c-section--testimonials .col__title, .c-section--team .col__title, .c-section--logotypes .col__title, .c-section--usp .col__title {
+  font-family: var(--modular-primary-font);
   position: relative;
   text-align: center;
   font-weight: 400;
@@ -4058,25 +4066,20 @@
     width: calc(100% - 200px);
   }
 }
-.c-section--testimonials .t__quote {
+.c-section--testimonials .settings_content {
   font-size: 20px;
   line-height: 1.5em;
   overflow: hidden;
 }
 @media screen and (min-width: 992px) {
-  .c-section--testimonials .t__quote {
+  .c-section--testimonials .settings_content {
     font-size: 30px;
   }
 }
-.c-section--testimonials .t__quote p, .c-section--testimonials .t__quote a, .c-section--testimonials .t__quote b, .c-section--testimonials .t__quote strong {
-  font-size: 20px;
+.c-section--testimonials .settings_content p, .c-section--testimonials .settings_content a, .c-section--testimonials .settings_content b, .c-section--testimonials .settings_content strong {
+  font-size: var(--modular-quote-content-fs);
   line-height: 1.5em;
   margin-bottom: 0;
-}
-@media screen and (min-width: 992px) {
-  .c-section--testimonials .t__quote p, .c-section--testimonials .t__quote a, .c-section--testimonials .t__quote b, .c-section--testimonials .t__quote strong {
-    font-size: 30px;
-  }
 }
 .c-section--testimonials .u-nav {
   margin-top: 3.75rem;
@@ -4153,6 +4156,7 @@
   text-align: left;
 }
 .c-section--contact .company__data .label {
+  font-family: var(--modular-primary-font);
   font-size: 1.125rem;
   font-weight: 700;
   width: 150px;
@@ -4469,6 +4473,7 @@
 
 .btn, .wp-element-button, .std-btn-quaternary, .std-btn-tertiary, .std-btn-secondary, .std-btn-primary, .o-next-btn, .o-prev-btn {
   font-size: 1rem;
+  font-family: var(--modular-secondary-font);
   letter-spacing: 1px;
   font-weight: 500;
   line-height: 1em;
@@ -4485,6 +4490,7 @@
 
 .btn--round {
   font-size: 1rem;
+  font-family: var(--modular-secondary-font);
   letter-spacing: 1px;
   font-weight: 500;
   line-height: 1em;
