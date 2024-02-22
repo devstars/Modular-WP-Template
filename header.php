@@ -90,7 +90,9 @@
     $logo_white_url = $h_fields["nav"]["logo"]["white"]["sizes"]["thumbnail"];
     $logo_black_url = $h_fields["nav"]["logo"]["black"]["sizes"]["thumbnail"];
 
-    $btn_cta = store_content_of_function('btn_from_link', [Configuration::$fields["header"]["nav"]["cta"], "btn btn-header"]);
+    $btn_cta_type = Configuration::$fields["header"]["nav"]["cta_group"]["type"];
+    $btn_cta_colour = Configuration::$fields["header"]["nav"]["cta_group"]["colour"];
+    $btn_cta = store_content_of_function('btn_from_link', [Configuration::$fields["header"]["nav"]["cta_group"]["link"], "btn btn-header $btn_cta_type"]);
     ?>
 
     <div class="c-nav-top nav-top-js section-<?= $scheme_colors; ?> <?= $nav_class ?> ">

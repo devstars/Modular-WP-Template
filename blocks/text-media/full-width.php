@@ -6,7 +6,7 @@
     $mask_class = $background["mask"] ? "u-mask":"";
     ?>
 
-<div id="<?= esc_attr($id); ?>"  class="c-banner l-section-top <?= $mask_class; ?> section-transparent " <?= $background_image; ?>>
+<div id="<?= esc_attr($id); ?>"  class="c-banner  <?= $mask_class; ?> section-transparent " <?= $background_image; ?>>
 
     <?php
     if ($background["video"]) :
@@ -27,9 +27,9 @@
                         <?= $content["title"] ?>
                     </<?= $heading_tag; ?>>
 
-                    <p class="banner__desc">
+                    <div class="banner__desc wysiwyg">
                         <?= $content["description"] ?>
-                    </p>
+                    </div>
 
                     <?php
                     $mr = isset($ctas["button_cta_right"]) && $ctas["button_cta_right"]  ? "mr-3" : "";

@@ -34,22 +34,32 @@ $class = ($block["align"] === "wide") ?  "col-12" : "col-12 col-xl-10 mx-auto";
         <div class="row">
             <div class="<?= $class ?>">
 
-                <<?= $data["h_tag"]; ?> class="section__title"><?= $content["headline_text"]; ?></<?= $data["h_tag"]; ?>>
-                <p class="section__subtitle"><?= $content["body_text"] ?></p>
+                <?php if(!empty($content["headline_text"])): ?>
+                    <<?= $data["h_tag"]; ?> class="section__title"><?= $content["headline_text"]; ?></<?= $data["h_tag"]; ?>>
+                <?php endif; ?>
+
+                <?php if(!empty($content["body_text"])): ?>
+                    <p class="section__subtitle"><?= $content["body_text"] ?></p>
+                <?php endif; ?>
 
                 <div class="row">
                     <?php
                     //$col_classes = "col-6";
-                    if ($number_of_columns === 3) $col_classes = "col-12 col-md-6 col-lg-4";
-                    if ($number_of_columns === 4) $col_classes = "col-12 col-md-6 col-lg-3";
+                    if ($number_of_columns == 2) $col_classes = "col-12 col-md-6";
+                    if ($number_of_columns == 3) $col_classes = "col-12 col-md-6 col-lg-4";
+                    if ($number_of_columns == 4) $col_classes = "col-12 col-md-6 col-lg-3";                    
 
                     foreach ($tiles as $index => $tile) :
 
-                        if ($number_of_columns === 3) {
+                        if ($number_of_columns == 2) {
+                            $group = floor($index / 1);
+                            $group_md = floor($index / 2);
+                            $group_lg = floor($index / 2);
+                        } elseif ($number_of_columns == 4) {
                             $group = floor($index / 1);
                             $group_md = floor($index / 2);
                             $group_lg = floor($index / 3);
-                        } elseif ($number_of_columns === 4) {
+                        } elseif ($number_of_columns == 4) {
                             $group = floor($index / 1);
                             $group_md = floor($index / 2);
                             $group_lg = floor($index / 4);
@@ -88,7 +98,7 @@ $class = ($block["align"] === "wide") ?  "col-12" : "col-12 col-xl-10 mx-auto";
                                     ?>
 
                                     <?php
-                                    if ($number_of_columns == "3") :
+                                    if ($number_of_columns == "2" || $number_of_columns == "3") :
                                     ?>
                                         <div class="<?= $desc_class; ?> usp__content align-h-js" data-block="<?= $block['id'] ?>" data-align="usp-title-<?= $group; ?>" data-align-md="usp-title-<?= $group_md; ?>" data-align-lg="usp-title-<?= $group_lg; ?>" <?= get_the_excerpt($post->ID); ?>>
 

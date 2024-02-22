@@ -2,21 +2,22 @@
     <?php
     $data = block_start("tm_slide_" . $index, $block, $settings);
     $id = $data["id"];
+    $color_schema = (empty($data["color_schema"])) ? "section-bright" : $data["color_schema"];
     ?>
-    <div id="<?= esc_attr($id); ?>" class="c-banner l-section-top  l-half <?= $data["color_schema"]; ?>">
+    <div id="<?= esc_attr($id); ?>" class="c-banner   l-half <?= $color_schema ?>">
 
         <div class="container-fluid ">
 
-            <div class="row  <?= $carousel["image_aligment"]; ?>">
+            <div class="row  <?= $carousel["image_aligment"]; ?> u-w-100">
                 <div class="col-12 col-xl-6 col__content pl-xl-0">
                     <div class="banner__content">
                         <<?= $heading_tag; ?> class="banner__title">
                             <?= $content["title"] ?>
                         </<?= $heading_tag; ?>>
 
-                        <p class="banner__desc">
+                        <div class="banner__desc wysiwyg">
                             <?= $content["description"] ?>
-                        </p>
+                        </div>
 
                         <?php
                         echo btn_from_link($ctas["button_cta_left"], "std-btn-primary mr-3 mb-3 ");

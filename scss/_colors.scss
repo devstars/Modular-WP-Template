@@ -12,7 +12,7 @@
         color: $black;
     }
 
-    a {
+    a{
         color: $black;
     }
 
@@ -61,6 +61,30 @@
         @extend .btn;
         @extend .btn--outline-black;
         @extend .hover-highlighted;
+    }
+
+    .o-link {
+        color: $highlighted;
+        &:after {
+            border-bottom: 1px solid $highlighted;
+        }
+    }
+}
+
+.section-custom{    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    li {
+        color: var(--modular-section-custom-colour);
+    }
+
+    a {
+        color: var(--modular-section-custom-colour);
     }
 
     .o-link {
@@ -225,5 +249,29 @@
                 color: $black;
             }
         }
+    }
+
+    .std-btn-primary {
+        @extend .btn;
+        @extend .btn--black;
+        @extend .hover-highlighted;
+    }
+
+    .std-btn-secondary {
+        @extend .btn;
+        @extend .btn--outline-black;
+        @extend .hover-highlighted;
+    }
+
+    .std-btn-tertiary {
+        @extend .btn;
+        @extend .btn--outline-black;
+        @extend .hover-black;
+    }
+
+    .std-btn-quaternary {
+        @extend .btn;
+        @extend .btn--outline-black;
+        @extend .hover-highlighted;
     }
 }

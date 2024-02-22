@@ -102,12 +102,29 @@
   }
 }
 
+
+
 .hover-highlighted{
   &:hover {
     color: $white !important;
     background-color: $highlighted !important;
     border: 1px solid $highlighted  !important;
   }
+}
+
+.section-white{
+  .hover-white {
+    &:hover {      
+      border: 1px solid $highlighted !important;
+    }
+  }    
+}
+.section-bright{
+  .hover-white {
+    &:hover {      
+      border: 1px solid $white !important;
+    }
+  }    
 }
 
 .hover-black {

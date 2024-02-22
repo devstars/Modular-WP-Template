@@ -8,7 +8,6 @@
 
   @include tran-all-fast;
 
-
   width: 100%;
 
   & > .container-fluid {
@@ -55,14 +54,14 @@
   }
 
   .nav-top__logo {
-    @media screen and (max-width:$lg){
+    @media screen and (max-width: $lg) {
       max-width: calc(100% - 100px);
     }
-    
-/*     @media screen and (min-width: var(--modular-header-break)){
+
+    /*     @media screen and (min-width: var(--modular-header-break)){
       min-width: 260px;
     } */
-    
+
     img {
       @include tran-all-fast;
       height: 52px;
@@ -93,16 +92,16 @@
     }
   }
 
-  .menu-top{
+  .menu-top {
     display: none;
-/*     @media screen and (min-width: var(--modular-header-break)){
+    /*     @media screen and (min-width: var(--modular-header-break)){
       display: block;
     } */
   }
 
-  .btns__wrapper{
+  .btns__wrapper {
     display: none;
-/*     @media screen and (min-width: var(--modular-header-break)){
+    /*     @media screen and (min-width: var(--modular-header-break)){
       display: flex;
     } */
   }
@@ -124,15 +123,17 @@
     padding: calcRem(13px) calcRem(40px);
   }
 
-  .c-toggler{
+  .c-toggler {
     display: block;
-/*     @media screen and (min-width: var(--modular-header-break) ){
+    /*     @media screen and (min-width: var(--modular-header-break) ){
       display: none;
     } */
   }
 }
 
-.section-white {  
+
+
+.section-white {
   &.c-nav-top {
     @extend .u-shadow-sm;
 
@@ -142,16 +143,16 @@
 
     .nav-link {
       color: $black;
-      &:after {        
+      &:after {
         border-bottom: 1px solid transparent;
       }
-  
+
       &:hover:after {
         border-bottom: 1px solid $black;
       }
     }
 
-    .btn-header {
+    .btn-header.default {
       background-color: $white;
       border: 1px solid $black;
       color: $black;
@@ -159,20 +160,40 @@
         background-color: $black;
         color: $white;
       }
+    } 
+
+    .btn-header.custom {
+      border: 1px solid var(--modular-header-cta-colour);
+      background-color: var(--modular-header-cta-colour);
+      color: var(--modular-header-cta-text-colour);
+      &:hover {    
+        background-color: transparent;
+        border: 1px solid var(--modular-header-cta-colour);
+        color: var(--modular-header-cta-colour);
+      }
     }
+
+/*     .btn-header.outline {
+      background-color: transparent;
+      border: 1px solid var(--modular-header-cta-colour);
+      color: var(--modular-header-cta-colour);
+      &:hover {
+        background-color: var(--modular-header-cta-colour);
+        color: var(--modular-header-cta-text-colour);
+      }
+    } */
   }
 }
 
 .section-black,
 .section-transparent {
   &.c-nav-top {
-
     .nav-link {
       color: $white;
-      &:after {        
+      &:after {
         border-bottom: 1px solid transparent;
       }
-  
+
       &:hover:after {
         border-bottom: 1px solid $white;
       }
@@ -185,15 +206,35 @@
       opacity: 1;
     }
 
-    .btn-header {
-      background-color: $black;
+    .btn-header.default {
+      background-color: transparent;
       border: 1px solid $white;
       color: $white;
       &:hover {
         background-color: $white;
         color: $black;
       }
-    }
+    } 
+
+     .btn-header.custom {
+      border: 1px solid var(--modular-header-cta-colour);
+      background-color: var(--modular-header-cta-colour);
+      color: var(--modular-header-cta-text-colour);
+      &:hover {    
+        background-color: transparent;
+        border: 1px solid var(--modular-header-cta-colour);        
+        color: var(--modular-header-cta-colour);        
+      }
+    } 
+/*     .btn-header.outline {
+      background-color: transparent;
+      border: 1px solid var(--modular-header-cta-colour);
+      color: var(--modular-header-cta-colour);
+      &:hover {
+        background-color: var(--modular-header-cta-colour);
+        color: var(--modular-header-cta-text-colour);
+      }
+    } */
   }
 }
 
@@ -201,26 +242,24 @@
   &.c-nav-top {
     box-shadow: none !important;
 
-    .btn-header {
+    /*     .btn-header {
       background-color: transparent;
-    }
+    } */
   }
 }
 
-.nt__background{
+.nt__background {
   position: absolute;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   width: 100%;
-  
-  height:114px;
-/*   @media screen and (min-width: var(--modular-header-break)){
+
+  height: 114px;
+  /*   @media screen and (min-width: var(--modular-header-break)){
     height: 122px;
   } */
-  
+
   background-color: black;
-
-
 
   .admin-bar & {
     height: 154px !important;
@@ -232,5 +271,4 @@
       top: 32px;
     }
   } */
-
 }

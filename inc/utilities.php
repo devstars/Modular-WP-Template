@@ -80,7 +80,7 @@ function isColorDark($hexColor)
     $luminance = (0.299 * $red + 0.587 * $green + 0.114 * $blue) / 255;
 
     // You can adjust the threshold to your preference
-    $threshold = 0.5;
+    $threshold = 0.7;
 
     return $luminance <= $threshold;
 }
@@ -92,15 +92,32 @@ function block_start($name, $block, $settings, $color_schema = null)
         $id = $block['anchor'];
     }
 
-    $custom_background = $settings["background"];
+    $custom_background = $settings["background"];    
+    
     if (!empty($custom_background)) :
-        $color_schema = (isColorDark($custom_background)) ? "section-dark" : "section-bright";
+        $color_schema = (isColorDark($custom_background)) ? "section-dark" : "section-bright";        
 
     ?>
         <style>
             #<?= esc_attr($id); ?> {
                 background-color: <?= $custom_background ?>;
             }
+        </style>
+    <?php
+    else:
+        
+    endif;
+    
+
+    $text_colour = $settings["text_colour"];
+    if (!empty($text_colour)) :   
+        $color_schema = "section-custom";
+    ?>
+        <style>
+            #<?= esc_attr($id); ?> {
+                --modular-section-custom-colour: <?= $text_colour ?>;
+            }
+            
         </style>
     <?php
     endif;

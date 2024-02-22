@@ -8,10 +8,14 @@
   --modular-sm-padding:30px;
   --modular-lg-padding:30px;
   --modular-xl-padding:30px;
-  --modular-section-padding:114px;
+  --modular-section-padding:100px;
   --modular-section-lg-padding:122px;
   --modular-highlighted: #FFBB00;
   --modular-quote-content-fs: 20px;
+  --modular-header-cta-colour: #FFBB00;
+  --modular-header-cta-text-colour: #111111;
+  --modular-header-cta-text-colour-hover: #111111;
+  --modular-section-custom-colour: #ffffff;
 }
 
 @media screen and (min-width: 992px) {
@@ -3858,7 +3862,7 @@
   margin-bottom: 1.875rem;
 }
 .c-section--usp .usp__tile .usp__content {
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
 }
 .c-section--usp .usp__tile .usp__title {
   font-size: 1.5rem;
@@ -3868,7 +3872,7 @@
 }
 @media screen and (min-width: 768px) {
   .c-section--usp .usp__tile .usp__title.l-short {
-    max-width: 280px;
+    padding-right: 40px;
   }
 }
 .c-section--usp .usp__tile .usp__desc {
@@ -3877,7 +3881,7 @@
 }
 @media screen and (min-width: 768px) {
   .c-section--usp .usp__tile .usp__desc.l-short {
-    max-width: 280px;
+    padding-right: 40px;
   }
 }
 .c-section--usp .usp__tile .custom-link {
@@ -4568,6 +4572,14 @@
   color: #ffffff !important;
   background-color: var(--modular-highlighted) !important;
   border: 1px solid var(--modular-highlighted) !important;
+}
+
+.section-white .hover-white:hover {
+  border: 1px solid var(--modular-highlighted) !important;
+}
+
+.section-bright .hover-white:hover {
+  border: 1px solid #ffffff !important;
 }
 
 .hover-black:hover {

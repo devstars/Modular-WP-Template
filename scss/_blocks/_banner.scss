@@ -9,12 +9,32 @@
 }
 
 .c-banner {
+    
+    padding-top:70px;
+    @media screen and (min-width:$lg){
+        padding-top:70px;
+    }
+                        
     .row {
         //width: 100%;
     }
 
     height: 100%;
     min-height: 890px;
+
+    &.l-text{
+        padding-top: var(--modular-section-padding);
+        padding-bottom: var(--modular-section-padding);
+        @media screen and (min-width: $lg) {
+          padding-top: var(--modular-section-lg-padding);
+          padding-bottom: var(--modular-section-lg-padding);
+        }
+
+        min-height: 800px;
+        @media screen and (min-width:$lg){
+            min-height: 800px;
+        }        
+    }
 
     display: flex;
     /* background-image: url('../images/banner.jpg'); */
@@ -54,9 +74,18 @@
             }
 
             .banner__desc {
-                @include fontSize(22px);
-                line-height: 1.7em;
-                margin-bottom: calcRem(70px);
+                display: flex;
+                flex-direction: column;
+
+                p,a,b,span,strong,li,em{
+                    @include fontSize(22px);
+                    line-height: 1.7em !important;                    
+                }
+                margin-bottom: calcRem(70px);   
+                
+
+
+                
             }
         }
 
@@ -190,32 +219,64 @@
     }
 }
 
+/* .c-banner.l-text{
+    @media screen and (min-width: $xl) {
+        .left {                          
+            justify-content: flex-start;
+            .banner__content {
+                text-align: left;
+            }
+        }
+
+        .center {                           
+            justify-content: center;
+            .banner__content {
+                text-align: center;
+            }
+        }
+
+        .right {                           
+            justify-content: flex-end;
+            .banner__content {
+                text-align: right;
+            }
+        }
+    }
+} */
+
 .banner-wrapper.full {
 
     .container-fluid {                
         @media screen and (min-width: $xl) {
             width: calc(100vw - 200px);
-        } 
+        }   
 
-        @media screen and (min-width: $xl) {
-            &.left {                          
-                justify-content: flex-start;
-                .banner__content {
-                    text-align: left;
+        &.left {                          
+            justify-content: flex-start;
+            .banner__content {
+                text-align: left;
+                .banner__desc{
+                    align-items: flex-start;
                 }
             }
+        }
 
-            &.center {                           
-                justify-content: center;
-                .banner__content {
-                    text-align: center;
+        &.right {                           
+            justify-content: flex-end;
+            .banner__content {
+                text-align: right;
+                .banner__desc{
+                    align-items: flex-end;
                 }
             }
+        }
 
-            &.right {                           
-                justify-content: flex-end;
-                .banner__content {
-                    text-align: right;
+        &.center {                           
+            justify-content: center;
+            .banner__content {
+                text-align: center;
+                .banner__desc{
+                    align-items: center;
                 }
             }
         }
@@ -297,9 +358,15 @@
 
 .section-transparent {
     .c-banner {
-        h1,
-        p {
+        h1,p,a,b,span,strong,li,em
+        {
             color: $white;
+        }
+        a{
+            color:$white;
+            &:after {                        
+                border-bottom: 1px solid $white;
+            }
         }
     }
 }
