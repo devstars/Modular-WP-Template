@@ -257,27 +257,27 @@
        function setMaxHeight(className) {
 
               const elementsWithClass = document.querySelectorAll("." + className);
-                            
+
               const uniqueDataBlockValues = new Set();
-                            
+
               elementsWithClass.forEach((element) => {
-                const dataBlock = element.getAttribute('data-block');
-                if (dataBlock) {
-                  uniqueDataBlockValues.add(dataBlock);
-                }
+                     const dataBlock = element.getAttribute('data-block');
+                     if (dataBlock) {
+                            uniqueDataBlockValues.add(dataBlock);
+                     }
               });
-                            
-              const uniqueDataBlockArray = Array.from(uniqueDataBlockValues);              
+
+              const uniqueDataBlockArray = Array.from(uniqueDataBlockValues);
 
               uniqueDataBlockArray.forEach((block) => {
                      const elements = document.querySelectorAll('.' + className + '[data-block=' + block + ']');
                      setMaxHeightForElements(elements);
               });
-                                      
+
        }
 
        function setMaxHeightForElements(elements) {
-                            
+
               for (var i = 0; i < elements.length; i++) {
                      elements[i].style.height = 'auto';
               }
@@ -350,7 +350,7 @@
                      element.style.height = groupHeights[groupName] + 'px';
               }
 
-       
+
        }
 
 }(jQuery));

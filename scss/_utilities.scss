@@ -292,6 +292,10 @@
   @include m-shadow-sm();
 }
 
+.u-shadow {
+  @include m-shadow();
+}
+
 .u-relative {
   position: relative;
 }

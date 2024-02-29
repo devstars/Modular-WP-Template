@@ -111,3 +111,12 @@
     color:$white;
   }
 }
+
+.c-banner.l-banner-form{    
+  .form__input{
+    /* background-color:rgba( #BD8065 , .18);    
+
+    @include autofill($black, $white);
+    @include input-placeholder(400, #111111); */
+  }
+}

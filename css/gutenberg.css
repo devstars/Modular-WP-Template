@@ -3494,6 +3494,11 @@
           box-shadow: rgba(0, 0, 0, 0.075) 0px 2px 4px 0px;
 }
 
+.u-shadow {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 16px 0px;
+          box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 16px 0px;
+}
+
 .u-relative {
   position: relative;
 }
@@ -3718,11 +3723,11 @@
 }
 
 .l-section-top {
-  padding-top: 114px;
+  padding-top: 114px !important;
 }
 @media screen and (min-width: 992px) {
   .l-section-top {
-    padding-top: 120px;
+    padding-top: 120px !important;
   }
 }
 
@@ -3908,6 +3913,10 @@
   .c-section--logotypes .section__subtitle {
     margin-bottom: 80px;
   }
+}
+.c-section--logotypes .logotypes-wrapper .owl-stage {
+  margin-left: auto;
+  margin-right: auto;
 }
 .c-section--logotypes .u-nav {
   margin-top: 40px;
@@ -4491,6 +4500,18 @@
   border: none;
   -webkit-appearance: none !important;
 }
+.btn:not(.g-recaptcha-v3):disabled, .wp-element-button:not(.g-recaptcha-v3):disabled, .std-btn-quaternary:not(.g-recaptcha-v3):disabled, .std-btn-tertiary:not(.g-recaptcha-v3):disabled, .std-btn-secondary:not(.g-recaptcha-v3):disabled, .std-btn-primary:not(.g-recaptcha-v3):disabled, .o-next-btn:not(.g-recaptcha-v3):disabled, .o-prev-btn:not(.g-recaptcha-v3):disabled {
+  background-color: rgba(143, 143, 143, 0.7) !important;
+  border: 1px solid rgba(143, 143, 143, 0.7) !important;
+  color: #ffffff !important;
+  cursor: default !important;
+}
+.btn:not(.g-recaptcha-v3):disabled:hover, .wp-element-button:not(.g-recaptcha-v3):disabled:hover, .std-btn-quaternary:not(.g-recaptcha-v3):disabled:hover, .std-btn-tertiary:not(.g-recaptcha-v3):disabled:hover, .std-btn-secondary:not(.g-recaptcha-v3):disabled:hover, .std-btn-primary:not(.g-recaptcha-v3):disabled:hover, .o-next-btn:not(.g-recaptcha-v3):disabled:hover, .o-prev-btn:not(.g-recaptcha-v3):disabled:hover {
+  background-color: rgba(143, 143, 143, 0.7) !important;
+  border: 1px solid rgba(143, 143, 143, 0.7) !important;
+  color: #ffffff !important;
+  cursor: default !important;
+}
 
 .btn--round {
   font-size: 1rem;
@@ -4508,6 +4529,18 @@
   border: none;
   -webkit-appearance: none !important;
   border-radius: 25px !important;
+}
+.btn--round:not(.g-recaptcha-v3):disabled {
+  background-color: rgba(143, 143, 143, 0.7) !important;
+  border: 1px solid rgba(143, 143, 143, 0.7) !important;
+  color: #ffffff !important;
+  cursor: default !important;
+}
+.btn--round:not(.g-recaptcha-v3):disabled:hover {
+  background-color: rgba(143, 143, 143, 0.7) !important;
+  border: 1px solid rgba(143, 143, 143, 0.7) !important;
+  color: #ffffff !important;
+  cursor: default !important;
 }
 
 .btn--small, .o-next-btn, .o-prev-btn {

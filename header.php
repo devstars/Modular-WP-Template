@@ -74,10 +74,11 @@
 
     <?php
     global $post;
-    $post_blocks = parse_blocks($post->post_content);
+    $post_blocks = parse_blocks($post->post_content);    
 
-    if ($post_blocks[0]["blockName"] === "acf/text-media") {
-        $nav_class = $post_blocks[0]["attrs"]["data"]["carousel_width"] === "full" ? "section-transparent" : "";
+    if ($post_blocks[0]["blockName"] === "acf/text-media" || $post_blocks[0]["blockName"] === "acf/banner-with-form") {
+        $nav_class = $post_blocks[0]["attrs"]["data"]["carousel_width"] === "full" ? "section-transparent" : "";       
+        $nav_class .=  $post_blocks[0]["blockName"] === "acf/banner-with-form" ? "section-transparent" : "";
         $wrapper_class .= $post_blocks[0]["attrs"]["data"]["carousel_width"] === "half" ? " l-margin-top" : "";
     } else {
         $wrapper_class .= "l-section-top";

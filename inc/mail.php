@@ -6,9 +6,10 @@ class Mail{
     public $success;
     public $error;
     public $email_firm;   
-    public $user_email;         
+    public $user_email;    
+    public $reply_to_user;         
     public $subject; 
-    public $email_footer;    
+    public $email_footer;        
         
     public $data = array();
     
@@ -20,9 +21,17 @@ class Mail{
         
             foreach ($_POST as $key => $value) {    
 
-                if($key === "email"){                    
+                if(strtolower($key) === "email"){                    
                     $this->user_email = $value;
                 }   
+
+                if(strtolower($key) === "recipient_email"){                    
+                    $this->email_firm = $value;
+                }  
+
+                if(strtolower($key) === "reply_to_user"){      
+                    $this->reply_to_user = strtolower($value);                                            
+                }  
 
                 if(is_string($value)){
                     $this->data[$key] = htmlspecialchars($value);                        
@@ -44,7 +53,7 @@ class Mail{
         if (!filter_var($this->user_email, FILTER_VALIDATE_EMAIL)) {
             $resp = false;
             $this->error = 'The e-mail address entered is invalid.';
-        }
+        }        
 
         if(!$this->email_firm){
             $resp = false;
@@ -52,15 +61,15 @@ class Mail{
         }
 
         if (empty($this->data["g-recaptcha-response"])){
-            $resp = false;
-            $this->error = 'Please, fill the captcha to send the message.';
+            $resp = false;    
+            $this->error = 'Please, fill the captcha to send the message.';        
         }else{
             $verifyResponse = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . Configuration::$rc_secret . '&response=' . $this->data["g-recaptcha-response"]));
-            if (!$verifyResponse->success){
-                $resp = false;
-                $this->error = 'Please, fill the captcha to send the message.';
+            if (!$verifyResponse->success || $verifyResponse->score < 0.5){
+                $resp = false;                
+                $this->error = 'Please, fill the captcha to send the message.';          
             }
-        }
+        } 
 
         return $resp;
     }
@@ -70,7 +79,7 @@ class Mail{
                  
         $body = "";                
         
-        $skip_fields = array("permissions", "g-recaptcha-response", "action", "title" );
+        $skip_fields = array("permissions", "g-recaptcha-response", "action", "title", "recipient_email" , "reply_to_user" );
         foreach ($this->data as $key => $value) {     
             
             if (!in_array($key, $skip_fields)) {
@@ -82,12 +91,14 @@ class Mail{
         
         $body .= $this->email_footer;                             
 
-        $headers = //'From:'.$this->subject.'<' . $this->email_firm . ">\r\n" .
-                'Reply-To: ' . htmlspecialchars($this->user_email) . "\r\n" .                
-                'Content-Type: text/html; charset=UTF-8' . "\r\n";       
-
+        $headers = 'From:'.$this->subject.'<' . $this->email_firm . ">\r\n";
+        if($this->reply_to_user !== "no"){
+            $headers .= 'Reply-To: ' . htmlspecialchars($this->user_email) . "\r\n";
+        }
+        $headers .= 'Content-Type: text/html; charset=UTF-8' . "\r\n";
+                                       
        $this->success = wp_mail($this->email_firm, $this->subject, $body, $headers); 
-       //$this->success = true;       
+       $this->success = true;       
                
         if(!$this->success){
             $this->error = "There was an error trying to send your message. Please try again later.";

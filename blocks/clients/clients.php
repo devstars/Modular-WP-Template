@@ -22,10 +22,16 @@ $class = ($block["align"] === "wide") ?  "col-12" : "col-12 col-xl-10 mx-auto";
         <div class="row">
             <div class="<?= $class ?> ">
 
+                <?php if($content["headline_text"]): ?>
                 <<?= $data["h_tag"]; ?> class="section__title u-text-<?= $settings["align_content"] ?> "><?= $content["headline_text"]; ?></<?= $data["h_tag"]; ?>>
-                <p class="section__subtitle u-text-<?= $settings["align_content"] ?> "><?= $content["body_text"] ?></p>
+                <?php endif; ?>
 
-                <div class="logotypes-wrapper logotypes-js owl-carousel owl-theme " data-id="<?= $block['id']; ?>">
+                <?php if($content["body_text"]): ?>
+                <p class="section__subtitle u-text-<?= $settings["align_content"] ?> "><?= $content["body_text"] ?></p>
+                <?php endif; ?>
+
+                <?php if($tiles): ?>
+                <div class="logotypes-wrapper logotypes-js owl-carousel owl-theme " data-id="<?= $block['id']; ?>" data-items="<?= ($tiles) ? sizeof($tiles) : 0  ?>" >
                     <?php
                     if ($tiles && 1 == 1) :
                         foreach ($tiles as $tile) :
@@ -53,6 +59,8 @@ $class = ($block["align"] === "wide") ?  "col-12" : "col-12 col-xl-10 mx-auto";
                     endif;
                     ?>
                 </div>
+                <?php endif; ?>
+
 
                 <div class="u-nav l-btns-next-to nav-js">
                     <div class="l-prev-js o-nav-btn ml-auto"> <?= file_get_contents(IMAGES . '/icons/arrow-left.svg'); ?> </div>

@@ -3,6 +3,7 @@
 <?php wp_footer(); ?>
 
 <?php get_template_part('template-parts/load-recaptcha'); ?>
+<?php get_template_part('template-parts/load-recaptcha-v3'); ?>
 
 <?php
 $f_data = Configuration::$fields["footer"];

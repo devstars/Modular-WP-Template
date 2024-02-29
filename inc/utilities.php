@@ -39,6 +39,10 @@ function store_content_of_function($callback, $args)
     return ob_get_clean();
 }
 
+function show_if_exist($template, $value){
+    if($value)
+    printf($template,$value);
+}
 
 function btn_from_link($button, $classes)
 {

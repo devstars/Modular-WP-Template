@@ -95,6 +95,23 @@ function my_acf_init()
 
     if (function_exists('acf_register_block')) {
         acf_register_block(array(
+            'name' => 'banner-with-form',
+            'title' => 'Banner with form',
+            'description' => __('Banner with form'),
+            'mode' => 'edit',
+            'render_callback' => 'pt_block_render_callback',
+            'category' => 'modules',
+            'keywords' => array('form', 'banner'),
+            'align'        => 'wide',
+            'supports'    => array(
+                'align'        => array('wide'),
+                'anchor' => true
+            )
+        ));
+    }
+
+    if (function_exists('acf_register_block')) {
+        acf_register_block(array(
             'name' => 'usp',
             'title' => 'USPs & Services',
             'description' => __('USP'),
@@ -279,6 +296,8 @@ function my_acf_init()
             )
         ));
     }
+
+    
 }
 
 function csp_deny_list_blocks() {
@@ -311,6 +330,7 @@ add_filter('allowed_block_types_all', function ($allowed_blocks, $post) {
         'core/separator',        
         'acf/text-media',
         'acf/text',
+        'acf/banner-with-form',
         'acf/usp',
         'acf/clients',
         'acf/Team',
@@ -321,7 +341,7 @@ add_filter('allowed_block_types_all', function ($allowed_blocks, $post) {
         'acf/gallery',
         'acf/spacer',
         'acf/pagination',
-        'acf/button',        
+        'acf/button',                
     ];
 
 
