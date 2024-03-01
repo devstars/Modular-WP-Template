@@ -3595,6 +3595,18 @@
   width: 100% !important;
 }
 
+.align-items-flex-start {
+  -webkit-box-align: start !important;
+      -ms-flex-align: start !important;
+          align-items: flex-start !important;
+}
+
+@media screen and (min-width: 1350px) {
+  .u-w-1350-100 {
+    width: 100% !important;
+  }
+}
+
 .o-icon {
   height: 35px;
   -webkit-transition: all 0.2s ease-in-out;

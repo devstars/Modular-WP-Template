@@ -50,10 +50,10 @@ class Mail{
         
         $resp = true;    
         
-        if (!filter_var($this->user_email, FILTER_VALIDATE_EMAIL)) {
+        /* if (!filter_var($this->user_email, FILTER_VALIDATE_EMAIL)) {
             $resp = false;
             $this->error = 'The e-mail address entered is invalid.';
-        }        
+        }         */
 
         if(!$this->email_firm){
             $resp = false;

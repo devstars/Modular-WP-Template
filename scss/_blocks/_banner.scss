@@ -14,7 +14,7 @@
         padding-top: 70px;
     }
 
-/*     .container-fluid > .row {
+    /*     .container-fluid > .row {
         @media screen and (min-width:1350px){
             width: 100%;
         }        
@@ -23,10 +23,10 @@
     height: 100%;
     min-height: 890px;
 
-    .desc__bottom{
-        margin-bottom: 40px !important;
+    .desc__bottom {
+        margin-bottom: 30px !important;
         @media screen and (min-width: 1350px) {
-            margin-bottom: 70px !important;
+            margin-bottom: 50px !important;
         }
     }
 
@@ -37,13 +37,12 @@
             padding-top: var(--modular-section-lg-padding);
             padding-bottom: var(--modular-section-lg-padding);
         }
-        min-height: initial;   
+        min-height: initial;
 
-/*         min-height: 800px;
+        /*         min-height: 800px;
         @media screen and (min-width: $lg) {
             min-height: 800px;
         } */
-
     }
 
     &.l-banner-form {
@@ -75,18 +74,15 @@
                 max-width: initial !important;
             }
 
-            .banner__desc{
-            /*     margin-bottom: calcRem(40px) !important;
+            .banner__desc {
+                /*     margin-bottom: calcRem(40px) !important;
                 @media screen and (min-width: 1350px) {
                     margin-bottom: calcRem(70px) !important;
                 } */
             }
-       
         }
 
         .col-left {
-    
-
             @media screen and (min-width: 1350px) {
                 width: 50%;
             }
@@ -103,7 +99,7 @@
 
             @media screen and (min-width: 1350px) {
                 width: 50%;
-                padding-top: 0px;                
+                padding-top: 0px;
             }
 
             @media screen and (min-width: 1500px) {
@@ -161,7 +157,7 @@
                 em {
                     @include fontSize(22px);
                     line-height: 1.7em !important;
-                }                
+                }
             }
         }
 
@@ -209,12 +205,62 @@
     }
 }
 
-.banner__form {
+.c-banner.l-text-list {
+    .banner__content {
+        padding-top: 0 !important;
+        width: initial !important;
+        @media screen and (min-width: $xl) {
+            width: 760px !important;
+            margin-top: -50px !important;
+            margin-bottom: -50px !important;
+        }
+        &.col-left{
+            @media screen and (min-width:1500px){
+                padding-right: 100px;
+            }
+        }
+    }
+    .banner__title {
+        line-height: 1.3em !important;
+        font-size: 25px !important;
+        @media screen and (min-width: $sm) {
+            font-size: 30px !important;
+        }
 
-    .fade-in-js{
+        max-width: initial !important;
+
+        margin-bottom: 20px !important;
+        @media screen and (min-width:$md){
+            margin-bottom: 30px !important;
+        }
+        
+    }
+
+    .l-content-list {
+        padding-top: calcRem(100px);
+        
+        @media screen and (min-width: $xl) {
+            padding-top: 0;
+        }
+
+        order: 0;
+        align-items: flex-start !important;
+        .banner__content {
+            padding: 35px 30px !important;
+            @media screen and (min-width:$md){
+                padding: 60px 60px !important;
+            }
+        }
+
+        display: block !important;
+    }
+}
+
+.banner__form {
+    .fade-in-js {
         display: none;
     }
-    
+
     width: 100%;
 
     padding: 40px;
@@ -226,8 +272,6 @@
         width: 640px;
     }
 
-
-    
     background-color: $white;
     //transform: translate(0,80px);
 
@@ -239,31 +283,33 @@
     }
     .bf__info {
         @include fontSize(22px);
-        line-height: 1.2em;
+        line-height: 1.5em;
         font-weight: 400;
         margin-bottom: 25px;
     }
-    .bf__btn {        
+    .bf__btn {
         margin-bottom: 0 !important;
-        margin-left:20px;
+        margin-left: 20px;
         float: right;
     }
 
-    .bf__gdpr{
-        //padding-top: 7px;        
-    }
-
-    .permission {        
-        font-size: 14px;
-        font-weight: 400;
+    .bf__gdpr {
+        //padding-top: 7px;
+        p,
+        a {
+            font-size: 14px;
+            font-weight: 400;
+        }
+        opacity: 0.8;
     }
 
     .bf__title,
-    p,a {
+    p,
+    a {
         color: $black !important;
     }
 
-    a{
+    a {
         position: relative;
         text-decoration: none;
 
@@ -282,9 +328,8 @@
         background-color: rgba(#bd8065, 0.18);
 
         @include autofill($black, #f3e8e3);
-        @include input-placeholder(300, #111111);   
-    }    
-
+        @include input-placeholder(300, #111111);
+    }
 }
 
 .c-banner.l-half {
@@ -376,8 +421,6 @@
         }
     }
 }
-
-
 
 .banner-wrapper.full {
     .container-fluid {

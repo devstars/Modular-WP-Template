@@ -112,6 +112,23 @@ function my_acf_init()
 
     if (function_exists('acf_register_block')) {
         acf_register_block(array(
+            'name' => 'text-list',
+            'title' => 'Text & List',
+            'description' => __('Text list'),
+            'mode' => 'edit',
+            'render_callback' => 'pt_block_render_callback',
+            'category' => 'modules',
+            'keywords' => array('text', 'list'),
+            'align'        => 'wide',
+            'supports'    => array(
+                'align'        => array('wide'),
+                'anchor' => true
+            )
+        ));
+    }
+
+    if (function_exists('acf_register_block')) {
+        acf_register_block(array(
             'name' => 'usp',
             'title' => 'USPs & Services',
             'description' => __('USP'),
@@ -329,6 +346,7 @@ add_filter('allowed_block_types_all', function ($allowed_blocks, $post) {
         'core/buttons',
         'core/separator',        
         'acf/text-media',
+        'acf/text-list',
         'acf/text',
         'acf/banner-with-form',
         'acf/usp',

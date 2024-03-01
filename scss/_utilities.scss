@@ -375,3 +375,13 @@
 .u-w-100{
   width: 100% !important;
 }
+
+.align-items-flex-start{
+  align-items: flex-start !important;
+}
+
+.u-w-1350-100{
+  @media screen and (min-width:1350px){
+    width: 100% !important;
+  }
+}

@@ -3,7 +3,7 @@
     <div class="c-banner l-section-top section-transparent l-banner-form <?= $mask_class ?>" <?= $background_image; ?>>
 
         <div class="container-fluid u-z-index-10  <?= $carousel["horizontal_aligment"] ?>">
-            <div class="row u-w-100">
+            <div class="row u-w-1350-100">
                 <div class="col-12 col-left">
                     <div class="banner__content ">
 
@@ -34,10 +34,8 @@
                         <?php
                         $mr = isset($ctas["button_cta_right"]) && $ctas["button_cta_right"]  ? "mr-3" : "";
 
-
                         $btn_class_1 = ($color_schema === "section-bright") ? "std-btn-primary" : "btn btn--highlighted hover-white";
                         $btn_class_2 = ($color_schema === "section-bright") ? "std-btn-secondary" : "btn btn--outline-highlighted hover-white";
-
 
                         echo btn_from_link($ctas["button_cta_left"], $btn_class_1  . " "  . $mr);
                         ?>
