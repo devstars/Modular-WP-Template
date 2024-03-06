@@ -10,7 +10,7 @@ $banner = get_field("banner");
 
 $carousel = get_field("carousel");
 
-$data = block_start("text_media", $block, $carousel , $color_schema);
+$data = block_start("text", $block, $carousel , $color_schema);
 $id = $data["id"];
 $color_schema = $data["color_schema"];
 

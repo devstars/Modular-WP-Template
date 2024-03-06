@@ -170,6 +170,19 @@ function block_start($name, $block, $settings, $color_schema = null)
     <?php
     endif;
 
+    $rpb = $settings["remove_padding_bottom"];
+    if ($rpb) :
+        $class = "";
+        if($name == "text") $class = ".l-text";
+        if($name == "text_media") $class = ".l-half";
+    ?>
+        <style>
+            #<?= esc_attr($id); ?>  <?= $class; ?>{
+                padding-bottom: 0 !important;
+            }
+        </style>
+    <?php
+    endif;
 
     if (isset($settings["pt_mobile"])) :
         $pt_mobile = $settings["pt_mobile"];
