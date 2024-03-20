@@ -55,9 +55,9 @@
 
                     <div class="banner__content u-shadow  section-white">
                         <?php if ($content_right["heading"]) : ?>
-                            <h2 class="banner__title">
+                            <h3 class="content__title">
                                 <?= $content_right["heading"] ?>
-                            </h2>
+                            </h3>
                         <?php endif; ?>
 
                         <?php if ($content_right["support_text"]) : ?>

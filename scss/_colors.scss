@@ -39,17 +39,18 @@
         }
     }
 
-    .std-btn-primary {
+    .std-btn-primary {                
         @extend .btn;
-        @extend .btn--black;
-        @extend .hover-highlighted;
+        @extend .btn--highlighted;
+        @extend .hover-black;        
     }
 
     .std-btn-secondary {
-        @extend .btn;
-        @extend .btn--outline-black;
-        @extend .hover-highlighted;
-    }
+        @extend .btn;        
+        @extend .btn--outline-highlighted;
+        @extend .hover-black;        
+        color:$highlighted !important;  
+    } 
 
     .std-btn-tertiary {
         @extend .btn;
@@ -183,15 +184,15 @@
 
     .std-btn-primary {
         @extend .btn;
-        @extend .btn--white;
-        @extend .hover-highlighted;
-    }
+        @extend .btn--highlighted;
+        @extend .hover-white;   
+    }    
 
     .std-btn-secondary {
-        @extend .btn;
-        @extend .btn--outline-white;
-        @extend .hover-highlighted;
-    }
+        @extend .btn;        
+        @extend .btn--outline-highlighted;
+        @extend .hover-white;          
+    } 
 
     .std-btn-tertiary {
         @extend .btn;
@@ -251,7 +252,7 @@
         }
     }
 
-    .std-btn-primary {
+/*     .std-btn-primary {
         @extend .btn;
         @extend .btn--black;
         @extend .hover-highlighted;
@@ -261,7 +262,19 @@
         @extend .btn;
         @extend .btn--outline-black;
         @extend .hover-highlighted;
-    }
+    } */
+
+    .std-btn-primary {
+        @extend .btn;
+        @extend .btn--highlighted;
+        @extend .hover-white;   
+    }    
+
+    .std-btn-secondary {
+        @extend .btn;        
+        @extend .btn--outline-highlighted;
+        @extend .hover-white;          
+    } 
 
     .std-btn-tertiary {
         @extend .btn;

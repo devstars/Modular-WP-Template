@@ -17,7 +17,7 @@
 
                         <?php if($content["description"]): ?>
 
-                        <div class="banner__desc wysiwyg">
+                        <div class="banner__desc wysiwyg u-br-none">
                             <?= $content["description"] ?>
                         </div>
 
@@ -34,9 +34,8 @@
                         <?php
                         $mr = isset($ctas["button_cta_right"]) && $ctas["button_cta_right"]  ? "mr-3" : "";
                                         
-                        $btn_class_1 = ($color_schema === "section-bright") ? "std-btn-primary" : "btn btn--highlighted hover-white";
-                        $btn_class_2 = ($color_schema === "section-bright") ? "std-btn-secondary" : "btn btn--outline-highlighted hover-white";
-
+                        $btn_class_1 = "std-btn-primary mb-0" ;
+                        $btn_class_2 = "std-btn-secondary mb-0" ;
 
                         echo btn_from_link($ctas["button_cta_left"], $btn_class_1  . " "  . $mr);
                         ?>

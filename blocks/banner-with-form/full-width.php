@@ -34,8 +34,8 @@
                         <?php
                         $mr = isset($ctas["button_cta_right"]) && $ctas["button_cta_right"]  ? "mr-3" : "";
 
-                        $btn_class_1 = ($color_schema === "section-bright") ? "std-btn-primary" : "btn btn--highlighted hover-white";
-                        $btn_class_2 = ($color_schema === "section-bright") ? "std-btn-secondary" : "btn btn--outline-highlighted hover-white";
+                        $btn_class_1 = "std-btn-primary"; 
+                        $btn_class_2 = "std-btn-secondary";                        
 
                         echo btn_from_link($ctas["button_cta_left"], $btn_class_1  . " "  . $mr);
                         ?>
@@ -72,7 +72,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <?php
-                                        show_if_exist('<h2 class="bf__title">%s</h2>', $form["heading"]);
+                                        show_if_exist('<h3 class="bf__title">%s</h3>', $form["heading"]);
                                         show_if_exist('<p class="bf__info">%s</p>', $form["support_text"]);
                                         ?>
                                     </div>
@@ -111,10 +111,7 @@
                                         show_if_exist('<div class="permission">%s</div>', $form["gdpr_text"]);
                                         ?>
                                     </div>
-                                </div> -->
-
-                                <div class="mb-5"></div>
-
+                                </div> -->                                
 
                                 <div class="row">
                                     <div class="col-12 permission">

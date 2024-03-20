@@ -6,19 +6,20 @@
     }
 
     h1 {
-        @include fontSize(45px);
+        @include fontSize(44px);    
+        //line-height: 1.54em;    
     }
     h2 {
-        @include fontSize(39px);
+        @include fontSize(32px);
     }
     h3 {
-        @include fontSize(34px);
-    }
-    h4 {
         @include fontSize(28px);
     }
+    h4 {
+        @include fontSize(25px);
+    }
     h5 {
-        @include fontSize(23px);
+        @include fontSize(22px);
     }
     h6 {
         @include fontSize(18px);
@@ -65,8 +66,8 @@
     a,
     p,
     b {
-        line-height: 1.6em;
-        font-weight: 500;
+        line-height: 1.7em;
+        font-weight: 400;
         @include fontSize(18px);
 
         margin: 0;
@@ -350,9 +351,9 @@
     em,
     a,
     ul li {
-        @include fontSize(15px);
+        @include fontSize(18px);
 
-        line-height: 1.8em;
+        line-height: 1.7em;
         font-weight: 400;
 
         margin: 0;

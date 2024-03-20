@@ -81,7 +81,7 @@
     }
 
     .col__title {
-      @include fontSize(30px);
+      @include fontSize(32px);
       margin-bottom: calcRem(30px);
       font-weight: 500;
       //font-family: var(--modular-primary-font);

@@ -47,6 +47,14 @@
   max-width: 1490px;
 }
 
+.container-fluid-lg{
+  max-width: 1120px;
+  @media screen and (min-width:1200px){
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }  
+}
+
 .u-nav{
   display: flex;
   align-items: center;
@@ -383,5 +391,11 @@
 .u-w-1350-100{
   @media screen and (min-width:1350px){
     width: 100% !important;
+  }
+}
+
+.u-br-none{
+  p br, br{
+    display: none;
   }
 }

@@ -119,6 +119,14 @@
   }
 }
 
+.hover-black {
+  &:hover {
+    color: $white !important;
+    background-color: $black !important;
+    border: 1px solid $black !important;
+  }
+}
+
 
 
 .hover-highlighted{
@@ -152,15 +160,14 @@
   }
 }
 
-.hover-gray{
-
-  
+.hover-gray{  
   &:hover {
     color: $white !important;
     background-color: $black;
     border: 1px solid $black;
   }
 }
+
 .hover-transparent {
   &:hover {
     color: $white;
@@ -191,11 +198,11 @@
 }
 
 .std-btn-primary {
-  @extend .btn;  
+  @extend .btn;    
 }
 
 .std-btn-secondary {
-  @extend .btn;  
+  @extend .btn;    
 }
 
 .std-btn-tertiary {

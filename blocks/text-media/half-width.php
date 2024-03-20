@@ -21,7 +21,7 @@
 
                         <?php if($content["description"]): ?>
 
-                        <div class="banner__desc wysiwyg">
+                        <div class="banner__desc wysiwyg u-br-none">
                             <?= $content["description"] ?>
                         </div>
 

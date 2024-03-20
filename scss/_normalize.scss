@@ -64,13 +64,23 @@ h1,h2,h3,h4,h5,h6{
   margin: 0;
 }
 
+h1{
+  @include fontSize(44px);    
+  line-height: 1.1em;    
+}
+
+h2{
+  @include fontSize(32px);    
+  line-height: 1.1em;    
+}
+
 a,p,li,q {
   margin: 0;
   margin-bottom: 0;
   padding: 0;
-  font-size: 1rem;
+  @include fontSize(18px);
   font-weight: 400;
-  line-height: 1.6em;
+  line-height: 1.7em;
 }
 
 ul {

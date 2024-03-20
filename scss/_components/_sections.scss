@@ -4,7 +4,7 @@
     position: relative;
     font-family: var(--modular-primary-font);
 
-    @include fontSize(45px);
+    @include fontSize(32px);
 
     line-height: 1.2em;
     font-weight: 400;
@@ -16,12 +16,12 @@
   .section__subtitle {
     position: relative;
 
-    margin-bottom: calcRem(70px);
+    margin-bottom: calcRem(50px);
 
-    @include fontSize(22px);
+    @include fontSize(18px);
     font-weight: 400;
 
-    line-height: 1.5em;
+    line-height: 1.6em;
 
     text-align: left;
   }
@@ -429,7 +429,7 @@
   }
 
   .pf__excerpt {
-    @include fontSize(16px);
+    @include fontSize(18px);
     font-weight: 400;
     //margin-bottom: calcRem(20px);
   }
@@ -461,6 +461,10 @@
 
 .c-section--faq {
   @extend .c-section;
+
+  .section__title{
+    margin-bottom: calcRem(33px);
+  }
 
   @extend .l-section-padding;
 
