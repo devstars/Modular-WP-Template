@@ -1,7 +1,7 @@
 .faq__row {
   width: 100%;
 
-  padding: calcRem(45px) calcRem(45px) calcRem(45px) calcRem(45px);
+  padding: calcRem(36px) calcRem(36px) calcRem(36px) calcRem(36px);
   margin-bottom: 20px;
 
 /*   &:last-of-type{
@@ -28,8 +28,7 @@
       width: calc(100% - 20px);
       @media screen and (min-width:$md){
         width: calc(100% - 40px);
-      }
-      
+      }      
     }
 
     .faq__icon {

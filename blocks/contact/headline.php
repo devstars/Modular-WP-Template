@@ -1,7 +1,7 @@
 <?php
 if ($content["headline_text"]) :
 ?>
-    <<?= $h_tag; ?> class="section__title "><?= $content["headline_text"]; ?></<?= $h_tag; ?>>
+    <<?= $h_tag; ?> class="section__title custom-title-colour"><?= $content["headline_text"]; ?></<?= $h_tag; ?>>
 <?php
 endif;
 ?>

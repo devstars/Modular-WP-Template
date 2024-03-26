@@ -13,7 +13,7 @@
                     <div class="banner__content">
                         <?php if($content["title"]): ?>
 
-                        <<?= $heading_tag; ?> class="banner__title">
+                        <<?= $heading_tag; ?> class="banner__title custom-title-colour">
                             <?= $content["title"] ?>
                         </<?= $heading_tag; ?>>
 

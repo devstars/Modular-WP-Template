@@ -13,7 +13,8 @@ $carousel["background"] = false;
 
 $data = block_start("text_media", $block, $carousel["settings"] , $color_schema);
 $id = $data["id"];
-$color_schema = "section-transparent";
+
+$color_schema = $data["color_schema"];
 
 $mode = "single";
 
@@ -28,8 +29,13 @@ if($mode==="single"){
 
             $content = $slide["content"];
             $background = $slide["background"];
+ 
             $mask_class = $background["mask"] ? "u-mask":"";
             $background_image = ($background["image"]) ? "style='background-image:url(" . $background["image"]["sizes"]["extra_large"] . ")'" : "";
+            if($background_image){
+                $color_schema = "section-transparent";
+            } 
+
             $settings = $slide["settings"];
 
 

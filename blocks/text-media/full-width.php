@@ -26,7 +26,7 @@
 
                     <?php if($content["title"]): ?>
 
-                    <<?= $heading_tag; ?> class="banner__title">
+                    <<?= $heading_tag; ?> class="banner__title custom-title-colour">
                         <?= $content["title"] ?>
                     </<?= $heading_tag; ?>>
 
@@ -51,11 +51,12 @@
                     <?php
                     $mr = isset($ctas["button_cta_right"]) && $ctas["button_cta_right"]  ? "mr-3" : "";
 
-                    echo btn_from_link($ctas["button_cta_left"], "btn btn--highlighted hover-white " . $mr);
+                    echo btn_from_link($ctas["button_cta_left"], "std-btn-primary " . $mr);
                     ?>
                     <?php
-                    echo btn_from_link($ctas["button_cta_right"], "btn btn--outline-highlighted hover-white ");
+                    echo btn_from_link($ctas["button_cta_right"], "std-btn-secondary ");
                     ?>
+                        
                 </div>
             </div>
         </div>

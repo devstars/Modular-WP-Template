@@ -163,7 +163,7 @@ function my_acf_init()
 
     if (function_exists('acf_register_block')) {
         acf_register_block(array(
-            'name' => 'Team',
+            'name' => 'team',
             'title' => 'Team',
             'description' => __('Team'),
             'mode' => 'edit',
@@ -351,7 +351,7 @@ add_filter('allowed_block_types_all', function ($allowed_blocks, $post) {
         'acf/banner-with-form',
         'acf/usp',
         'acf/clients',
-        'acf/Team',
+        'acf/team',
         'acf/testimonials',
         'acf/post-feed',
         'acf/faq',

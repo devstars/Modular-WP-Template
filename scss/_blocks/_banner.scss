@@ -216,7 +216,7 @@
             @media screen and (min-width:1500px){
                 padding-right: 100px;
             }
-        }
+        }        
     }
     .banner__title {        
 
@@ -246,6 +246,8 @@
             @media screen and (min-width:$md){
                 margin-bottom: 25px !important;
             } 
+
+            color:$highlighted !important;
         }
 
         .banner__content {

@@ -111,6 +111,17 @@ function block_start($name, $block, $settings, $color_schema = null)
     else:
         
     endif;
+
+    $title_colour = $settings["title_colour"];
+    if (!empty($title_colour)) :           
+    ?>
+        <style>
+            #<?= esc_attr($id); ?> .custom-title-colour{                
+                    color: <?= $title_colour ?>;                
+            }            
+        </style>
+    <?php
+    endif;
     
 
     $text_colour = $settings["text_colour"];

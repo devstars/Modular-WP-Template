@@ -4144,7 +4144,10 @@ q {
 .section-transparent .c-banner h1,
 .section-transparent .c-banner h2,
 .section-transparent .c-banner h3,
-.section-transparent .c-banner p {
+.section-transparent .c-banner p, .section-transparent.c-banner h1,
+.section-transparent.c-banner h2,
+.section-transparent.c-banner h3,
+.section-transparent.c-banner p {
   color: #ffffff;
 }
 .section-transparent .o-nav-btn {
@@ -6306,7 +6309,7 @@ q {
 
 .faq__row {
   width: 100%;
-  padding: 2.8125rem 2.8125rem 2.8125rem 2.8125rem;
+  padding: 2.25rem 2.25rem 2.25rem 2.25rem;
   margin-bottom: 20px;
   /*   &:last-of-type{
       padding-bottom: calcRem(45px);
@@ -7141,7 +7144,7 @@ q {
 }
 @media screen and (min-width: 768px) {
   .wysiwyg.parent-checked-list ul li {
-    font-size: 22px !important;
+    font-size: 18px !important;
   }
 }
 
@@ -7494,6 +7497,7 @@ q {
   line-height: 1.4em;
   font-weight: 500;
   margin-bottom: 20px !important;
+  color: var(--modular-highlighted) !important;
 }
 @media screen and (min-width: 768px) {
   .c-banner.l-text-list .l-content-list .content__title {

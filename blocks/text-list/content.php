@@ -20,7 +20,7 @@
                     <div class="banner__content col-left">
                         <?php if ($content_left["heading"]) : ?>
 
-                            <<?= $heading_tag; ?> class="banner__title">
+                            <<?= $heading_tag; ?> class="banner__title custom-title-colour">
                                 <?= $content_left["heading"] ?>
                             </<?= $heading_tag; ?>>
 
@@ -42,11 +42,14 @@
                         endif;
                         ?>
 
+
                         <?php
-                        echo btn_from_link($ctas["button_cta_left"], "std-btn-primary mr-3 mb-3 ");
+                        $btn_m = isset($ctas["button_cta_right"]) && $ctas["button_cta_right"]  ? " mr-3 mb-3 mb-lg-0" : " mb-0";
+
+                        echo btn_from_link($ctas["button_cta_left"], "std-btn-primary " . $btn_m);
                         ?>
                         <?php
-                        echo btn_from_link($ctas["button_cta_right"], "std-btn-secondary mb-3");
+                        echo btn_from_link($ctas["button_cta_right"], "std-btn-secondary mb-0");
                         ?>
 
                     </div>
