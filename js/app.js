@@ -1,7 +1,7 @@
 (function ($) {
 
-       $(document).ready(function () {
-
+       $(document).ready(function () {                      
+              
               window.fillForm = function () {
                      const fieldElements = document.querySelectorAll('.field-js');
 
@@ -61,25 +61,7 @@
                      });
               }
 
-              function setRatioElements() {
-                     const ratioElements = document.querySelectorAll(".ratio-js");
 
-                     ratioElements.forEach(function (element) {
-                            const ratio = parseFloat(element.getAttribute("data-ratio"));
-                            const base = element.getAttribute("data-base");
-
-                            if (base === "height") {
-                                   const width = element.clientHeight * ratio;
-                                   element.style.width = width + "px";
-                            } else {
-                                   const height = element.clientWidth * ratio;
-                                   element.style.height = height + "px";
-                            }
-
-                            element.classList.add("changed");
-                     });
-
-              }
 
               function handleResize() {
                      clearTimeout(window.timeoutId);
@@ -252,9 +234,29 @@
 
        });
 
+       function setRatioElements() {                     
+              const ratioElements = document.querySelectorAll(".ratio-js");
 
+              ratioElements.forEach(function (element) {
+                     const ratio = parseFloat(element.getAttribute("data-ratio"));
+                     const base = element.getAttribute("data-base");
 
-       function setMaxHeight(className) {
+                     if (base === "height") {
+                            const width = element.clientHeight * ratio;
+                            element.style.width = width + "px";
+                     } else {
+                            const height = element.clientWidth * ratio;
+                            element.style.height = height + "px";
+                     }
+
+                     element.classList.add("changed");
+              });
+
+       }
+
+       window.setRatioElements = setRatioElements;
+
+       function setMaxHeight(className = "align-h-js") {
 
               const elementsWithClass = document.querySelectorAll("." + className);
 
@@ -274,7 +276,9 @@
                      setMaxHeightForElements(elements);
               });
 
-       }
+       }       
+
+       window.setMaxHeight  = setMaxHeight;
 
        function setMaxHeightForElements(elements) {
 

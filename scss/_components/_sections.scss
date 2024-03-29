@@ -477,6 +477,10 @@
   @extend .c-section;
   @extend .l-section-padding;
 
+  &.u-pb-0{
+    padding-bottom: 0 !important;
+  }
+
   table {
     border-collapse: collapse;
     tr:last-child td {

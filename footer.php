@@ -2,7 +2,7 @@
 
 <?php wp_footer(); ?>
 
-<?php get_template_part('template-parts/load-recaptcha'); ?>
+<?php //get_template_part('template-parts/load-recaptcha'); ?>
 <?php get_template_part('template-parts/load-recaptcha-v3'); ?>
 
 <?php
@@ -23,8 +23,8 @@ $color_schema = $data["color_schema"];
                 <p class="wysiwyg">
                     <?= $f_data["first_column"]["content"] ?>
                 </p>
-
             </div>
+            
             <div class="col-12 col-lg-6 ">
                 <div class="row">
                     <div class="col-6 top__middle">

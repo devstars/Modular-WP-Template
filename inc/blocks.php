@@ -317,14 +317,14 @@ function my_acf_init()
     
 }
 
-function csp_deny_list_blocks() {
+function m_deny_list_blocks() {
     wp_enqueue_script(
         'deny-list-blocks',
         get_template_directory_uri() . '/js/deny-list-blocks.js',
         array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' )
     );
 }
-add_action( 'enqueue_block_editor_assets', 'csp_deny_list_blocks' );
+add_action( 'enqueue_block_editor_assets', 'm_deny_list_blocks' );
 
 add_filter('allowed_block_types_all', function ($allowed_blocks, $post) {
     $allowed_blocks = [

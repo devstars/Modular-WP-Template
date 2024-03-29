@@ -180,14 +180,14 @@
                 this.submit.addEventListener("click", (e) => {
                     e.preventDefault();
 
+                    const form = $(this.form);
+
                     grecaptcha.ready(() => {
                         if (this.form.checkValidity()) {
 
                             grecaptcha.execute("<?= Configuration::$rc_site_key ?>", {
                                 action: 'submit'
-                            }).then(function(token) {
-
-                                const form = $("#banner-form");
+                            }).then(function(token) {                                
 
                                 const action = form.attr("send");
                                 const title = form.attr("title");
@@ -203,10 +203,7 @@
                                             form.find(".form__thanks").addClass("active");
                                             setTimeout(()=>{
                                                 form.find(".form__thanks").removeClass("active");
-                                            }, 5000);
-
-                                            /* form.find('input').val('');
-                                            form.find('textarea').val(''); */
+                                            }, 5000);                                            
 
                                             form.parent().find('.form__error').removeClass("active");
 
@@ -215,8 +212,7 @@
                                                     $(this).val("");                                                                                                            
                                                 }
                                             );
-
-                                            //form.find(".hide-after-js").hide();
+                                            
                                         } else {
                                             form.parent().find('.form__error').html(resp).addClass("active");
                                             form.parent().find('.form__thanks').removeClass("active");
@@ -227,8 +223,7 @@
                                         form.parent().find('.form__error').addClass("active");
                                         form.parent().find('.form__thanks').removeClass("active");
                                     }
-                                }).always(function() {
-                                    grecaptcha.reset(window.rc_id);
+                                }).always(function() {                                    
                                 })
                             });
                         } else {

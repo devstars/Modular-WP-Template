@@ -1,10 +1,11 @@
 (function ($) {
-
-    class ContactForm {
+    class ContactFormRcV3 {
         constructor(form) {
 
             try {
                 this.form = document.querySelector(form);
+                this.submit = this.form.querySelector(".btn-submit-js");
+
                 this.events();
             } catch (err) {
                 console.log(err.message);
@@ -13,7 +14,7 @@
 
         events() {
 
-            $(this.form).find(".field-js").on("keyup", function () {
+            $(this.form).find(".field-js").on("keyup", () => {
                 var filled = false;
 
                 $(this.form).find(".field-js").each(
@@ -29,54 +30,73 @@
                 } else {
                     $(".fade-in-js").fadeOut();
                 }
+
             });
 
-
-            this.form.addEventListener("submit", (e) => {
+            this.submit.addEventListener("click", (e) => {
                 e.preventDefault();
-
+                
                 const form = $(this.form);
-                const rcId = form.find(".recaptcha-js").attr("id");
-                const action = form.attr("send");
-                const title = form.attr("title");
 
-                $.ajax({
-                    type: 'POST',
-                    url: ajaxUrl,
-                    dataType: 'html',
-                    data: form.serialize() + '&action=' + action + '&title=' + title,
-                    success: function (resp) {
+                grecaptcha.ready(() => {
+                    if (this.form.checkValidity()) {
 
-                        if (resp === 'ok') {
-                            form.find(".form__thanks").addClass("active");
+                        grecaptcha.execute(contact.rcSiteKey, {
+                            action: 'submit'
+                        }).then(function (token) {
+                                                                                   
+                            const action = form.attr("send");                            
+                            const title = form.attr("title");
 
-                            form.find('input').val('');
-                            form.find('textarea').val('');
-                            form.find(".privacy-policy-js").prop('checked', false);
-                            form.parent().find('.form__error').removeClass("active");
+                            $.ajax({
+                                type: 'POST',
+                                url: ajaxUrl,
+                                dataType: 'html',
+                                data: form.serialize() + '&action=' + action + '&title=' + title + '&g-recaptcha-response=' + token,
+                                success: function (resp) {
 
-                            //form.find(".hide-after-js").hide();
-                        } else {
-                            form.parent().find('.form__error').html(resp).addClass("active");
-                            form.parent().find('.form__thanks').removeClass("active");
-                        }
-                    },
-                    error: function () {
-                        form.parent().find('.form__error').html("There was an error trying to send your message. Please try again later.").addClass("active");
-                        form.parent().find('.form__error').addClass("active");
-                        form.parent().find('.form__thanks').removeClass("active");
+                                    if (resp === 'ok') {
+                                        form.find(".form__thanks").addClass("active");
+                                        setTimeout(() => {
+                                            form.find(".form__thanks").removeClass("active");
+                                        }, 5000);                                        
+
+                                        form.parent().find('.form__error').removeClass("active");
+
+                                        form.find(".field-js").each(
+                                            function () {
+                                                $(this).val("");
+                                            }
+                                        );
+
+                                        form.find(".privacy-policy-js").prop("checked", false);
+                                        
+                                    } else {
+                                        form.parent().find('.form__error').html(resp).addClass("active");
+                                        form.parent().find('.form__thanks').removeClass("active");
+                                    }
+                                },
+                                error: function () {
+                                    form.parent().find('.form__error').html("There was an error trying to send your message. Please try again later.").addClass("active");
+                                    form.parent().find('.form__error').addClass("active");
+                                    form.parent().find('.form__thanks').removeClass("active");
+                                }
+                            }).always(function () {                                
+                            })
+                        });
+                    } else {
+                        this.form.reportValidity();
                     }
-                }).always(function () {
-                    grecaptcha.reset(window.rcArr[rcId]);
-                })
+                });
 
             });
-
         }
 
     }
 
-    const cf = new ContactForm("#contact-form");
+    $(document).ready(function () {
+        const bf = new ContactFormRcV3("#contact-form");
+    });
 
     class Map {
         constructor() {
@@ -92,26 +112,21 @@
             this.markers = [];
             this.location = [];
 
-            this.location.lat = parseFloat(latLng.lat);
-            this.location.lng = parseFloat(latLng.lng);
+            this.location.lat = parseFloat(contact.lat);
+            this.location.lng = parseFloat(contact.lng);
 
         }
 
         addMarker() {
-
-   
             var marker = new google.maps.Marker({
                 position: {
                     lat: this.location.lat,
                     lng: this.location.lng
                 },
                 icon: {
-                    url: themeUri + '/images/icons/marker-w.svg',                    
+                    url: themeUri + '/images/icons/marker-w.svg',
                 }
-                
             });
-            
-
 
             marker.setMap(this.map);
 
@@ -124,7 +139,10 @@
             }
         }
 
-        init() {
+        async init() {
+            
+            const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+
             this.map = new google.maps.Map(this.view, {
                 zoom: this.zoom,
                 zoomControl: true,
@@ -132,8 +150,7 @@
                 scaleControl: false,
                 streetViewControl: false,
                 rotateControl: false,
-                fullscreenControl: false,
-
+                fullscreenControl: false,                
                 styles: [{
                     "featureType": "all",
                     "elementType": "labels.text.fill",
@@ -290,5 +307,6 @@
     }
 
     window.map = new Map();
+
 
 }(jQuery));

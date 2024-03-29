@@ -3841,9 +3841,9 @@ q {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -3857,11 +3857,17 @@ q {
 }
 .o-custom-check .checked {
   display: none;
+  -webkit-transform: translateY(3px);
+      -ms-transform: translateY(3px);
+          transform: translateY(3px);
 }
 .o-custom-check .unchecked {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-transform: translateY(3px);
+      -ms-transform: translateY(3px);
+          transform: translateY(3px);
 }
 .o-custom-check input[type=checkbox]:checked + span .checked {
   display: -webkit-box;
@@ -5057,6 +5063,9 @@ q {
   opacity: 0.8;
 }
 
+.c-section--contact.u-pb-0 {
+  padding-bottom: 0 !important;
+}
 .c-section--contact table {
   border-collapse: collapse;
 }
@@ -6315,6 +6324,9 @@ q {
       padding-bottom: calcRem(45px);
     } */
   cursor: pointer;
+}
+.faq__row:last-of-type {
+  margin-bottom: 0px;
 }
 .faq__row * {
   font-size: 0.875rem;

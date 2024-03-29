@@ -33,15 +33,16 @@
                 },        
                 onInitialized: function () {                                                                                         
 
-                    $(".nav-js[carousel-id = '"+ carouselId +"']").find(".prev-js").click(() => {   
-                                            
+                    $(".nav-js[carousel-id = '"+ carouselId +"']").find(".prev-js").click(() => {                                               
                         postFeed.find(".owl-prev").trigger('prev.owl.carousel');
                     });
 
-                    $(".nav-js[carousel-id = '"+ carouselId +"']").find(".next-js").click(() => {  
-                        console.log("next");                       
+                    $(".nav-js[carousel-id = '"+ carouselId +"']").find(".next-js").click(() => {                          
                         postFeed.find(".owl-next").trigger('next.owl.carousel');
                     });
+                    
+                    window.setRatioElements();
+                    window.setMaxHeight();                    
                     
                 },
                 responsive: {

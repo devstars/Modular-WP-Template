@@ -1,4 +1,12 @@
 <?php 
+
+$sc_class = "";
+if($settings["2nd_row"]["column"] !== "none" && $settings["remove_padding_bottom"]){
+    //remove padding bottom, but if there are 2 rows, remove only in second using class
+    $sc_class = "u-pb-0 ";
+}
+
+
 if ($settings["2nd_row"]["column"] === "map") :
     ?> 
     <div id="googleMap" class="contact__map map-js"></div>
@@ -6,7 +14,7 @@ if ($settings["2nd_row"]["column"] === "map") :
 endif; 
 
 if ($settings["2nd_row"]["column"] === "form" ) : ?>
-    <div class="c-section--contact  <?= $color_schema; ?>" id="<?php echo esc_attr($id); ?>">
+    <div class="c-section--contact  <?= $sc_class ?> <?= $color_schema; ?>" id="<?php echo esc_attr($id); ?>">
         <div class="container-fluid ">
   
 
@@ -23,7 +31,7 @@ if ($settings["2nd_row"]["column"] === "form" ) : ?>
 
 if ($settings["2nd_row"]["column"] === "details" ) : ?>
 
-    <div class="c-section--contact  contact__full <?= $color_schema; ?>" id="<?php echo esc_attr($id); ?>">
+    <div class="c-section--contact  contact__full <?= $sc_class ?> <?= $color_schema; ?>" id="<?php echo esc_attr($id); ?>">
         <div class="container-fluid ">         
             <div class="row">
                 <div class="col-12 col-lg-10 mx-auto">

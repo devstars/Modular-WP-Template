@@ -77,16 +77,9 @@ $fields = get_field("additional_fields");
                     </p>
                 </span>
             </label>
-        </div>
+        </div>        
 
-        <div class="row fade-in-js">
-            <div class="col-12">
-                <div class="g-recaptcha recaptcha-js mb-4" data-size="normal" data-sitekey="<?= Configuration::$rc_site_key ?>"></div>
-            </div>
-        </div>
-
-
-        <button class="form__btn std-btn-quaternary" type="submit">Send </button>
+        <button class="form__btn std-btn-quaternary g-recaptcha-v3 btn-submit-js" type="submit">Send </button>
 
     </div>
 

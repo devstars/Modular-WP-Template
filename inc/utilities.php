@@ -182,13 +182,13 @@ function block_start($name, $block, $settings, $color_schema = null)
     endif;
 
     $rpb = $settings["remove_padding_bottom"];
-    if ($rpb) :
-        $class = "";
+    if ($rpb && $name !== "contact") :
+        $class = "";        
         if($name == "text") $class = ".l-text";
-        if($name == "text_media") $class = ".l-half";
+        if($name == "text_media") $class = ".l-half";        
     ?>
         <style>
-            #<?= esc_attr($id); ?>  <?= $class; ?>{
+            #<?= esc_attr($id); ?> <?= $class; ?>{
                 padding-bottom: 0 !important;
             }
         </style>

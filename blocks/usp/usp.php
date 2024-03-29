@@ -35,7 +35,7 @@ $class = ($block["align"] === "wide") ?  "col-12" : "col-12 col-xl-10 mx-auto";
             <div class="<?= $class ?>">
 
                 <?php if(!empty($content["headline_text"])): ?>
-                    <<?= $data["h_tag"]; ?> class="section__title"><?= $content["headline_text"]; ?></<?= $data["h_tag"]; ?>>
+                    <<?= $data["h_tag"]; ?> class="section__title custom-title-colour"><?= $content["headline_text"]; ?></<?= $data["h_tag"]; ?>>
                 <?php endif; ?>
 
                 <?php if(!empty($content["body_text"])): ?>
