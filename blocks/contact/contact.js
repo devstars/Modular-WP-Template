@@ -35,7 +35,7 @@
 
             this.submit.addEventListener("click", (e) => {
                 e.preventDefault();
-                
+
                 const form = $(this.form);
 
                 grecaptcha.ready(() => {
@@ -44,8 +44,8 @@
                         grecaptcha.execute(contact.rcSiteKey, {
                             action: 'submit'
                         }).then(function (token) {
-                                                                                   
-                            const action = form.attr("send");                            
+
+                            const action = form.attr("send");
                             const title = form.attr("title");
 
                             $.ajax({
@@ -59,7 +59,7 @@
                                         form.find(".form__thanks").addClass("active");
                                         setTimeout(() => {
                                             form.find(".form__thanks").removeClass("active");
-                                        }, 5000);                                        
+                                        }, 5000);
 
                                         form.parent().find('.form__error').removeClass("active");
 
@@ -70,7 +70,7 @@
                                         );
 
                                         form.find(".privacy-policy-js").prop("checked", false);
-                                        
+
                                     } else {
                                         form.parent().find('.form__error').html(resp).addClass("active");
                                         form.parent().find('.form__thanks').removeClass("active");
@@ -81,8 +81,7 @@
                                     form.parent().find('.form__error').addClass("active");
                                     form.parent().find('.form__thanks').removeClass("active");
                                 }
-                            }).always(function () {                                
-                            })
+                            }).always(function () {})
                         });
                     } else {
                         this.form.reportValidity();
@@ -139,9 +138,11 @@
             }
         }
 
-        async init() {
-            
-            const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+        init() {
+
+            /*             const {
+                            AdvancedMarkerElement
+                        } = await google.maps.importLibrary("marker"); */
 
             this.map = new google.maps.Map(this.view, {
                 zoom: this.zoom,
@@ -150,7 +151,7 @@
                 scaleControl: false,
                 streetViewControl: false,
                 rotateControl: false,
-                fullscreenControl: false,                
+                fullscreenControl: false,
                 styles: [{
                     "featureType": "all",
                     "elementType": "labels.text.fill",
@@ -302,6 +303,15 @@
             });
 
             this.addMarker();
+
+            /*             const map = this.map;
+                        const marker = new google.maps.marker.AdvancedMarkerElement({
+                            map,
+                            position: {
+                                lat: this.location.lat,
+                                lng: this.location.lng
+                            }
+                        }); */
 
         }
     }

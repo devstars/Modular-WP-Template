@@ -42,5 +42,8 @@ wp_localize_script('contact-js', 'contact', array(
 ));
 
 if ($settings["first_row"]["left"] === "map" || $settings["first_row"]["right"] === "map" || $settings["2nd_row"]["column"] === "map") :
-    wp_enqueue_script('gm-js', "https://maps.googleapis.com/maps/api/js?key=".Configuration::$google_map_api_key."&loading=async&callback=window.map.init", array(), "1" , array("in_footer" => true));
+    //wp_enqueue_script('gm-js', "https://maps.googleapis.com/maps/api/js?key=" . Configuration::$google_map_api_key . "&loading=async&callback=window.map.init", array(), "1", array("in_footer" => true));
+?>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=<?= Configuration::$google_map_api_key ?>&callback=window.map.init"></script>
+<?php
 endif;

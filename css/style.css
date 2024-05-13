@@ -2868,6 +2868,7 @@ q {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
+  z-index: 10;
 }
 
 .u-z-index-10 {
@@ -6025,6 +6026,27 @@ q {
   color: rgba(0, 0, 0, 0.8) !important;
   opacity: 0.7;
 }
+.c-form .form__input::-webkit-input-placeholder, .c-form .form__textarea::-webkit-input-placeholder {
+  font-family: var(--modular-secondary-font);
+  opacity: 0.7;
+}
+.c-form .form__input::-moz-placeholder, .c-form .form__textarea::-moz-placeholder {
+  font-family: var(--modular-secondary-font);
+  opacity: 0.7;
+}
+.c-form .form__input:-ms-input-placeholder, .c-form .form__textarea:-ms-input-placeholder {
+  font-family: var(--modular-secondary-font);
+  opacity: 0.7;
+}
+.c-form .form__input::-ms-input-placeholder, .c-form .form__textarea::-ms-input-placeholder {
+  font-family: var(--modular-secondary-font);
+  opacity: 0.7;
+}
+.c-form .form__input::placeholder,
+.c-form .form__textarea::placeholder {
+  font-family: var(--modular-secondary-font);
+  opacity: 0.7;
+}
 .c-form .form__textarea {
   padding: 1.125rem 1.875rem;
 }
@@ -6097,17 +6119,21 @@ q {
     margin-top: 0;
   }
 }
-.c-form .checked, .c-form .unchecked {
+.c-form .checked,
+.c-form .unchecked {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
-.c-form .checked svg, .c-form .unchecked svg {
+.c-form .checked svg,
+.c-form .unchecked svg {
   width: 20px;
   height: 20px;
 }
 
-.section-black .checked, .section-dark .checked, .section-black .unchecked, .section-dark .unchecked {
+.section-black .checked, .section-dark .checked,
+.section-black .unchecked,
+.section-dark .unchecked {
   color: #ffffff;
 }
 

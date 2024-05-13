@@ -1,7 +1,7 @@
 <?php
 $fields = get_field("additional_fields");
 ?>
-<form class="c-form form-rc-js" id="contact-form" medthod="POST" action="contact-form" send="send_ajax" title="Contact Form">
+<form class="c-form form-rc-js " id="contact-form" medthod="POST" action="contact-form" send="send_ajax" title="Contact Form">
 
     <div class="row">
         <div class="col-12">
