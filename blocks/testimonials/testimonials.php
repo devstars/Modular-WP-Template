@@ -19,7 +19,7 @@ $class = ($block["align"] === "wide") ?  "col-12" : "col-12 col-xl-10 mx-auto";
 <div class="c-section--testimonials <?= $color_schema; ?> <?= $block["className"]; ?> " id="<?php echo esc_attr($id); ?>">
     <div class="container-fluid ">
         <div class="row">
-            <div class="<?= $class ?> ">            
+            <div class="<?= $class ?> ">
                 <div class="u-relative">
                     <div class="testimonials-wrapper testimonials-js owl-carousel owl-theme">
 
@@ -44,7 +44,7 @@ $class = ($block["align"] === "wide") ?  "col-12" : "col-12 col-xl-10 mx-auto";
                         ?>
 
                     </div>
-                    <div class="t__nav l-btns-vertical team-nav-js">
+                    <div class="t__nav l-btns-testimonials team-nav-js">
                         <div class="next-js o-nav-btn "> <?= file_get_contents(IMAGES . '/icons/arrow-right.svg'); ?> </div>
                         <div class="prev-js o-nav-btn "> <?= file_get_contents(IMAGES . '/icons/arrow-left.svg'); ?> </div>
                     </div>

@@ -2,105 +2,121 @@
 
 use PSpell\Config;
 
-class Mail{            
+class Mail
+{
     public $success;
     public $error;
-    public $email_firm;   
-    public $user_email;    
-    public $reply_to_user;         
-    public $subject; 
-    public $email_footer;        
-        
+    public $email_firm;
+    public $delivery_emails;
+
+    public $user_email;
+    public $reply_to_user;
+    public $subject;
+    public $email_footer;
+
     public $data = array();
-    
-    public function __construct() {              
-        $this->email_firm = Configuration::$email;                                
+
+    public function __construct()
+    {
+        $this->email_firm = Configuration::$email;
+        $this->delivery_emails = Configuration::$delivery_emails;
     }
 
-    public function get_data(){                        
-        
-            foreach ($_POST as $key => $value) {    
+    public function get_data()
+    {
 
-                if(strtolower($key) === "email"){                    
-                    $this->user_email = $value;
-                }   
+        foreach ($_POST as $key => $value) {
 
-                if(strtolower($key) === "recipient_email"){                    
-                    $this->email_firm = $value;
-                }  
+            if (strtolower($key) === "email") {
+                $this->user_email = $value;
+            }
 
-                if(strtolower($key) === "reply_to_user"){      
-                    $this->reply_to_user = strtolower($value);                                            
-                }  
-
-                if(is_string($value)){
-                    $this->data[$key] = htmlspecialchars($value);                        
-                }else{
-                    $this->data[$key] = $value;                        
+            if (strtolower($key) === "recipient_email") {
+                if ($value) {
+                    $this->delivery_emails = $value;
                 }
-                                                                                                               
-            }                                                                               
+            }
+
+            if (strtolower($key) === "reply_to_user") {
+                $this->reply_to_user = strtolower($value);
+            }
+
+            if ($value)
+                if (is_string($value)) {
+                    $this->data[$key] = htmlspecialchars($value);
+                } else {
+                    $this->data[$key] = $value;
+                }
+        }
     }
 
-    public function clean_data(){
-        empty($this->data);                                  
+    public function clean_data()
+    {
+        empty($this->data);
     }
 
-    public function check_fields(){  
-        
-        $resp = true;    
-        
+    public function check_fields()
+    {
+
+        $resp = true;
+
         /* if (!filter_var($this->user_email, FILTER_VALIDATE_EMAIL)) {
             $resp = false;
             $this->error = 'The e-mail address entered is invalid.';
         }         */
 
-        if(!$this->email_firm){
+        if (!$this->email_firm) {
             $resp = false;
             $this->error = "There was an error trying to send your message. Please try again later.";
         }
 
-        if (empty($this->data["g-recaptcha-response"])){
-            $resp = false;    
-            $this->error = 'Please, fill the captcha to send the message.';        
-        }else{
+        if (!$this->delivery_emails) {
+            $resp = false;
+            $this->error = "There was an error trying to send your message. Please try again later.";
+        }
+
+        if (empty($this->data["g-recaptcha-response"])) {
+            $resp = false;
+            $this->error = 'Please, fill the captcha to send the message.';
+        } else {
             $verifyResponse = json_decode(file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . Configuration::$rc_secret . '&response=' . $this->data["g-recaptcha-response"]));
-            if (!$verifyResponse->success || $verifyResponse->score < 0.5){
-                $resp = false;                
-                $this->error = 'Please, fill the captcha to send the message.';          
+            if (!$verifyResponse->success || $verifyResponse->score < 0.5) {
+                $resp = false;
+                $this->error = 'Please, fill the captcha to send the message.';
             }
-        } 
+        }
 
         return $resp;
     }
 
 
-    public function send(){      
-                 
-        $body = "";                
-        
-        $skip_fields = array("permissions", "g-recaptcha-response", "action", "title", "recipient_email" , "reply_to_user" );
-        foreach ($this->data as $key => $value) {     
-            
+    public function send()
+    {
+
+        $body = "";
+
+        $skip_fields = array("permissions", "g-recaptcha-response", "action", "title", "recipient_email", "reply_to_user");
+        foreach ($this->data as $key => $value) {
+
             if (!in_array($key, $skip_fields)) {
-                $name = ucfirst(str_replace('_', ' ', $key));                      				                
+                $name = ucfirst(str_replace('_', ' ', $key));
 
-                $body  .= '<b>'. $name .':</b><br> ' . $value . "<br><br>";
+                $body  .= '<b>' . $name . ':</b><br> ' . $value . "<br><br>";
             }
-        }         
-        
-        $body .= $this->email_footer;                             
+        }
 
-        $headers = 'From:'.$this->subject.'<' . $this->email_firm . ">\r\n";
-        if($this->reply_to_user !== "no"){
+        $body .= $this->email_footer;
+
+        $headers = 'From:' . $this->subject . '<' . $this->email_firm . ">\r\n";
+        if ($this->reply_to_user !== "no") {
             $headers .= 'Reply-To: ' . htmlspecialchars($this->user_email) . "\r\n";
         }
         $headers .= 'Content-Type: text/html; charset=UTF-8' . "\r\n";
-                                       
-       $this->success = wp_mail($this->email_firm, $this->subject, $body, $headers); 
-       $this->success = true;       
-               
-        if(!$this->success){
+
+        $this->success = wp_mail($this->delivery_emails, $this->subject, $body, $headers);
+        $this->success = true;
+
+        if (!$this->success) {
             $this->error = "There was an error trying to send your message. Please try again later.";
         }
 
@@ -111,35 +127,35 @@ class Mail{
 add_action('wp_ajax_send_ajax', 'send_ajax');
 add_action('wp_ajax_nopriv_send_ajax', 'send_ajax');
 
-function send_ajax() {
-     /* echo "ok";
+function send_ajax()
+{
+    /* echo "ok";
     exit;  */
-    
-    $mail = new Mail();    
+
+    $mail = new Mail();
     $mail->get_data();
 
-    $mail->subject = Configuration::$company_name .' - '.$mail->data["title"];
-    $mail->email_footer = "Email was sent from : <a href='". home_url() ."'>".Configuration::$company_name . " - ". $mail->data["title"] ."</a>.";    
-    
+    $mail->subject = Configuration::$company_name . ' - ' . $mail->data["title"];
+    $mail->email_footer = "Email was sent from : <a href='" . home_url() . "'>" . Configuration::$company_name . " - " . $mail->data["title"] . "</a>.";
 
-    if ($mail->check_fields() ) {                            
-        $mail->send();        
+
+    if ($mail->check_fields()) {
+        $mail->send();
     }
 
-    if($mail->success){                                            
-        
+    if ($mail->success) {
+
         $mail->clean_data();
 
         echo "ok";
-    }
-    else{
-        echo $mail->error;    
+    } else {
+        echo $mail->error;
     }
     exit;
 }
 
-add_action('phpmailer_init', function($phpmailer) {
-    if(!Configuration::$phpmailer["disable"]){
+add_action('phpmailer_init', function ($phpmailer) {
+    if (!Configuration::$phpmailer["disable"]) {
         $phpmailer->isSMTP();
         $phpmailer->Host = Configuration::$phpmailer["host"];
         $phpmailer->SMTPAuth = Configuration::$phpmailer["smtpauth"];
@@ -151,5 +167,3 @@ add_action('phpmailer_init', function($phpmailer) {
         $phpmailer->FromName = Configuration::$phpmailer["fromname"];
     }
 });
-
-?>

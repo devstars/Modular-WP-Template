@@ -8,38 +8,39 @@
 
         <div class="container-fluid ">
 
-            <div class="row  <?= $carousel["image_aligment"]; ?> u-w-100">
+            <div class="row  <?= $carousel["image_aligment"]; ?> ">
                 <div class="col-12 col-xl-6 col__content pl-xl-0">
                     <div class="banner__content">
-                        <?php if($content["title"]): ?>
+                        <?php if ($content["title"]) : ?>
 
-                        <<?= $heading_tag; ?> class="banner__title custom-title-colour">
-                            <?= $content["title"] ?>
-                        </<?= $heading_tag; ?>>
-
-                        <?php endif; ?>
-
-                        <?php if($content["description"]): ?>
-
-                        <div class="banner__desc wysiwyg u-br-none">
-                            <?= $content["description"] ?>
-                        </div>
+                            <<?= $heading_tag; ?> class="banner__title custom-title-colour">
+                                <?= $content["title"] ?>
+                            </<?= $heading_tag; ?>>
 
                         <?php endif; ?>
 
-                        <?php 
-                        if(isset($ctas["button_cta_left"]) && $ctas["button_cta_left"] || isset($ctas["button_cta_right"]) && $ctas["button_cta_right"]) :
-                            ?> 
+                        <?php if ($content["description"]) : ?>
+
+                            <div class="banner__desc wysiwyg u-br-none">
+                                <?= $content["description"] ?>
+                            </div>
+
+                        <?php endif; ?>
+
+                        <?php
+                        if (isset($ctas["button_cta_left"]) && $ctas["button_cta_left"] || isset($ctas["button_cta_right"]) && $ctas["button_cta_right"]) :
+                        ?>
                             <div class="desc__bottom"></div>
-                            <?php
-                        endif;                        
-                        ?>
-                    
                         <?php
-                        echo btn_from_link($ctas["button_cta_left"], "std-btn-primary mr-3 mb-3 ");
+                        endif;
+                        ?>
+
+                        <?php
+                        $btn_class = isset($ctas["button_cta_right"]) ? "std-btn-primary mr-3 mb-3" : "std-btn-primary mr-3 mb-0";
+                        echo btn_from_link($ctas["button_cta_left"], $btn_class);
                         ?>
                         <?php
-                        echo btn_from_link($ctas["button_cta_right"], "std-btn-secondary mb-3");
+                        echo btn_from_link($ctas["button_cta_right"], "std-btn-secondary mb-0");
                         ?>
 
                     </div>
