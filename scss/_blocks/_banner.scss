@@ -232,6 +232,11 @@
     @media screen and (min-width: 1350px) {
         display: none;
     }
+
+    .bf__btn {
+        float: left !important;
+        margin-left: 0 !important;
+    }
 }
 
 .bf-desktop {

@@ -7606,6 +7606,10 @@ q {
     display: none;
   }
 }
+.bf-mobile .bf__btn {
+  float: left !important;
+  margin-left: 0 !important;
+}
 
 .bf-desktop {
   display: none;

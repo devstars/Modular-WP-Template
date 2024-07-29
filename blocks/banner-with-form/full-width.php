@@ -188,10 +188,11 @@
                     <div class="row">
                         <div class="col-12 permission">
 
-                            <button class="bf__btn btn btn--highlighted hover-outline-highlighted btn-submit-js g-recaptcha-v3" type="submit">Get estimate </button>
                             <?php
-                            show_if_exist('<div class="bf__gdpr fade-in-js">%s</div>', $form["gdpr_text"]);
+                            show_if_exist('<div class="bf__gdpr fade-in-js mb-4">%s</div>', $form["gdpr_text"]);
                             ?>
+                            <button class="bf__btn btn btn--highlighted hover-outline-highlighted btn-submit-js g-recaptcha-v3" type="submit">Get estimate </button>
+
 
                         </div>
                     </div>

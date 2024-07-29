@@ -435,7 +435,7 @@
                 },
                 {
                     "key": "field_65ddbd418e1fc",
-                    "label": "Recipient email",
+                    "label": "Delivery emails",
                     "name": "recipient_email",
                     "aria-label": "",
                     "type": "text",
@@ -588,5 +588,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1711639383
+    "modified": 1718693746
 }
