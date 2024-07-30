@@ -38,7 +38,7 @@
     </script>
 
     <style>
-        @media screen and (min-width: <?=  Configuration::$menu_top_breakpoint; ?>) {
+        @media screen and (min-width: <?= Configuration::$menu_top_breakpoint; ?>) {
 
             .nav-top__logo {
                 min-width: 260px !important;
@@ -60,7 +60,7 @@
                 height: 122px !important;
             }
 
-            .menu-mobile-wrapper{
+            .menu-mobile-wrapper {
                 display: none;
             }
 
@@ -74,10 +74,10 @@
 
     <?php
     global $post;
-    $post_blocks = parse_blocks($post->post_content);    
+    $post_blocks = parse_blocks($post->post_content);
 
     if ($post_blocks[0]["blockName"] === "acf/text-media" || $post_blocks[0]["blockName"] === "acf/banner-with-form") {
-        $nav_class = $post_blocks[0]["attrs"]["data"]["carousel_width"] === "full" ? "section-transparent" : "";       
+        $nav_class = $post_blocks[0]["attrs"]["data"]["carousel_width"] === "full" ? "section-transparent" : "";
         $nav_class .=  $post_blocks[0]["blockName"] === "acf/banner-with-form" ? "section-transparent" : "";
         $wrapper_class .= $post_blocks[0]["attrs"]["data"]["carousel_width"] === "half" ? " l-margin-top" : "";
     } else {
@@ -94,6 +94,7 @@
     $btn_cta_type = Configuration::$fields["header"]["nav"]["cta_group"]["type"];
     $btn_cta_colour = Configuration::$fields["header"]["nav"]["cta_group"]["colour"];
     $btn_cta = store_content_of_function('btn_from_link', [Configuration::$fields["header"]["nav"]["cta_group"]["link"], "btn btn-header $btn_cta_type"]);
+    $btn_cta_mobl = store_content_of_function('btn_from_link', [Configuration::$fields["header"]["nav"]["cta_group"]["link"], "btn btn-header-mobile $btn_cta_type"]);
     ?>
 
     <div class="c-nav-top nav-top-js section-<?= $scheme_colors; ?> <?= $nav_class ?> ">
@@ -132,7 +133,6 @@
 
         </div>
 
-
     </div>
 
     <?php if ($scheme_colors === "black") : ?>
@@ -148,10 +148,19 @@
                     $menu_top->view();
                     ?>
                 </ul>
+                <?php
+                if ($btn_cta) :
+                ?>
+                    <div class="mt-6">
+                        <?php
+                        echo $btn_cta_mobl;
+                        ?>
+                    </div>
+                <?php
+                endif;
+                ?>
             </div>
         </div>
     </div>
-
-
 
     <div class="<?= $wrapper_class ?>"></div>

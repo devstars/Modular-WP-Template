@@ -131,7 +131,12 @@
   }
 }
 
-
+.menu-mobile-wrapper {
+  .btn-header-mobile.default {
+    padding: calcRem(20px) calcRem(45px);
+    font-size: 1.3rem;
+  }
+}
 
 .section-white {
   &.c-nav-top {
@@ -160,20 +165,9 @@
         background-color: $black;
         color: $white;
       }
-    } 
-
-    .btn-header.custom {
-      border: 1px solid var(--modular-header-cta-colour);
-      background-color: var(--modular-header-cta-colour);
-      color: var(--modular-header-cta-text-colour);
-      &:hover {    
-        background-color: transparent;
-        border: 1px solid var(--modular-header-cta-colour);
-        color: var(--modular-header-cta-colour);
-      }
     }
 
-/*     .btn-header.outline {
+    /*     .btn-header.outline {
       background-color: transparent;
       border: 1px solid var(--modular-header-cta-colour);
       color: var(--modular-header-cta-colour);
@@ -182,6 +176,38 @@
         color: var(--modular-header-cta-text-colour);
       }
     } */
+  }
+
+  .btn-header-mobile.default {
+    background-color: transparent;
+    border: 1px solid $black;
+    color: $black;
+    &:hover {
+      background-color: $black;
+      color: $white;
+    }
+  }
+}
+
+.btn-header.custom {
+  border: 1px solid var(--modular-header-cta-colour);
+  background-color: var(--modular-header-cta-colour);
+  color: var(--modular-header-cta-text-colour);
+  &:hover {
+    background-color: transparent;
+    border: 1px solid var(--modular-header-cta-colour);
+    color: var(--modular-header-cta-colour);
+  }
+}
+
+.btn-header-mobile.custom {
+  border: 1px solid var(--modular-header-cta-colour);
+  background-color: var(--modular-header-cta-colour);
+  color: var(--modular-header-cta-text-colour);
+  &:hover {
+    background-color: transparent;
+    border: 1px solid var(--modular-header-cta-colour);
+    color: var(--modular-header-cta-colour);
   }
 }
 
@@ -214,19 +240,9 @@
         background-color: $white;
         color: $black;
       }
-    } 
+    }
 
-     .btn-header.custom {
-      border: 1px solid var(--modular-header-cta-colour);
-      background-color: var(--modular-header-cta-colour);
-      color: var(--modular-header-cta-text-colour);
-      &:hover {    
-        background-color: transparent;
-        border: 1px solid var(--modular-header-cta-colour);        
-        color: var(--modular-header-cta-colour);        
-      }
-    } 
-/*     .btn-header.outline {
+    /*     .btn-header.outline {
       background-color: transparent;
       border: 1px solid var(--modular-header-cta-colour);
       color: var(--modular-header-cta-colour);
@@ -235,6 +251,16 @@
         color: var(--modular-header-cta-text-colour);
       }
     } */
+  }
+
+  .btn-header-mobile.default {
+    background-color: transparent;
+    border: 1px solid $white;
+    color: $white;
+    &:hover {
+      background-color: $white;
+      color: $black;
+    }
   }
 }
 

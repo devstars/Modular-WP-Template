@@ -8,6 +8,10 @@
     }
 }
 
+.full.owl-carousel .c-banner .banner__content {
+    margin-bottom: 70px;
+}
+
 .c-banner {
     padding-top: 70px;
     @media screen and (min-width: $lg) {
@@ -27,6 +31,15 @@
         margin-bottom: 30px !important;
         @media screen and (min-width: 1350px) {
             margin-bottom: 40px !important;
+        }
+    }
+
+    &.used_as_banner {
+        height: auto;
+
+        min-height: 100vh;
+        @media screen and (min-height: 840px) {
+            min-height: 840px;
         }
     }
 
@@ -626,7 +639,10 @@
         }
     }
 
-    bottom: 42px;
+    bottom: 47px;
+    @media screen and (min-height: 700px) {
+        bottom: 62px;
+    }
 }
 
 .section-transparent,

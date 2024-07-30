@@ -501,7 +501,7 @@
       font-family: var(--modular-primary-font);
       @include fontSize(18px);
       font-weight: 700;
-      width: 130px;
+      width: 105px;
 
       color: $highlighted;
     }
@@ -549,7 +549,7 @@
 
   .col-left {
     .table--details {
-      margin-left: auto;
+      margin-left: 0;
       margin-right: auto;
       @media screen and (min-width: $lg) {
         margin-left: 0;

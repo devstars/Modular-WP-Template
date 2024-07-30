@@ -4,7 +4,7 @@
     $id = $data["id"];
     $color_schema = (empty($data["color_schema"])) ? "section-bright" : $data["color_schema"];
     ?>
-    <div id="<?= esc_attr($id); ?>" class="c-banner   l-half <?= $color_schema ?>">
+    <div id="<?= esc_attr($id); ?>" class="c-banner <?= $banner_class; ?> l-half <?= $color_schema ?>">
 
         <div class="container-fluid ">
 

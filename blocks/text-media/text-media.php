@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Block Name: Text & Media
  */
@@ -12,20 +13,21 @@ $carousel = get_field("carousel");
 
 $color_schema = ($carousel["width"] === "half") ? "" : "section-transparent";
 
-$data = block_start("text_media", $block, $carousel , $color_schema);
+$data = block_start("text_media", $block, $carousel, $color_schema);
 $id = $data["id"];
 $color_schema = $data["color_schema"];
+$banner_class = ($data["h_tag"] === "h1") ? "used_as_banner" : "";
 
 $mode = (trim(strtolower($carousel["mode"])) === "carousel") ? "carousel" : "single";
 
-if($mode==="single"){
+if ($mode === "single") {
     $banner[] = get_field("slide");
 }
 ?>
 <div class="u-relative <?= $color_schema; ?> " id="<?php echo esc_attr($id); ?>">
-    <div data-interval="<?= $carousel["interval"]; ?>" data-autoplay="<?= $carousel["autoplay"]; ?>" class=" banner-wrapper <?= $carousel["width"]; ?>  <?= ($mode === "carousel") ? "banner-js owl-carousel owl-theme" : ""; ?>   ">
+    <div data-interval="<?= $carousel["interval"]; ?>" data-autoplay="<?= $carousel["autoplay"]; ?>" class="banner-wrapper  <?= $carousel["width"]; ?>  <?= ($mode === "carousel") ? "banner-js owl-carousel owl-theme" : ""; ?>   ">
         <?php
-        foreach ($banner as $index => $slide) :            
+        foreach ($banner as $index => $slide) :
 
             $content = $slide["content"];
             $background = $slide["background"];
@@ -45,11 +47,12 @@ if($mode==="single"){
 
     </div>
 
-    <?php 
-    
+    <?php
+
     $image_aligment = $carousel["image_aligment"];
     ?>
-    <?php if ($mode === "carousel" && $carousel["show_navigation"]) : ?>
+    <?php if ($mode === "carousel" && $carousel["show_navigation"] && $index > 0) : ?>
+
         <div class="container-fluid banner__nav <?= $carousel["width"]; ?> <?= $image_aligment; ?> ">
             <div class="row">
                 <?php
@@ -60,22 +63,24 @@ if($mode==="single"){
 
                 $nav_class = $carousel["width"] === "half" ? "l-btns-next-to" : "";
 
-                if ($image_aligment){                    
+                if ($image_aligment) {
                 ?>
-                <div class="<?= $col_class; ?>">
-                    <div class="u-nav <?= $nav_class ?>">
-                        <div class="tm-prev-js o-nav-btn black"> <?= file_get_contents(IMAGES . '/icons/arrow-left.svg'); ?> </div>
-                        <div class="tm-next-js o-nav-btn black"> <?= file_get_contents(IMAGES . '/icons/arrow-right.svg'); ?> </div>
+                    <div class="<?= $col_class; ?>">
+                        <div class="u-nav <?= $nav_class ?>">
+                            <div class="tm-prev-js o-nav-btn black"> <?= file_get_contents(IMAGES . '/icons/arrow-left.svg'); ?> </div>
+                            <div class="tm-next-js o-nav-btn black"> <?= file_get_contents(IMAGES . '/icons/arrow-right.svg'); ?> </div>
+                        </div>
                     </div>
-                </div>
                 <?php } ?>
             </div>
         </div>
     <?php endif; ?>
 
+
+
 </div>
 <?php
 if ($mode) {
-    wp_enqueue_script('text-media-js', get_template_directory_uri() . '/blocks/text-media/text-media.js', array('jquery'), filemtime(get_template_directory() . '/blocks/text-media/text-media.js'), false);    
+    wp_enqueue_script('text-media-js', get_template_directory_uri() . '/blocks/text-media/text-media.js', array('jquery'), filemtime(get_template_directory() . '/blocks/text-media/text-media.js'), false);
 }
 ?>
