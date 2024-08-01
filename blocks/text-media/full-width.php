@@ -48,13 +48,27 @@
                         endif;
                         ?>
 
-                        <?php
-                        $mr = isset($ctas["button_cta_right"]) && $ctas["button_cta_right"]  ? "mr-3" : "";
 
-                        echo btn_from_link($ctas["button_cta_left"], "std-btn-primary " . $mr);
-                        ?>
                         <?php
-                        echo btn_from_link($ctas["button_cta_right"], "std-btn-secondary ");
+                        $ml = "";
+                        $mr = "";
+
+                        if ($settings["horizontal_aligment"] === "left") :
+                            $mr = isset($ctas["button_cta_right"]) && $ctas["button_cta_right"]  ? "mr-3" : "";
+                        endif;
+
+                        if ($settings["horizontal_aligment"] === "center") :
+                            $ml = isset($ctas["button_cta_right"]) && $ctas["button_cta_right"]  ? "ml-2" : "";
+                            $mr = isset($ctas["button_cta_right"]) && $ctas["button_cta_right"]  ? "mr-2" : "";
+                        endif;
+
+                        if ($settings["horizontal_aligment"] === "right") :
+                            $ml = isset($ctas["button_cta_right"]) && $ctas["button_cta_right"]  ? "ml-3" : "";
+                        endif;
+
+                        echo btn_from_link($ctas["button_cta_left"], $ml . " std-btn-primary " . $mr);
+                        echo btn_from_link($ctas["button_cta_right"], $ml . " std-btn-secondary " . $mr);
+
                         ?>
 
                     </div>
