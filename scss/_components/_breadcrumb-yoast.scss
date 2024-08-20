@@ -6,8 +6,7 @@
     padding-bottom: 20px;
   }
 
-
-  .container-fluid{
+  .container-fluid {
     max-width: 1800px !important;
   }
 
@@ -33,7 +32,7 @@
   }
 
   .breadcrumb_last {
-    font-weight: 400;    
+    font-weight: 400;
   }
 }
 
@@ -57,7 +56,7 @@
     a {
       color: $black;
 
-      transition: all .15s linear;
+      transition: all 0.15s linear;
       border-bottom: 1px solid transparent;
 
       &:hover {
@@ -68,7 +67,7 @@
 
     .breadcrumb_last,
     .active {
-      color: $orange;
+      color: var(--modular-breadcrumb-highlighted);
     }
   }
 }

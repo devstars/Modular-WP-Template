@@ -1,13 +1,13 @@
 .page-text {
-    overflow: hidden;    
+    overflow: hidden;
 
     p:last-child {
         margin-bottom: 0 !important;
     }
 
     h1 {
-        @include fontSize(44px);    
-        //line-height: 1.54em;    
+        @include fontSize(44px);
+        //line-height: 1.54em;
     }
     h2 {
         @include fontSize(32px);
@@ -30,7 +30,7 @@
     h3,
     h4,
     h5,
-    h6 {        
+    h6 {
         line-height: 1.1em;
         margin-bottom: 1.25rem;
         font-weight: 600;
@@ -73,7 +73,7 @@
         margin: 0;
         margin-bottom: 1.25rem;
 
-        &.has-medium-font-size{
+        &.has-medium-font-size {
             @include fontSize(22px);
         }
     }
@@ -143,10 +143,9 @@
 
         .wp-block-media-text__content {
             padding: 0;
-            @media screen and (min-width:$lg){
+            @media screen and (min-width: $lg) {
                 padding-left: 16%;
             }
-            
         }
 
         &.has-media-on-the-right {
@@ -259,12 +258,12 @@
         margin-inline-end: 0;
     }
 
-    figure.wp-block-table{
+    figure.wp-block-table {
         margin-bottom: 2rem;
     }
-    .wp-block-table{
+    .wp-block-table {
         table {
-            border-style: hidden;        
+            border-style: hidden;
             td {
                 padding: 15px;
                 vertical-align: top;
@@ -272,10 +271,10 @@
                 display: block;
                 border-bottom: 0;
 
-                @media(min-width: 768px) {                 
-                        padding: 20px;
-                        display: table-cell;
-                        border-bottom: 1px solid #000;                 
+                @media (min-width: 768px) {
+                    padding: 20px;
+                    display: table-cell;
+                    border-bottom: 1px solid #000;
                 }
             }
 
@@ -284,14 +283,12 @@
             }
         }
 
-        
-
-        figcaption{
+        figcaption {
             margin-top: 1.5rem;
         }
-    } 
+    }
 
-/*     table {
+    /*     table {
         border: 1px solid #ddd;
         border-collapse: collapse;
         th {
@@ -312,8 +309,6 @@
         }
     } */
 
-
-    
     .wp-block-columns.is-layout-flex {
         gap: 1.25rem;
     }
@@ -323,10 +318,7 @@
             //flex-basis: 100%!important;
         }
     }
-
-
 }
-
 
 .wp-block-cover {
     min-height: initial;
@@ -343,7 +335,6 @@
         }
     }
 }
-
 
 .wysiwyg {
     strong,
@@ -366,7 +357,7 @@
         font-weight: 600 !important;
     }
 
-/*     a {
+    /*     a {
         text-decoration: underline;
         font-weight: 400 !important;
     } */
@@ -395,7 +386,7 @@
         padding: 0;
         margin-left: 20px;
         margin-bottom: 1.25rem;
-        li {            
+        li {
             text-align: left;
             margin: 0;
         }
@@ -404,28 +395,27 @@
         }
     }
 
-    &.parent-checked-list ul{    
-
+    &.parent-checked-list ul {
         /* <url> values */
-        list-style-image: url('../images/checked.png');        
+        list-style-image: url("../images/checked.png");
         list-style-position: outside;
         margin-left: 33px;
         margin-bottom: 0;
-    
-    
-        li{
+
+        li {
             margin-bottom: calcRem(20px);
-            &:last-child{
+            &:last-child {
                 margin-bottom: 0 !important;
             }
             font-size: 16px !important;
-            @media screen and (min-width:$md){
+            @media screen and (min-width: $md) {
                 font-size: 18px !important;
             }
+            color: $black;
         }
     }
 
-/*     &.parent-checked-list ul {
+    /*     &.parent-checked-list ul {
         margin-left:0px !important;
         list-style: none;
     
@@ -447,5 +437,4 @@
             transform: translateY(0%); 
         }
     } */
-    
 }

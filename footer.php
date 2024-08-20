@@ -2,19 +2,30 @@
 
 <?php wp_footer(); ?>
 
-<?php //get_template_part('template-parts/load-recaptcha'); ?>
+<?php //get_template_part('template-parts/load-recaptcha'); 
+?>
 <?php get_template_part('template-parts/load-recaptcha-v3'); ?>
 
 <?php
+echo "kolory<br>";
+$b = isColorBlack("#303030");
+echo $b . "<br>";
+$w = isColorWhite("#dddddd");
+echo $w . "<br>";
+$w = isColorWhite("#e2aaaa");
+echo $w . "<br>";
+$w = isColorWhite("#ede3e3");
+echo $w . "<br>";
+
 $f_data = Configuration::$fields["footer"];
 
 
-$block = array("id"=>"footer", "anchor"=>"footer");
-$data = block_start("FAQ", $block, $f_data["settings"] );
+$block = array("id" => "footer", "anchor" => "footer");
+$data = block_start("FAQ", $block, $f_data["settings"]);
 $id = $data["id"];
 $color_schema = $data["color_schema"];
 ?>
-<footer class="c-footer footer-js <?= $color_schema; ?>"  id="<?php echo esc_attr($id); ?>">
+<footer class="c-footer footer-js <?= $color_schema; ?>" id="<?php echo esc_attr($id); ?>">
     <div class="container-fluid">
         <div class="row row__top">
 
@@ -24,7 +35,7 @@ $color_schema = $data["color_schema"];
                     <?= $f_data["first_column"]["content"] ?>
                 </p>
             </div>
-            
+
             <div class="col-12 col-lg-6 ">
                 <div class="row">
                     <div class="col-6 top__middle">
@@ -38,13 +49,13 @@ $color_schema = $data["color_schema"];
                     <div class="col-6 top__right">
                         <h2 class="col__title"><?= $f_data["third_column"]["heading"] ?></h2>
 
-                        <?php 
-                        if($f_data["third_column"]["content"]):
+                        <?php
+                        if ($f_data["third_column"]["content"]):
                         ?>
-                        <p class="wysiwyg mb-4">
-                            <?= $f_data["third_column"]["content"] ?>
-                        </p>
-                        <?php 
+                            <p class="wysiwyg mb-4">
+                                <?= $f_data["third_column"]["content"] ?>
+                            </p>
+                        <?php
                         endif;
                         ?>
 

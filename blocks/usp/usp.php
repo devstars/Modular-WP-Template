@@ -30,15 +30,15 @@ $class = ($block["align"] === "wide") ?  "col-12" : "col-12 col-xl-10 mx-auto";
 
 <div id="<?= $id ?>" class="c-section--usp <?= $color_schema; ?> ">
 
-    <div class="container-fluid">        
+    <div class="container-fluid">
         <div class="row">
             <div class="<?= $class ?>">
 
-                <?php if(!empty($content["headline_text"])): ?>
+                <?php if (!empty($content["headline_text"])): ?>
                     <<?= $data["h_tag"]; ?> class="section__title custom-title-colour"><?= $content["headline_text"]; ?></<?= $data["h_tag"]; ?>>
                 <?php endif; ?>
 
-                <?php if(!empty($content["body_text"])): ?>
+                <?php if (!empty($content["body_text"])): ?>
                     <p class="section__subtitle"><?= $content["body_text"] ?></p>
                 <?php endif; ?>
 
@@ -47,7 +47,7 @@ $class = ($block["align"] === "wide") ?  "col-12" : "col-12 col-xl-10 mx-auto";
                     //$col_classes = "col-6";
                     if ($number_of_columns == 2) $col_classes = "col-12 col-md-6";
                     if ($number_of_columns == 3) $col_classes = "col-12 col-md-6 col-lg-4";
-                    if ($number_of_columns == 4) $col_classes = "col-12 col-md-6 col-lg-3";                    
+                    if ($number_of_columns == 4) $col_classes = "col-12 col-md-6 col-lg-3";
 
                     foreach ($tiles as $index => $tile) :
 
@@ -100,7 +100,7 @@ $class = ($block["align"] === "wide") ?  "col-12" : "col-12 col-xl-10 mx-auto";
                                     <?php
                                     if ($number_of_columns == "2" || $number_of_columns == "3") :
                                     ?>
-                                        <div class="<?= $desc_class; ?> usp__content align-h-js" data-block="<?= $block['id'] ?>" data-align="usp-title-<?= $group; ?>" data-align-md="usp-title-<?= $group_md; ?>" data-align-lg="usp-title-<?= $group_lg; ?>" <?= get_the_excerpt($post->ID); ?>>
+                                        <div class="<?= $desc_class; ?> usp__content align-h-js" data-block="<?= $block['id'] ?>" data-align="usp-title-<?= $group; ?>" data-align-md="usp-title-<?= $group_md; ?>" data-align-lg="usp-title-<?= $group_lg; ?>">
 
                                             <?php if ($tile["title"]) : ?>
                                                 <h3 class="usp__title <?= $desc_class; ?>">
@@ -122,7 +122,7 @@ $class = ($block["align"] === "wide") ?  "col-12" : "col-12 col-xl-10 mx-auto";
                                     <?php
                                     if ($number_of_columns == "4") :
                                     ?>
-                                        <div class="<?= $desc_class; ?> usp__content align-h-js " data-block="<?= $block['id'] ?>" data-align="usp-title-<?= $group; ?>" data-align-lg="usp-title-<?= $group_lg; ?>" <?= get_the_excerpt($post->ID); ?>>
+                                        <div class="<?= $desc_class; ?> usp__content align-h-js " data-block="<?= $block['id'] ?>" data-align="usp-title-<?= $group; ?>" data-align-lg="usp-title-<?= $group_lg; ?>">
                                             <?php if ($tile["title"]) : ?>
                                                 <h3 class="usp__title">
                                                     <?= $tile["title"] ?>

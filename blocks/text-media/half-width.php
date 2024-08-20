@@ -8,7 +8,7 @@
 
         <div class="container-fluid ">
 
-            <div class="row  <?= $carousel["image_aligment"]; ?> ">
+            <div class="row  u-w-1350-100 <?= $carousel["image_aligment"]; ?> ">
                 <div class="col-12 col-xl-6 col__content pl-xl-0">
                     <div class="banner__content">
                         <?php if ($content["title"]) : ?>

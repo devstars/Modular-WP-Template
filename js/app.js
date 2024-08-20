@@ -1,7 +1,7 @@
 (function ($) {
 
-       $(document).ready(function () {                      
-              
+       $(document).ready(function () {
+
               window.fillForm = function () {
                      const fieldElements = document.querySelectorAll('.field-js');
 
@@ -211,7 +211,7 @@
 
                             let anchor = item.getAttribute("href");
 
-                            let top = document.querySelector(anchor).offsetTop;
+                            let top = document.querySelector(anchor).getBoundingClientRect().top + window.scrollY;
 
                             let offset = document.querySelector(anchor).getAttribute("data-offset");
 
@@ -234,7 +234,7 @@
 
        });
 
-       function setRatioElements() {                     
+       function setRatioElements() {
               const ratioElements = document.querySelectorAll(".ratio-js");
 
               ratioElements.forEach(function (element) {
@@ -276,9 +276,9 @@
                      setMaxHeightForElements(elements);
               });
 
-       }       
+       }
 
-       window.setMaxHeight  = setMaxHeight;
+       window.setMaxHeight = setMaxHeight;
 
        function setMaxHeightForElements(elements) {
 

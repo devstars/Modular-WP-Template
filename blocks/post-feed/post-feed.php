@@ -49,57 +49,57 @@ $args = array(
             <p class="section__subtitle "><?= $content["body_text"] ?></p>
         <?php
         endif;
-        ?>  
-
-        <?php 
-        $loop = new WP_Query($args);        
         ?>
-            <div class="row ">
-                <div class="pf__wrapper post-feed-js owl-carousel owl-theme" posts-number="<?= sizeof($loop->posts) ?>" carousel-id="<?= $block['id'] ?>">
 
-                    <?php
-                    $index = 0;                    
-                    while ($loop->have_posts()) : $loop->the_post();
-                    ?>
-                        <div class="col-12 ">
-                            <?php
-                            $group = floor($index / 4);
-                            $group_lg = floor($index / 4);
-                            get_template_part('template-parts/post-tile', null, array("group" => $group, "group_lg" => $group_lg, "block_id" => $block["id"]));
-                            $index++;
-                            ?>
+        <?php
+        $loop = new WP_Query($args);
+        ?>
+        <div class="row ">
+            <div class="pf__wrapper post-feed-js owl-carousel owl-theme" posts-number="<?= sizeof($loop->posts) ?>" carousel-id="<?= $block['id'] ?>">
 
-                        </div>
-                    <?php
-                    endwhile;
-                    wp_reset_postdata();
-                    ?>
+                <?php
+                $index = 0;
+                while ($loop->have_posts()) : $loop->the_post();
+                ?>
+                    <div class="col-12 ">
+                        <?php
+                        $group = floor($index / $settings["number_of_columns"]);
+                        $group_lg = floor($index / $settings["number_of_columns"]);
+                        get_template_part('template-parts/post-tile', null, array("group" => $group, "group_lg" => $group_lg, "block_id" => $block["id"]));
+                        $index++;
+                        ?>
 
+                    </div>
+                <?php
+                endwhile;
+                wp_reset_postdata();
+                ?>
+
+            </div>
+        </div>
+
+        <?php
+        if ($index > 3) : ?>
+            <div class="u-nav mt-10 mt-lg-14">
+
+                <div class="u-nav l-btns-next-to nav-js" carousel-id="<?= $block['id'] ?>">
+                    <div class="prev-js o-nav-btn  ml-0"> <?= file_get_contents(IMAGES . '/icons/arrow-left.svg'); ?> </div>
+                    <div class="next-js o-nav-btn  mr-auto"> <?= file_get_contents(IMAGES . '/icons/arrow-right.svg'); ?> </div>
                 </div>
+
+                <?php
+                if (!empty($settings["view_all"])) :
+                ?>
+                    <a href="<?= get_permalink(get_option('page_for_posts')); ?>" class="std-btn-tertiary mr-0 ml-auto">Show All</a>
+                <?php
+                endif;
+                ?>
+
             </div>
 
-            <?php
-            if ($index > 3) : ?>
-                <div class="u-nav mt-10 mt-lg-14">
+        <?php
+        endif;
 
-                    <div class="u-nav l-btns-next-to nav-js" carousel-id="<?= $block['id'] ?>">
-                        <div class="prev-js o-nav-btn  ml-0"> <?= file_get_contents(IMAGES . '/icons/arrow-left.svg'); ?> </div>
-                        <div class="next-js o-nav-btn  mr-auto"> <?= file_get_contents(IMAGES . '/icons/arrow-right.svg'); ?> </div>
-                    </div>
-
-                    <?php
-                    if (!empty($settings["view_all"])) :
-                    ?>
-                        <a href="<?= get_permalink(get_option('page_for_posts')); ?>" class="std-btn-tertiary mr-0 ml-auto">Show All</a>
-                    <?php
-                    endif;
-                    ?>
-
-                </div>
-
-            <?php
-            endif;
-        
         ?>
     </div>
 
@@ -107,4 +107,5 @@ $args = array(
 
 <?php
 wp_enqueue_script('post-feed-js', get_template_directory_uri() . '/blocks/post-feed/post-feed.js', array('jquery'), filemtime(get_template_directory() . '/blocks/post-feed/post-feed.js'), false);
+wp_localize_script('post-feed-js', 'settings', $settings);
 ?>

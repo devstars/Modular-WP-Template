@@ -39,9 +39,10 @@ function store_content_of_function($callback, $args)
     return ob_get_clean();
 }
 
-function show_if_exist($template, $value){
-    if($value)
-    printf($template,$value);
+function show_if_exist($template, $value)
+{
+    if ($value)
+        printf($template, $value);
 }
 
 function btn_from_link($button, $classes)
@@ -70,9 +71,9 @@ function wysiwyg_clean($value)
     return trim(strip_tags($value, '<h1><h2><h3><h4><h5><h6><span><br><p><b><strong><em><a><ul><ol><li>'));
 }
 
-function isColorDark($hexColor)
+function isColorDark($hexColor, $threshold = 0.7)
 {
-    // Remove the "#" symbol if present
+
     $hexColor = ltrim($hexColor, '#');
 
     // Convert hex to RGB values
@@ -83,10 +84,37 @@ function isColorDark($hexColor)
     // Calculate luminance
     $luminance = (0.299 * $red + 0.587 * $green + 0.114 * $blue) / 255;
 
-    // You can adjust the threshold to your preference
-    $threshold = 0.7;
+    // You can adjust the threshold to your preference    
 
     return $luminance <= $threshold;
+}
+
+function isColorBright($hexColor, $threshold = 0.7)
+{
+
+    $hexColor = ltrim($hexColor, '#');
+
+    // Convert hex to RGB values
+    $red = hexdec(substr($hexColor, 0, 2));
+    $green = hexdec(substr($hexColor, 2, 2));
+    $blue = hexdec(substr($hexColor, 4, 2));
+
+    // Calculate luminance
+    $luminance = (0.299 * $red + 0.587 * $green + 0.114 * $blue) / 255;
+
+    // You can adjust the threshold to your preference    
+
+    return $luminance >= $threshold;
+}
+
+function isColorBlack($hexColor)
+{
+    return isColorDark($hexColor, 0.19);
+}
+
+function isColorWhite($hexColor)
+{
+    return isColorBright($hexColor, 0.91);
 }
 
 function block_start($name, $block, $settings, $color_schema = null)
@@ -96,10 +124,10 @@ function block_start($name, $block, $settings, $color_schema = null)
         $id = $block['anchor'];
     }
 
-    $custom_background = $settings["background"];    
-    
+    $custom_background = $settings["background"];
+
     if (!empty($custom_background)) :
-        $color_schema = (isColorDark($custom_background)) ? "section-dark" : "section-bright";        
+        $color_schema = (isColorDark($custom_background)) ? "section-dark" : "section-bright";
 
     ?>
         <style>
@@ -109,44 +137,49 @@ function block_start($name, $block, $settings, $color_schema = null)
         </style>
     <?php
     else:
-        
+
     endif;
 
     $title_colour = $settings["title_colour"];
-    if (!empty($title_colour)) :           
+    if (!empty($title_colour)) :
     ?>
         <style>
-            #<?= esc_attr($id); ?> .custom-title-colour{                
-                    color: <?= $title_colour ?>;                
-            }            
+            #<?= esc_attr($id); ?>.custom-title-colour {
+                color: <?= $title_colour ?>;
+            }
         </style>
     <?php
     endif;
-    
+
 
     $text_colour = $settings["text_colour"];
-    if (!empty($text_colour)) :   
+    if (!empty($text_colour)) :
         $color_schema = "section-custom";
     ?>
         <style>
             #<?= esc_attr($id); ?> {
                 --modular-section-custom-colour: <?= $text_colour ?>;
             }
-            
         </style>
     <?php
     endif;
 
-    $color_highlighted = $settings["color_of_highlighted"];
-    if (!empty($color_highlighted)) :
-    ?>
-        <style>
-            #<?= esc_attr($id); ?> {
-                --modular-highlighted: <?= $color_highlighted ?>;
-            }
-        </style>
-    <?php
-    endif;
+    /*     if ($color_schema === "section-dark" && strtoupper($settings["color_of_highlighted"]) === "#FFFFFF") {
+        $color_schema .= " highlighted-white";
+    }
+
+    if (($color_schema === "section-bright" || $color_schema === "section-transparent") && strtoupper($settings["color_of_highlighted"]) === "#000000") {
+        $color_schema .= " highlighted-black";
+    } */
+
+
+    if ($color_schema === "section-dark" && isColorWhite($settings["color_of_highlighted"])) {
+        $color_schema .= " highlighted-white";
+    }
+
+    if (($color_schema === "section-bright" || $color_schema === "section-transparent") && isColorBlack($settings["color_of_highlighted"])) {
+        $color_schema .= " highlighted-black";
+    }
 
     $color_highlighted = $settings["color_of_highlighted"];
     if (!empty($color_highlighted)) :
@@ -183,12 +216,12 @@ function block_start($name, $block, $settings, $color_schema = null)
 
     $rpb = $settings["remove_padding_bottom"];
     if ($rpb && $name !== "contact") :
-        $class = "";        
-        if($name == "text") $class = ".l-text";
-        if($name == "text_media") $class = ".l-half";        
+        $class = "";
+        if ($name == "text") $class = ".l-text";
+        if ($name == "text_media") $class = ".l-half";
     ?>
         <style>
-            #<?= esc_attr($id); ?> <?= $class; ?>{
+            #<?= esc_attr($id); ?><?= $class; ?> {
                 padding-bottom: 0 !important;
             }
         </style>

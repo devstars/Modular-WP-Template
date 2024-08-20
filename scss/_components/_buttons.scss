@@ -16,24 +16,22 @@
   z-index: 10;
   border: none;
 
-  -webkit-appearance: none !important;  
+  -webkit-appearance: none !important;
 
-  &:not(.g-recaptcha-v3){
-    &:disabled{
-      background-color: rgba($gray,.7) !important;
-      border: 1px solid rgba($gray,.7) !important;
-      color:$white !important;
+  &:not(.g-recaptcha-v3) {
+    &:disabled {
+      background-color: rgba($gray, 0.7) !important;
+      border: 1px solid rgba($gray, 0.7) !important;
+      color: $white !important;
       cursor: default !important;
-      &:hover{
-        background-color: rgba($gray,.7) !important;
-        border: 1px solid rgba($gray,.7) !important;
-        color:$white !important;
+      &:hover {
+        background-color: rgba($gray, 0.7) !important;
+        border: 1px solid rgba($gray, 0.7) !important;
+        color: $white !important;
         cursor: default !important;
       }
     }
   }
-
-
 }
 
 @mixin btn--round {
@@ -49,11 +47,9 @@
   @include btn--round;
 }
 
-.btn--small{
+.btn--small {
   padding: calcRem(20px) calcRem(40px) !important;
 }
-
-
 
 .btn--outline-white {
   @include tran-all;
@@ -63,6 +59,13 @@
   color: $white;
 }
 
+.btn--outline-gray {
+  @include tran-all;
+
+  background-color: transparent;
+  border: 1px solid $gray;
+  color: $gray;
+}
 
 .btn--outline-black {
   @include tran-all;
@@ -72,7 +75,6 @@
   color: $black;
 }
 
-
 .btn--outline-highlighted {
   @include tran-all;
 
@@ -80,8 +82,6 @@
   border: 1px solid $highlighted;
   color: $white;
 }
-
-
 
 .btn--black {
   @include tran-all;
@@ -92,24 +92,23 @@
   border: 1px solid $black;
 }
 
-.btn--highlighted{
+.btn--highlighted {
   @include tran-all;
 
   background-color: $highlighted;
-  color: $white !important;
+  color: $white;
 
-  border: 1px solid $highlighted; 
+  border: 1px solid $highlighted;
 }
 
-
-.btn--white{
+.btn--white {
   @include tran-all;
 
   background-color: $white;
   color: $black !important;
 
-  border: 1px solid $white; 
-} 
+  border: 1px solid $white;
+}
 
 .hover-white {
   &:hover {
@@ -127,29 +126,27 @@
   }
 }
 
-
-
-.hover-highlighted{
+.hover-highlighted {
   &:hover {
     color: $white !important;
     background-color: $highlighted !important;
-    border: 1px solid $highlighted  !important;
+    border: 1px solid $highlighted !important;
   }
 }
 
-.section-white{
+.section-white {
   .hover-white {
-    &:hover {      
+    &:hover {
       border: 1px solid $highlighted !important;
     }
-  }    
+  }
 }
-.section-bright{
+.section-bright {
   .hover-white {
-    &:hover {      
+    &:hover {
       border: 1px solid $white !important;
     }
-  }    
+  }
 }
 
 .hover-black {
@@ -160,7 +157,7 @@
   }
 }
 
-.hover-gray{  
+.hover-gray {
   &:hover {
     color: $white !important;
     background-color: $black;
@@ -171,44 +168,43 @@
 .hover-transparent {
   &:hover {
     color: $white;
-    background-color: transparent !important;    
+    background-color: transparent !important;
   }
 }
 
-.hover-outline-highlighted{
+.hover-outline-highlighted {
   &:hover {
     color: $highlighted !important;
     background-color: transparent !important;
-    border: 1px solid $highlighted  !important;
+    border: 1px solid $highlighted !important;
   }
 }
 
-
-.o-next-btn, .o-prev-btn {
+.o-next-btn,
+.o-prev-btn {
   @extend .btn;
-  @extend .btn--outline-black;  
+  @extend .btn--outline-black;
   @extend .btn--small;
   text-decoration: none;
 
-  .icon{
+  .icon {
     font-size: 1.3em;
     padding-bottom: 3px;
   }
-
 }
 
 .std-btn-primary {
-  @extend .btn;    
+  @extend .btn;
 }
 
 .std-btn-secondary {
-  @extend .btn;    
+  @extend .btn;
 }
 
 .std-btn-tertiary {
-  @extend .btn;  
+  @extend .btn;
 }
 
 .std-btn-quaternary {
-  @extend .btn;  
+  @extend .btn;
 }
