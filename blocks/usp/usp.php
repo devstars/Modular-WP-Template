@@ -6,18 +6,19 @@
 ?>
 
 <?php
+$block_post = $block["id"];
 
 $id = 'usp-' . $block['id'];
 if (!empty($block['anchor'])) {
     $id = $block['anchor'];
 }
 
-$settings = get_field("settings");
+$settings = get_field("settings", $block_post);
 $number_of_columns = $settings["number_of_columns"];
 $images = strtolower($settings["images"]);
-$content = get_field("content");
+$content = get_field("content", $block_post);
 
-$tiles = get_field("tiles");
+$tiles = get_field("tiles", $block_post);
 $button = btn_from_link($content["button"], "btn btn--black");
 
 
@@ -55,7 +56,7 @@ $class = ($block["align"] === "wide") ?  "col-12" : "col-12 col-xl-10 mx-auto";
                             $group = floor($index / 1);
                             $group_md = floor($index / 2);
                             $group_lg = floor($index / 2);
-                        } elseif ($number_of_columns == 4) {
+                        } elseif ($number_of_columns == 3) {
                             $group = floor($index / 1);
                             $group_md = floor($index / 2);
                             $group_lg = floor($index / 3);

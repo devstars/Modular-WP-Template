@@ -7,18 +7,7 @@
 <?php get_template_part('template-parts/load-recaptcha-v3'); ?>
 
 <?php
-echo "kolory<br>";
-$b = isColorBlack("#303030");
-echo $b . "<br>";
-$w = isColorWhite("#dddddd");
-echo $w . "<br>";
-$w = isColorWhite("#e2aaaa");
-echo $w . "<br>";
-$w = isColorWhite("#ede3e3");
-echo $w . "<br>";
-
 $f_data = Configuration::$fields["footer"];
-
 
 $block = array("id" => "footer", "anchor" => "footer");
 $data = block_start("FAQ", $block, $f_data["settings"]);

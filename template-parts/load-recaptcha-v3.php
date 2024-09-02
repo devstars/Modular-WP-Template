@@ -1,39 +1,21 @@
-<script src="https://www.google.com/recaptcha/api.js?render=<?= Configuration::$rc_site_key ?>"></script>
-
 <script>
-    const rcAll = document.querySelectorAll(".g-recaptcha-v3");
-
-
-    if (document.querySelector(".g-recaptcha-v3")) {
-        setTimeout(() => {
-            document.querySelector(".grecaptcha-badge").classList.add("visible");
-        }, 1000);
-
+    function loadRecaptchaScript() {
+        const script = document.createElement('script');
+        script.src = 'https://www.google.com/recaptcha/api.js?render=<?= Configuration::$rc_site_key ?>';
+        script.async = true;
+        script.defer = true;
+        document.body.appendChild(script);
     }
 
-    /*     var onloadCallback = function() {
+    const rcAll = document.querySelectorAll(".g-recaptcha-v3");
 
+    if (rcAll.length > 0) {
+        loadRecaptchaScript();
 
-            window.rcArr = [];
-            const rcAll = document.querySelectorAll(".g-recaptcha-v3");
-
-
-            rcAll.forEach((item, index) => {
-
-                const itemId = item.parentElement.parentElement.getAttribute("id");
-
-                if (!item.classList.contains("active")) {
-                    item.classList.add("active");
-                    window.rcArr[itemId] = grecaptcha.render(item, {
-                        'sitekey': "<?= Configuration::$rc_site_key ?>"
-                    });
-
-                }
-                captchaContainer = grecaptcha.render(item, {
-                    'sitekey': "<?= Configuration::$rc_site_key ?>"
-                });
-                window.rcArr[itemId] = captchaContainer;
-            });
-
-        } */
+        setTimeout(() => {
+            if (document.querySelector(".grecaptcha-badge")) {
+                document.querySelector(".grecaptcha-badge").classList.add("visible");
+            }
+        }, 1000);
+    }
 </script>

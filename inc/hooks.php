@@ -140,8 +140,8 @@ function my_acf_input_admin_footer()
   //https://www.advancedcustomfields.com/resources/adding-custom-javascript-fields/
 ?>
   <script type="text/javascript">
-    (function($) {      
-      acf.add_filter('color_picker_args', function(args, $field) {    
+    (function($) {
+      acf.add_filter('color_picker_args', function(args, $field) {
 
         args.palettes = JSON.parse('<?= json_encode(Configuration::$brand_colours); ?>');
 
