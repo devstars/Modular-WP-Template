@@ -1,13 +1,9 @@
 <?php
 
 /**
- * Template Name: Blog
+ * Template Name: News
  */
 
-$post_type = get_field("type_of_post");
-if (empty($post_type)) {
-    $post_type = "post";
-}
 get_header();
 ?>
 
@@ -34,7 +30,7 @@ get_header();
                 $paged = get_query_var("paged");
 
                 $args = array(
-                    'post_type' => $post_type,
+                    'post_type' => 'news',
                     'order' => 'DESC',
                     'orderby' => 'post_date',
                     'post_status' => 'publish',

@@ -51,7 +51,8 @@
                         "id": ""
                     },
                     "choices": {
-                        "option_post": "post"
+                        "option_post": "post",
+                        "option_news": "news"
                     },
                     "default_value": false,
                     "return_format": "label",
@@ -194,7 +195,15 @@
             "type": "taxonomy",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64d603acb9228",
+                        "operator": "==",
+                        "value": "option_post"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -207,6 +216,40 @@
             "return_format": "id",
             "field_type": "multi_select",
             "allow_null": 0,
+            "bidirectional": 0,
+            "multiple": 0,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_66ec1d423a6d6",
+            "label": "Filters",
+            "name": "filters_news",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64d603acb9228",
+                        "operator": "==",
+                        "value": "option_news"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "categories-news",
+            "add_term": 1,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "field_type": "multi_select",
+            "allow_null": 0,
+            "bidirectional": 0,
             "multiple": 0,
             "bidirectional_target": []
         },
@@ -287,5 +330,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1724062325
+    "modified": 1726750526
 }

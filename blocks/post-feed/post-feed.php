@@ -15,7 +15,6 @@ $settings = get_field("settings");
 
 $post_type = strtolower(trim($settings["post_type"]));
 
-$categories = get_field("filters");
 $content = get_field("content");
 
 $data = block_start("post-feed", $block, $settings, "section-white");
@@ -24,12 +23,27 @@ $color_schema = $data["color_schema"];
 
 $args = array(
     'post_type'      => $post_type,
-    'category__in' => $categories,
     'posts_per_page' => $settings["show"],
     'orderby' => 'post_date',
     'order' => 'desc',
     'post_status' => array('publish')
 );
+
+if ($post_type === "news") {
+    $categories = get_field("filters_news");
+    if ($categories) {
+        $args['tax_query'] = array(
+            array(
+                'taxonomy' => 'categories-news',
+                'field' => 'id',
+                'terms' => $categories,
+            ),
+        );
+    }
+} else {
+    $categories = get_field("filters");
+    $args['category__in'] = $categories;
+}
 ?>
 
 <div class="c-section--post-feed  <?= $color_schema ?>" id="<?php echo esc_attr($id); ?>">

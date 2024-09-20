@@ -144,7 +144,7 @@ function block_start($name, $block, $settings, $color_schema = null)
     if (!empty($title_colour)) :
     ?>
         <style>
-            #<?= esc_attr($id); ?>.custom-title-colour {
+            #<?= esc_attr($id) . " "; ?>.custom-title-colour {
                 color: <?= $title_colour ?>;
             }
         </style>
@@ -221,7 +221,7 @@ function block_start($name, $block, $settings, $color_schema = null)
         if ($name == "text_media") $class = ".l-half";
     ?>
         <style>
-            #<?= esc_attr($id); ?><?= $class; ?> {
+            #<?= esc_attr($id); ?> <?= $class; ?> {
                 padding-bottom: 0 !important;
             }
         </style>

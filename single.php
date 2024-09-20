@@ -3,7 +3,7 @@
 <?php
 if (function_exists('yoast_breadcrumb')) :
 ?>
-    <div class="breadcrumb-wrapper section-gray " >
+    <div class="breadcrumb-wrapper section-gray ">
         <div class="c-breadcrumb-yoast ">
             <div class="container-fluid">
                 <?php
@@ -16,7 +16,7 @@ if (function_exists('yoast_breadcrumb')) :
 endif;
 ?>
 
-<div class="l-section-padding pb-0">
+<div class="l-section-padding">
 
     <div class="container-fluid   section-white">
         <div class="row">
@@ -31,6 +31,7 @@ endif;
                 <?php endwhile; ?>
             </div>
         </div>
+        <!-- <div class="mb-20"></div> -->
         <!--         <div class="mb-12"></div>
         <div class="row">
             <div class="col-xl-10 mx-auto">

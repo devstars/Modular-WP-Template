@@ -123,7 +123,7 @@
                     lng: this.location.lng
                 },
                 icon: {
-                    url: themeUri + '/images/icons/marker-w.svg',
+                    url: themeUri + '/images/icons/marker.svg',
                 }
             });
 
@@ -275,43 +275,10 @@
 
             this.map.setCenter(this.location);
 
-            google.maps.event.addListenerOnce(this.map, 'tilesloaded', function () {
 
-                if ($(".details-right-js").length === 0) {
-                    return;
-                }
-
-                const bounds = this.getBounds();
-                const ne = bounds.getNorthEast();
-                const sw = bounds.getSouthWest();
-
-                let distance = 0.3;
-
-                if ($(window).width() > 1200) {
-                    distance = 0.4;
-                } else if ($(window).width() > 992) {
-                    distance = 0.25;
-                }
-
-                const newLat = sw.lat() + (distance * (ne.lat() - sw.lat()));
-
-                const newLng = (ne.lng() + sw.lng()) / 2;
-
-                const newCenter = new google.maps.LatLng(newLat, newLng);
-                this.setCenter(newCenter);
-
-            });
 
             this.addMarker();
 
-            /*             const map = this.map;
-                        const marker = new google.maps.marker.AdvancedMarkerElement({
-                            map,
-                            position: {
-                                lat: this.location.lat,
-                                lng: this.location.lng
-                            }
-                        }); */
 
         }
     }
