@@ -4,10 +4,6 @@
  * Template Name: Blog
  */
 
-$post_type = get_field("type_of_post");
-if (empty($post_type)) {
-    $post_type = "post";
-}
 get_header();
 ?>
 
@@ -24,7 +20,7 @@ get_header();
     </div>
 </div>
 
-<div class="c-section--post-feed pt-5 pt-lg-16 pb-16 pb-lg-17 section-white ">
+<div class="c-section--post-feed pt-5 pb-16 pb-lg-17 section-white ">
 
 
     <div class="container-fluid   ">
@@ -34,7 +30,7 @@ get_header();
                 $paged = get_query_var("paged");
 
                 $args = array(
-                    'post_type' => $post_type,
+                    'post_type' => "post",
                     'order' => 'DESC',
                     'orderby' => 'post_date',
                     'post_status' => 'publish',
@@ -47,7 +43,8 @@ get_header();
                 <div class="row l-tiles">
                     <?php
                     $index = 0;
-                    $number_of_columns = get_field("number_of_columns");
+                    //$number_of_columns = get_field("number_of_columns");
+                    $number_of_columns = 4;
                     if (empty($number_of_columns)) $number_of_columns  = 4;
                     switch ($number_of_columns) {
                         case 3:

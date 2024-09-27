@@ -157,4 +157,13 @@ function my_acf_input_admin_footer()
 
 add_action('acf/input/admin_footer', 'my_acf_input_admin_footer');
 
+function custom_pagination_rewrite()
+{
+  add_rewrite_rule(
+    'news/page/([0-9]+)/?',
+    'index.php?pagename=news&paged=$matches[1]',
+    'top'
+  );
+}
+add_action('init', 'custom_pagination_rewrite');
 ?>
