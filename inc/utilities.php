@@ -45,7 +45,7 @@ function show_if_exist($template, $value)
         printf($template, $value);
 }
 
-function btn_from_link($button, $classes)
+function btn_from_link($button, $classes = "")
 {
 
     if (isset($button) && $button) :
@@ -119,7 +119,9 @@ function isColorWhite($hexColor)
 
 function block_start($name, $block, $settings, $color_schema = null)
 {
-    $id = $name . '-' . $block['id'];
+    //$id = $name . '-' . $block['id'];
+    $id = $name . '-' . uniqid();
+
     if (!empty($block['anchor'])) {
         $id = $block['anchor'];
     }
@@ -177,7 +179,7 @@ function block_start($name, $block, $settings, $color_schema = null)
         $color_schema .= " highlighted-white";
     }
 
-    if (($color_schema === "section-bright" || $color_schema === "section-transparent") && isColorBlack($settings["color_of_highlighted"])) {
+    if (($color_schema === "section-bright" || $color_schema === "section-transparent") && ($settings["color_of_highlighted"] && isColorBlack($settings["color_of_highlighted"]))) {
         $color_schema .= " highlighted-black";
     }
 
@@ -221,7 +223,7 @@ function block_start($name, $block, $settings, $color_schema = null)
         if ($name == "text_media") $class = ".l-half";
     ?>
         <style>
-            #<?= esc_attr($id); ?> <?= $class; ?> {
+            #<?= esc_attr($id) . " " ?><?= $class; ?> {
                 padding-bottom: 0 !important;
             }
         </style>
@@ -276,9 +278,48 @@ function block_start($name, $block, $settings, $color_schema = null)
                 }
             }
         </style>
-<?php
+    <?php
     endif;
 
     return array("id" => $id, "color_schema" => $color_schema, "h_tag" => $h_tag);
 }
-?>
+
+
+function footer_socials_shortcode($atts = [])
+{
+
+
+    ob_start();
+
+    $fields = get_fields("option");
+    $company_details = $fields["company_details"];
+    $socials = array();
+
+    if ($company_details['sm_repeater']) :
+        foreach ($company_details['sm_repeater'] as $key => $social) :
+            $socials[$social['name']] = array('icon' => strtolower($social['name']), 'name' => $social['name'], 'url' => $social['url']);
+        endforeach;
+    endif;
+
+
+    foreach ($socials as $index => $social) :
+    ?>
+        <a href="<?= $social["url"] ?>" class="c-media icon-link">
+
+            <?= file_get_contents(IMAGES . '/icons/' . strtolower($social["name"]) . '.svg'); ?>
+
+            <span class="media-body">
+                <?= $social["name"]; ?>
+            </span>
+
+        </a>
+
+<?php
+    endforeach;
+
+    return ob_get_clean();
+}
+
+add_action('init', function () {
+    add_shortcode('footer_socials', 'footer_socials_shortcode');
+});

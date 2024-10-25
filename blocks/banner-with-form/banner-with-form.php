@@ -12,6 +12,7 @@ $banner = get_field("banner");
 $carousel = get_field("slide");
 $carousel["background"] = false;
 
+//$block["id"] =  uniqid();
 $data = block_start("text_media", $block, $carousel["settings"], $color_schema);
 $id = $data["id"];
 
@@ -23,7 +24,7 @@ if ($mode === "single") {
     $banner[] = get_field("slide");
 }
 ?>
-<div class="u-relative u-z-index-20 <?= $color_schema; ?> " id="<?php echo esc_attr($id); ?>">
+<div class="u-relative u-z-index-20 <?= $color_schema; ?> " id="<?php echo esc_attr($id); ?>" foo>
     <div class=" banner-wrapper full">
         <?php
         foreach ($banner as $index => $slide) :

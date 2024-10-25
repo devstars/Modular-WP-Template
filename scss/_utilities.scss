@@ -359,6 +359,10 @@
     background-color: rgba(0, 0, 0, 0.3);
     //z-index: 10;
   }
+
+  &.o4::after {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
 }
 
 .u-z-index-10 {

@@ -54,6 +54,10 @@
   }
 
   .nav-top__logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
     @media screen and (max-width: $lg) {
       max-width: calc(100% - 100px);
     }
@@ -64,30 +68,33 @@
 
     img {
       @include tran-all-fast;
-      height: 52px;
-      width: auto;
-      max-width: 100%;
+
+      //width: auto;
+      //max-width: 100%;
+      width: calc(var(--modular-logo-max-width) * 1px);
+      height: calc(var(--modular-logo-max-height) * 1px);
+      object-fit: contain;
 
       position: absolute;
       //top:calc(50%);
       left: 0;
 
       //transform: translateY(-50%);
-      margin-top: calc(var(--modular-logo-vertical-offset) * 1px);
+      transform: translateY(calc(var(--modular-logo-vertical-offset) * 1px));
+      object-position: 0%;
     }
 
     .logo--white {
       position: relative !important;
-      transform: none;
+      //transform: none;
     }
   }
 
   &.sticky {
     .nav-top__logo {
       img {
-        //transform: translateY(-50%);
-        height: 36px;
-        width: auto;
+        width: calc(var(--modular-logo-max-width) * 0.67px);
+        height: calc(var(--modular-logo-max-height) * 0.67px);
       }
     }
   }

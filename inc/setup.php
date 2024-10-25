@@ -14,6 +14,7 @@ DEFINE("JS_NAME", "app.js");
 DEFINE("CSS_VER", filemtime(get_template_directory() . "/css/" . CSS_NAME));
 DEFINE("JS_VER", filemtime(get_template_directory() . '/js/' . JS_NAME));
 
+
 function init_autoload()
 {
     require get_template_directory() . '/vendor/autoload.php';
@@ -21,6 +22,7 @@ function init_autoload()
     add_theme_support('responsive-embeds');
 
     Configuration::init();
+    
 }
 add_action('init', 'init_autoload');
 
@@ -43,6 +45,8 @@ function theme_min_scripts()
 
 
     wp_enqueue_style('theme_min-style', get_stylesheet_uri());
+
+
 
     wp_enqueue_script('scripts-js', get_template_directory_uri() . '/js/' . JS_NAME, array('jquery'), JS_VER, true);
 
@@ -72,8 +76,6 @@ function theme_setup()
     load_theme_textdomain('theme_min', get_template_directory() . '/languages');
 }
 add_action('after_setup_theme', 'theme_setup');
-
-
 
 
 function hide_editor()

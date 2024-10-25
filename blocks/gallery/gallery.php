@@ -30,28 +30,28 @@ $color_schema = $data["color_schema"];
         <div class="gallery <?= $grid; ?> <?= $layout; ?>">
             <?php
 
-            foreach ($content as $image) :                
-                ?>
-                    
-                    <?php 
-                    if ($layout === "mosaic") :
-                    ?>                    
-                        <a href="<?= $image["image"]["sizes"]["custom_medium"]; ?>">
-                            <img class="gallery__image " src="<?= $image["image"]["sizes"]["custom_medium"]; ?>">
-                        </a>
+            foreach ($content as $image) :
+            ?>
 
-                    <?php 
-                    else :
-                    ?>                            
-                        <a class="gallery__item " href="<?= $image["image"]["sizes"]["custom_medium"]; ?>">
-                            <div class="gallery__image ratio-js" data-ratio="1" style="background-image:url(<?= $image["image"]["sizes"]["custom_medium"]; ?>)"></div>
-                        </a>
-                    <?php 
-                    endif;
-                    ?>    
+                <?php
+                if ($layout === "mosaic") :
+                ?>
+                    <a href="<?= $image["image"]["sizes"]["custom_medium"]; ?>">
+                        <img class="gallery__image " src="<?= $image["image"]["sizes"]["custom_medium"]; ?>">
                     </a>
 
-                <?php     
+                <?php
+                else :
+                ?>
+                    <a class="gallery__item " href="<?= $image["image"]["sizes"]["custom_medium"]; ?>">
+                        <div class="gallery__image ratio-js" data-ratio="1" style="background-image:url(<?= $image["image"]["sizes"]["custom_medium"]; ?>)"></div>
+                    </a>
+                <?php
+                endif;
+                ?>
+                </a>
+
+            <?php
 
             endforeach;
             ?>

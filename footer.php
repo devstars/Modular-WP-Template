@@ -12,63 +12,64 @@ $f_data = Configuration::$fields["footer"];
 $block = array("id" => "footer", "anchor" => "footer");
 $data = block_start("FAQ", $block, $f_data["settings"]);
 $id = $data["id"];
+
 $color_schema = $data["color_schema"];
+
+
+$col_fourth = ($f_data["fourth_column"]["content"] || $f_data["fourth_column"]["heading"]) ? true : false;
+$col_class = ($col_fourth) ? "col-lg-3"  : "col-lg-4";
 ?>
+
 <footer class="c-footer footer-js <?= $color_schema; ?>" id="<?php echo esc_attr($id); ?>">
     <div class="container-fluid">
         <div class="row row__top">
-
-            <div class="col-12 col-lg-6 top__left">
+            <div class="col-12 <?= $col_class; ?>">
                 <h2 class="col__title"><?= $f_data["first_column"]["heading"] ?></h2>
                 <p class="wysiwyg">
                     <?= $f_data["first_column"]["content"] ?>
                 </p>
             </div>
+            <div class="col-12 <?= $col_class; ?>">
+                <h2 class="col__title"><?= $f_data["second_column"]["heading"] ?></h2>
 
-            <div class="col-12 col-lg-6 ">
-                <div class="row">
-                    <div class="col-6 top__middle">
-                        <h2 class="col__title"><?= $f_data["second_column"]["heading"] ?></h2>
+                <p class="wysiwyg">
+                    <?= $f_data["second_column"]["content"] ?>
+                </p>
+            </div>
+            <div class="col-12 <?= $col_class; ?>">
+                <h2 class="col__title"><?= $f_data["third_column"]["heading"] ?></h2>
 
-                        <p class="wysiwyg">
-                            <?= $f_data["second_column"]["content"] ?>
-                        </p>
-
+                <?php
+                if ($f_data["third_column"]["content"]):
+                ?>
+                    <div class="wysiwyg mb-4">
+                        <?= do_shortcode($f_data["third_column"]["content"]) ?>
                     </div>
-                    <div class="col-6 top__right">
-                        <h2 class="col__title"><?= $f_data["third_column"]["heading"] ?></h2>
-
-                        <?php
-                        if ($f_data["third_column"]["content"]):
-                        ?>
-                            <p class="wysiwyg mb-4">
-                                <?= $f_data["third_column"]["content"] ?>
-                            </p>
-                        <?php
-                        endif;
-                        ?>
-
-                        <?php
-                        foreach (Configuration::$socials as $index => $social) :
-                        ?>
-                            <a href="<?= $social["url"] ?>" class="c-media icon-link">
-
-                                <?= file_get_contents(IMAGES . '/icons/' . strtolower($social["name"]) . '.svg'); ?>
-
-                                <p class="media-body">
-                                    <?= $social["name"]; ?>
-                                </p>
-
-                            </a>
-
-                        <?php
-                        endforeach;
-                        ?>
-
-                    </div>
-                </div>
+                <?php
+                endif;
+                ?>
 
             </div>
+
+            <?php
+            if ($col_fourth):
+            ?>
+                <div class="col-12 col-lg-3">
+                    <h2 class="col__title"><?= $f_data["fourth_column"]["heading"] ?></h2>
+
+                    <?php
+                    if ($f_data["fourth_column"]["content"]):
+                    ?>
+                        <div class="wysiwyg mb-4">
+                            <?= do_shortcode($f_data["fourth_column"]["content"]) ?>
+                        </div>
+                    <?php
+                    endif;
+                    ?>
+                </div>
+            <?php
+            endif;
+            ?>
         </div>
 
         <div class="row row__bottom">

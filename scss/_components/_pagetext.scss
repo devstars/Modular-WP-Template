@@ -362,7 +362,7 @@
         font-weight: 400 !important;
     } */
 
-    a {
+    a:not(.icon-link) {
         font-weight: 400 !important;
         position: relative;
         text-decoration: none;

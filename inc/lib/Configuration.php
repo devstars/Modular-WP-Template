@@ -24,6 +24,8 @@ class Configuration
     public static $phpmailer;
     public static $menu_top_breakpoint;
     public static $brand_colours;
+    public static $logo_max_height;
+    public static $logo_max_width;
 
     public static function get()
     {
@@ -62,6 +64,9 @@ class Configuration
         self::$phpmailer = self::$fields["phpmailer"];
 
         self::$menu_top_breakpoint = self::$fields["header"]["menu_top_breakpoint"] . "px";
+        //self::$logo_max_height = self::$fields["header"]["nav"]["logo"]["max_height"] . "px";
+        //self::$logo_max_width = self::$fields["header"]["nav"]["logo"]["max_width"] . "px";
+
 
         //self::$brand_colours = array_column(self::$fields["brand_colours"], 'colour');
 

@@ -57,6 +57,42 @@ $fields = get_field("additional_fields");
             </div>
         </div>
 
+        <?php
+        if ($services && (count($services) > 0)):
+        ?>
+            <div class="row">
+                <div class="col-12">
+                    <div class="s__break"></div>
+                    <p class="s__title  d-block u-w-100"> Services interested in</p>
+                </div>
+
+                <?php foreach ($services as $key => $service): ?>
+
+                    <div class="col-12 col-lg-6">
+                        <label class="form__label o-custom-check mb-5  permission-wrapper">
+                            <input class="service-check-js" type="checkbox" name="service<?= $key; ?>" value="<?= $service["service"] ?>">
+                            <span>
+                                <div class="checked">
+                                    <?= file_get_contents(IMAGES . '/icons/checkbox-checked.svg'); ?>
+                                </div>
+                                <div class="unchecked">
+                                    <?= file_get_contents(IMAGES . '/icons/checkbox-unchecked.svg'); ?>
+                                </div>
+
+                                <p class="form__permission ml-4">
+                                    <?= $service["service"] ?>
+                                </p>
+                            </span>
+                        </label>
+
+                    </div>
+
+                <?php endforeach; ?>
+
+            </div>
+            <div class="mb-10 mb-lg-12"></div>
+        <?php endif; ?>
+
 
 
         <div class="mb-5"></div>
@@ -77,7 +113,7 @@ $fields = get_field("additional_fields");
                     </p>
                 </span>
             </label>
-        </div>        
+        </div>
 
         <button class="form__btn std-btn-quaternary g-recaptcha-v3 btn-submit-js" type="submit">Send </button>
 

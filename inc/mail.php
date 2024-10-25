@@ -27,17 +27,19 @@ class Mail
 
         foreach ($_POST as $key => $value) {
 
-            if (strtolower($key) === "email") {
+
+            $key = strtolower($key);
+            if (((strpos($key, "email")) !== false) && ($key !== "recipient_email")) {
                 $this->user_email = $value;
             }
 
-            if (strtolower($key) === "recipient_email") {
+            if ($key === "recipient_email") {
                 if ($value) {
                     $this->delivery_emails = $value;
                 }
             }
 
-            if (strtolower($key) === "reply_to_user") {
+            if ($key === "reply_to_user") {
                 $this->reply_to_user = strtolower($value);
             }
 
@@ -60,10 +62,10 @@ class Mail
 
         $resp = true;
 
-        /* if (!filter_var($this->user_email, FILTER_VALIDATE_EMAIL)) {
+        if (!filter_var($this->user_email, FILTER_VALIDATE_EMAIL)) {
             $resp = false;
             $this->error = 'The e-mail address entered is invalid.';
-        }         */
+        }
 
         if (!$this->email_firm) {
             $resp = false;
@@ -95,13 +97,21 @@ class Mail
 
         $body = "";
 
-        $skip_fields = array("permissions", "g-recaptcha-response", "action", "title", "recipient_email", "reply_to_user");
+        $skip_fields = array("permissions", "g-recaptcha-response", "action", "title", "recipient_email", "reply_to_user", "service0", "service1", "service2", "service3");
         foreach ($this->data as $key => $value) {
 
             if (!in_array($key, $skip_fields)) {
                 $name = ucfirst(str_replace('_', ' ', $key));
 
                 $body  .= '<b>' . $name . ':</b><br> ' . $value . "<br><br>";
+            }
+
+            if ($key === "service0") {
+                $body  .= '<b>Services intrested in:</b><br>';
+            }
+
+            if (preg_match("/service/", $key)) {
+                $body .= $value . "<br><br>";
             }
         }
 
@@ -113,7 +123,7 @@ class Mail
         }
         $headers .= 'Content-Type: text/html; charset=UTF-8' . "\r\n";
 
-        $this->success = wp_mail($this->delivery_emails, $this->subject, $body, $headers);
+        //$this->success = wp_mail($this->delivery_emails, $this->subject, $body, $headers);
         $this->success = true;
 
         if (!$this->success) {

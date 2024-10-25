@@ -40,9 +40,9 @@
     <style>
         @media screen and (min-width: <?= Configuration::$menu_top_breakpoint; ?>) {
 
-            .nav-top__logo {
-                min-width: 260px !important;
-            }
+            /*     .nav-top__logo {
+                max-width: <?= Configuration::$logo_max_width; ?> !important;
+            } */
 
             .menu-top {
                 display: block !important;

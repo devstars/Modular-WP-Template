@@ -25,11 +25,12 @@
     width: 100%;
     margin-bottom: 20px;
     border: 1px solid transparent;
+    font-family: var(--modular-secondary-font) !important;
 
     @include autofill($black, $white);
     @include input-placeholder(400, rgba(#000, 0.8));
     &::placeholder {
-      font-family: var(--modular-secondary-font);
+      font-family: var(--modular-secondary-font) !important;
       opacity: 0.7;
     }
   }
@@ -104,6 +105,22 @@
     svg {
       width: 20px;
       height: 20px;
+    }
+  }
+
+  .s__title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .s__break {
+    margin-bottom: 25px;
+  }
+
+  .col-left,
+  .col-right {
+    .s__break {
+      margin-bottom: 25px;
     }
   }
 }

@@ -47,7 +47,7 @@
                 </div>
                 <div class="col-12 col-right bf-desktop">
                     <div class="banner__form u-shadow">
-                        <form id="banner-form--desktop" class="c-form pb-0 " action="banner-form" medthod="POST" send="send_ajax" title="Form">
+                        <form id="banner-form--desktop-<?= esc_attr($id) ?>" class="c-form pb-0 " action="banner-form" medthod="POST" send="send_ajax" title="Form">
 
                             <input type="hidden" name="recipient_email" value="<?= $form["recipient_email"]; ?>">
                             <input type="hidden" name="reply_to_user" value="no">
@@ -130,7 +130,7 @@
 
     <div class="container-fluid bf-mobile u-relative">
         <div class="banner__form u-shadow">
-            <form id="banner-form--mobile" class="c-form pb-0 " action="banner-form" medthod="POST" send="send_ajax" title="Form">
+            <form id="banner-form--mobile-<?= esc_attr($id) ?>" class="c-form pb-0 " action="banner-form" medthod="POST" send="send_ajax" title="Form">
 
                 <input type="hidden" name="recipient_email" value="<?= $form["recipient_email"]; ?>">
                 <input type="hidden" name="reply_to_user" value="no">
@@ -217,6 +217,7 @@
 
                 try {
                     this.form = document.querySelector(form);
+                    console.log(this.form);
                     this.submit = this.form.querySelector(".btn-submit-js");
 
                     this.events();
@@ -246,10 +247,12 @@
 
                 });
 
-                this.submit.addEventListener("click", (e) => {
+                this.form.addEventListener("submit", (e) => {
+                    /* this.submit.addEventListener("click", (e) => { */
                     e.preventDefault();
 
                     const form = $(this.form);
+                    console.log(this.form);
 
                     grecaptcha.ready(() => {
                         if (this.form.checkValidity()) {
@@ -305,8 +308,9 @@
         }
 
         jQuery(document).ready(function() {
-            const bfd = new ContactFormRcV3("#banner-form--desktop");
-            const bfm = new ContactFormRcV3("#banner-form--mobile");
+            console.log("<?= esc_attr($id) ?> #banner-form--desktop");
+            const bfd = new ContactFormRcV3("#banner-form--desktop-<?= esc_attr($id) ?>");
+            const bfm = new ContactFormRcV3("#banner-form--mobile-<?= esc_attr($id) ?>");
         });
     }(jQuery));
 </script>

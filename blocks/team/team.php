@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Block Name: Team
  */
@@ -9,7 +10,7 @@ $content = get_field("content");
 $tiles = get_field("tiles");
 $settings = get_field("settings");
 
-$data = block_start("team", $block, $settings , "section-black");
+$data = block_start("team", $block, $settings);
 $id = $data["id"];
 $color_schema = $data["color_schema"];
 
@@ -19,12 +20,12 @@ $color_schema = $data["color_schema"];
         <<?= $data["h_tag"]; ?> class="section__title custom-title-colour"><?= $content["headline_text"]; ?></<?= $data["h_tag"]; ?>>
         <p class="section__subtitle "><?= $content["body_text"] ?></p>
     </div>
-    <div class="container-fluid ">        
+    <div class="container-fluid ">
 
         <div class="row u-cols-reverse">
             <div class="col-12 col-lg-5 mb-8 mb-lg-0 u-relative">
                 <div class="team__content">
-                    <h3 class="member__name m-name-js">  </h3>
+                    <h3 class="member__name m-name-js"> </h3>
                     <p class="member__position m-position-js"></p>
                     <p class="member__email m-email-js"></p>
                     <p class="member__phone m-phone-js"></p>
@@ -46,7 +47,7 @@ $color_schema = $data["color_schema"];
                     <?php
                     if ($tiles) :
                         $member_data = array();
-                        foreach ($tiles as $index => $tile) :    
+                        foreach ($tiles as $index => $tile) :
                             $teamData[$index]["name"] = $tile["basic"]["name"];
                             $teamData[$index]["position"] = $tile["basic"]["position"];
 
@@ -54,9 +55,9 @@ $color_schema = $data["color_schema"];
                             $teamData[$index]["phone"] = $tile["additional"]["phone"];
                             $teamData[$index]["description"] = $tile["additional"]["description"];
                             $teamData[$index]["linkedin"] = $tile["additional"]["linkedin"];
-                        ?>
+                    ?>
                             <img data-index="<?= $index; ?>" src="<?= $tile["basic"]["image"]["sizes"]["custom_medium"] ?>" alt=" <?= $tile["basic"]["image"]["alt"] ?>">
-                        <?php
+                    <?php
                         endforeach;
                     endif;
                     ?>

@@ -69,6 +69,7 @@
                                             }
                                         );
 
+                                        form.find(".service-check-js").prop("checked", false);
                                         form.find(".privacy-policy-js").prop("checked", false);
 
                                     } else {

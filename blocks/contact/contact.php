@@ -15,6 +15,8 @@ $id = $data["id"];
 $color_schema = $data["color_schema"];
 $h_tag = $data["h_tag"];
 
+$services = get_field("services");
+
 $settings["first_row"]["left"] = strtolower(trim($settings["first_row"]["left"]));
 $settings["first_row"]["right"] = strtolower(trim($settings["first_row"]["right"]));
 $settings["2nd_row"]["column"] = strtolower(trim($settings["2nd_row"]["column"]));
