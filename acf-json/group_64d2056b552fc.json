@@ -105,6 +105,31 @@
                     "save_other_choice": 0
                 },
                 {
+                    "key": "field_6720a488dfa5d",
+                    "label": "Links",
+                    "name": "links",
+                    "aria-label": "",
+                    "type": "radio",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "Icon": "Icon",
+                        "Text": "Text"
+                    },
+                    "default_value": "Text",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "layout": "horizontal",
+                    "save_other_choice": 0
+                },
+                {
                     "key": "field_6516c27189f10",
                     "label": "Set the heading as H1",
                     "name": "h1",
@@ -376,5 +401,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1724062098
+    "modified": 1730193628
 }

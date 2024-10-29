@@ -114,13 +114,50 @@
       font-weight: 500;
       text-transform: uppercase;
 
-      color: $highlighted !important;
+      color: $white !important;
+
+      @include tran-all;
 
       @extend .o-link;
+      &:after {
+        @include tran-all;
+      }
+    }
+
+    &:hover .custom-link {
+      color: $highlighted !important;
     }
 
     &:hover .custom-link:after {
       border-bottom: 1px solid $highlighted !important;
+    }
+
+    .usp-icon-link {
+      display: flex;
+      align-items: center;
+      svg {
+        height: 35px;
+        width: auto;
+        @include tran-all;
+      }
+
+      .custom-link {
+        opacity: 0;
+        text-transform: none;
+        padding-left: 0.75rem;
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    &:hover .usp-icon-link {
+      svg {
+        fill: $highlighted !important;
+      }
+      .custom-link {
+        opacity: 1;
+      }
     }
   }
 }

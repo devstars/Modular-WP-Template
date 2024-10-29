@@ -141,13 +141,28 @@ $class = ($block["align"] === "wide") ?  "col-12" : "col-12 col-xl-10 mx-auto";
                                     <?php
                                     endif;
                                     ?>
+
                                     <?php
                                     $button = $tile["button"];
 
+
                                     if (!empty($button) && $button["url"]) :
+                                        if (strtolower($settings["links"]) === "text"):
                                     ?>
-                                        <span class="custom-link"><?= $button["title"] ?> </span>
+                                            <span class="custom-link"><?= $button["title"] ?> </span>
+                                        <?php endif;
+
+                                        if (strtolower($settings["links"]) === "icon"):
+                                        ?>
+                                            <div class="usp-icon-link">
+                                                <?= file_get_contents(IMAGES . '/icons/arrow-right-circle.svg'); ?> <span class="custom-link"><?= $button["title"] ?> </span>
+                                            </div>
+                                        <?php
+                                        endif;
+                                        ?>
                                     <?php
+
+
                                     endif;
                                     ?>
 

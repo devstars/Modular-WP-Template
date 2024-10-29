@@ -243,6 +243,12 @@
     .o-nav-btn {
         border: 1px solid rgba(#fff, 0.6);
     }
+
+    .usp-icon-link {
+        svg {
+            fill: $white;
+        }
+    }
 }
 
 .section-transparent:not(.sticky) {

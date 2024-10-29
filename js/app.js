@@ -282,6 +282,7 @@
 
        function setMaxHeightForElements(elements) {
 
+              console.log(elements);
               for (var i = 0; i < elements.length; i++) {
                      elements[i].style.height = 'auto';
               }
@@ -294,6 +295,10 @@
                      var element = elements[i];
 
                      const groups = ["data-align"];
+
+                     if ($(window).width() >= 576) {
+                            groups.push("data-align-sm");
+                     }
 
                      if ($(window).width() >= 768) {
                             groups.push("data-align-md");
@@ -330,6 +335,10 @@
                      var element = elements[i];
 
                      const groups = ["data-align"];
+
+                     if ($(window).width() >= 576) {
+                            groups.push("data-align-sm");
+                     }
 
                      if ($(window).width() >= 768) {
                             groups.push("data-align-md");
