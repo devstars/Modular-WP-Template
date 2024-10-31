@@ -91,6 +91,28 @@
                     "ui_on_text": "",
                     "ui_off_text": "",
                     "ui": 1
+                },
+                {
+                    "key": "field_67235f37adb9a",
+                    "label": "Number of decimal places",
+                    "name": "decimals",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 3,
+                    "min": 0,
+                    "max": 10,
+                    "placeholder": "",
+                    "step": "",
+                    "prepend": "",
+                    "append": ""
                 }
             ]
         },
@@ -162,7 +184,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
@@ -170,7 +192,7 @@
                     "min": "",
                     "max": "",
                     "placeholder": "",
-                    "step": "",
+                    "step": 1,
                     "prepend": "",
                     "append": ""
                 },
@@ -284,7 +306,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
@@ -634,5 +656,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1729512876
+    "modified": 1730371516
 }

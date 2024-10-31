@@ -19,17 +19,17 @@ endfor;
 
 <div class="c-section--counters <?= $color_schema; ?> " id="<?php echo esc_attr($id); ?>">
     <div class="container-fluid">
-        <div class="row counters-js">
+        <div class="row counters-js" data-decimals="<?= $settings["decimals"] ?>">
 
             <?php
-            foreach ($counters as $counter):
+            foreach ($counters as $i => $counter):
                 $alt = ($counter["icon"]["alt"]) ? $counter["icon"]["alt"] : "icon";
             ?>
                 <div class="col-12 col-sm-6 col-lg-3">
                     <div class="counter-tile">
 
                         <img class="c__icon" src="<?= $counter["icon"]["sizes"]["medium"] ?>" alt="<?= $alt ?>">
-                        <p class="c__nubmer counter-js" data-from="0" data-to="<?= $counter["number"] ?>" data-speed="2000" data-refresh="1"> </p>
+                        <p class="c__nubmer counter-js <?= $i ?>" data-from="0" data-to="<?= $counter["number"] ?>" data-speed="2000" data-refresh="1"> </p>
                         <h4 class="c__title"> <?= $counter["title"] ?></h4>
                         <div class="c__desc wysiwyg">
                             <?= $counter["description"] ?>
