@@ -37,6 +37,12 @@ get_header();
                     'posts_per_page' => get_option('posts_per_page'),
                     'paged' => $paged,
                 );
+
+                $category = get_field("post_category");
+                if ($category) {
+                    $args["cat"] = $category->ID;
+                }
+
                 $wp_query = new WP_Query($args);
                 ?>
 

@@ -90,7 +90,7 @@
                     "name": "view_all",
                     "aria-label": "",
                     "type": "true_false",
-                    "instructions": "",
+                    "instructions": "Make sure to set the \"posts page\" in the settings.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -330,5 +330,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1726750526
+    "modified": 1730973014
 }

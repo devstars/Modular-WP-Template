@@ -334,6 +334,23 @@ function my_acf_init()
 
     if (function_exists('acf_register_block')) {
         acf_register_block(array(
+            'name' => 'author',
+            'title' => 'Author',
+            'description' => __('author'),
+            'mode' => 'edit',
+            'render_callback' => 'pt_block_render_callback',
+            'category' => 'modules',
+            'keywords' => array('author'),
+            'align'        => 'wide',
+            'supports'    => array(
+                'align'        => array('wide'),
+                'anchor' => true
+            )
+        ));
+    }
+
+    /*     if (function_exists('acf_register_block')) {
+        acf_register_block(array(
             'name' => 'button',
             'title' => 'Button',
             'description' => __('button'),
@@ -347,7 +364,7 @@ function my_acf_init()
                 'anchor' => true
             )
         ));
-    }
+    } */
 }
 
 function m_deny_list_blocks()
@@ -395,7 +412,8 @@ add_filter('allowed_block_types_all', function ($allowed_blocks, $post) {
         'acf/counters',
         'acf/spacer',
         'acf/pagination',
-        'acf/button',
+        /* 'acf/button', */
+        'acf/author',
     ];
 
 
@@ -421,7 +439,7 @@ function add_container_to_block($block_content, $block)
     if ($post instanceof WP_Post) {
         $post_type = $post->post_type;
 
-        if ($post_type === 'page' || $post_type === 'post') {
+        if ($post_type === 'page' || $post_type === 'post' || $post_type === 'services' || $post_type === 'case-studies') {
 
             $content_class = "mx-auto";
 
@@ -431,12 +449,19 @@ function add_container_to_block($block_content, $block)
             }
 
 
-            $blocks_without_section = array("acf/button");
+            $blocks_without_section = array("acf/button", "acf/author");
 
             if (strpos($block["blockName"], "acf") !== false && !in_array($block["blockName"], $blocks_without_section) || $block["blockName"] === "core/cover") {
                 //if acf and block with section
-                $block_content = '</div></div></div>' . $block_content .
-                    '<div class="container-fluid page-text section-white"><div class="row"><div class="col-12 col-xl-10 ' . $content_class . '">';
+                if (is_single()) {
+                    $block_content = '</div></div></div>' . $block_content .
+                        '<div class="container-fluid page-text section-white"><div class="row"><div class="col-12 col-xl-10 ' . $content_class . '">';
+                }
+
+                if (is_page()) {
+                    $block_content = '</div></div></div>' . $block_content .
+                        '<div class="container-fluid page-text section-white"><div class="row"><div class="col-12  ' . $content_class . '">';
+                }
             }
 
             /*     if ($block["attrs"]["align"] === "wide")  {                

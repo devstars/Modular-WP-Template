@@ -4,23 +4,23 @@ $transition: 0.3s; // increase this to see the transformations in slow-motion
 @mixin line {
   display: inline-block;
   width: $button-size;
-  height: 5px;  
+  height: 5px;
   transition: $transition;
 }
 
-.c-toggler{
-  border:none;
+.c-toggler {
+  border: none;
   background-color: transparent;
-  cursor: pointer;    
-  
+  cursor: pointer;
+
   padding: calc($button-size/2) calc($button-size/4);
   transition: 0.3s;
-  user-select: none;  
+  user-select: none;
 
   .toggler__lines {
     @include line;
     position: relative;
-    
+
     &:before,
     &:after {
       @include line;
@@ -33,17 +33,17 @@ $transition: 0.3s; // increase this to see the transformations in slow-motion
       top: calc($button-size/3.5);
     }
     &:after {
-      top: - calc($button-size/3.5);
+      top: calc($button-size/3.5) * (-1);
     }
   }
 
-  &.active .toggler__lines{
+  &.active .toggler__lines {
     /*overlay the lines by setting both their top values to 0*/
     &:before,
     &:after {
       transform-origin: 50% 50%;
       top: 0;
-      width: $button-size;
+      width: calc($button-size * 1);
     }
 
     // rotate the lines to form the x shape
@@ -54,52 +54,51 @@ $transition: 0.3s; // increase this to see the transformations in slow-motion
       transform: rotate3d(0, 0, 1, -45deg);
     }
   }
-} 
+}
 
-.section-white .c-toggler{
-    .toggler__lines{
-        background: $black;            
-    
-        &:after {
-          background: $black;
-        }
-        &:before {
-          background: $black;
-        }
-      }
+.section-white .c-toggler {
+  .toggler__lines {
+    background: $black;
 
-      &.active .toggler__lines{
-        background: transparent;
-      }
-} 
+    &:after {
+      background: $black;
+    }
+    &:before {
+      background: $black;
+    }
+  }
+
+  &.active .toggler__lines {
+    background: transparent;
+  }
+}
 
 .section-black {
-  .toggler__lines{
-      background: $white;            
-  
-      &:after {
-        background: $white;
-      }
-      &:before {
-        background: $white;
-      }
-    }
+  .toggler__lines {
+    background: $white;
 
-    &.mobile-active .toggler__lines{
-      background: transparent;
+    &:after {
+      background: $white;
     }
-} 
+    &:before {
+      background: $white;
+    }
+  }
 
-.section-transparent .c-toggler:not(.active){
-  .toggler__lines{
-      background: $white;            
-  
-      &:after {
-        background: $white;
-      }
-      &:before {
-        background: $white;
-      }
+  &.mobile-active .toggler__lines {
+    background: transparent;
+  }
+}
+
+.section-transparent .c-toggler:not(.active) {
+  .toggler__lines {
+    background: $white;
+
+    &:after {
+      background: $white;
     }
-    
-} 
+    &:before {
+      background: $white;
+    }
+  }
+}

@@ -1,41 +1,92 @@
-<?php get_header(); ?>
 <?php
-$id_pp = get_option('page_for_posts')
+get_header();
+$blog_page_id = get_option('page_for_posts');
+// Temporarily set the global post to the blog page
+$blog_page = get_post($blog_page_id);
+setup_postdata($blog_page);
 ?>
 
+<div class="l-section-padding pb-6">
+    <div class="container-fluid   section-white">
+
+        <div class="row">
+
+            <div class="col-12  page-text mx-auto">
+                <h1 class="u-text-left mb-8"><?= esc_html($blog_page->post_title)  ?></h1>
+                <?= the_content(); ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php
+wp_reset_postdata();
+?>
 <div class="c-section--post-feed pt-5 pt-lg-16 pb-16 pb-lg-17 section-white ">
-    <div class="container-fluid">
 
-        <h1 class="section__title u-text-left pb-5 pt-6"><?= get_the_title($id_pp) ?></h1>
 
-        <div class="row l-tiles">
-            <?php
-            $index = 0;
-            while (have_posts()) : the_post();
-            ?>
+    <div class="container-fluid   ">
+        <div class="row">
+            <div class="col-12  mx-auto">
+                <?php
+                $paged = get_query_var("paged");
 
-                <div class="col-6 col-lg-3 ">
+                $args = array(
+                    'post_type' => "post",
+                    'order' => 'DESC',
+                    'orderby' => 'post_date',
+                    'post_status' => 'publish',
+                    'posts_per_page' => get_option('posts_per_page'),
+                    'paged' => $paged,
+                );
+
+                $wp_query = new WP_Query($args);
+                ?>
+
+                <div class="row l-tiles">
                     <?php
-                    $group = floor($index / 2);
-                    $group_lg = floor($index / 4);
-                    get_template_part('template-parts/post-tile', null, array("group" => $group, "group_lg" => $group_lg, "block_id" => "blog"));
-                    $index++;
+                    $index = 0;
+
+                    $number_of_columns  = 4;
+                    switch ($number_of_columns) {
+                        case 3:
+                            $grid_class = "col-lg-4";
+                            break;
+                        case 4:
+                            $grid_class = "col-lg-3";
+                            break;
+                        default:
+                            $grid_class = "col-lg-3";
+                    }
+
+                    while (have_posts()) : the_post();
                     ?>
+                        <div class="col-6 <?= $grid_class; ?> ">
+                            <?php
+                            $group = floor($index / 2);
+                            $group_lg = floor($index / $number_of_columns);
+                            get_template_part('template-parts/post-tile', null, array("group" => $group, "group_lg" => $group_lg, "block_id" => "blog"));
+                            $index++;
+                            ?>
+                        </div>
+
+                    <?php endwhile;  ?>
+
                 </div>
 
-            <?php endwhile;  ?>
-
-        </div>
-        <div class="row ">
-            <div class="col-12">
-                <?php Pagination::view();
-                //wp_reset_postdata();
-                ?>
             </div>
         </div>
 
 
+
+        <div class="row ">
+            <div class="col-12">
+                <?php Pagination::view(); ?>
+            </div>
+        </div>
+
     </div>
+
 </div>
 
 <?php get_footer(); ?>

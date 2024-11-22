@@ -56,12 +56,16 @@
                 display: none !important;
             }
 
-            .nt__background {
-                height: 122px !important;
-            }
-
             .menu-mobile-wrapper {
                 display: none;
+            }
+
+            .header__call {
+                display: none;
+            }
+
+            .l-section-top {
+                padding-top: 120px !important;
             }
 
         }
@@ -101,7 +105,7 @@
 
         <div class="container-fluid pl-3 pr-3">
 
-            <div class="u-nav">
+            <div class="u-nav nav-top__nav">
                 <a class="nav-top__logo u-relative ml-0 mr-auto" href="<?= home_url(); ?>">
                     <img class="logo--white" src="<?= $logo_white_url ?>" alt="logo">
                     <img class="logo--black" src="<?= $logo_black_url ?>" alt="logo">
@@ -126,18 +130,39 @@
                 endif;
                 ?>
 
-                <button class="c-toggler hamburger-js ml-auto mr-0 " type="button" aria-expanded="false">
+                <?php
+                $toggler_ml = "ml-auto";
+                if (Configuration::$phone && Configuration::$fields["header"]["mobile_icon"]):
+                    $toggler_ml = "ml-4 ml-sm-5";
+                    $link_mr = "mr-4 mr-sm-5";
+                ?>
+                    <a href="<?= Configuration::$phone_link; ?>" class="header__call ml-auto <?= $link_mr; ?>">
+                        <img class="call__icon" src="<?= Configuration::$fields["header"]["mobile_icon"]["sizes"]["thumbnail"] ?>" alt="call">
+                    </a>
+                    <div class="vert-line">
+                        <div>&nbsp;</div>
+                    </div>
+                <?php
+                endif;
+                ?>
+
+                <button class="c-toggler hamburger-js <?= $toggler_ml; ?> mr-0 " type="button" aria-expanded="false">
                     <span class="toggler__lines"></span>
                 </button>
+
             </div>
 
         </div>
-
+        <?php if ($scheme_colors === "black") : ?>
+            <div class="nt__background"></div>
+        <?php endif; ?>
     </div>
 
-    <?php if ($scheme_colors === "black") : ?>
-        <div class="nt__background"></div>
-    <?php endif; ?>
+
+
+
+
+
 
     <div class="menu-mobile-wrapper section-<?= $scheme_colors; ?> menu-mobile-js ">
         <div class="container-fluid">

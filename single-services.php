@@ -16,20 +16,23 @@ if (function_exists('yoast_breadcrumb')) :
 endif;
 ?>
 
-<div class="container-fluid   section-white">
-    <div class="row">
-        <div class="col-12 col-xl-10 mx-auto page-text">
-            <?php
-            global $wp_query;
-            while (have_posts()) : the_post();
-            ?>
-                <?php the_content(); ?>
+<div class="single-service">
 
-            <?php endwhile; ?>
+    <div class="container-fluid   section-white">
+        <div class="row">
+            <div class="col-12 col-xl-10 mx-auto page-text">
+
+                <?php
+                global $wp_query;
+                while (have_posts()) : the_post();
+                ?>
+                    <?php the_content(); ?>
+
+                <?php endwhile; ?>
+            </div>
         </div>
-    </div>
-    <!-- <div class="mb-20"></div> -->
-    <!--         <div class="mb-12"></div>
+        <!-- <div class="mb-20"></div> -->
+        <!--         <div class="mb-12"></div>
         <div class="row">
             <div class="col-xl-10 mx-auto">
                 <div class="u-nav">
@@ -52,7 +55,7 @@ endif;
         </div> -->
 
 
+    </div>
 </div>
-
 
 <?php get_footer(); ?>

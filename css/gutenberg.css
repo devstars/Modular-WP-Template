@@ -3641,6 +3641,12 @@
   margin-bottom: 0 !important;
 }
 
+.u-flex-1 {
+  -webkit-box-flex: 1 !important;
+      -ms-flex: 1 !important;
+          flex: 1 !important;
+}
+
 .o-icon {
   height: 35px;
   -webkit-transition: all 0.2s ease-in-out;
@@ -3692,6 +3698,11 @@
       -ms-flex-pack: center;
           justify-content: center;
 }
+.o-custom-check span.center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
 .o-custom-check i {
   font-size: 16px;
   padding-top: 1px;
@@ -3701,17 +3712,11 @@
 }
 .o-custom-check .checked {
   display: none;
-  -webkit-transform: translateY(3px);
-      -ms-transform: translateY(3px);
-          transform: translateY(3px);
 }
 .o-custom-check .unchecked {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-transform: translateY(3px);
-      -ms-transform: translateY(3px);
-          transform: translateY(3px);
 }
 .o-custom-check input[type=checkbox]:checked + span .checked {
   display: -webkit-box;
@@ -3724,7 +3729,7 @@
 
 .o-link, .c-section--usp .usp__tile .custom-link, .o-link--highlighted {
   text-decoration: none;
-  color: #111111;
+  color: #000000;
   position: relative;
 }
 .o-link:after, .c-section--usp .usp__tile .custom-link:after, .o-link--highlighted:after {
@@ -3738,7 +3743,7 @@
   border-bottom: 1px solid transparent;
 }
 .o-link:hover:after, .c-section--usp .usp__tile .custom-link:hover:after, .o-link--highlighted:hover:after {
-  border-bottom: 1px solid #111111;
+  border-bottom: 1px solid #000000;
 }
 
 .o-link--highlighted {
@@ -3770,11 +3775,11 @@
   height: auto;
 }
 .o-nav-btn svg {
-  color: #111111;
+  color: #000000;
 }
 .o-nav-btn:hover {
   opacity: 1;
-  background-color: #111111;
+  background-color: #000000;
 }
 .o-nav-btn:hover svg {
   color: #ffffff;
@@ -3782,11 +3787,9 @@
 
 .l-section-top {
   padding-top: 114px !important;
-}
-@media screen and (min-width: 992px) {
-  .l-section-top {
-    padding-top: 120px !important;
-  }
+  /* @media screen and (min-width: $lg) {
+      padding-top: 120px !important;
+  } */
 }
 
 .l-margin-top {
@@ -3895,7 +3898,7 @@
   }
 }
 
-.c-section .section__title, .c-section--counters .section__title, .c-section--masonry .section__title, .c-section--gallery .section__title, .c-section--contact .section__title, .c-section--faq .section__title, .c-section--post-feed .section__title, .c-section--testimonials .section__title, .c-section--team .section__title, .c-section--logotypes .section__title, .c-section--usp .section__title {
+.c-section .section__title, .c-section--author .section__title, .c-section--counters .section__title, .c-section--masonry .section__title, .c-section--gallery .section__title, .c-section--contact .section__title, .c-section--faq .section__title, .c-section--post-feed .section__title, .c-section--testimonials .section__title, .c-section--team .section__title, .c-section--logotypes .section__title, .c-section--usp .section__title {
   position: relative;
   font-family: var(--modular-primary-font);
   font-size: 2rem;
@@ -3905,7 +3908,7 @@
   margin-bottom: 1.875rem;
   text-align: left;
 }
-.c-section .section__subtitle, .c-section--counters .section__subtitle, .c-section--masonry .section__subtitle, .c-section--gallery .section__subtitle, .c-section--contact .section__subtitle, .c-section--faq .section__subtitle, .c-section--post-feed .section__subtitle, .c-section--testimonials .section__subtitle, .c-section--team .section__subtitle, .c-section--logotypes .section__subtitle, .c-section--usp .section__subtitle {
+.c-section .section__subtitle, .c-section--author .section__subtitle, .c-section--counters .section__subtitle, .c-section--masonry .section__subtitle, .c-section--gallery .section__subtitle, .c-section--contact .section__subtitle, .c-section--faq .section__subtitle, .c-section--post-feed .section__subtitle, .c-section--testimonials .section__subtitle, .c-section--team .section__subtitle, .c-section--logotypes .section__subtitle, .c-section--usp .section__subtitle {
   position: relative;
   margin-bottom: 3.125rem;
   font-size: 1.125rem;
@@ -3913,7 +3916,7 @@
   line-height: 1.6em;
   text-align: left;
 }
-.c-section .col__title, .c-section--counters .col__title, .c-section--masonry .col__title, .c-section--gallery .col__title, .c-section--contact .col__title, .c-section--faq .col__title, .c-section--post-feed .col__title, .c-section--testimonials .col__title, .c-section--team .col__title, .c-section--logotypes .col__title, .c-section--usp .col__title {
+.c-section .col__title, .c-section--author .col__title, .c-section--counters .col__title, .c-section--masonry .col__title, .c-section--gallery .col__title, .c-section--contact .col__title, .c-section--faq .col__title, .c-section--post-feed .col__title, .c-section--testimonials .col__title, .c-section--team .col__title, .c-section--logotypes .col__title, .c-section--usp .col__title {
   font-family: var(--modular-primary-font);
   position: relative;
   text-align: center;
@@ -4273,7 +4276,7 @@
   display: inline-block;
 }
 .c-section--post-feed .pf__tile:hover .tile-hover {
-  border-bottom: 1px solid #111111 !important;
+  border-bottom: 1px solid #000000 !important;
 }
 .c-section--post-feed .pf__image {
   background-repeat: no-repeat !important;
@@ -4524,7 +4527,7 @@
   background-color: #ffffff;
 }
 .details__on_map .company__data .data {
-  color: #111111 !important;
+  color: #000000 !important;
 }
 
 .contact__map {
@@ -4619,7 +4622,7 @@
 }
 .c-section--gallery .o-nav-btn {
   border: 1px solid rgba(17, 17, 17, 0.35);
-  background-color: #111111;
+  background-color: #000000;
 }
 .c-section--gallery .o-nav-btn svg {
   color: #ffffff;
@@ -4630,7 +4633,7 @@
   background-color: transparent;
 }
 .c-section--gallery .o-nav-btn:hover svg {
-  color: #111111;
+  color: #000000;
 }
 
 .c-section--spacer {
@@ -4730,6 +4733,46 @@
   font-size: 1.25rem;
 }
 
+.c-section--author .author__image {
+  height: 162px;
+  width: 162px;
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  margin-right: 27px;
+}
+.c-section--author .section__title {
+  margin-bottom: 10px;
+  line-height: 1em;
+}
+.c-section--author .author__position {
+  margin-bottom: 1.25rem;
+}
+.c-section--author .author__label {
+  line-height: 1em;
+  margin-bottom: 5px;
+}
+.c-section--author .social-icons {
+  float: left;
+  margin-top: 10px;
+}
+.c-section--author .social-icons a {
+  margin-right: 10px;
+}
+.c-section--author .social-icons a:last-child {
+  margin-right: 0;
+}
+.c-section--author .social-icons a svg {
+  width: 30px;
+  height: 30px;
+  fill: #000;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.c-section--author .social-icons a:hover svg {
+  fill: var(--modular-highlighted);
+}
+
 .btn, .wp-element-button, .std-btn-quaternary, .std-btn-tertiary, .std-btn-secondary, .std-btn-primary, .o-next-btn,
 .o-prev-btn {
   font-size: 1rem;
@@ -4818,8 +4861,8 @@
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   background-color: transparent;
-  border: 1px solid #111111;
-  color: #111111;
+  border: 1px solid #000000;
+  color: #000000;
 }
 
 .btn--outline-highlighted {
@@ -4833,9 +4876,9 @@
 .btn--black, .wp-element-button {
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-  background-color: #111111;
+  background-color: #000000;
   color: #ffffff !important;
-  border: 1px solid #111111;
+  border: 1px solid #000000;
 }
 
 .btn--highlighted {
@@ -4850,20 +4893,20 @@
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   background-color: #ffffff;
-  color: #111111 !important;
+  color: #000000 !important;
   border: 1px solid #ffffff;
 }
 
 .hover-white:hover {
-  color: #111111 !important;
+  color: #000000 !important;
   background-color: #ffffff !important;
   border: 1px solid #ffffff !important;
 }
 
 .hover-black:hover {
   color: #ffffff !important;
-  background-color: #111111 !important;
-  border: 1px solid #111111 !important;
+  background-color: #000000 !important;
+  border: 1px solid #000000 !important;
 }
 
 .hover-highlighted:hover, .wp-element-button:hover {
@@ -4882,14 +4925,14 @@
 
 .hover-black:hover {
   color: #ffffff !important;
-  background-color: #111111;
-  border: 1px solid #111111;
+  background-color: #000000;
+  border: 1px solid #000000;
 }
 
 .hover-gray:hover {
   color: #ffffff !important;
-  background-color: #111111;
-  border: 1px solid #111111;
+  background-color: #000000;
+  border: 1px solid #000000;
 }
 
 .hover-transparent:hover {

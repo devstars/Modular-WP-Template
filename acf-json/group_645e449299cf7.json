@@ -382,6 +382,24 @@
                             "return_format": "string"
                         },
                         {
+                            "key": "field_673f284a07b4a",
+                            "label": "Description text colour",
+                            "name": "text_colour",
+                            "aria-label": "",
+                            "type": "color_picker",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "enable_opacity": 0,
+                            "return_format": "string"
+                        },
+                        {
                             "key": "field_65366f5f731a4",
                             "label": "The colour of highlighted elements",
                             "name": "color_of_highlighted",
@@ -416,6 +434,7 @@
                         "id": ""
                     },
                     "layout": "block",
+                    "parent_repeater": "field_64c9fed3eac76",
                     "sub_fields": [
                         {
                             "key": "field_64c9fed3eac78",
@@ -457,8 +476,7 @@
                             "media_upload": 1,
                             "delay": 0
                         }
-                    ],
-                    "parent_repeater": "field_64c9fed3eac76"
+                    ]
                 },
                 {
                     "key": "field_64c9fed3eac7a",
@@ -475,6 +493,7 @@
                         "id": ""
                     },
                     "layout": "block",
+                    "parent_repeater": "field_64c9fed3eac76",
                     "sub_fields": [
                         {
                             "key": "field_64c9fed3eac7b",
@@ -549,8 +568,7 @@
                             "ui_off_text": "",
                             "ui": 0
                         }
-                    ],
-                    "parent_repeater": "field_64c9fed3eac76"
+                    ]
                 },
                 {
                     "key": "field_64c9fed3eac7d",
@@ -567,6 +585,7 @@
                         "id": ""
                     },
                     "layout": "block",
+                    "parent_repeater": "field_64c9fed3eac76",
                     "sub_fields": [
                         {
                             "key": "field_64c9fed3eac7e",
@@ -600,8 +619,7 @@
                             },
                             "return_format": "array"
                         }
-                    ],
-                    "parent_repeater": "field_64c9fed3eac76"
+                    ]
                 }
             ]
         },
@@ -740,6 +758,25 @@
                             "default_value": "",
                             "enable_opacity": 0,
                             "return_format": "string"
+                        },
+                        {
+                            "key": "field_673f37c2e39cd",
+                            "label": "Description text colour",
+                            "name": "text_colour",
+                            "aria-label": "",
+                            "type": "color_picker",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "enable_opacity": 0,
+                            "return_format": "string",
+                            "allow_in_bindings": 1
                         }
                     ]
                 },
@@ -963,5 +1000,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1729512834
+    "modified": 1732196650
 }

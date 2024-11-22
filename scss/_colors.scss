@@ -96,6 +96,12 @@
     }
 }
 
+.c-banner.section-custom {
+    .banner__desc * {
+        color: var(--modular-section-custom-colour) !important;
+    }
+}
+
 .section-gray {
     @extend .section-white;
 

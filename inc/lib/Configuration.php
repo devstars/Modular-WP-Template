@@ -81,7 +81,7 @@ class Configuration
 
     public static function phone_link($phone)
     {
-        return "phone:" . preg_replace("/\s+/", "", $phone);
+        return "tel:" . preg_replace("/\s+/", "", $phone);
     }
 
     public static function get_root_styles()

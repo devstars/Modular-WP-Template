@@ -962,3 +962,57 @@
     }
   }
 }
+
+.c-section--author {
+  @extend .c-section;
+
+  .author__image {
+    height: 162px;
+    width: 162px;
+    background-position: center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+
+    margin-right: 27px;
+  }
+
+  .section__title {
+    margin-bottom: 10px;
+    line-height: 1em;
+  }
+
+  .author__position {
+    margin-bottom: calcRem(20px);
+  }
+
+  .author__label {
+    line-height: 1em;
+    margin-bottom: 5px;
+  }
+
+  .social-icons {
+    float: left;
+    margin-top: 10px;
+
+    a {
+      margin-right: 10px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      & svg {
+        width: 30px;
+        height: 30px;
+        fill: #000;
+        @include tran-all;
+      }
+
+      &:hover {
+        svg {
+          fill: var(--modular-highlighted);
+        }
+      }
+    }
+  }
+}

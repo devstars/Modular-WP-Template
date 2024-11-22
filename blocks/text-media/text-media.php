@@ -15,6 +15,7 @@ $color_schema = ($carousel["width"] === "half") ? "" : "section-transparent";
 
 $data = block_start("text_media", $block, $carousel, $color_schema);
 $id = $data["id"];
+
 $color_schema = $data["color_schema"];
 $banner_class = ($data["h_tag"] === "h1") ? "used_as_banner" : "";
 

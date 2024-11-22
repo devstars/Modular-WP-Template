@@ -102,7 +102,7 @@ if ($post_type === "news") {
                 </div>
 
                 <?php
-                if (!empty($settings["view_all"])) :
+                if (!empty($settings["view_all"]) && get_option('page_for_posts')) :
                 ?>
                     <a href="<?= get_permalink(get_option('page_for_posts')); ?>" class="std-btn-tertiary mr-0 ml-auto">Show All</a>
                 <?php

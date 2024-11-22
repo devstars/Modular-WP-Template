@@ -3,10 +3,10 @@
     $data = block_start("tm_slide_" . $index, $block, $settings);
     $id = $data["id"];
 
-    $mask_class = $background["mask"] ? "u-mask" : "";
+    $mask_class = $background["mask"] ? "u-mask " : " ";
     ?>
 
-    <div id="<?= esc_attr($id); ?>" class="c-banner <?= $banner_class; ?> l-section-top <?= $mask_class; ?> section-transparent " <?= $background_image; ?>>
+    <div id="<?= esc_attr($id); ?>" class="c-banner <?= $banner_class; ?> l-section-top <?= $mask_class; ?>  <?= $data["color_schema"]; ?> " <?= $background_image; ?>>
 
         <?php
         if ($background["video"]) :
@@ -78,3 +78,5 @@
 
     </div>
 </div>
+
+

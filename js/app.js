@@ -194,10 +194,32 @@
                                    scrollLinks.forEach((item, index) => {
 
                                           item.addEventListener("click", (e) => {
+                                                 let anchor = item.getAttribute("href");
+
+                                                 console.log("click");
+
+                                                 const currentPageUrl = window.location.href.split("#")[0];
+
+                                                 const hash = anchor.indexOf("#");
+
+                                                 if (hash > 0) { //https://dev.gorilla3pl.co.uk/#services                                                        
+                                                        if (!anchor.includes(currentPageUrl)) { //not the same page -> scrolling in footer.php
+                                                               return;
+                                                        }
+                                                 }
+
+                                                 if ($(".mobile-active").length) { //if mobile menu active hide menu
+                                                        $(".hamburger-js").click();
+                                                 }
+
                                                  e.preventDefault();
                                                  e.stopPropagation();
 
-                                                 this.scroll(item, e);
+                                                 if (hash > 0) { //extract hash if url like https://dev.gorilla3pl.co.uk/#services
+                                                        anchor = "#" + item.getAttribute("href").split("#")[1];
+                                                 }
+
+                                                 this.scroll(anchor, e);
                                           });
 
                                    });
@@ -207,9 +229,9 @@
                             }
                      }
 
-                     scroll(item, e) {
+                     scroll(anchor, e) {
 
-                            let anchor = item.getAttribute("href");
+                            if (!document.querySelector(anchor)) return;
 
                             let top = document.querySelector(anchor).getBoundingClientRect().top + window.scrollY;
 
@@ -282,7 +304,6 @@
 
        function setMaxHeightForElements(elements) {
 
-              console.log(elements);
               for (var i = 0; i < elements.length; i++) {
                      elements[i].style.height = 'auto';
               }

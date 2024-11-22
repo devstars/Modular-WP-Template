@@ -83,7 +83,7 @@
         font-weight: 700;
     }
 
-    a {
+    a:not(.no-underline) {
         position: relative;
         text-decoration: none;
         transition: all 0.15s linear;

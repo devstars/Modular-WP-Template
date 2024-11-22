@@ -30,13 +30,19 @@ get_header();
                 $paged = get_query_var("paged");
 
                 $args = array(
-                    'post_type' => "post",
+                    'post_type' => get_field("type_of_post"),
                     'order' => 'DESC',
                     'orderby' => 'post_date',
                     'post_status' => 'publish',
                     'posts_per_page' => get_option('posts_per_page'),
                     'paged' => $paged,
                 );
+
+                $category = get_field("post_category");
+                if ($category) {
+                    $args["cat"] = $category->ID;
+                }
+
                 $wp_query = new WP_Query($args);
                 ?>
 

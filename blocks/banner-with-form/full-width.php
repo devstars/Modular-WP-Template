@@ -217,7 +217,6 @@
 
                 try {
                     this.form = document.querySelector(form);
-                    console.log(this.form);
                     this.submit = this.form.querySelector(".btn-submit-js");
 
                     this.events();
@@ -308,7 +307,6 @@
         }
 
         jQuery(document).ready(function() {
-            console.log("<?= esc_attr($id) ?> #banner-form--desktop");
             const bfd = new ContactFormRcV3("#banner-form--desktop-<?= esc_attr($id) ?>");
             const bfm = new ContactFormRcV3("#banner-form--mobile-<?= esc_attr($id) ?>");
         });

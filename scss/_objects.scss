@@ -39,6 +39,10 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
+
+    &.center {
+      align-items: center;
+    }
   }
 
   i {
@@ -51,11 +55,11 @@
 
   .checked {
     display: none;
-    transform: translateY(3px);
+    //transform: translateY(3px);
   }
   .unchecked {
     display: flex;
-    transform: translateY(3px);
+    //transform: translateY(3px);
   }
 
   input[type="checkbox"]:checked + span {

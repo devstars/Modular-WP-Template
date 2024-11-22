@@ -100,17 +100,22 @@
 
   .checked,
   .unchecked {
+    width: 20px;
+    height: 20px;
+
     align-items: center;
 
     svg {
       width: 20px;
       height: 20px;
+      padding: 4px;
     }
   }
 
   .s__title {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
+    @include fontSize(28px);
+    font-weight: 400;
+    line-height: 1.2em;
   }
 
   .s__break {
@@ -128,7 +133,8 @@
 .section-black {
   .checked,
   .unchecked {
-    color: $white;
+    background-color: white;
+    color: $black;
   }
 }
 
@@ -138,5 +144,13 @@
 
     @include autofill($black, $white);
     @include input-placeholder(400, #111111); */
+  }
+}
+
+.section-white {
+  .checked,
+  .unchecked {
+    background-color: white;
+    color: $black;
   }
 }

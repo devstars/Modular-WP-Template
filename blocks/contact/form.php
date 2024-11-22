@@ -63,7 +63,7 @@ $fields = get_field("additional_fields");
             <div class="row">
                 <div class="col-12">
                     <div class="s__break"></div>
-                    <p class="s__title  d-block u-w-100"> Services interested in</p>
+                    <h3 class="s__title  d-block u-w-100 mb-5"> Services interested in</h3>
                 </div>
 
                 <?php foreach ($services as $key => $service): ?>
@@ -71,12 +71,11 @@ $fields = get_field("additional_fields");
                     <div class="col-12 col-lg-6">
                         <label class="form__label o-custom-check mb-5  permission-wrapper">
                             <input class="service-check-js" type="checkbox" name="service<?= $key; ?>" value="<?= $service["service"] ?>">
-                            <span>
+                            <span class="center">
                                 <div class="checked">
-                                    <?= file_get_contents(IMAGES . '/icons/checkbox-checked.svg'); ?>
+                                    <?= file_get_contents(IMAGES . '/icons/check-mark.svg'); ?>
                                 </div>
                                 <div class="unchecked">
-                                    <?= file_get_contents(IMAGES . '/icons/checkbox-unchecked.svg'); ?>
                                 </div>
 
                                 <p class="form__permission ml-4">
@@ -90,30 +89,31 @@ $fields = get_field("additional_fields");
                 <?php endforeach; ?>
 
             </div>
-            <div class="mb-10 mb-lg-12"></div>
+            <div class="mb-5 mb-lg-5"></div>
         <?php endif; ?>
 
+        <div class="row">
+            <div class="col-12">
+                <div class="permission-js fade-in-js u-text-right">
+                    <label class="form__label o-custom-check mb-5  permission-wrapper">
+                        <input class="privacy-policy-js" type="checkbox" name="permissions" value="true" required>
+                        <span>
+                            <div class="checked">
+                                <?= file_get_contents(IMAGES . '/icons/check-mark.svg'); ?>
+                            </div>
+                            <div class="unchecked">
 
+                            </div>
 
-        <div class="mb-5"></div>
-
-        <div class="permission-js fade-in-js u-text-right">
-            <label class="form__label o-custom-check mb-5  permission-wrapper">
-                <input class="privacy-policy-js" type="checkbox" name="permissions" value="true" required>
-                <span>
-                    <div class="checked">
-                        <?= file_get_contents(IMAGES . '/icons/checkbox-checked.svg'); ?>
-                    </div>
-                    <div class="unchecked">
-                        <?= file_get_contents(IMAGES . '/icons/checkbox-unchecked.svg'); ?>
-                    </div>
-
-                    <p class="form__permission ml-4">
-                        <?= Configuration::$contact["form"]["permissions"] ?>
-                    </p>
-                </span>
-            </label>
+                            <p class="form__permission ml-4 u-flex-1">
+                                <?= Configuration::$contact["form"]["permissions"] ?>
+                            </p>
+                        </span>
+                    </label>
+                </div>
+            </div>
         </div>
+
 
         <button class="form__btn std-btn-quaternary g-recaptcha-v3 btn-submit-js" type="submit">Send </button>
 

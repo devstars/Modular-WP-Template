@@ -1,5 +1,35 @@
 <?php get_template_part('template-parts/load-gallery'); ?>
 
+<script>
+    // Prevent default scroll behavior on page load
+    window.addEventListener('DOMContentLoaded', (event) => {
+        if (window.location.hash) {
+            event.preventDefault();
+            // Clear the hash temporarily to prevent scroll
+            const hash = window.location.hash;
+            window.location.hash = '';
+
+
+            setTimeout(() => {
+                window.location.hash = hash;
+
+                jQuery("html, body").scrollTop(0).delay(700);
+
+                if (jQuery(window.location.hash).length) {
+                    jQuery('html,body').animate({
+                        scrollTop: jQuery(window.location.hash).offset().top - 100
+                    }, 500);
+                }
+
+            }, 500);
+        }
+    });
+
+    // Prevent automatic scrolling on hash change
+    window.addEventListener('hashchange', (event) => {
+        event.preventDefault();
+    });
+</script>
 <?php wp_footer(); ?>
 
 <?php //get_template_part('template-parts/load-recaptcha'); 
