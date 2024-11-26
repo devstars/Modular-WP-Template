@@ -4423,7 +4423,9 @@ q {
   padding: 0.8125rem 2.5rem;
 }
 .c-nav-top .c-toggler {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   /*     @media screen and (min-width: var(--modular-header-break) ){
     display: none;
   } */
@@ -4596,7 +4598,7 @@ q {
   border: none;
   background-color: transparent;
   cursor: pointer;
-  padding: 19px 9.5px;
+  padding: 15px 7.5px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
   -webkit-user-select: none;
@@ -4606,30 +4608,30 @@ q {
 }
 .c-toggler .toggler__lines {
   display: inline-block;
-  width: 38px;
-  height: 5px;
+  width: 30px;
+  height: 2px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
   position: relative;
 }
 .c-toggler .toggler__lines:before, .c-toggler .toggler__lines:after {
   display: inline-block;
-  width: 38px;
-  height: 5px;
+  width: 30px;
+  height: 2px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
   position: absolute;
   left: 0;
   content: "";
-  -webkit-transform-origin: 2.7142857143px center;
-      -ms-transform-origin: 2.7142857143px center;
-          transform-origin: 2.7142857143px center;
+  -webkit-transform-origin: 2.1428571429px center;
+      -ms-transform-origin: 2.1428571429px center;
+          transform-origin: 2.1428571429px center;
 }
 .c-toggler .toggler__lines:before {
-  top: 10.8571428571px;
+  top: 10px;
 }
 .c-toggler .toggler__lines:after {
-  top: -10.8571428571px;
+  top: -10px;
 }
 .c-toggler.active .toggler__lines {
   /*overlay the lines by setting both their top values to 0*/
@@ -4639,7 +4641,7 @@ q {
       -ms-transform-origin: 50% 50%;
           transform-origin: 50% 50%;
   top: 0;
-  width: 38px;
+  width: 30px;
 }
 .c-toggler.active .toggler__lines:before {
   -webkit-transform: rotate3d(0, 0, 1, 45deg);

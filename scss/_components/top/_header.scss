@@ -159,7 +159,7 @@
   }
 
   .c-toggler {
-    display: block;
+    display: flex;
     /*     @media screen and (min-width: var(--modular-header-break) ){
       display: none;
     } */
@@ -333,7 +333,6 @@
   z-index: -1;
 
   //height: 114px;
-  
 
   background-color: $black;
 

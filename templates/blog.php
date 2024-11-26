@@ -28,9 +28,10 @@ get_header();
             <div class="col-12  mx-auto">
                 <?php
                 $paged = get_query_var("paged");
+                $type_of_post = get_field("type_of_post");
 
                 $args = array(
-                    'post_type' => get_field("type_of_post"),
+                    'post_type' => $type_of_post,
                     'order' => 'DESC',
                     'orderby' => 'post_date',
                     'post_status' => 'publish',
@@ -38,9 +39,19 @@ get_header();
                     'paged' => $paged,
                 );
 
-                $category = get_field("post_category");
-                if ($category) {
-                    $args["cat"] = $category->ID;
+                $taxonomies_acf = ["post" => "post_category", "news" => "news_category", "case-studies" => "case_studies_category", "services" => "services_category"];
+                $taxonomies = ["post" => "category", "news" => "categories-news", "case-studies" => "categories-case-studies", "services" => "categories-services"];
+                $chosen_tax = $taxonomies[$type_of_post];
+
+                $tax = get_field($taxonomies_acf[$type_of_post], $blog_page_id);
+                if ($tax) {
+                    $args["tax_query"] = array(
+                        array(
+                            'taxonomy' => $chosen_tax,
+                            'field'    => 'term_id',
+                            'terms'    => $tax->term_id
+                        ),
+                    );
                 }
 
                 $wp_query = new WP_Query($args);
@@ -49,8 +60,7 @@ get_header();
                 <div class="row l-tiles">
                     <?php
                     $index = 0;
-                    //$number_of_columns = get_field("number_of_columns");
-                    $number_of_columns = 4;
+                    $number_of_columns = get_field("number_of_columns");
                     if (empty($number_of_columns)) $number_of_columns  = 4;
                     switch ($number_of_columns) {
                         case 3:

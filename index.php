@@ -29,16 +29,32 @@ wp_reset_postdata();
         <div class="row">
             <div class="col-12  mx-auto">
                 <?php
-                $paged = get_query_var("paged");
+                $paged = get_query_var("paged", $blog_page_id);
+                $type_of_post = get_field("type_of_post", $blog_page_id);
 
                 $args = array(
-                    'post_type' => "post",
+                    'post_type' => $type_of_post,
                     'order' => 'DESC',
                     'orderby' => 'post_date',
                     'post_status' => 'publish',
                     'posts_per_page' => get_option('posts_per_page'),
                     'paged' => $paged,
                 );
+
+                $taxonomies_acf = ["post" => "post_category", "news" => "news_category", "case-studies" => "case_studies_category", "services" => "services_category"];
+                $taxonomies = ["post" => "category", "news" => "categories-news", "case-studies" => "categories-case-studies", "services" => "categories-services"];
+                $chosen_tax = $taxonomies[$type_of_post];
+
+                $tax = get_field($taxonomies_acf[$type_of_post], $blog_page_id);
+                if ($tax) {
+                    $args["tax_query"] = array(
+                        array(
+                            'taxonomy' => $chosen_tax,
+                            'field'    => 'term_id',
+                            'terms'    => $tax->term_id
+                        ),
+                    );
+                }
 
                 $wp_query = new WP_Query($args);
                 ?>
