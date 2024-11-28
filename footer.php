@@ -1,4 +1,5 @@
-<?php get_template_part('template-parts/load-gallery'); ?>
+<?php get_template_part('template-parts/load-gallery');
+?>
 
 <script>
     // Prevent default scroll behavior on page load

@@ -60,7 +60,7 @@ function add_post_types_to_select($field)
 
   foreach ($custom_post_types as $key => $post_type) {
 
-    if (!strstr($post_type, "acf")) {
+    if (!strstr($post_type, "acf") && $post_type != "authors" && $post_type != "services") {
       $field['choices']['option_' . $key] = $post_type;
     }
   }

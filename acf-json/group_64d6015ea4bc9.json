@@ -52,7 +52,8 @@
                     },
                     "choices": {
                         "option_post": "post",
-                        "option_news": "news"
+                        "option_news": "news",
+                        "option_case-studies": "case-studies"
                     },
                     "default_value": false,
                     "return_format": "label",
@@ -254,6 +255,40 @@
             "bidirectional_target": []
         },
         {
+            "key": "field_6745b2612c403",
+            "label": "Filters",
+            "name": "filters_case",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_64d603acb9228",
+                        "operator": "==",
+                        "value": "option_case-studies"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "categories-case-studies",
+            "add_term": 1,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "field_type": "multi_select",
+            "allow_null": 0,
+            "allow_in_bindings": 1,
+            "bidirectional": 0,
+            "multiple": 0,
+            "bidirectional_target": []
+        },
+        {
             "key": "field_64d6021294f98",
             "label": "Content",
             "name": "content",
@@ -330,5 +365,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1730973014
+    "modified": 1732622943
 }

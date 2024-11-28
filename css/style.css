@@ -6158,10 +6158,12 @@ q {
 .c-footer.section-black .made-by, .c-footer.section-dark .made-by,
 .c-footer.section-custom .made-by {
   cursor: pointer;
+  font-size: 14px;
 }
 .c-footer.section-black .made-by span, .c-footer.section-dark .made-by span,
 .c-footer.section-custom .made-by span {
   opacity: 0.75;
+  font-size: 14px;
 }
 .c-footer.section-black .made-by:hover a, .c-footer.section-dark .made-by:hover a,
 .c-footer.section-custom .made-by:hover a {

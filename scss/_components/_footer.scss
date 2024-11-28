@@ -160,9 +160,11 @@
 
   .made-by {
     cursor: pointer;
+    font-size: 14px;
 
     span {
       opacity: 0.75;
+      font-size: 14px;
     }
 
     &:hover {

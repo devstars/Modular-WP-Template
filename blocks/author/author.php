@@ -45,7 +45,7 @@ endif;
 <?php
 $post_id = get_the_ID();
 ?>
-<div class="u-nav mb-6">
+<div class="u-nav mb-10">
     <p class="single-published mr-8">Published: <span><?= get_the_date('d/m/Y', $post_id); ?></span></p>
     <p class="single-published">Updated: <span><?= get_post_modified_time('d/m/Y', $post_id); ?></span></p>
 </div>

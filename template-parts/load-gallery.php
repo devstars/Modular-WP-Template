@@ -8,12 +8,12 @@ wp_enqueue_style('baguetteBox-css', get_stylesheet_directory_uri() . '/js/baguet
 
         $(document).ready(
             function() {
-                setTimeout(bb, 1000);
+                //  setTimeout(bb, 1000);
             }
         );
 
         function bb() {
-            if ($(".wp-block-gallery, .wp-block-image").length > 0) {
+            if ($(".wp-block-gallery, .wp-block-image ").length > 0) {
 
                 $('.page-text .wp-block-gallery').find("a > img").parent().addClass("skip");
                 baguetteBox.run('.wp-block-gallery');

@@ -29,7 +29,40 @@ $args = array(
     'post_status' => array('publish')
 );
 
-if ($post_type === "news") {
+switch ($post_type) {
+    case "news":
+        $categories = get_field("filters_news");
+        if ($categories) {
+            $args['tax_query'] = array(
+                array(
+                    'taxonomy' => 'categories-news',
+                    'field' => 'id',
+                    'terms' => $categories,
+                ),
+            );
+        }
+        break;
+
+    case "case-studies":
+        $categories = get_field("filters_case");
+        if ($categories) {
+            $args['tax_query'] = array(
+                array(
+                    'taxonomy' => 'case-studies',
+                    'field' => 'id',
+                    'terms' => $categories,
+                ),
+            );
+        }
+
+        break;
+
+    default:
+        $categories = get_field("filters");
+        $args['category__in'] = $categories;
+}
+
+/* if ($post_type === "news") {
     $categories = get_field("filters_news");
     if ($categories) {
         $args['tax_query'] = array(
@@ -43,7 +76,7 @@ if ($post_type === "news") {
 } else {
     $categories = get_field("filters");
     $args['category__in'] = $categories;
-}
+} */
 ?>
 
 <div class="c-section--post-feed  <?= $color_schema ?>" id="<?php echo esc_attr($id); ?>">
