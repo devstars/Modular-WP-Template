@@ -38,7 +38,13 @@
     </script>
 
     <style>
+        :root {
+            --modular-menu_top_breakpoint: <?= Configuration::$menu_top_breakpoint; ?>
+        }
+
         @media screen and (min-width: <?= Configuration::$menu_top_breakpoint; ?>) {
+
+
 
             /*     .nav-top__logo {
                 max-width: <?= Configuration::$logo_max_width; ?> !important;
@@ -64,10 +70,6 @@
                 display: none;
             }
 
-            .l-section-top {
-                padding-top: 120px !important;
-            }
-
         }
     </style>
 
@@ -81,15 +83,22 @@
     $post_blocks = parse_blocks($post->post_content);
 
     if (($post_blocks[0]["blockName"] === "acf/text-media" || $post_blocks[0]["blockName"] === "acf/banner-with-form") && !is_home()) {
-        $nav_class = $post_blocks[0]["attrs"]["data"]["carousel_width"] === "full" ? "section-transparent" : "";
-        $nav_class .=  $post_blocks[0]["blockName"] === "acf/banner-with-form" ? "section-transparent" : "";
-        $wrapper_class = $post_blocks[0]["attrs"]["data"]["carousel_width"] === "half" ? " l-margin-top" : "";
+        /* $nav_class = $post_blocks[0]["attrs"]["data"]["carousel_width"] === "full" ? "section-transparent" : "";
+        $nav_class .=  $post_blocks[0]["blockName"] === "acf/banner-with-form" ? "section-transparent" : ""; */
+        $wrapper_class = $post_blocks[0]["attrs"]["data"]["carousel_width"] === "half" ? " l-section-top" : "";
     } else {
         $wrapper_class = "l-section-top";
     }
 
+    if (get_field("transparent_header")) {
+        $nav_class = "section-transparent";
+    }
+
     $h_fields = Configuration::$fields["header"];
     $scheme_colors = trim(strtolower($h_fields["color_scheme"]));
+    if (get_field("transparent_header")) {
+        $scheme_colors = "black";
+    }
 
     $components_color = ($scheme_colors === "white") ? "black" : "white";
     $logo_white_url = $h_fields["nav"]["logo"]["white"]["sizes"]["thumbnail"];
@@ -153,7 +162,7 @@
             </div>
 
         </div>
-        <?php if ($scheme_colors === "black") : ?>
+        <?php if ($scheme_colors === "black" && !get_field("transparent_header")) : ?>
             <div class="nt__background"></div>
         <?php endif; ?>
     </div>

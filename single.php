@@ -16,10 +16,10 @@ if (function_exists('yoast_breadcrumb')) :
 endif;
 ?>
 
-<div class="container-fluid   section-white">
+<div class="container-fluid   section-white l-single-top">
     <div class="row">
         <div class="col-12 col-xl-10 mx-auto page-text">
-            <h1 class="mb-10 pt-10"><?php the_title() ?></h1>
+            <h1 class="mb-10 "><?php the_title() ?></h1>
             <?php
             global $wp_query;
             while (have_posts()) : the_post();
@@ -29,6 +29,7 @@ endif;
             <?php endwhile; ?>
         </div>
     </div>
+    <div class="l-single-bottom"></div>
     <!-- <div class="mb-20"></div> -->
     <!--         <div class="mb-12"></div>
         <div class="row">

@@ -1,5 +1,9 @@
 .l-section-top {
-    padding-top: 114px !important;
+    padding-top: 114px;
+    @media screen and (min-width: var(--modular-menu_top_breakpoint)) {
+        padding-top: 125px;
+    }
+
     /* @media screen and (min-width: $lg) {
         padding-top: 120px !important;
     } */
@@ -7,8 +11,18 @@
     //120
 }
 
-.l-margin-top {
-    margin-bottom: 120px;
+.l-single-top {
+    padding-top: var(--modular-section-padding);
+    @media screen and (min-width: $lg) {
+        padding-top: var(--modular-section-lg-padding);
+    }
+}
+
+.l-single-bottom {
+    padding-bottom: var(--modular-section-padding);
+    @media screen and (min-width: $lg) {
+        padding-bottom: var(--modular-section-lg-padding);
+    }
 }
 
 .l-btns-next-to {

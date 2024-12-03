@@ -78,6 +78,10 @@
               window.addEventListener('resize', handleResize);
               setRatioElements();
               setMaxHeight('align-h-js');
+              setTimeout(() => {
+                     setMaxHeight('align-h-js');
+              }, 500);
+
 
               function setMapWrapperSize() {
 
