@@ -3795,6 +3795,10 @@
   } */
 }
 
+.l-section-top-single {
+  padding-top: 114px;
+}
+
 .l-single-top {
   padding-top: var(--modular-section-padding);
 }

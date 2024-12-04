@@ -1,19 +1,19 @@
-<?php 
+<?php
 $sc_class = "";
-if($settings["2nd_row"]["column"] === "none" && $settings["remove_padding_bottom"]){
+if ($settings["2nd_row"]["column"] === "none" && $settings["remove_padding_bottom"]) {
     $sc_class = "u-pb-0 ";
 }
-if($settings["2nd_row"]["column"] !== "none" && $settings["first_row"]["left"] !== "map" && $settings["first_row"]["right"] !== "map"){
+/* if($settings["2nd_row"]["column"] !== "none" && $settings["first_row"]["left"] !== "map" && $settings["first_row"]["right"] !== "map"){
     $sc_class = "u-pb-0 ";
-}
+} */
 
 ?>
-<div class="c-section--contact <?= $sc_class; ?> <?= $color_schema; ?> " id="<?php echo esc_attr($id); ?>" >
+<div class="c-section--contact <?= $sc_class; ?> <?= $color_schema; ?> " id="<?php echo esc_attr($id); ?>">
     <div class="container-fluid contact__half">
         <div class="row l-cols">
             <div class="col-12 col-lg-6 col-left <?= $settings["first_row"]["left"] ?>">
 
-                <?php                
+                <?php
                 if ($settings["first_row"]["left"] !== "map") :
                     include("headline.php");
                 endif;
@@ -54,7 +54,7 @@ if($settings["2nd_row"]["column"] !== "none" && $settings["first_row"]["left"] !
 
                 if ($settings["first_row"]["right"] === "details") :
                     include("details.php");
-                ?>                 
+                ?>
 
                 <?php
                 endif;

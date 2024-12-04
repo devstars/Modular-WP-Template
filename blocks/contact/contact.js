@@ -93,11 +93,6 @@
         }
 
     }
-
-    $(document).ready(function () {
-        const bf = new ContactFormRcV3("#contact-form");
-    });
-
     class Map {
         constructor() {
 
@@ -285,6 +280,10 @@
     }
 
     window.map = new Map();
+
+    $(document).ready(function () {
+        const bf = new ContactFormRcV3("#contact-form");
+    });
 
 
 }(jQuery));

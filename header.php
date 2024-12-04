@@ -70,7 +70,7 @@
                 display: none;
             }
 
-            .l-section-top {
+            .l-section-top-single {
                 padding-top: 125px;
             }
 
@@ -86,10 +86,14 @@
     global $post;
     $post_blocks = parse_blocks($post->post_content);
 
-    if (($post_blocks[0]["blockName"] === "acf/text-media" || $post_blocks[0]["blockName"] === "acf/banner-with-form")) {
+    if ($post_blocks[0]["blockName"] === "acf/text-media") {
         /* $nav_class = $post_blocks[0]["attrs"]["data"]["carousel_width"] === "full" ? "section-transparent" : "";
         $nav_class .=  $post_blocks[0]["blockName"] === "acf/banner-with-form" ? "section-transparent" : ""; */
         $wrapper_class = $post_blocks[0]["attrs"]["data"]["carousel_width"] === "half" ? " l-section-top" : "";
+    }
+
+    if ($post_blocks[0]["blockName"] === "acf/contact" || $post_blocks[0]["blockName"] === "acf/text") {
+        $wrapper_class = "l-section-top";
     }
 
     if (is_home()) { // blog page
@@ -97,7 +101,7 @@
     }
 
     if (is_single()) {
-        $wrapper_class = "l-section-top";
+        $wrapper_class = "l-section-top-single";
     }
 
     if (get_page_template_slug()  === "templates/blog.php" || get_page_template_slug()  === "templates/news.php") {
