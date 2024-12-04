@@ -38,10 +38,10 @@
     </script>
 
     <style>
-        :root {
+        /*      :root {
             --modular-menu_top_breakpoint: <?= Configuration::$menu_top_breakpoint; ?>
         }
-
+ */
         @media screen and (min-width: <?= Configuration::$menu_top_breakpoint; ?>) {
 
 
@@ -70,6 +70,10 @@
                 display: none;
             }
 
+            .l-section-top {
+                padding-top: 125px;
+            }
+
         }
     </style>
 
@@ -82,11 +86,17 @@
     global $post;
     $post_blocks = parse_blocks($post->post_content);
 
-    if (($post_blocks[0]["blockName"] === "acf/text-media" || $post_blocks[0]["blockName"] === "acf/banner-with-form") && !is_home()) {
+    if (($post_blocks[0]["blockName"] === "acf/text-media" || $post_blocks[0]["blockName"] === "acf/banner-with-form")) {
         /* $nav_class = $post_blocks[0]["attrs"]["data"]["carousel_width"] === "full" ? "section-transparent" : "";
         $nav_class .=  $post_blocks[0]["blockName"] === "acf/banner-with-form" ? "section-transparent" : ""; */
         $wrapper_class = $post_blocks[0]["attrs"]["data"]["carousel_width"] === "half" ? " l-section-top" : "";
-    } else {
+    }
+
+    if (is_home()) { // blog page
+        $wrapper_class = "l-section-top";
+    }
+
+    if (is_single()) {
         $wrapper_class = "l-section-top";
     }
 

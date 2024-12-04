@@ -16,7 +16,7 @@ if (function_exists('yoast_breadcrumb')) :
 endif;
 ?>
 
-<div class="container-fluid   section-white l-single-top">
+<div class="container-fluid  section-white l-single-top">
     <div class="row">
         <div class="col-12 col-xl-10 mx-auto page-text">
             <h1 class="mb-10 "><?php the_title() ?></h1>
