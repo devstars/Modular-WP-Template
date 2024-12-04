@@ -100,6 +100,10 @@
         $wrapper_class = "l-section-top";
     }
 
+    if (get_page_template_slug()  === "templates/blog.php" || get_page_template_slug()  === "templates/news.php") {
+        $wrapper_class = "l-section-top";
+    }
+
     if (get_field("transparent_header")) {
         $nav_class = "section-transparent";
     }
