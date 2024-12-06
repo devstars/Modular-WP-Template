@@ -52,7 +52,7 @@
                         teamWrapper.find(".m-position-js").text(teamData[index].position);
                         teamWrapper.find(".m-email-js").text(teamData[index].email);
                         teamWrapper.find(".m-phone-js").text(teamData[index].phone);
-                        teamWrapper.find(".m-description-js").text(teamData[index].description);
+                        teamWrapper.find(".m-description-js").html(teamData[index].description);
                         if (teamData[index].linkedin) {
                             teamWrapper.find(".member-linkedin-js").show();
                             teamWrapper.find(".member-linkedin-js").attr("href", teamData[index].linkedin);

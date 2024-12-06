@@ -1,6 +1,23 @@
 <?php get_header(); ?>
 
-<div class="container-fluid  page-text section-white ">
+<?php
+
+$class = '';
+
+$post = get_post();
+$first_block = get_first_block($post);
+$last_block = get_last_block($post);
+
+if (is_pagetext_block($first_block["blockName"])) {
+    $class .= " l-text-page-top";
+}
+
+if (is_pagetext_block($last_block["blockName"])) {
+    $class .= " l-text-page-bottom";
+}
+?>
+
+<div class="container-fluid  page-text section-white <?= $class ?>">
     <div class="row">
         <div class="col-12  mx-auto">
             <?php

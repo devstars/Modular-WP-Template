@@ -17,7 +17,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_64c107eb29582",
@@ -202,7 +203,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_65015e6671d33",
@@ -404,24 +406,6 @@
                 "id": ""
             },
             "default_value": "",
-            "enable_opacity": 0,
-            "return_format": "string"
-        },
-        {
-            "key": "field_66c32806fd0f9",
-            "label": "The colour of the highlighted breadcrumb element",
-            "name": "root_breadcrumb_highlighted",
-            "aria-label": "",
-            "type": "color_picker",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "#ff822e",
             "enable_opacity": 0,
             "return_format": "string"
         },
@@ -637,7 +621,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_64c1027811802",
@@ -990,7 +975,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_64c769b3575a8",
@@ -1059,6 +1045,25 @@
                             "default_value": "#000000",
                             "enable_opacity": 0,
                             "return_format": "string"
+                        },
+                        {
+                            "key": "field_6751a99614b2e",
+                            "label": "The colour of highlighted elements",
+                            "name": "color_of_highlighted",
+                            "aria-label": "",
+                            "type": "color_picker",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "#FFBB00",
+                            "enable_opacity": 0,
+                            "return_format": "string",
+                            "allow_in_bindings": 1
                         }
                     ]
                 },
@@ -1297,6 +1302,24 @@
             ]
         },
         {
+            "key": "field_66c32806fd0f9",
+            "label": "The colour of the highlighted breadcrumb element",
+            "name": "root_breadcrumb_highlighted",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#ff822e",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
             "key": "field_64c10c7625838",
             "label": "Server",
             "name": "",
@@ -1311,7 +1334,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_64bf8a40af1e1",
@@ -1353,7 +1377,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_64dddc67a61a3",
@@ -1563,7 +1588,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_650c3896da965",
@@ -1787,5 +1813,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1732264288
+    "modified": 1733405240
 }

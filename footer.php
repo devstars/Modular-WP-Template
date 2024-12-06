@@ -49,26 +49,47 @@ $color_schema = $data["color_schema"];
 
 $col_fourth = ($f_data["fourth_column"]["content"] || $f_data["fourth_column"]["heading"]) ? true : false;
 $col_class = ($col_fourth) ? "col-lg-3"  : "col-lg-4";
+
+function get_footer_heading($heading)
+{
+    if ($heading):
+?>
+        <h2 class="col__title"><?= $heading ?></h2>
+    <?php
+    else:
+    ?>
+        <div class="col__title u-visible-hidden">&nbsp;</div>
+<?php
+    endif;
+}
+
 ?>
 
 <footer class="c-footer footer-js <?= $color_schema; ?>" id="<?php echo esc_attr($id); ?>">
     <div class="container-fluid">
         <div class="row row__top">
             <div class="col-12 <?= $col_class; ?>">
-                <h2 class="col__title"><?= $f_data["first_column"]["heading"] ?></h2>
-                <p class="wysiwyg">
-                    <?= $f_data["first_column"]["content"] ?>
-                </p>
-            </div>
-            <div class="col-12 <?= $col_class; ?>">
-                <h2 class="col__title"><?= $f_data["second_column"]["heading"] ?></h2>
+                <?php
+                get_footer_heading($f_data["first_column"]["heading"]);
+                ?>
 
-                <p class="wysiwyg">
-                    <?= $f_data["second_column"]["content"] ?>
-                </p>
+                <div class="wysiwyg">
+                    <?= $f_data["first_column"]["content"] ?>
+                </div>
             </div>
             <div class="col-12 <?= $col_class; ?>">
-                <h2 class="col__title"><?= $f_data["third_column"]["heading"] ?></h2>
+                <?php
+                get_footer_heading($f_data["second_column"]["heading"]);
+                ?>
+
+                <div class="wysiwyg">
+                    <?= $f_data["second_column"]["content"] ?>
+                </div>
+            </div>
+            <div class="col-12 <?= $col_class; ?>">
+                <?php
+                get_footer_heading($f_data["third_column"]["heading"]);
+                ?>
 
                 <?php
                 if ($f_data["third_column"]["content"]):
@@ -86,7 +107,10 @@ $col_class = ($col_fourth) ? "col-lg-3"  : "col-lg-4";
             if ($col_fourth):
             ?>
                 <div class="col-12 col-lg-3">
-                    <h2 class="col__title"><?= $f_data["fourth_column"]["heading"] ?></h2>
+
+                    <?php
+                    get_footer_heading($f_data["fourth_column"]["heading"]);
+                    ?>
 
                     <?php
                     if ($f_data["fourth_column"]["content"]):

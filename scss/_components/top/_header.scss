@@ -3,7 +3,8 @@
   flex-direction: column;
   justify-content: center;
 
-  min-height: 114px !important;
+  min-height: 114px;
+
   padding-top: 27px;
   padding-bottom: 27px;
 
@@ -27,6 +28,7 @@
   &.sticky {
     padding-top: 13px;
     padding-bottom: 13px;
+    min-height: initial;
   }
 
   .header__call {

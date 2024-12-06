@@ -15,14 +15,16 @@
     padding-top: 114px;
 }
 
-.l-single-top {
+.l-single-top,
+.l-text-page-top {
     padding-top: var(--modular-section-padding);
     @media screen and (min-width: $lg) {
         padding-top: var(--modular-section-lg-padding);
     }
 }
 
-.l-single-bottom {
+.l-single-bottom,
+.l-text-page-bottom {
     padding-bottom: var(--modular-section-padding);
     @media screen and (min-width: $lg) {
         padding-bottom: var(--modular-section-lg-padding);

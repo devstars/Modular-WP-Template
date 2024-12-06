@@ -152,6 +152,9 @@
     &:hover {
       opacity: 1;
     }
+    &:after {
+      display: none;
+    }
   }
 
   .footer__copyrights {

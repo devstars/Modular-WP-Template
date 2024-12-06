@@ -1,24 +1,22 @@
 <?php get_header(); ?>
 
 <?php
-if (function_exists('yoast_breadcrumb')) :
-?>
-    <div class="breadcrumb-wrapper section-gray ">
-        <div class="c-breadcrumb-yoast ">
-            <div class="container-fluid">
-                <?php
-                yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
-                ?>
-            </div>
-        </div>
-    </div>
-<?php
-endif;
+$post = get_post();
+$first_block = get_first_block($post);
+$last_block = get_last_block($post);
+
+if (is_pagetext_block($first_block["blockName"])) {
+    $class .= " l-text-page-top";
+}
+
+if (is_pagetext_block($last_block["blockName"])) {
+    $class .= " l-text-page-bottom";
+}
 ?>
 
 <div class="single-service">
 
-    <div class="container-fluid   section-white">
+    <div class="container-fluid   section-white <?= $class ?>">
         <div class="row">
             <div class="col-12 col-xl-10 mx-auto page-text">
 
@@ -31,8 +29,6 @@ endif;
                 <?php endwhile; ?>
             </div>
         </div>
-        <div class="l-single-bottom"></div>
-
     </div>
 </div>
 

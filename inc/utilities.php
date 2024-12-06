@@ -156,7 +156,7 @@ function block_start($name, $block, $settings, $color_schema = null)
 
     $text_colour = $settings["text_colour"];
     if (!empty($text_colour)) :
-        $color_schema = "section-custom";
+        $color_schema .= " section-custom";
     ?>
         <style>
             #<?= esc_attr($id); ?> {
@@ -359,4 +359,44 @@ function getSocialIconSvg($platform)
     }
 
     return null;
+}
+
+function sg_first_block_is($block_handle)
+{
+    $post = get_post();
+
+    if (has_blocks($post->post_content)) {
+        $blocks = parse_blocks($post->post_content);
+
+        if ($blocks[0]['blockName'] === $block_handle) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
+function get_first_block($post)
+{
+    if (has_blocks($post->post_content)) {
+        $blocks = parse_blocks($post->post_content);
+
+        return $blocks[0];
+    }
+}
+
+function get_last_block($post)
+{
+    if (has_blocks($post->post_content)) {
+        $blocks = parse_blocks($post->post_content);
+
+        return end($blocks);
+    }
+}
+
+function is_pagetext_block($block_name)
+{
+    $blocks = ["core/heading", "core/paragraph", "core/image", 'core/list', 'core/list-item', 'core/separator', 'core/table', 'core/quote'];
+
+    return in_array($block_name, $blocks);
 }

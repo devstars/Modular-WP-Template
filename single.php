@@ -3,7 +3,7 @@
 <?php
 if (function_exists('yoast_breadcrumb')) :
 ?>
-    <div class="breadcrumb-wrapper section-gray ">
+    <div class="breadcrumb-wrapper section-gray l-section-top-single">
         <div class="c-breadcrumb-yoast ">
             <div class="container-fluid">
                 <?php

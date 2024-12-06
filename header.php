@@ -38,10 +38,10 @@
     </script>
 
     <style>
-        /*      :root {
+        :root {
             --modular-menu_top_breakpoint: <?= Configuration::$menu_top_breakpoint; ?>
         }
- */
+
         @media screen and (min-width: <?= Configuration::$menu_top_breakpoint; ?>) {
 
 
@@ -66,12 +66,17 @@
                 display: none;
             }
 
-            .header__call {
+            .header__call,
+            .vert-line {
                 display: none;
             }
 
             .l-section-top-single {
                 padding-top: 125px;
+            }
+
+            .c-nav-top {
+                min-height: 125px;
             }
 
         }
@@ -86,26 +91,28 @@
     global $post;
     $post_blocks = parse_blocks($post->post_content);
 
-    if ($post_blocks[0]["blockName"] === "acf/text-media") {
-        /* $nav_class = $post_blocks[0]["attrs"]["data"]["carousel_width"] === "full" ? "section-transparent" : "";
-        $nav_class .=  $post_blocks[0]["blockName"] === "acf/banner-with-form" ? "section-transparent" : ""; */
-        $wrapper_class = $post_blocks[0]["attrs"]["data"]["carousel_width"] === "half" ? " l-section-top" : "";
-    }
-
-    if ($post_blocks[0]["blockName"] === "acf/contact" || $post_blocks[0]["blockName"] === "acf/text") {
-        $wrapper_class = "l-section-top";
-    }
-
     if (is_home()) { // blog page
         $wrapper_class = "l-section-top";
     }
 
-    if (is_single()) {
-        $wrapper_class = "l-section-top-single";
+    if (is_single() &&  !is_singular('services') && !is_singular('case-studies')) {
+        //$wrapper_class = "l-section-top-single";
+        //adding in breadcrumbs
     }
 
     if (get_page_template_slug()  === "templates/blog.php" || get_page_template_slug()  === "templates/news.php") {
         $wrapper_class = "l-section-top";
+    }
+
+    if (is_page()) {
+        $wrapper_class = "l-section-top";
+        if ($post_blocks[0]["blockName"] === "acf/text-media" && $post_blocks[0]["attrs"]["data"]["carousel_width"] === "full") {
+            $wrapper_class = "";
+        }
+
+        if ($post_blocks[0]["blockName"] === 'acf/banner-with-form') {
+            $wrapper_class = "";
+        }
     }
 
     if (get_field("transparent_header")) {
@@ -114,9 +121,6 @@
 
     $h_fields = Configuration::$fields["header"];
     $scheme_colors = trim(strtolower($h_fields["color_scheme"]));
-    if (get_field("transparent_header")) {
-        $scheme_colors = "black";
-    }
 
     $components_color = ($scheme_colors === "white") ? "black" : "white";
     $logo_white_url = $h_fields["nav"]["logo"]["white"]["sizes"]["thumbnail"];

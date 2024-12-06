@@ -236,7 +236,7 @@
 
   .team__content {
     @media screen and (min-width: $lg) {
-      height: 556px;
+      min-height: 556px;
     }
   }
 
