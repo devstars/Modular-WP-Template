@@ -3927,6 +3927,10 @@
   }
 }
 
+.l-text-md {
+  max-width: 1088px;
+}
+
 .c-section .section__title, .c-section--author .section__title, .c-section--counters .section__title, .c-section--masonry .section__title, .c-section--gallery .section__title, .c-section--contact .section__title, .c-section--faq .section__title, .c-section--post-feed .section__title, .c-section--testimonials .section__title, .c-section--team .section__title, .c-section--logotypes .section__title, .c-section--usp .section__title {
   position: relative;
   font-family: var(--modular-primary-font);

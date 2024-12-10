@@ -27,7 +27,7 @@ $color_schema = $data["color_schema"];
 <div class="c-section--masonry u-relative  " id="<?php echo esc_attr($id); ?>">
     <div class="container-fluid">
 
-        <div class="<?= $color_schema; ?>">
+        <div class="<?= $color_schema; ?> l-text-md">
             <?php if ($content["heading"]) : ?>
 
                 <h2 class="section__title ">

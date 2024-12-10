@@ -26,22 +26,24 @@ $data = block_start("usp", $block, $settings, "section-white");
 $id = $data["id"];
 $color_schema = $data["color_schema"];
 
-$class = ($block["align"] === "wide") ?  "col-12" : "col-12 col-xl-10 mx-auto";
+//$class = ($block["align"] === "wide") ?  "col-12" : "col-12 col-xl-10 mx-auto";
 ?>
 
 <div id="<?= $id ?>" class="c-section--usp <?= $color_schema; ?> ">
 
     <div class="container-fluid">
         <div class="row">
-            <div class="<?= $class ?>">
+            <div class="col-12">
 
-                <?php if (!empty($content["headline_text"])): ?>
-                    <<?= $data["h_tag"]; ?> class="section__title custom-title-colour"><?= $content["headline_text"]; ?></<?= $data["h_tag"]; ?>>
-                <?php endif; ?>
+                <div class="l-text-md ">
+                    <?php if (!empty($content["headline_text"])): ?>
+                        <<?= $data["h_tag"]; ?> class="section__title custom-title-colour"><?= $content["headline_text"]; ?></<?= $data["h_tag"]; ?>>
+                    <?php endif; ?>
 
-                <?php if (!empty($content["body_text"])): ?>
-                    <p class="section__subtitle"><?= $content["body_text"] ?></p>
-                <?php endif; ?>
+                    <?php if (!empty($content["body_text"])): ?>
+                        <div class="section__subtitle wysiwyg"><?= $content["body_text"] ?></div>
+                    <?php endif; ?>
+                </div>
 
                 <div class="row">
                     <?php

@@ -24,7 +24,7 @@ if ($mode === "single") {
     $banner[] = get_field("slide");
 }
 ?>
-<div class="u-relative u-z-index-20 <?= $color_schema; ?> " id="<?php echo esc_attr($id); ?>" foo>
+<div class="u-relative u-z-index-20 <?= $color_schema; ?> " id="<?php echo esc_attr($id); ?>">
     <div class=" banner-wrapper full">
         <?php
         foreach ($banner as $index => $slide) :
@@ -39,7 +39,6 @@ if ($mode === "single") {
             }
 
             $settings = $slide["settings"];
-
 
             $heading_tag =  ($settings["h1"]) ? "h1" : "h2";
 

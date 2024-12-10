@@ -3095,6 +3095,10 @@ q {
   }
 }
 
+.l-text-md {
+  max-width: 1088px;
+}
+
 .row {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;

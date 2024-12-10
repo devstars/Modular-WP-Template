@@ -82,21 +82,23 @@ switch ($post_type) {
 <div class="c-section--post-feed  <?= $color_schema ?>" id="<?php echo esc_attr($id); ?>">
     <div class="container-fluid u-relative">
 
-        <?php
-        if ($content["headline_text"]) :
-        ?>
-            <<?= $data["h_tag"]; ?> class="section__title custom-title-colour "><?= $content["headline_text"]; ?></<?= $data["h_tag"]; ?>>
-        <?php
-        endif;
-        ?>
+        <div class="l-text-md">
+            <?php
+            if ($content["headline_text"]) :
+            ?>
+                <<?= $data["h_tag"]; ?> class="section__title custom-title-colour "><?= $content["headline_text"]; ?></<?= $data["h_tag"]; ?>>
+            <?php
+            endif;
+            ?>
 
-        <?php
-        if ($content["body_text"]) :
-        ?>
-            <p class="section__subtitle "><?= $content["body_text"] ?></p>
-        <?php
-        endif;
-        ?>
+            <?php
+            if ($content["body_text"]) :
+            ?>
+                <div class="section__subtitle wysiwyg"><?= $content["body_text"] ?></div>
+            <?php
+            endif;
+            ?>
+        </div>
 
         <?php
         $loop = new WP_Query($args);
