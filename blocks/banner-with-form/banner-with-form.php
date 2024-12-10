@@ -13,7 +13,7 @@ $carousel = get_field("slide");
 $carousel["background"] = false;
 
 //$block["id"] =  uniqid();
-$data = block_start("text_media", $block, $carousel["settings"], $color_schema);
+$data = block_start("banner_form", $block, $carousel["settings"], $color_schema);
 $id = $data["id"];
 
 $color_schema = $data["color_schema"];

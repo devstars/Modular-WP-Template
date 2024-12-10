@@ -191,12 +191,22 @@ function block_start($name, $block, $settings, $color_schema = null)
                 --modular-highlighted: <?= $color_highlighted ?>;
             }
         </style>
-    <?php
+        <?php
+        if ($name === "banner_form") :
+            $h_rgb = hexToRgb($color_highlighted);
+        ?>
+            <style>
+                #<?= esc_attr($id) . " "; ?>.form__input {
+                    background-color: rgba(<?= $h_rgb[0] . "," . $h_rgb[1] . "," . $h_rgb[2] ?>, 0.18) !important;
+                }
+            </style>
+        <?php
+        endif;
     endif;
 
     $pt = $settings["padding_top"];
     if ($pt === "no") :
-    ?>
+        ?>
         <style>
             #<?= esc_attr($id); ?> {
                 padding-top: 0 !important;
@@ -399,4 +409,22 @@ function is_pagetext_block($block_name)
     $blocks = ["core/heading", "core/paragraph", "core/image", 'core/list', 'core/list-item', 'core/separator', 'core/table', 'core/quote'];
 
     return in_array($block_name, $blocks);
+}
+
+function hexToRgb($hex)
+{
+    // Remove '#' if it exists
+    $hex = ltrim($hex, '#');
+
+    // Check if the hex is shorthand (e.g., #f00)
+    if (strlen($hex) === 3) {
+        $hex = str_repeat($hex[0], 2) . str_repeat($hex[1], 2) . str_repeat($hex[2], 2);
+    }
+
+    // Convert hex to RGB values
+    $r = hexdec(substr($hex, 0, 2));
+    $g = hexdec(substr($hex, 2, 2));
+    $b = hexdec(substr($hex, 4, 2));
+
+    return [$r, $g, $b];
 }
