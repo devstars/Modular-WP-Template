@@ -607,6 +607,26 @@
             ]
         },
         {
+            "key": "field_67594aeea3217",
+            "label": "Custom HTML (GTM script tag, etc)",
+            "name": "custom_script",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
             "key": "field_64c10848af378",
             "label": "Header",
             "name": "",
@@ -1813,5 +1833,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733405240
+    "modified": 1733905248
 }

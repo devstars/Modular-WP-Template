@@ -78,10 +78,14 @@
             .c-nav-top {
                 min-height: 125px;
             }
-
         }
     </style>
 
+    <script>
+        <?php
+        echo get_fields("option")["custom_script"];
+        ?>
+    </script>
 
 </head>
 

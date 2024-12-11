@@ -123,8 +123,8 @@ class Mail
         }
         $headers .= 'Content-Type: text/html; charset=UTF-8' . "\r\n";
 
-        //$this->success = wp_mail($this->delivery_emails, $this->subject, $body, $headers);
-        $this->success = true;
+        $this->success = wp_mail($this->delivery_emails, $this->subject, $body, $headers);
+        //$this->success = true;
 
         if (!$this->success) {
             $this->error = "There was an error trying to send your message. Please try again later.";
