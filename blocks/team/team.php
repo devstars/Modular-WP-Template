@@ -31,7 +31,7 @@ $color_schema = $data["color_schema"];
                     <p class="member__phone m-phone-js"></p>
                     <p class="member__description m-description-js"></p>
 
-                    <a class="member__social member-linkedin-js" href="">
+                    <a class="member__social member-linkedin-js" href="" target="_blank">
                         <?= file_get_contents(IMAGES . '/icons/linkedin-frame.svg'); ?>
                     </a>
                 </div>
