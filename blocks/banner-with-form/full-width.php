@@ -49,8 +49,8 @@
                     <div class="banner__form u-shadow">
                         <form id="banner-form--desktop-<?= esc_attr($id) ?>" class="c-form pb-0 " action="banner-form" medthod="POST" send="send_ajax" title="Form">
 
-                            <input type="hidden" name="recipient_email" value="<?= $form["recipient_email"]; ?>">
-                            <input type="hidden" name="reply_to_user" value="no">
+                            <input type="hidden" name="recipient_email" value="<?= base64_encode($form["recipient_email"]); ?>">
+                            <input type="hidden" name="reply_to_user" value="yes">
 
                             <div class="row">
                                 <div class="col-12">
@@ -132,8 +132,8 @@
         <div class="banner__form u-shadow">
             <form id="banner-form--mobile-<?= esc_attr($id) ?>" class="c-form pb-0 " action="banner-form" medthod="POST" send="send_ajax" title="Form">
 
-                <input type="hidden" name="recipient_email" value="<?= $form["recipient_email"]; ?>">
-                <input type="hidden" name="reply_to_user" value="no">
+                <input type="hidden" name="recipient_email" value="<?= base64_encode($form["recipient_email"]); ?>">
+                <input type="hidden" name="reply_to_user" value="yes">
 
                 <div class="row">
                     <div class="col-12">
@@ -251,7 +251,6 @@
                     e.preventDefault();
 
                     const form = $(this.form);
-                    console.log(this.form);
 
                     grecaptcha.ready(() => {
                         if (this.form.checkValidity()) {

@@ -35,7 +35,7 @@ class Mail
 
             if ($key === "recipient_email") {
                 if ($value) {
-                    $this->delivery_emails = $value;
+                    $this->delivery_emails = base64_decode($value);
                 }
             }
 

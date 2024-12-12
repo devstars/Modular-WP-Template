@@ -3,8 +3,8 @@ $fields = get_field("additional_fields");
 ?>
 <form class="c-form form-rc-js " id="contact-form" medthod="POST" action="contact-form" send="send_ajax" title="Contact Form">
 
-    <input type="hidden" name="reply_to_user" value="no">
-    <input type="hidden" name="recipient_email" value="<?= Configuration::$contact["delivery_emails"];  ?>">
+    <input type="hidden" name="reply_to_user" value="yes">
+    <input type="hidden" name="recipient_email" value="<?= base64_encode(Configuration::$contact["delivery_emails"]);  ?>">
 
     <div class="row">
         <div class="col-12">

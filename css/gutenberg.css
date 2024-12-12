@@ -3803,12 +3803,19 @@
   padding-top: 114px;
 }
 
-.l-single-top,
+.l-single-top {
+  padding-top: calc(var(--modular-section-padding) / 2);
+}
+@media screen and (min-width: 992px) {
+  .l-single-top {
+    padding-top: calc(var(--modular-section-lg-padding) / 2);
+  }
+}
+
 .l-text-page-top {
   padding-top: var(--modular-section-padding);
 }
 @media screen and (min-width: 992px) {
-  .l-single-top,
   .l-text-page-top {
     padding-top: var(--modular-section-lg-padding);
   }
