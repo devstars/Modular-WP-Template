@@ -56,10 +56,6 @@
                                 success: function (resp) {
 
                                     if (resp === 'ok') {
-                                        form.find(".form__thanks").addClass("active");
-                                        setTimeout(() => {
-                                            form.find(".form__thanks").removeClass("active");
-                                        }, 5000);
 
                                         form.parent().find('.form__error').removeClass("active");
 
@@ -71,6 +67,15 @@
 
                                         form.find(".service-check-js").prop("checked", false);
                                         form.find(".privacy-policy-js").prop("checked", false);
+
+                                        if (contact.redirect_on_submit) {
+                                            window.location.href = contact.redirect_on_submit;
+                                        } else {
+                                            form.find(".form__thanks").addClass("active");
+                                            setTimeout(() => {
+                                                form.find(".form__thanks").removeClass("active");
+                                            }, 5000);
+                                        }
 
                                     } else {
                                         form.parent().find('.form__error').html(resp).addClass("active");

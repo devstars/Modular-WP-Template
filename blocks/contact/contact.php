@@ -40,7 +40,8 @@ wp_enqueue_script('contact-js', BLOCKS_URI . "/" . $block_name . "/" . "contact.
 wp_localize_script('contact-js', 'contact', array(
     'lat' => $lat,
     'lng' => $lng,
-    'rcSiteKey' => Configuration::$rc_site_key
+    'rcSiteKey' => Configuration::$rc_site_key,
+    'redirect_on_submit' => $settings["redirect_on_submit"]
 ));
 
 if ($settings["first_row"]["left"] === "map" || $settings["first_row"]["right"] === "map" || $settings["2nd_row"]["column"] === "map") :

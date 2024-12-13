@@ -210,6 +210,7 @@
 </div>
 
 <script>
+    const redirectOnSubmit = <?= json_encode($form["redirect_on_submit"]) ?>;
     (function($) {
 
         class ContactFormRcV3 {
@@ -249,6 +250,7 @@
                 this.form.addEventListener("submit", (e) => {
                     /* this.submit.addEventListener("click", (e) => { */
                     e.preventDefault();
+                    e.stopPropagation();
 
                     const form = $(this.form);
 
@@ -270,10 +272,6 @@
                                     success: function(resp) {
 
                                         if (resp === 'ok') {
-                                            form.find(".form__thanks").addClass("active");
-                                            setTimeout(() => {
-                                                form.find(".form__thanks").removeClass("active");
-                                            }, 5000);
 
                                             form.parent().find('.form__error').removeClass("active");
 
@@ -282,6 +280,15 @@
                                                     $(this).val("");
                                                 }
                                             );
+
+                                            if (redirectOnSubmit) {
+                                                window.location.href = redirectOnSubmit;
+                                            } else {
+                                                form.find(".form__thanks").addClass("active");
+                                                setTimeout(() => {
+                                                    form.find(".form__thanks").removeClass("active");
+                                                }, 5000);
+                                            }
 
                                         } else {
                                             form.parent().find('.form__error').html(resp).addClass("active");

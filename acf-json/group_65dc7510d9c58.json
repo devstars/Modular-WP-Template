@@ -474,6 +474,23 @@
                     "new_lines": "br"
                 },
                 {
+                    "key": "field_675bfac0ebc40",
+                    "label": "Redirect on submit",
+                    "name": "redirect_on_submit",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
+                },
+                {
                     "key": "field_65ddb71606f23",
                     "label": "Fields",
                     "name": "fields",
@@ -588,5 +605,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1718693746
+    "modified": 1734081333
 }

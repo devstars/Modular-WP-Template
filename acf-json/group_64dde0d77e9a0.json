@@ -234,6 +234,23 @@
                     ]
                 },
                 {
+                    "key": "field_675bf19d84932",
+                    "label": "Redirect on submit",
+                    "name": "redirect_on_submit",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
+                },
+                {
                     "key": "field_6603f9f92b788",
                     "label": "Remove padding at the bottom on this block",
                     "name": "remove_padding_bottom",
@@ -451,5 +468,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1729518115
+    "modified": 1734081257
 }
