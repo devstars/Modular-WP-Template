@@ -8,7 +8,7 @@ wp_enqueue_style('baguetteBox-css', get_stylesheet_directory_uri() . '/js/baguet
 
         $(document).ready(
             function() {
-                //  setTimeout(bb, 1000);
+                setTimeout(bb, 1000);
             }
         );
 

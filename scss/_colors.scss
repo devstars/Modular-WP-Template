@@ -81,11 +81,11 @@
     h6,
     p,
     li {
-        color: var(--modular-section-custom-colour);
+        color: var(--modular-section-custom-colour) !important;
     }
 
     a {
-        color: var(--modular-section-custom-colour);
+        color: var(--modular-section-custom-colour) !important;
     }
 
     .o-link {

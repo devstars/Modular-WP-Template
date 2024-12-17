@@ -139,9 +139,6 @@ add_action('wp_ajax_nopriv_send_ajax', 'send_ajax');
 
 function send_ajax()
 {
-    /* echo "ok";
-    exit;  */
-
     $mail = new Mail();
     $mail->get_data();
 

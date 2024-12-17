@@ -4159,10 +4159,10 @@ q {
 .section-custom h6,
 .section-custom p,
 .section-custom li {
-  color: var(--modular-section-custom-colour);
+  color: var(--modular-section-custom-colour) !important;
 }
 .section-custom a {
-  color: var(--modular-section-custom-colour);
+  color: var(--modular-section-custom-colour) !important;
 }
 .section-custom .o-link, .section-custom .c-section--usp .usp__tile .custom-link, .c-section--usp .usp__tile .section-custom .custom-link, .section-custom .o-link--highlighted {
   color: var(--modular-highlighted);

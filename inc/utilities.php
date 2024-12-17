@@ -160,7 +160,7 @@ function block_start($name, $block, $settings, $color_schema = null)
     ?>
         <style>
             #<?= esc_attr($id); ?> {
-                --modular-section-custom-colour: <?= $text_colour ?>;
+                --modular-section-custom-colour: <?= $text_colour ?> !important;
             }
         </style>
     <?php
