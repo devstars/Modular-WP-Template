@@ -200,8 +200,6 @@
                                           item.addEventListener("click", (e) => {
                                                  let anchor = item.getAttribute("href");
 
-                                                 console.log("click");
-
                                                  const currentPageUrl = window.location.href.split("#")[0];
 
                                                  const hash = anchor.indexOf("#");

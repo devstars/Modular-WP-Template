@@ -108,7 +108,7 @@
         $wrapper_class = "l-section-top";
     }
 
-    if (is_page()) {
+    if (is_page() || is_404()) {
         $wrapper_class = "l-section-top";
         if ($post_blocks[0]["blockName"] === "acf/text-media" && $post_blocks[0]["attrs"]["data"]["carousel_width"] === "full") {
             $wrapper_class = "";
