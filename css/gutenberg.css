@@ -4756,6 +4756,7 @@
   -o-object-fit: contain;
      object-fit: contain;
   margin-bottom: 2rem;
+  display: block;
 }
 .c-section--counters .counter-tile .c__nubmer {
   font-size: 3.75rem;

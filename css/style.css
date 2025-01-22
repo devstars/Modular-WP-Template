@@ -5744,6 +5744,7 @@ q {
   -o-object-fit: contain;
      object-fit: contain;
   margin-bottom: 2rem;
+  display: block;
 }
 .c-section--counters .counter-tile .c__nubmer {
   font-size: 3.75rem;
@@ -5834,10 +5835,6 @@ q {
           align-items: center;
   cursor: pointer;
   padding: 10px 10px 10px 10px;
-  /*     span, a{
-    display: flex;align-items: center;
-    position:relative;z-index:10;
-  } */
 }
 @media screen and (min-width: 576px) {
   .c-pagination-numb .pn {
@@ -5864,9 +5861,6 @@ q {
   width: 100%;
   border-bottom: 1px solid transparent;
 }
-.c-pagination-numb .pn.next span {
-  /* display: none; */
-}
 .c-pagination-numb .pn.next svg {
   margin-left: 0px;
 }
@@ -5877,9 +5871,6 @@ q {
   .c-pagination-numb .pn.next svg {
     margin-left: 10px;
   }
-}
-.c-pagination-numb .pn.prev span {
-  /* display: none; */
 }
 .c-pagination-numb .pn.prev svg {
   margin-right: 0px;

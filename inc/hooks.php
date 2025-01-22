@@ -1,4 +1,19 @@
 <?php
+function remove_posts_menu_item()
+{
+  if (!get_fields("option")["panel"]["posts"]) remove_menu_page('edit.php'); // 'edit.php' corresponds to the Posts menu
+}
+add_action('admin_menu', 'remove_posts_menu_item');
+
+function remove_custom_post_menu()
+{
+
+  if (!get_fields("option")["panel"]["news"]) remove_menu_page('edit.php?post_type=news');
+  if (!get_fields("option")["panel"]["services"]) remove_menu_page('edit.php?post_type=services');
+  if (!get_fields("option")["panel"]["case_studies"]) remove_menu_page('edit.php?post_type=case-studies');
+}
+add_action('admin_menu', 'remove_custom_post_menu');
+
 function clean_str($str)
 {
   return trim(nl2br($str));
