@@ -314,7 +314,7 @@ function footer_socials_shortcode($atts = [])
 
     foreach ($socials as $index => $social) :
     ?>
-        <a href="<?= $social["url"] ?>" class="c-media icon-link">
+        <a href="<?= $social["url"] ?>" target="_blank" class="c-media icon-link">
 
             <?= file_get_contents(IMAGES . '/icons/' . strtolower($social["name"]) . '.svg'); ?>
 

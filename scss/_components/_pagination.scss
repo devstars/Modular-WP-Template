@@ -20,10 +20,7 @@
       padding: 10px 15px 10px 15px;
     }
 
-    /*     span, a{
-      display: flex;align-items: center;
-      position:relative;z-index:10;
-    } */
+
 
     a {
       font-size: 18px;
@@ -52,9 +49,7 @@
     }
 
     &.next {
-      span {
-        /* display: none; */
-      }
+  
       svg {
         margin-left: 0px;
       }
@@ -68,9 +63,7 @@
       }
     }
     &.prev {
-      span {
-        /* display: none; */
-      }
+      
       svg {
         margin-right: 0px;
       }

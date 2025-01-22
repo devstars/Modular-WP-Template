@@ -155,7 +155,8 @@
                                 "Facebook": "Facebook",
                                 "LinkedIn": "LinkedIn",
                                 "Instagram": "Instagram",
-                                "Twitter": "Twitter"
+                                "Twitter": "Twitter",
+                                "Location": "Location"
                             },
                             "default_value": false,
                             "return_format": "value",
@@ -1209,7 +1210,7 @@
                     "name": "third_column",
                     "aria-label": "",
                     "type": "group",
-                    "instructions": "",
+                    "instructions": "[footer_socials] - adds social media icons.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1267,7 +1268,7 @@
                     "name": "fourth_column",
                     "aria-label": "",
                     "type": "group",
-                    "instructions": "",
+                    "instructions": "[footer_socials] - adds social media icons.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1833,5 +1834,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733905248
+    "modified": 1737544190
 }

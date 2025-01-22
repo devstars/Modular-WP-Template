@@ -54,6 +54,8 @@ function theme_min_scripts()
     //wp_enqueue_script('lazy-images-bg-js', get_template_directory_uri() . '/js/jquery.lazyloadxt.bg.min.js', array('jquery'),false,true);    
 
     wp_enqueue_style('css', get_template_directory_uri() . '/css/' . CSS_NAME, array(), CSS_VER);
+
+    
 }
 
 add_action('wp_enqueue_scripts', 'theme_min_scripts');
