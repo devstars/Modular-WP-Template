@@ -726,6 +726,26 @@
             ]
         },
         {
+            "key": "field_67b5f020b6acf",
+            "label": "Disable default cookie banner",
+            "name": "disable_default_cookie_banner",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
             "key": "field_64c10848af378",
             "label": "Header",
             "name": "",
@@ -1932,5 +1952,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1737549106
+    "modified": 1739976775
 }

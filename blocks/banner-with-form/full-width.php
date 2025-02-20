@@ -47,7 +47,7 @@
                 </div>
                 <div class="col-12 col-right bf-desktop">
                     <div class="banner__form u-shadow">
-                        <form id="banner-form--desktop-<?= esc_attr($id) ?>" class="c-form pb-0 " action="banner-form" medthod="POST" send="send_ajax" title="Form">
+                        <form id="banner-form--desktop-<?= esc_attr($id) ?>" class="c-form pb-0 " action="banner-form" medthod="POST" send="send_ajax" title="Form" data-redirect="<?= $form["redirect_on_submit"] ?>">
 
                             <input type="hidden" name="recipient_email" value="<?= base64_encode($form["recipient_email"]); ?>">
                             <input type="hidden" name="reply_to_user" value="yes">
@@ -130,7 +130,7 @@
 
     <div class="container-fluid bf-mobile u-relative">
         <div class="banner__form u-shadow">
-            <form id="banner-form--mobile-<?= esc_attr($id) ?>" class="c-form pb-0 " action="banner-form" medthod="POST" send="send_ajax" title="Form">
+            <form id="banner-form--mobile-<?= esc_attr($id) ?>" class="c-form pb-0 " action="banner-form" medthod="POST" send="send_ajax" title="Form" data-redirect="<?= $form["redirect_on_submit"] ?>">
 
                 <input type="hidden" name="recipient_email" value="<?= base64_encode($form["recipient_email"]); ?>">
                 <input type="hidden" name="reply_to_user" value="yes">
@@ -210,7 +210,6 @@
 </div>
 
 <script>
-    const redirectOnSubmit = <?= json_encode($form["redirect_on_submit"]) ?>;
     (function($) {
 
         class ContactFormRcV3 {
@@ -263,6 +262,7 @@
 
                                 const action = form.attr("send");
                                 const title = form.attr("title");
+                                const redirectOnSubmit = form.attr("data-redirect");
 
                                 $.ajax({
                                     type: 'POST',

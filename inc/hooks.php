@@ -181,4 +181,60 @@ function custom_pagination_rewrite()
   );
 }
 add_action('init', 'custom_pagination_rewrite');
-?>
+
+
+function remove_picture_tags_from_output($buffer)
+{
+  return preg_replace_callback(
+    '/<picture([^>]*)>\s*(<source[^>]*srcset=["\']([^"\']+)["\'][^>]*>)?\s*(<img[^>]*>)\s*<\/picture>/is',
+    function ($matches) {
+      $pictureAttributes = $matches[1]; // Attributes of <picture> (e.g., classes)
+      $sourceTag = $matches[2] ?? '';  // Full <source> tag (if exists)
+      $sourceSrcset = $matches[3] ?? ''; // srcset value from <source>
+      $imgTag = $matches[4]; // Found <img>
+
+      // If <source> exists and has a WebP srcset, replace <img> src with it
+      if (!empty($sourceSrcset)) {
+        $imgTag = preg_replace('/src=["\'][^"\']+["\']/', 'src="' . $sourceSrcset . '"', $imgTag);
+      }
+
+      // If <picture> has a class, add it to <img>
+      if (preg_match('/class=["\']([^"\']+)["\']/', $pictureAttributes, $classMatch)) {
+        $classAttr = $classMatch[1];
+        if (preg_match('/class=["\']([^"\']*)["\']/', $imgTag, $imgClassMatch)) {
+          // If <img> already has a class, append the new classes
+          $newImgTag = preg_replace(
+            '/class=["\']([^"\']*)["\']/',
+            'class="' . $imgClassMatch[1] . ' ' . $classAttr . '"',
+            $imgTag
+          );
+        } else {
+          // If <img> does not have a class, add it
+          $newImgTag = str_replace('<img', '<img class="' . $classAttr . '"', $imgTag);
+        }
+      } else {
+        $newImgTag = $imgTag; // If <picture> has no class, leave <img> unchanged
+      }
+
+      return $newImgTag;
+    },
+    $buffer
+  );
+}
+
+function start_buffering()
+{
+  ob_start('remove_picture_tags_from_output');
+}
+
+function end_buffering()
+{
+  ob_end_flush();
+}
+
+
+require_once ABSPATH . 'wp-admin/includes/plugin.php';
+if (is_plugin_active('imagify/imagify.php')) {
+  add_action('wp_loaded', 'start_buffering');
+  add_action('shutdown', 'end_buffering');
+}
