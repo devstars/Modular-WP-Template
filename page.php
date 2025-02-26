@@ -20,7 +20,7 @@ if (is_pagetext_block($last_block["blockName"])) {
 
     <div class="container-fluid  page-text section-white ">
         <div class="row">
-            <div class="col-12  mx-auto">
+            <div class="col-12 col-xl-10 mx-auto">
                 <?php
                 global $wp_query;
                 while (have_posts()) : the_post();

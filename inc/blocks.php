@@ -460,7 +460,7 @@ function add_container_to_block($block_content, $block)
 
                 if (is_page()) {
                     $block_content = '</div></div></div>' . $block_content .
-                        '<div class="container-fluid page-text section-white"><div class="row"><div class="col-12  ' . $content_class . '">';
+                        '<div class="container-fluid page-text section-white"><div class="row"><div class="col-12 col-xl-10  ' . $content_class . '">';
                 }
             }
 
