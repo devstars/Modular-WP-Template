@@ -15,6 +15,7 @@ DEFINE("CSS_VER", filemtime(get_template_directory() . "/css/" . CSS_NAME));
 DEFINE("JS_VER", filemtime(get_template_directory() . '/js/' . JS_NAME));
 
 
+
 function init_autoload()
 {
     require get_template_directory() . '/vendor/autoload.php';
@@ -22,7 +23,17 @@ function init_autoload()
     add_theme_support('responsive-embeds');
 
     Configuration::init();
-    
+
+    if (function_exists('acf_add_options_page')) {
+        acf_add_options_page(array(
+            'page_title'    => 'PHP Mailer',
+            'menu_title'    => 'PHP Mailer',
+            'menu_slug'     => 'php-mailer',
+            'capability'    => 'manage_options',
+            'parent_slug'   => 'options-general.php', // Adds a subpage in "Settings"
+            'redirect'      => false
+        ));
+    }
 }
 add_action('init', 'init_autoload');
 
@@ -54,8 +65,6 @@ function theme_min_scripts()
     //wp_enqueue_script('lazy-images-bg-js', get_template_directory_uri() . '/js/jquery.lazyloadxt.bg.min.js', array('jquery'),false,true);    
 
     wp_enqueue_style('css', get_template_directory_uri() . '/css/' . CSS_NAME, array(), CSS_VER);
-
-    
 }
 
 add_action('wp_enqueue_scripts', 'theme_min_scripts');
