@@ -8,3 +8,4 @@ include 'inc/blocks.php';
 include 'inc/mail.php';
 include 'inc/prevent-uploading-very-large-images.php';
 include 'inc/custom-posts.php';
+include 'inc/schema.php';
